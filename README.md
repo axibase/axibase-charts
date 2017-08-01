@@ -4,6 +4,12 @@
 
 Axibase Charts provides 15 widgets and an easy-to-use declarative syntax to create time-series visualizations without writing any code.
 
+## Status
+
+This repository is the new home of Chart documentation. 
+
+Existing docs and examples are currently hosted on https://axibase.com/products/axibase-time-series-database/visualization/.
+
 ## Contents
 
 * [Layout](layout)
