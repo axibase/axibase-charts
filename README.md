@@ -13,8 +13,23 @@ Existing docs and examples are currently hosted on https://axibase.com/products/
 ## Contents
 
 * [Layout](layout)
-* [Styles](styles)
 * [Data Loading](integration)
+* [Syntax](syntax)
+  - Inheritance
+  - Computed Metrics
+  - Control Structures
+  - Summary Portals
+  - Label Formatting
+  - Meta Data
+  - Alert Expressions
+  - Linking
+  - Display Filters
+  - Configuration
+  - Baselines
+  - Thresholds and SLA
+  - Extended Aggregators
+  - Wildcards
+  - Dropdowns
 * [Widgets](widgets)
   - [Time Chart](widgets/chart)
   - [Gauge](widgets/gauge)
