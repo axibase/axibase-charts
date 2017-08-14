@@ -15,6 +15,7 @@ Existing docs and examples are currently hosted on https://axibase.com/products/
 * [Layout](layout)
 * [Data Loading](integration)
 * [Syntax](syntax)
+  - [Functions](syntax/functions.md)
   - Inheritance
   - Computed Metrics
   - Control Structures
