@@ -1,4 +1,4 @@
-# Functions
+# <a name=header></a> Functions
 This page contains descriptions of recently implemented functions.
 
 ## Overview
@@ -8,8 +8,8 @@ This page contains descriptions of recently implemented functions.
 |------|-----------|-------|-------------|-------------|
 | [getTags()](#getTags) | metric <br> tagName <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | preprocessor | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series of `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and return sorted array of unique values of tag with name `tagName` |
 | [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  | return series of metric filtered by `entity`, `minInsertDate` and `maxInsertDate` |
-| getMetrics() | entity <br> expression <br> tags <br> url <br> queryParams | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | return names of metrics collected for `entity` filtered by `expression` and `tags` |
-| getEntities() | group <br> expression <br> tags <br> url <br> queryParams | preprocessor |  |
+| [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | return names of metrics collected for `entity` filtered by `expression` |
+| [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) | return names of entities contained in entity-group filtered by `expression` |
 | range() | start <br> end <br> step <br> format | preprocessor |  |
 | csv name = ... |  | preprocessor |  |
 | csv name from ...| url | preprocessor |  |
@@ -29,7 +29,7 @@ This page contains descriptions of recently implemented functions.
 | metricTag() | alias <br> tagName | value-expression |  |
 
 <!-- ************************************ getTags() ************************************ -->
-## <a name="getTags"></a> getTags()
+## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
 Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and retrieve unique values of `tagName` tag from each series descriptor. Retrived values are then sorted. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element and stringifies array.
@@ -57,19 +57,19 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa)
 
-###### Usage
+##### Usage
 
 ``` json
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_day")
 ```
 
-###### Sent request
+##### Sent request
 
 ```
 /api/v1/metrics/disk_used/series?tag=mount_point&entity=nurswgvml006&minInsertDate=current_day
 ```
 
-###### Result
+##### Result
 
  ``` json
  ["/", "/media/datadrive", "/mnt/u113452"]
@@ -79,19 +79,19 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/2)
 
-###### Usage
+##### Usage
 
 ``` json
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, null, null, {cache: true})
 ```
 
-###### Sent Request
+##### Sent Request
 
 ```
 /api/v1/metrics/disk_used/series?cache=true&tag=mount_point&entity=nurswgvml007
 ```
 
-###### Result
+##### Result
 
 ``` json
 ["/", "/media/datadrive", "/mnt/u113452"]
@@ -99,7 +99,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 
 <!-- ************************************ getSeries() ************************************ -->
 
-## <a name="getSeries"></a> getSeries()
+## [⇧](#header) <a name="getSeries"></a> getSeries()
 
 ### Description
 Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and return it. This function can be used at the stage of preprocessing in the `var` expression.
@@ -128,19 +128,19 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/3)
 
-###### Usage
+##### Usage
 
 ``` json
 var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ```
 
-###### Sent request
+##### Sent request
 
 ```
 /api/v1/metrics/disk_used/series?entity=nurswgvml007
 ```
 
-###### Result
+##### Result
 
  ``` json
 [
@@ -177,15 +177,15 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 <!-- ************************************ getMetrics() ************************************ -->
 
-## <a name="getMetrics"></a> getMetrics()
+## [⇧](#header) <a name="getMetrics"></a> getMetrics()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receive series descriptor objects and return it. This function can be used at the stage of preprocessing in the `var` expression.
+Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receive metric descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
+[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
-`Array<string>` - received series descriptors.
+`Array<string>` - retrieved metrics names.
 
 ### Arguments
 
@@ -201,24 +201,73 @@ Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expres
 
 [Look at the example for `queryParams` argument in the `getTags()` section.](#requestParametersArg)
 
-#### Get series for metric `disk_used` and entity `nurswgvml007`.
+#### Get metrics for entity `nurswgvml007` which contain "cpu" and "user" substrings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/4)
 
-###### Usage
+##### Usage
 
 ``` json
-
+var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ```
 
-###### Sent request
+##### Sent request
 
 ```
-
+/api/v1/entities/nurswgvml007/metrics?expression=name%20LIKE%20%27*cpu*user*%27
 ```
 
-###### Result
+##### Result
 
  ``` json
+["cpu_user","nmon.cpu.user%","nmon.cpu_total.user%"]
+ ```
 
+
+<!-- ************************************ getEntities() ************************************ -->
+
+## [⇧](#header) <a name="getEntities"></a> getEntities()
+
+### Description
+Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receive entity descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression.
+
+[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md)
+
+### Return value
+`Array<string>` - retrieved entities names.
+
+### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| group | required | string | `group` path parameter |
+| expression | optional | string | `expression` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/api/meta/expression.md)) |
+| tags | optional | string | `tags` request parameter |
+| url | optional | string | protocol, host and path to which `/api/v1` path will be added |
+| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+
+### Examples
+
+[Look at the example for `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+
+#### Get entities contained in entity-group `docker-hosts` which names are started with `nur` substring.
+
+[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/5/)
+
+##### Usage
+
+``` json
+var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
+```
+
+##### Sent request
+
+```
+/api/v1/entity-groups/docker-hosts/entities?expression=name%20LIKE%20%27nur*%27
+```
+
+##### Result
+
+ ``` json
+["nurswghbs001"]
  ```
