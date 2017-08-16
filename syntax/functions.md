@@ -14,25 +14,25 @@ This page contains descriptions of recently implemented functions.
 | [csv name = ...](#csv_inline) |  | preprocessor | does not use network | parse CSV-like text into array of objects |
 | [csv name from ...](#csv_from)| url | preprocessor |  `url`  | load CSV file located at the `url` and parse it into array of objects |
 | [csv.values()](#csv_values) | column_name | preprocessor | does not use network | get sorted unique values of the `column_name` column |
-| [list.escape()](#list_escape) |  | preprocessor | does not use network | join array by comma, escaping commas in every lement |
-| global.escape() | string | global | does not use network | escape special characters in `string` with `\\` |
-| requestMetricsSeriesValues() | fieldPath <br> callback <br> metric <br> unique <br>  params | dropdown options |  |
-| requestEntitiesMetricsValues() | fieldPath <br> callback <br> entity <br> unique <br> params | dropdown |  |
-| requestPropertiesValues() | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown |  |
-| requestMetricsSeriesOptions() | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | dropdown |  |
-| requestEntitiesMetricsOptions | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | dropdown |  |
-| requestPropertiesOptions | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody |  |
-| previous() | alias <br> offset | value-expression | does not use network |  |
-| movavg() | alias <br> offset | value-expression | does not use network |  |
-| meta() | alias | value-expression | does not use network |  |
-| entityTag() | alias <br> tagName | value-expression | does not use network |  |
-| metricTag() | alias <br> tagName | value-expression | does not use network |  |
+| [list.escape()](#list_escape) |  | preprocessor | does not use network | escape commas in every element of array |
+| [global.escape()](#global_escape) | string | global | does not use network | escape special characters in `string` with `\\` |
+| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | dropdown options | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
+| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | get metrics descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
+| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [previous()](#previous) | alias <br> offset | value-expression | does not use network |  |
+| [movavg()](#movavg) | alias <br> offset | value-expression | does not use network |  |
+| [meta()](#meta) | alias | value-expression | does not use network |  |
+| [entityTag()](#entityTag) | alias <br> tagName | value-expression | does not use network |  |
+| [metricTag()](#metricTag) | alias <br> tagName | value-expression | does not use network |  |
 
 <!-- ************************************ getTags() ************************************ -->
 ## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and retrieve unique values of `tagName` tag from each series descriptor. Retrived values are then sorted. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element and stringifies array.
+Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and retrieve unique values of `tagName` tag from each series descriptor. Retrived values are then sorted. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
@@ -180,7 +180,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ## [⇧](#header) <a name="getMetrics"></a> getMetrics()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receive metric descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element and stringifies array.
+Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receive metric descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
@@ -229,7 +229,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ## [⇧](#header) <a name="getEntities"></a> getEntities()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receive entity descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element and stringifies array.
+Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receive entity descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md)
 
@@ -619,7 +619,7 @@ endfor
 ### Description
 Arrays generated from `csv` have `.values()` method. This function returns sorted array of unique values in the column `column_name`.
 
-Generated array has `.escape()` method which escapes commas in each element and joins them by comma.
+Generated array has `.escape()` method which escapes commas in each element.
 
 ### Syntax
 
@@ -724,8 +724,6 @@ Then we iterate over values and set the country tag.
 ### Description
 Escapes commas in each value in the array of strings. `.escape()` method is available in arrays generated from `list` keyword, `var` expression, and `csv.values()` method.
 
-Generated array has `.escape()` method which escapes commas in each element and joins them by comma.
-
 ### Syntax
 
 ```
@@ -733,7 +731,7 @@ list_name.escape()
 ```
 
 ### Return value
-`string` - joint by comma elements of array with escaped commas.
+`Array<string>` - joint by comma elements of array with escaped commas. (If type of argument is not string it returned as is)
 
 ### Examples
 
@@ -814,3 +812,109 @@ country = @{countries.values('name').escape()}
 ```
 
 
+
+<!-- ************************************ global.escape() ************************************ -->
+
+## [⇧](#header) <a name="global_escape"></a> global.escape()
+
+### Description
+
+Escape special characters in the string. Special characters are `-`, `/`, `\`, `^`, `$`, `*`, `+`, `?`, `.`, `(`, `)`, `|`,  `[`, `]`, `{`, `}`. Usually it is used to escape symbols in regular expression.
+This function is stored in `window` object as other [string utils](https://axibase.com/products/axibase-time-series-database/visualization/widgets/label-formatting/), while `list.escape()` belongs to it's array.
+
+### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| string | required | string | string in which symbols should be escaped |
+
+### Syntax
+
+```
+escape()
+```
+
+### Return value
+
+`string` - string with escaped special characters.
+
+### Examples
+
+#### Create regular expression using escape() to filter metric names
+
+[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/13/)
+
+##### Usage
+Assume we someway get part of metric name `immigrant-visa`. To escape special symbols use
+
+```
+var metricNamePart = 'immigrant-visa'
+var escapedPart = escape(metricNamePart)
+```
+
+Then create regular expression to filter metric names:
+
+```
+m.match('state\..*' + escapedPart)
+```
+
+##### Result
+
+```
+"immigrant\-visa"
+```
+
+
+
+<!-- ************************************ requestMetricsSeriesValues() ************************************ -->
+
+## [⇧](#header) <a name="requestMetricsSeriesValues"></a> requestMetricsSeriesValues()
+
+### Description
+Makes an asynchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and retrieve unique values of `tagName` tag from each series descriptor. Retrived values are then sorted. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
+
+[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
+
+### Return value
+`Array<string>` - unique sorted values of the specified `tagName` series tag.
+
+### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| fieldPath
+| callback
+| metric
+| unique
+| params
+| metric | required | string | `metric` path parameter |
+| tagName | required | string | tag which values will be retrieved from series descriptors |
+| entity | optional | string | `entity` query parameter |
+| minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
+| maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
+| url | optional | string | protocol, host and path to which `/api/v1` path will be added |
+| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+
+### Examples
+
+#### Get values of `mount_point` tag in series for metric `disk_used` and entity `nurswgvml007` received today.
+
+[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa)
+
+##### Usage
+
+``` json
+var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_day")
+```
+
+##### Sent request
+
+```
+/api/v1/metrics/disk_used/series?tag=mount_point&entity=nurswgvml006&minInsertDate=current_day
+```
+
+##### Result
+
+ ``` json
+ ["/", "/media/datadrive", "/mnt/u113452"]
+ ```
