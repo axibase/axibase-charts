@@ -4,29 +4,29 @@ This page contains descriptions of recently implemented functions.
 ## Overview
 
 
-| Name | Arguments | Scope | API Request | Description |
-|------|-----------|-------|-------------|-------------|
-| [getTags()](#getTags) | metric <br> tagName <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | preprocessor | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series of `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and return sorted array of unique values of tag with name `tagName` |
-| [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  | return series of metric filtered by `entity`, `minInsertDate` and `maxInsertDate` |
-| [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | return names of metrics collected for `entity` filtered by `expression` |
-| [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) | return names of entities contained in entity-group filtered by `expression` |
-| [range()](#range) | start <br> end <br> step <br> format | preprocessor | does not use network | generate array of numbers from `start` to `end` with `step` formatted with [format](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) |
-| [csv name = ...](#csv_inline) |  | preprocessor | does not use network | parse CSV-like text into array of objects |
-| [csv name from ...](#csv_from)| url | preprocessor |  `url`  | load CSV file located at the `url` and parse it into array of objects |
-| [csv.values()](#csv_values) | column_name | preprocessor | does not use network | get sorted unique values of the `column_name` column |
-| [list.escape()](#list_escape) |  | preprocessor | does not use network | escape commas in every element of array |
-| [global.escape()](#global_escape) | string | global | does not use network | escape special characters in `string` with `\` |
-| [previous()](#previous) | alias <br> offset | value-expression | does not use network | get value of the previous point with `offset` |
-| [movavg()](#movavg) | alias <br> count <br> minCount | value-expression | does not use network | compute moving average for `count` previous point if there at least `minCount` points |
-| [meta()](#meta) | alias | value-expression | does not use network | get metadata object for series with `alias` |
-| [entityTag()](#entityTag) | alias <br> tagName | value-expression | does not use network | get value of the entity tag `tagName` from metadata object for series with `alias` |
-| [metricTag()](#metricTag) | alias <br> tagName | value-expression | does not use network | get value of the entity tag `tagName` from metadata object for series with `alias` |
-| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | dropdown options | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
-| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | get metrics descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
-| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) | get entity or property descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | get metric descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) | get entity or property descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
+| Name | Arguments | Return | Description | Scope | API Request |
+|------|-----------|--------|-------------|-------|-------------|
+| [getTags()](#getTags) | metric <br> tagName <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<string>` | get series of `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and return sorted array of unique values of tag with name `tagName` | preprocessor | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<object>` | return series of metric filtered by `entity`, `minInsertDate` and `maxInsertDate` | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  |
+| [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | `Array<string>` | return names of metrics collected for `entity` filtered by `expression` | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | `Array<string>`  | return names of entities contained in entity-group filtered by `expression` | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) |
+| [range()](#range) | start <br> end <br> step <br> format | `Array<number|string>` | generate array of numbers from `start` to `end` with `step` formatted with [format](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) | preprocessor | does not use network |
+| [csv name = ...](#csv_inline) |  | `Array<object>` | parse CSV-like text into array of objects | preprocessor | does not use network |
+| [csv name from ...](#csv_from)| url | `Array<object>` | load CSV file located at the `url` and parse it into array of objects | preprocessor |  `url`  |
+| [csv.values()](#csv_values) | column_name | `Array<string>` | get sorted unique values of the `column_name` column | preprocessor | does not use network |
+| [list.escape()](#list_escape) |  | `Array<string>` | escape commas in every element of array | preprocessor | does not use network |
+| [global.escape()](#global_escape) | string | `string` | escape special characters in `string` with `\` | global | does not use network |
+| [previous()](#previous) | alias <br> offset | `number` | get value of the previous point with `offset` | value-expression | does not use network |
+| [movavg()](#movavg) | alias <br> count <br> minCount | `number` | compute moving average for `count` previous point if there at least `minCount` points | value-expression | does not use network |
+| [meta()](#meta) | alias | `object` | get metadata object for series with `alias` | value-expression | does not use network |
+| [entityTag()](#entityTag) | alias <br> tagName | `number` | get value of the entity tag `tagName` from metadata object for series with `alias` | value-expression | does not use network |
+| [metricTag()](#metricTag) | alias <br> tagName | `number` | get value of the entity tag `tagName` from metadata object for series with `alias` | value-expression | does not use network |
+| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | `Array<string>` | get series descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | `Array<string>` | get metrics descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<string>` | get entity or property descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | `Array<object>` | get series descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | `Array<object>` | get metric descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<object>` | get entity or property descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
 
 <!-- ************************************ getTags() ************************************ -->
 ## [⇧](#header) <a name="getTags"></a> getTags()
@@ -290,7 +290,7 @@ Generate array of numbers from `start` to `end` with `step` formatted with `form
 | start | required | number | first number in list |
 | end | required | number | last number is list |
 | step | optional | number | offset betwen adjacent numbers |
-| format | optional | string | formatter name [available formats](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings) |
+| format | optional | string | formatter name ([available formats](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings)) |
 
 ### Examples
 
@@ -1123,15 +1123,13 @@ Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Get array
 
 ### Arguments
 
-[More expanded arguments description](#dropFuncArgs)
-
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
 | fieldPath | optional | string | dot-separated path to the field, which value will be retrieved [expanded description](#valuesFieldPath) |
 | callback | optional | function | function to process series descriptors or retrieved values [expanded description](#valuesCallback) |
 | metric | optional | string | metrics, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
 | unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
-| params | optional | string | object | string or key-value object representing request parameters |
+| params | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1159,14 +1157,12 @@ Below is content of the dropdown.
 ### Description
 Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metrics descriptors
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
+[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
 `Array<string>` - values to fill the dropdown, retrived from metrics' descriptors.
 
 ### Arguments
-
-[More expanded arguments description](#dropFuncArgs)
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
@@ -1174,7 +1170,7 @@ Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get arr
 | callback | optional | function | function to process series descriptors or retrieved values [expanded description](#valuesCallback) |
 | entity | optional | string | entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` is used |
 | unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
-| params | optional | string|object | string or key-value object representing request parameters |
+| params | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1208,8 +1204,6 @@ Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array 
 
 ### Arguments
 
-[More expanded arguments description](#dropFuncArgs)
-
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
 | fieldPath | optional | string | dot-separated path to the field, which value will be retrieved [expanded description](#valuesFieldPath) |
@@ -1217,7 +1211,7 @@ Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array 
 | entity | optional | string | Array<string> | entity/entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` is used |
 | propertyType | optional | string | string | type of loaded properties, default is "$entity_tags" |
 | unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
-| postBody | optional | object | body of [Data API properties query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| postBody | optional/object | body of [Data API properties query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
 
 ### Examples
 
@@ -1338,16 +1332,14 @@ Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Get a
 
 ### Arguments
 
-[More expanded arguments description](#dropOptionsFuncArgs)
-
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value [expanded description](#optionsValueFieldPath) |
-| textFieldPath | optional | string|Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsTextFieldPath) |
+| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value |
+| textFieldPath | optional | string/Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsFieldPath) |
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
 | metric | optional | string | metric, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
 | unique | optional | boolean | applied to raw series descriptors, so is *useless* |
-| params | optional | string | object | string or key-value object representing request parameters |
+| params | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1382,16 +1374,14 @@ Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Get
 
 ### Arguments
 
-[More expanded arguments description](#dropOptionsFuncArgs)
-
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value [expanded description](#optionsValueFieldPath) |
-| textFieldPath | optional | string|Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsTextFieldPath) |
+| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value |
+| textFieldPath | optional | string/Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsFieldPath) |
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
 | entity | optional | string | entity, for which metrics descriptors are loaded. If not specified, `entity` from the `[widget]` is used |
 | unique | optional | boolean | applied to raw series descriptors, so is *useless* |
-| params | optional | string | object | string or key-value object representing request parameters |
+| params | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1426,14 +1416,12 @@ Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array 
 
 ### Arguments
 
-[More expanded arguments description](#dropFuncArgs)
-
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value [expanded description](#optionsValueFieldPath) |
-| textFieldPath | optional | string|Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsTextFieldPath) |
+| valueFieldPath | optional | string | dot-separated path to the field, which value will be used as option's value |
+| textFieldPath | optional | string/Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsFieldPath) |
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
-| entity | optional | string | Array<string> | entity/entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` is used |
+| entity | optional | string/Array<string> | entity/entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` is used |
 | propertyType | optional | string | string | type of loaded properties, default is "$entity_tags" |
 | unique | optional | boolean | applied to raw series descriptors, so is *useless* |
 | postBody | optional | object | body of [Data API properties query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
