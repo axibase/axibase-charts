@@ -16,17 +16,17 @@ This page contains descriptions of recently implemented functions.
 | [csv.values()](#csv_values) | column_name | preprocessor | does not use network | get sorted unique values of the `column_name` column |
 | [list.escape()](#list_escape) |  | preprocessor | does not use network | escape commas in every element of array |
 | [global.escape()](#global_escape) | string | global | does not use network | escape special characters in `string` with `\` |
-| [previous()](#previous) | alias <br> offset | value-expression | does not use network |  |
-| [movavg()](#movavg) | alias <br> count <br> minCount | value-expression | does not use network |  |
-| [meta()](#meta) | alias | value-expression | does not use network |  |
-| [entityTag()](#entityTag) | alias <br> tagName | value-expression | does not use network |  |
-| [metricTag()](#metricTag) | alias <br> tagName | value-expression | does not use network |  |
+| [previous()](#previous) | alias <br> offset | value-expression | does not use network | get value of the previous point with `offset` |
+| [movavg()](#movavg) | alias <br> count <br> minCount | value-expression | does not use network | compute moving average for `count` previous point if there at least `minCount` points |
+| [meta()](#meta) | alias | value-expression | does not use network | get metadata object for series with `alias` |
+| [entityTag()](#entityTag) | alias <br> tagName | value-expression | does not use network | get value of the entity tag `tagName` from metadata object for series with `alias` |
+| [metricTag()](#metricTag) | alias <br> tagName | value-expression | does not use network | get value of the entity tag `tagName` from metadata object for series with `alias` |
 | [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | dropdown options | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
 | [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | get metrics descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
-| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) | get entity or property descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) | get series descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) | get metric descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) | get entity or property descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors |
 
 <!-- ************************************ getTags() ************************************ -->
 ## [⇧](#header) <a name="getTags"></a> getTags()
