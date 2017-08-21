@@ -59,7 +59,7 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 
 ##### Usage
 
-``` json
+```
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_day")
 ```
 
@@ -81,7 +81,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 ##### Usage
 
-``` json
+```
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, null, null, {cache: true})
 ```
 
@@ -130,7 +130,7 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 
 ##### Usage
 
-``` json
+```
 var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ```
 
@@ -207,7 +207,7 @@ Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expres
 
 ##### Usage
 
-``` json
+```
 var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ```
 
@@ -256,7 +256,7 @@ Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?e
 
 ##### Usage
 
-``` json
+```
 var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ```
 
@@ -300,55 +300,55 @@ Generate array of numbers from `start` to `end` with `step` formatted with `form
 
 ##### Usage
 
-``` json
+```
 range(1,10)
 ```
 
 ##### Result
 
- ``` json
+```
 1,2,3,4,5,6,7,8,9,10
- ```
+```
 
 #### Get numbers from 1 to 10 with step 2
 
 ##### Usage
 
-``` json
+```
 range(1,10,2)
 ```
 
 ##### Result
 
- ``` json
+```
 1,3,5,7,9
- ```
+```
 
 #### Get numbers from 10 to 1 with step 1
 
 ##### Usage
 
-``` json
+```
 range(10,1)
 ```
 
 ##### Result
 
- ``` json
+```
 10,9,8,7,6,5,4,3,2,1
- ```
+```
 
 #### Get numbers from 10 to 1 with step 2
 
 ##### Usage
 
-``` json
+```
 range(10,1,2)
 ```
 
 ##### Result
 
-``` json
+```
 10,8,6,4,2
 ```
 
@@ -356,57 +356,57 @@ range(10,1,2)
 
 ##### Usage
 
-``` json
+```
 range(1,10,'percent')
 ```
 
 ##### Result
 
- ``` json
+```
 1%,2%,3%,4%,5%,6%,7%,8%,9%,10%
- ```
+```
 
 #### Get numbers from 1 to 10 with step 2 and format with percent
 
 ##### Usage
 
-``` json
+```
 range(1,10,2,'percent')
 ```
 
 ##### Result
 
- ``` json
+```
 1%,3%,5%,7%,9%
- ```
+```
 
 #### Format sequental numbers from 1 to 10 as minutes
 
 ##### Usage
 
-``` json
+```
 range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
 ```
 
 ##### Result
 
- ``` json
+```
 00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
- ```
+```
 
 #### Format sequental numbers from 1 to 12 with padding left zero
 
 ##### Usage
 
-``` json
+```
 range(1, 12, "d3.format('02d')(value)")
 ```
 
 ##### Result
 
- ``` json
+```
 01,02,03,04,05,06,07,08,09,10,11,12
- ```
+```
 
 
 
@@ -445,7 +445,7 @@ endcsv
 
 In the following example we write table in CSV-like format. There are two columns: `name` of the country and `value2006` - value in the year 2006. We want to find how much different from 2006 year the current value is. So we write the following csv:
 
-``` csv
+```
   csv countries =
     name, value2006
     Brazil, 13.2
@@ -601,7 +601,7 @@ Parsed array will be the following:
 
 Then we iterate over created array and set value and entity based on retrieved country `name` and value or year `2006`.
 
-``` json
+```
   for row in rows
     [series]
       replace-value = value - @{row[2006]}
@@ -779,7 +779,7 @@ country = @{countries.escape()}
 ##### Result
 Part of result:
 
-``` json
+```
 [... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
 ```
 
@@ -1114,7 +1114,7 @@ alert-expression = value() > metricTag('threshold_value')
 ## [⇧](#header) <a name="requestMetricsSeriesValues"></a> requestMetricsSeriesValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial series descriptors
+Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
@@ -1155,7 +1155,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsValues"></a> requestEntitiesMetricsValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metrics descriptors
+Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metrics descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
@@ -1195,7 +1195,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesValues"></a> requestPropertiesValues()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial entities or properties descriptors
+Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial entities or properties descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
@@ -1323,7 +1323,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestMetricsSeriesOptions"></a> requestMetricsSeriesOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors.
+Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
@@ -1365,7 +1365,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsOptions"></a> requestEntitiesMetricsOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors.
+Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
@@ -1407,7 +1407,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesOptions"></a> requestPropertiesOptions()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the initial entities or properties descriptors and should return array of options
+Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the initial entities or properties descriptors and should return array of options. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
