@@ -10,7 +10,7 @@ This page contains descriptions of recently implemented functions.
 | [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<object>` | return series of metric filtered by `entity`, `minInsertDate` and `maxInsertDate` | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  |
 | [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | `Array<string>` | return names of metrics collected for `entity` filtered by `expression` | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
 | [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | `Array<string>`  | return names of entities contained in entity-group filtered by `expression` | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) |
-| [range()](#range) | start <br> end <br> step <br> format | `Array<number|string>` | generate array of numbers from `start` to `end` with `step` formatted with [format](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) | preprocessor | does not use network |
+| [range()](#range) | start <br> end <br> step <br> format | `Array<number/string>` | generate array of numbers from `start` to `end` with `step` formatted with [format](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) | preprocessor | does not use network |
 | [csv name = ...](#csv_inline) |  | `Array<object>` | parse CSV-like text into array of objects | preprocessor | does not use network |
 | [csv name from ...](#csv_from)| url | `Array<object>` | load CSV file located at the `url` and parse it into array of objects | preprocessor |  `url`  |
 | [csv.values()](#csv_values) | column_name | `Array<string>` | get sorted unique values of the `column_name` column | preprocessor | does not use network |
@@ -281,7 +281,7 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 Generate array of numbers from `start` to `end` with `step` formatted with `format`. The default step equals 1. If start > end then numbers are generated in descending order.
 
 ### Return value
-`Array<number|string>` - generated (optionally formatted) numbers.
+`Array<number/string>` - generated (optionally formatted) numbers.
 
 ### Arguments
 
@@ -1452,7 +1452,7 @@ Below is content of the dropdown.
 
 ## <a name="dropOptionsFuncArgs"></a> Dropdown's Options Functions' Arguments Description
 
-### <a name=optionsFieldPath></a> TextFieldPath _(optional, type: string|Array<string>)_
+### <a name=optionsFieldPath></a> TextFieldPath _(optional, type: string/Array<string>)_
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/14/)
 
