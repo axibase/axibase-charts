@@ -15,7 +15,6 @@ This page contains descriptions of recently implemented functions.
 | [csv name from ...](#csv_from)| url | `Array<object>` | Loads a CSV file located at the defined `url` and parses it into an array of objects | preprocessor |  `url`  |
 | [csv.values()](#csv_values) | column_name | `Array<string>` | Retrieves the sorted, unique values of the column definied by `column_name` | preprocessor | Does not use network |
 | [list.escape()](#list_escape) |  | `Array<string>` | Escapes commas in every element of some array | preprocessor | Does not use network |
-| [global.escape()](#global_escape) | string | `string` | Automatically escapes special characters in `string` with `\` | global | does not use network |
 | [previous()](#previous) | alias <br> offset | `number` | Retrieves the value of the previous point in a sequence with `offset` | value-expression | Does not use network |
 | [movavg()](#movavg) | alias <br> count <br> minCount | `number` | Computes the moving average for some number of previous points defined by `count` if there at least `minCount` points in the sequence | value-expression | Does not use network |
 | [meta()](#meta) | alias | `object` | Retrieves metadata object for series defined by `alias` | value-expression | Does not use network |
@@ -810,60 +809,6 @@ country = @{countries.values('name').escape()}
 ```
 ["Brazil","Congo\\, Dem. Rep. of the (Kinshasa)","Croatia","Georgia","Honduras","Liechtenstein","Micronesia\\, Federated States of","Tonga"]
 ```
-
-
-
-<!-- ************************************ global.escape() ************************************ -->
-
-## [⇧](#header) <a name="global_escape"></a> global.escape()
-
-### Description
-
-Escapes reserved characters in a string. Reserved characters are `-`, `/`, `\`, `^`, `$`, `*`, `+`, `?`, `.`, `(`, `)`, `|`,  `[`, `]`, `{`, `}`. Usually it is used to escape reserved characters in a regular expression.
-This function is stored in `window` object as another [string utils](https://axibase.com/products/axibase-time-series-database/visualization/widgets/label-formatting/), while `list.escape()` belongs to its array.
-
-### Arguments
-
-| Name | Necessity | Type | Description |
-|------|-----------|------|-------------|
-| string | required | string | string in which symbols should be escaped |
-
-### Syntax
-
-```
-escape()
-```
-
-### Return value
-
-`string` - string with escaped special characters.
-
-### Examples
-
-#### Create a regular expression using escape() to filter metric names
-
-[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/13/)
-
-##### Usage
-Given a fragment of the metric name `immigrant-visa`, escape special symbols with the following:
-
-```
-var metricNamePart = 'immigrant-visa'
-var escapedPart = escape(metricNamePart)
-```
-
-Then create regular expression to filter metric names:
-
-```
-m.match('state\..*' + escapedPart)
-```
-
-##### Result
-
-```
-"immigrant\-visa"
-```
-
 
 
 
