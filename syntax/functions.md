@@ -6,33 +6,33 @@ This page contains descriptions of recently implemented functions.
 
 | Name | Arguments | Return | Description | Scope | API Request |
 |------|-----------|--------|-------------|-------|-------------|
-| [getTags()](#getTags) | metric <br> tagName <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<string>` | get series of `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and return sorted array of unique values of tag with name `tagName` | preprocessor | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
-| [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<object>` | return series of metric filtered by `entity`, `minInsertDate` and `maxInsertDate` | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  |
-| [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | `Array<string>` | return names of metrics collected for `entity` filtered by `expression` | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
-| [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | `Array<string>`  | return names of entities contained in entity-group filtered by `expression` | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) |
-| [range()](#range) | start <br> end <br> step <br> format | `Array<number/string>` | generate array of numbers from `start` to `end` with `step` formatted with [format](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) | preprocessor | does not use network |
-| [csv name = ...](#csv_inline) |  | `Array<object>` | parse CSV-like text into array of objects | preprocessor | does not use network |
-| [csv name from ...](#csv_from)| url | `Array<object>` | load CSV file located at the `url` and parse it into array of objects | preprocessor |  `url`  |
-| [csv.values()](#csv_values) | column_name | `Array<string>` | get sorted unique values of the `column_name` column | preprocessor | does not use network |
-| [list.escape()](#list_escape) |  | `Array<string>` | escape commas in every element of array | preprocessor | does not use network |
-| [global.escape()](#global_escape) | string | `string` | escape special characters in `string` with `\` | global | does not use network |
-| [previous()](#previous) | alias <br> offset | `number` | get value of the previous point with `offset` | value-expression | does not use network |
-| [movavg()](#movavg) | alias <br> count <br> minCount | `number` | compute moving average for `count` previous point if there at least `minCount` points | value-expression | does not use network |
-| [meta()](#meta) | alias | `object` | get metadata object for series with `alias` | value-expression | does not use network |
-| [entityTag()](#entityTag) | alias <br> tagName | `number` | get value of the entity tag `tagName` from metadata object for series with `alias` | value-expression | does not use network |
-| [metricTag()](#metricTag) | alias <br> tagName | `number` | get value of the entity tag `tagName` from metadata object for series with `alias` | value-expression | does not use network |
-| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | `Array<string>` | get series descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
-| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | `Array<string>` | get metrics descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
-| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<string>` | get entity or property descriptors and retrieve `fieldPath` filed from each, apply `callback` to field values | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | `Array<object>` | get series descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | `Array<object>` | get metric descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<object>` | get entity or property descriptors and retrieve `valueFieldPath` and `textFieldPath` to set option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [getTags()](#getTags) | metric <br> tagName <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<string>` | Retrieves the series containing `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and returns a sorted array of unique values for tags with the name `tagName` | preprocessor | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [getSeries()](#getSeries)| metric <br> entity <br> minInsertDate <br> maxInsertDate <br> url <br> queryParams | `Array<object>` | Returns the series for a metric filtered by `entity`, `minInsertDate` and `maxInsertDate` | preprocessor |  [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)  |
+| [getMetrics()](#getMetrics) | entity <br> expression <br> tags <br> url <br> queryParams | `Array<string>` | Returns the names of metrics collected for `entity` filtered by `expression` | preprocessor | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [getEntities()](#getEntities) | group <br> expression <br> tags <br> url <br> queryParams | `Array<string>`  | Returns the names of entities contained in the defined entity-group filtered by `expression` | preprocessor | [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md) |
+| [range()](#range) | start <br> end <br> step <br> format | `Array<number/string>` | Generates an array of numbers from `start` to `end` with a `step` formatted [as follows](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) | preprocessor | Does not use network |
+| [csv name = ...](#csv_inline) |  | `Array<object>` | Parses CSV-like text into an array of objects | preprocessor | Does not use network |
+| [csv name from ...](#csv_from)| url | `Array<object>` | Loads a CSV file located at the defined `url` and parses it into an array of objects | preprocessor |  `url`  |
+| [csv.values()](#csv_values) | column_name | `Array<string>` | Retrieves the sorted, unique values of the column definied by `column_name` | preprocessor | Does not use network |
+| [list.escape()](#list_escape) |  | `Array<string>` | Escapes commas in every element of some array | preprocessor | Does not use network |
+| [global.escape()](#global_escape) | string | `string` | Automatically escapes special characters in `string` with `\` | global | does not use network |
+| [previous()](#previous) | alias <br> offset | `number` | Retrieves the value of the previous point in a sequence with `offset` | value-expression | Does not use network |
+| [movavg()](#movavg) | alias <br> count <br> minCount | `number` | Computes the moving average for some number of previous points defined by `count` if there at least `minCount` points in the sequence | value-expression | Does not use network |
+| [meta()](#meta) | alias | `object` | Retrieves metadata object for series defined by `alias` | value-expression | Does not use network |
+| [entityTag()](#entityTag) | alias <br> tagName | `number` | Returns the value of the entity tag `tagName` from metadata object for series defined by `alias` | value-expression | Does not use network |
+| [metricTag()](#metricTag) | alias <br> tagName | `number` | Returns the value of the entity tag `tagName` from metadata object for series defined by `alias` | value-expression | Does not use network |
+| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | fieldPath <br> callback <br> metric <br> unique <br>  params | `Array<string>` | Retrieves series descriptors and `fieldPath` from each element, applies `callback` to field values | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | fieldPath <br> callback <br> entity <br> unique <br> params | `Array<string>` | Returns metric descriptors and retrieves `fieldPath` from each element, applies `callback` to field values | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [requestPropertiesValues()](#requestPropertiesValues) | fieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<string>` | Returns entity or property descriptors and retrieves `fieldPath` from each element, apply `callback` to field values | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> metric <br> unique <br> params | `Array<object>` | Returns series descriptors and retrieves `valueFieldPath` and `textFieldPath` in order to set an option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md) |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> unique <br> params | `Array<object>` | Retrieves metric descriptors, `valueFieldPath`, and `textFieldPath` to set an option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md) |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | valueFieldPath <br> textFieldPath <br> callback <br> entity <br> propertyType <br> unique <br> postBody | `Array<object>` | Returns entity or property descriptors and retrieves `valueFieldPath` and `textFieldPath` to set an option's value and text or apply `callback` to loaded descriptors | dropdown | [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
 
 <!-- ************************************ getTags() ************************************ -->
 ## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and retrieve unique values of `tagName` tag from each series descriptor. Retrived values are then sorted. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
+Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receives series descriptor objects and unique values of the tag defined with `tagName` from each series descriptor. Retrieved values are then sorted. This function can be used at the preprocessing stage in a `var` expression. The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
@@ -49,11 +49,11 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 | minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-#### Get values of `mount_point` tag in series for metric `disk_used` and entity `nurswgvml007` received today.
+#### Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` received today.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa)
 
@@ -75,7 +75,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
  ["/", "/media/datadrive", "/mnt/u113452"]
  ```
 
-#### <a name=requestParametersArg></a> Get values of `mount_point` tag in series for metric `disk_used` and entity `nurswgvml007` and send server-specific query parameter `cache` ignoring other parameters
+#### <a name=requestParametersArg></a> Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` and send server-specific query parameter `cache` while ignoring other parameters
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/2)
 
@@ -102,7 +102,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 ## [⇧](#header) <a name="getSeries"></a> getSeries()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Receive series descriptor objects and return it. This function can be used at the stage of preprocessing in the `var` expression.
+Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Returns series descriptor objects. This function can be used at the preprocessing stage in a `var` expression.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
@@ -118,13 +118,13 @@ Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={
 | minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-[Look at the example for `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+[Look at the example for a `queryParams` argument in the `getTags()` section.](#requestParametersArg)
 
-#### Get series for metric `disk_used` and entity `nurswgvml007`.
+#### Returns a series for the metric `disk_used` and the entity `nurswgvml007`.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/3)
 
@@ -180,9 +180,9 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ## [⇧](#header) <a name="getMetrics"></a> getMetrics()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receive metric descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
+Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receives metric descriptor objects and returns the `name` field. This function can be used at the preprocessing stage in the `var` expression. The returned array includeds the `list.escape()` function, which escapes commas in each element.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
 `Array<string>` - retrieved metrics names.
@@ -195,13 +195,13 @@ Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expres
 | expression | optional | string | `expression` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/api/meta/expression.md)) |
 | tags | optional | string | `tags` request parameter |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-[Look at the example for `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+[Look at an example for the `queryParams` argument in the `getTags()` section.](#requestParametersArg)
 
-#### Get metrics for entity `nurswgvml007` which contain "cpu" and "user" substrings.
+#### Returns metrics for the entity `nurswgvml007` which contains the "cpu" and "user" substrings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/4)
 
@@ -229,7 +229,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ## [⇧](#header) <a name="getEntities"></a> getEntities()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receive entity descriptor objects and return `name` field. This function can be used at the stage of preprocessing in the `var` expression. The returned array has `list.escape()` function, which escapes commas in every element.
+Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receives entity descriptor objects and returns the `name` field. This function can be used at the preprocessing stage in the `var` expression. The returned array includes the `list.escape()` function, which escapes commas in each element.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md)
 
@@ -244,7 +244,7 @@ Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?e
 | expression | optional | string | `expression` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/api/meta/expression.md)) |
 | tags | optional | string | `tags` request parameter |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and it's values as values, which will be transformed to query parameters string |
+| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
@@ -278,7 +278,7 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ## [⇧](#header) <a name="range"></a> range()
 
 ### Description
-Generate array of numbers from `start` to `end` with `step` formatted with `format`. The default step equals 1. If start > end then numbers are generated in descending order.
+Generates an array of numbers from `start` to `end` with a `step` formatted with `format`. The default step is set to 1. If start > end then numbers are generated in descending order.
 
 ### Return value
 `Array<number/string>` - generated (optionally formatted) numbers.
@@ -310,7 +310,7 @@ range(1,10)
 1,2,3,4,5,6,7,8,9,10
 ```
 
-#### Get numbers from 1 to 10 with step 2
+#### Get numbers from 1 to 10 with a double step
 
 ##### Usage
 
@@ -324,7 +324,7 @@ range(1,10,2)
 1,3,5,7,9
 ```
 
-#### Get numbers from 10 to 1 with step 1
+#### Get numbers from 10 to 1 with a single step
 
 ##### Usage
 
@@ -338,7 +338,7 @@ range(10,1)
 10,9,8,7,6,5,4,3,2,1
 ```
 
-#### Get numbers from 10 to 1 with step 2
+#### Get numbers from 10 to 1 with a double step
 
 ##### Usage
 
@@ -352,7 +352,7 @@ range(10,1,2)
 10,8,6,4,2
 ```
 
-#### Format sequental numbers from 1 to 10 with percent
+#### Format sequental numbers 1 to 10 as a percent
 
 ##### Usage
 
@@ -366,7 +366,7 @@ range(1,10,'percent')
 1%,2%,3%,4%,5%,6%,7%,8%,9%,10%
 ```
 
-#### Get numbers from 1 to 10 with step 2 and format with percent
+#### Get numbers from 1 to 10 with a double step and format as a percent
 
 ##### Usage
 
@@ -394,7 +394,7 @@ range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
 00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
 ```
 
-#### Format sequental numbers from 1 to 12 with padding left zero
+#### Format sequental numbers from 1 to 12 with an additional fill character (0) for single digit values.
 
 ##### Usage
 
@@ -415,14 +415,14 @@ range(1, 12, "d3.format('02d')(value)")
 ## [⇧](#header) <a name="csv_inline"></a> CSV inline text mode
 
 ### Description
-Parse CSV-like text placed between `csv` and `endcsv` keywords. Limitation and features that applied:
+Parse CSV-like text placed between `csv` and `endcsv` keywords. Limitations and features that are applied:
  - There can be empty lines and spaces.
- - To escape spaces double-quotes(`"`) should be used.
+ - To escape spaces, double-quotes(`"`) should be used.
  - Value should not contain double-quotes(`"`).
- - Multi-line orws are not supported.
- - Delimiter is comma (`,`)
+ - Multi-line rows are not supported.
+ - The delimiter symbol is a comma (`,`)
 
-Generated array has `.value(column_name)` method to get unique sorted values of some column.
+The generated array uses the `.value(column_name)` method to get unique sorted values of some column.
 
 ### Syntax
 
@@ -443,7 +443,7 @@ endcsv
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/8/)
 
-In the following example we write table in CSV-like format. There are two columns: `name` of the country and `value2006` - value in the year 2006. We want to find how much different from 2006 year the current value is. So we write the following csv:
+Using a table written in a CSV-like format: There are two columns: `name` (name of the country) and `value2006` (value in the year 2006). The desired return value is the difference between the current year value and the 2006 value so the following csv is used:
 
 ```
   csv countries =
@@ -500,7 +500,7 @@ This CSV will be transformed into the following array:
 ]
  ```
 
-Then we iterate over created array and set value and entity based on retrieved country `name` and `value2006`.
+Then we iterate over the newly created array and set the value and entity based on thr retrieved country `name` and `value2006`.
 
 ```
 for country in countries
@@ -518,12 +518,12 @@ endfor
 ## [⇧](#header) <a name="csv_from"></a> CSV from mode
 
 ### Description
-Parse CSV file located at the `url`. Limitation and features that applied to the text:
+Parse a CSV file located at the defined `url`. Limitation and features that are applied to the text:
  - There can be empty lines and spaces.
  - To escape spaces double-quotes(`"`) should be used.
- - Value should not contain double-quotes(`"`).
- - Multi-line orws are not supported.
- - Delimiter is comma (`,`)
+ - Values should not contain double-quotes(`"`).
+ - Multi-line rows are not supported.
+ - The delimiter symbol is a comma (`,`)
 
 Generated array has `.value(column_name)` method to get unique sorted values of some column.
 
@@ -541,11 +541,11 @@ csv name = from `{url}`
 #### Create array of objects from CSV file
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/9/)
-In the following example we want to find how much different from 2006 year the current value is.
+The desired return value in this example is the difference between the current year value and the 2006 value.
 
-We load CSV from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USVisaRefusal/Resources/visa-refusal.csv
+The CSV is loaded from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USVisaRefusal/Resources/visa-refusal.csv
 
-Here are first rows of the file:
+The first several rows from the file are shown below:
 
 ```
 country,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016
@@ -558,13 +558,13 @@ Honduras,38,37.7,33.6,29.2,29.2,27.6,29.8,37,36.8,39.73,42.76
 Liechtenstein,5.9,6.7,0,12.5,5.9,0,0,10,11.1,0,0
 ```
 
-Below is the setting to load and parse this file:
+The setting to load and parse the file is shown below:
 
 ```
 csv rows from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USVisaRefusal/Resources/visa-refusal.csv
 ```
 
-Parsed array will be the following:
+The parsed array will be:
 
  ``` json
 [
@@ -599,7 +599,7 @@ Parsed array will be the following:
     },
  ```
 
-Then we iterate over created array and set value and entity based on retrieved country `name` and value or year `2006`.
+Then we iterate over the created array and set the value and entity based on the retrieved country `name` and value or year `2006`.
 
 ```
   for row in rows
@@ -617,9 +617,9 @@ endfor
 ## [⇧](#header) <a name="csv_values"></a> csv.values()
 
 ### Description
-Arrays generated from `csv` have `.values()` method. This function returns sorted array of unique values in the column `column_name`.
+Arrays generated from `csv` use the `.values()` method. This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
 
-Generated array has `.escape()` method which escapes commas in each element.
+The generated array uses the `.escape()` method which escapes commas in each element.
 
 ### Syntax
 
@@ -628,11 +628,11 @@ csv_name.values(column_name)
 ```
 
 ### Return value
-`Array<string>` - Array of unique values in the column `column_name`.
+`Array<string>` - Array of unique values in the column defined by `column_name`.
 
 ### Examples
 
-#### Get escaped values of csv column
+#### Get escaped values of a csv column
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/10/)
 In this example we want to get a list of escaped country names.
@@ -700,13 +700,13 @@ Then retrieve values of the column `name`:
 var names = countries.values('name')
 ```
 
-Returnes values are the following
+Returned values are as follows:
 
 ``` json
 ["Brazil","Congo, Dem. Rep. of the (Kinshasa)","Croatia","Georgia","Honduras","Liechtenstein","Micronesia, Federated States of","Tonga"]
 ```
 
-Then we iterate over values and set the country tag.
+Then we iterate over each value and set the country tag.
 
 ```
   for country_name in names
@@ -722,7 +722,7 @@ Then we iterate over values and set the country tag.
 ## [⇧](#header) <a name="list_escape"></a> list.escape()
 
 ### Description
-Escapes commas in each value in the array of strings. `.escape()` method is available in arrays generated from `list` keyword, `var` expression, and `csv.values()` method.
+Escapes commas for each value in the array of strings. The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and `csv.values()` method.
 
 ### Syntax
 
@@ -731,7 +731,7 @@ list_name.escape()
 ```
 
 ### Return value
-`Array<string>` - joint by comma elements of array with escaped commas. (If type of argument is not string it returned as is)
+`Array<string>` - An  array where commas are escaped for each element. (If the argument is not a string it is returned as is)
 
 ### Examples
 
@@ -764,7 +764,7 @@ In the following examples we want to get a list of escaped country names. Countr
 ["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
 ```
 
-#### Apply `.escape()` to array created in `var` expression
+#### Apply `.escape()` to the array created in the `var` expression
 
 [ChartLab](https://apps.axibase.com/chartlab/df616dfa/12/)
 
@@ -783,7 +783,7 @@ Part of result:
 [... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
 ```
 
-#### Apply `.escape()` to array retrived by `csv.values()`
+#### Apply `.escape()` to the array retrived by `csv.values()`
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/7/)
 
@@ -819,8 +819,8 @@ country = @{countries.values('name').escape()}
 
 ### Description
 
-Escape special characters in the string. Special characters are `-`, `/`, `\`, `^`, `$`, `*`, `+`, `?`, `.`, `(`, `)`, `|`,  `[`, `]`, `{`, `}`. Usually it is used to escape symbols in regular expression.
-This function is stored in `window` object as other [string utils](https://axibase.com/products/axibase-time-series-database/visualization/widgets/label-formatting/), while `list.escape()` belongs to it's array.
+Escapes reserved characters in a string. Reserved characters are `-`, `/`, `\`, `^`, `$`, `*`, `+`, `?`, `.`, `(`, `)`, `|`,  `[`, `]`, `{`, `}`. Usually it is used to escape reserved characters in a regular expression.
+This function is stored in `window` object as another [string utils](https://axibase.com/products/axibase-time-series-database/visualization/widgets/label-formatting/), while `list.escape()` belongs to its array.
 
 ### Arguments
 
@@ -840,12 +840,12 @@ escape()
 
 ### Examples
 
-#### Create regular expression using escape() to filter metric names
+#### Create a regular expression using escape() to filter metric names
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/13/)
 
 ##### Usage
-Assume we someway get part of metric name `immigrant-visa`. To escape special symbols use
+Given a fragment of the metric name `immigrant-visa`, escape special symbols with the following:
 
 ```
 var metricNamePart = 'immigrant-visa'
@@ -875,7 +875,7 @@ m.match('state\..*' + escapedPart)
 
 ### Description
 
-Get the value in the previous point of the series with `alias`. Relative to current point index can be controlled by the `offset` argument. This function can be executed in `value-expression`.
+Get the value of the previous point in the series named by the `alias` parameter. Relative to the current point, the index can be controlled by the `offset` argument. This function can be executed in a `value-expression`.
 
 ### Return value
 `number` - value of the previous point.
@@ -884,14 +884,14 @@ Get the value in the previous point of the series with `alias`. Relative to curr
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, which previous value should be retrieved |
-| offset | optional | number | the index of the previous point relatively to current point, default is 1 |
+| alias | optional | string | alias of the series, from which the previous value should be retrieved |
+| offset | optional | number | the index of the previous point relative to the current point, default is 1 |
 
 ### Examples
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/21)
 
-#### Show copy of the seres shifted to the one point
+#### Show a copy of the series shifted one point
 
 #### Usage
 
@@ -903,7 +903,7 @@ value = previous('raw')
 
 ![](images/previous_one.png)
 
-#### Show copy of the seres shifted to the two points
+#### Show copy of the seres shifted two points
 
 #### Usage
 
@@ -916,7 +916,7 @@ value = previous('raw', 2)
 ![](images/previous_two.png)
 
 
-#### Show percentage difference of the last and last - 1 points
+#### Show the percentage difference of the last (n) and last (n - 1) points
 
 #### Usage
 
@@ -929,7 +929,7 @@ value = 1 - previous('raw') / value('raw')
 ![](images/previous_diff_one.png)
 
 
-#### Show percentage difference of the last and last - 1 points
+#### Show the percentage difference of the last (n) and last (n - 1) points
 
 #### Usage
 
@@ -951,7 +951,7 @@ value = 1 - previous('raw', 2) / value('raw')
 
 ### Description
 
-Calculates moving average on `count` previous points on the series with `alias`. Average is calculated if at least `minCount` previous points are available.  This function can be executed in `value-expression`.
+Calculates the moving average using `count` previous points in the series defined by `alias`. The average is calculated if at least `minCount` previous points are available.  This function can be executed in `value-expression`.
 
 ### Return value
 `number` - value of the previous point.
@@ -968,7 +968,7 @@ Calculates moving average on `count` previous points on the series with `alias`.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/22/)
 
-#### Caluculate movavg only when there is enough points for calculation
+#### Caluculate movavg only when there are a defined amount of points for calculation
 
 ##### Usage
 
@@ -980,7 +980,7 @@ value = movavg('raw', 30)
 
 ![](images/movavg_without_minCount.png)
 
-#### Caluculate movavg whether there is enough points for calculation or not
+#### Calculate movavg regardless of the number of points present
 
 ##### Usage
 
@@ -1001,7 +1001,7 @@ value = movavg('raw', 30, 0)
 
 ### Description
 
-Return metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be equal to true. This function can be executed in `value-expression`. Current limitation of the function: it should be used with `value(alias)` in one expression.
+Return metadata loaded for a series defined by `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`. It must be used with `value(alias)` in one expression.
 
 ### Return value
 `object` - metadata loaded to series.
@@ -1010,7 +1010,7 @@ Return metadata loaded for series with `alias`. The `[series]` `add-meta` settin
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, which metadata is returned |
+| alias | optional | string | alias of the series, from which metadata is returned |
 
 ### Examples
 
@@ -1037,7 +1037,7 @@ value = value('raw') / meta('raw').metric.maxValue
 
 ### Description
 
-Return tag with `tagName` from entity metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be equal to true. This function can be executed in `value-expression`.
+Returns tag with `tagName` from entity metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`.
 
 ### Return value
 `number` - value of specified entity tag.
@@ -1046,7 +1046,7 @@ Return tag with `tagName` from entity metadata loaded for series with `alias`. T
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, which metadata is returned |
+| alias | optional | string | alias of the series, from which metadata is returned |
 | tagName | required | string | name of tag which is retrieved from `meta.entity.tags` |
 
 ### Examples
@@ -1074,7 +1074,7 @@ size = entityTag('cpu_count')
 
 ### Description
 
-Return tag with `tagName` from metric metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be equal to true. This function can be executed in `value-expression`.
+Returns tag with `tagName` from metric metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`.
 
 ### Return value
 `string` - value of specified metric tag.
@@ -1083,7 +1083,7 @@ Return tag with `tagName` from metric metadata loaded for series with `alias`. T
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, which metadata is returned |
+| alias | optional | string | alias of the series, from which metadata is returned |
 | tagName | required | string | name of tag which is retrieved from `meta.metric.tags` |
 
 ### Examples
@@ -1114,9 +1114,9 @@ alert-expression = value() > metricTag('threshold_value')
 ## [⇧](#header) <a name="requestMetricsSeriesValues"></a> requestMetricsSeriesValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Gets an array of series descriptors and then retrieves the value of the field on the `fieldPath`. `callback` can be applied to the retrieved values or initial series descriptors. If a setting specified in the dropdown's `change-field` parameter is not set in config, this function sets it to the value of the first possible option.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 ### Return value
 `Array<string>` - values to fill the dropdown, retrived from series descriptors.
@@ -1135,7 +1135,7 @@ Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Get array
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/14/)
 
-To fill dropdown with values of `mount_point` tag we can use the function as follows. The `fieldPath` `"tags.mount_point"` means we want for each descriptor to step into `tags` then get the `mount_point` field.
+To fill a dropdown with different values from the `mount_point` tag we can use the function as follows. The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
 ```
   [dropdown]
@@ -1143,7 +1143,7 @@ To fill dropdown with values of `mount_point` tag we can use the function as fol
     change-field = series.tags.mount_point
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown.
 
 ![](images/requestMetricsSeriesValues:fieldPath:tags.png)
 
@@ -1155,9 +1155,9 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsValues"></a> requestEntitiesMetricsValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then retrive value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metrics descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Retrieve an array of metric descriptors and then retrive values of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metric descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
 `Array<string>` - values to fill the dropdown, retrived from metrics' descriptors.
@@ -1176,7 +1176,7 @@ Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Get arr
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/16/)
 
-To fill dropdown with names of metrics, collected for the entity we can use the function as follows.
+To populate the dropdown with names of metrics collected for the entity we can use the function as follows:
 
 ```
   [dropdown]
@@ -1184,7 +1184,7 @@ To fill dropdown with names of metrics, collected for the entity we can use the 
     change-field = series.metric
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown.
 
 ![](images/requestEntitiesMetricsValues.png)
 
@@ -1195,7 +1195,7 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesValues"></a> requestPropertiesValues()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial entities or properties descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous POST request to the `/api/v1/properties/query`. Returns an array of entity or property descriptors and then retrieves the value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial entitiy or property descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
 
 [More information about API request](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
@@ -1210,14 +1210,14 @@ Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array 
 | callback | optional | function | function to process series descriptors or retrieved values [expanded description](#valuesCallback) |
 | entity | optional | string | Array<string> | entity/entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` is used |
 | propertyType | optional | string | string | type of loaded properties, default is "$entity_tags" |
-| unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
+| unique | optional | boolean | specifies whether retrieved values are unique and sorted, default is true |
 | postBody | optional/object | body of [Data API properties query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) |
 
 ### Examples
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/17/)
 
-To fill dropdown with ids of `network` properties we can use the function as follows.
+To populate the dropdown with the IDs of `network` properties we can use the function as follows:
 
 ```
   [dropdown]
@@ -1225,7 +1225,7 @@ To fill dropdown with ids of `network` properties we can use the function as fol
     change-field = property.keys.id
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestPropertiesValues.png)
 
@@ -1239,10 +1239,10 @@ Below is content of the dropdown.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/14/)
 
-`fieldPath` is the dot-separated path to field in series descriptor object. If not specified series descriptors objects are returned. If specified, the field found by `fieldPath` is returned.
+`fieldPath` is the dot-separated path to field in series descriptor object. If not specified, series descriptor objects are returned. If specified, the field found by `fieldPath` is returned.
 
 
-To fill dropdown with names of entities for which the metric is collected we can use the function as follows. The `fieldPath` `"entity"` means we want to get entity field from each descriptor.
+To populate the dropdown with the names of entities for which the metric is collected we can use the function as follows. The `fieldPath` `"entity"` means we want to get the entity field from each descriptor.
 
 ```
 [dropdown]
@@ -1250,12 +1250,12 @@ To fill dropdown with names of entities for which the metric is collected we can
   change-field = series.entity
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestMetricsSeriesValues:fieldPath:entity.png)
 
 
-To fill dropdown with values of `mount_point` tag we can use the function as follows. The `fieldPath` `"tags.mount_point"` means we want for each descriptor to step into `tags` then get the `mount_point` field.
+To populate the dropdown with values of the `mount_point` tag we can use the function as follows. The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
 ```
   [dropdown]
@@ -1270,11 +1270,11 @@ Below is content of the dropdown.
 
 #### <a name=valuesCallback></a> Callback _(optional, type:function)_
 
-`callback` can be used for manual processing of the series descriptors or additional processing of retrieved field values. If `fieldPath` is specified, the string values of some field are given as argument to the callback. Otherwise series descriptors array wold be the argument.
+`callback` can be used for manual processing of series descriptors or additional processing of retrieved field values. If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array would be the argument.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/15/)
 
-To fill dropdown with values of `mount_point` tag of series, which entity name is starting with `nur` we can use the function as below. Note, that series can be filtered by entity using `expression` queryParameter.
+To fill the dropdown with values of `mount_point` tag of the series, whose entity name begins with the word fragment `nur` we can use the function as shown below. Note that the series can be filtered by entity using the `expression` queryParameter.
 
 ```
   [dropdown]
@@ -1292,11 +1292,11 @@ To fill dropdown with values of `mount_point` tag of series, which entity name i
     options = })
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestMetricsSeriesValues:callback_without_fieldPath.png)
 
-To fill dropdown with entity tag value we need to make two requests: get entities' names from series descriptors and then request entity tags for that entities.
+To fill the dropdown with entity tag values we need to make two requests: get entity names from series descriptors and then request entity tags for that entities.
 
 ```
 [dropdown]
@@ -1308,7 +1308,7 @@ To fill dropdown with entity tag value we need to make two requests: get entitie
    options = })
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestMetricsSeriesValues:callback_with_fieldPath.png)
 
@@ -1323,12 +1323,12 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestMetricsSeriesOptions"></a> requestMetricsSeriesOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Get array of series descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Retrieves an array of series descriptors and then creates an array of options using `valueFieldPath` as the value and `textFieldPath` as the text. The `callback` can be applied to the initial series descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 ### Return value
-`Array<{value: string, text: string}>` - options, generated from series descriptors fields'.
+`Array<{value: string, text: string}>` - options, generated from series descriptor fields.
 
 ### Arguments
 
@@ -1338,14 +1338,14 @@ Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Get a
 | textFieldPath | optional | string/Array<string> | dot-separated path (or array of such pathes) to the field, which value will be used as option's text [expanded description](#optionsFieldPath) |
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
 | metric | optional | string | metric, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
-| unique | optional | boolean | applied to raw series descriptors, so is *useless* |
+| unique | optional | boolean | applied to raw series descriptors, so is *useless* in this context |
 | params | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/18/)
 
-To fill dropdown with options, in which value is the value of `iucr` tag and text is `description` tag we can use the function as follows.
+To fill the dropdown with options with the value of the `iucr` tag and the text from the `description` tag we can use the function as follows:
 
 ```
 [dropdown]
@@ -1353,7 +1353,7 @@ To fill dropdown with options, in which value is the value of `iucr` tag and tex
   change-field = series.tags.iucr
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestMetricsSeriesOptions.png)
 
@@ -1365,9 +1365,9 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsOptions"></a> requestEntitiesMetricsOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Get array of metrics descriptors and then create array of options using `valueFieldPath` as option value and `textFieldPath` as option text. The `callback` can be applied to the initial series descriptors. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Retrieves an array of metric descriptors and then creates an array of options using `valueFieldPath` as the value and `textFieldPath` as the text. The `callback` can be applied to the initial series descriptors. If the setting specified in the dropdown's `change-field` parameter is not set in config, this function sets it to the value of the first possible option.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
 `Array<{value: string, text: string}>` - options, generated from metrics descriptors fields'.
@@ -1387,7 +1387,7 @@ Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Get
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/19/)
 
-To fill dropdown with options, in which value is the value of `iucr` tag and text is `description` tag we can use the function as follows.
+To fill the dropdown with options defined by the value of `iucr` tag and text from the `description` tag we can use the function as follows:
 
 ```
   [dropdown]
@@ -1395,7 +1395,7 @@ To fill dropdown with options, in which value is the value of `iucr` tag and tex
     change-field = metric
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestEntitiesMetricsOptions.png)
 
@@ -1407,12 +1407,12 @@ Below is content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesOptions"></a> requestPropertiesOptions()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Get array of entities or properties descriptors and then retrieve value of the field on the `fieldPath`. The `callback` can be applied to the initial entities or properties descriptors and should return array of options. If setting specified in dropdown's `change-field` is not set in config, this function set it to the value of the first option.
+Makes an asynchronous POST request to the `/api/v1/properties/query`. Retrieves an array of entitiy or property descriptors and then retrieves the value of the field on the `fieldPath`. The `callback` can be applied to the initial entity or property descriptors and should return array of options. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
 
-[More information about API request](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
+[More information about API requests](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
 ### Return value
-`Array<string>` - options, generated from properties or entities descriptors' fields.
+`Array<string>` - options, generated from the property or entity descriptors fields.
 
 ### Arguments
 
@@ -1439,7 +1439,7 @@ To fill dropdown with options in which value is the `entity` and text is tag `ap
 
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown:
 
 ![](images/requestPropertiesOptions.png)
 
@@ -1450,7 +1450,7 @@ Below is content of the dropdown.
 
 
 
-## <a name="dropOptionsFuncArgs"></a> Dropdown's Options Functions' Arguments Description
+## <a name="dropOptionsFuncArgs"></a> Dropdown Options Functions' Arguments Description
 
 ### <a name=optionsFieldPath></a> TextFieldPath _(optional, type: string/Array<string>)_
 
@@ -1472,7 +1472,7 @@ Below is content of the dropdown.
 ![](images/options:fieldPath:string.png)
 
 
-To fill dropdown with options in which value is retrieved from `name` field of metric descriptor and text from tag `description` or tag `documentation`, if descriptor has no value for tag `description`, we can use `textFieldPath` as array.
+Fill the dropdown with values retrieved from the `name` field of the metric descriptor and the text from the tag `description` or tag `documentation`, if the descriptor has no value for the tag `description`, we can use `textFieldPath` as an array.
 
 ```
   [dropdown]
@@ -1488,7 +1488,7 @@ Below is content of the dropdown.
 
 #### <a name=optionsCallback></a> Callback _(optional, type:function)_
 
-`callback` can be used for manual processing of the descriptors, which are passed as parameters. If `callback` is specified, `valueFieldPath` and `textFieldPath` are ignored. Function should return array of objects, representing options:
+`callback` can be used for manual processing of descriptors, which are passed as parameters. If `callback` is specified, `valueFieldPath` and `textFieldPath` are ignored. Function should return an array of objects, representing options:
 
 ```
 [
@@ -1504,7 +1504,7 @@ Below is content of the dropdown.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/26/)
 
-To fill dropdown with options in which values are names of metrics, collected for the entity, and texts are changed values of the `description` tag we can use th funciton as follows.
+To populate the dropdown with the names of metrics, collected for the entity, and texts which are changed values of the `description` tag we can use the funciton as follows:
 
 ```
   [dropdown]
@@ -1520,7 +1520,7 @@ To fill dropdown with options in which values are names of metrics, collected fo
     options =    }, null, null, {tags:'*',limit:15})
 ```
 
-Below is content of the dropdown.
+Below are the contents of the dropdown.
 
 ![](images/options_callback.png)
 
