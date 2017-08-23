@@ -6,26 +6,26 @@ This page contains descriptions of recently implemented functions.
 
 | Name | Description |
 |------|-------------|
-| [getTags()](#getTags) | Retrieves the series containing `metric` filtered by `entity`, `minInsertDate` and `maxInsertDate` and returns a sorted array of unique values for tags with the name `tagName` |
-| [getSeries()](#getSeries) | Returns the series for a metric filtered by `entity`, `minInsertDate` and `maxInsertDate` |
-| [getMetrics()](#getMetrics) | Returns the names of metrics collected for `entity` filtered by `expression` |
-| [getEntities()](#getEntities) | Returns the names of entities contained in the defined entity-group filtered by `expression` |
-| [range()](#range) | Generates an array of numbers from `start` to `end` with a `step` formatted [as follows](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings/) |
-| [csv name = ...](#csv_inline) | Parses CSV-like text into an array of objects ||
-| [csv name from ...](#csv_from)| Loads a CSV file located at the defined `url` and parses it into an array of objects |
-| [csv.values()](#csv_values) | Retrieves the sorted, unique values of the column definied by `column_name` |
-| [list.escape()](#list_escape) | Escapes commas in every element of some array | preprocessor |
-| [previous()](#previous) | Retrieves the value of the previous point in a sequence with `offset` |
-| [movavg()](#movavg) | Computes the moving average for some number of previous points defined by `count` if there at least `minCount` points in the sequence |
-| [meta()](#meta) | Retrieves metadata object for series defined by `alias` |
-| [entityTag()](#entityTag) | Returns the value of the entity tag `tagName` from metadata object for series defined by `alias` |
-| [metricTag()](#metricTag) | Returns the value of the entity tag `tagName` from metadata object for series defined by `alias` |
-| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Retrieves series descriptors and `fieldPath` from each element, applies `callback` to field values | dropdown |
-| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Returns metric descriptors and retrieves `fieldPath` from each element, applies `callback` to field values |
-| [requestPropertiesValues()](#requestPropertiesValues) | Returns entity or property descriptors and retrieves `fieldPath` from each element, apply `callback` to field values |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Returns series descriptors and retrieves `valueFieldPath` and `textFieldPath` in order to set an option's value and text or apply `callback` to loaded descriptors |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Retrieves metric descriptors, `valueFieldPath`, and `textFieldPath` to set an option's value and text or apply `callback` to loaded descriptors |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | Returns entity or property descriptors and retrieves `valueFieldPath` and `textFieldPath` to set an option's value and text or apply `callback` to loaded descriptors |
+| [getTags()](#getTags) | Retrieves series for the metric and returns a sorted array of unique values of defined tag |
+| [getSeries()](#getSeries) | Returns an array of series collected for the defined metric |
+| [getMetrics()](#getMetrics) | Returns names of metrics collected for the defined entity |
+| [getEntities()](#getEntities) | Returns names of entities contained in the defined entity-group |
+| [range()](#range) | Returns a regularly-spaced array of numbers |
+| [csv name = ...](#csv_inline) | Parses CSV-like text into an array of objects |
+| [csv name from ...](#csv_from)| Loads a CSV file located at the defined url and parses it into an array of objects |
+| [csv.values()](#csv_values) | Retrieves the sorted, unique values of the definied column |
+| [list.escape()](#list_escape) | Escapes commas in every element of the array |
+| [previous()](#previous) | Retrieves the value of the previous point in a sequence |
+| [movavg()](#movavg) | Computes the moving average for some number of previous points |
+| [meta()](#meta) | Retrieves metadata object for the series |
+| [entityTag()](#entityTag) | Returns the value of the entity tag from metadata object for the series |
+| [metricTag()](#metricTag) | Returns the value of the metric tag from metadata object for the series |
+| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Creates dropdown's options where values are retrieved from the defined field of the series |
+| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Creates dropdown's options where values are retrieved from the defined field of the metric |
+| [requestPropertiesValues()](#requestPropertiesValues) | Creates dropdown's options where values are retrieved from the defined field of the entity or the property |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Creates dropdown's options where values are retrieved from the defined field of the series |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Creates dropdown's options where values are retrieved from the defined field of the metric |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates dropdown's options where values are retrieved from the defined field of the entity or the property |
 
 
 
@@ -41,7 +41,7 @@ This page contains descriptions of recently implemented functions.
 ## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
- Receives series descriptor objects and unique values of the tag defined with `tagName` from each series descriptor. Retrieved values are then sorted. This function can be used at the preprocessing stage in a `var` expression. The returned array includes the `list.escape()` function, which escapes any commas in each element.
+Receives series descriptor objects and unique values of the tag defined with `tagName` from each series descriptor. Retrieved values are then sorted. This function can be used at the preprocessing stage in a `var` expression. The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 ### Syntax
 ```
