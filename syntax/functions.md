@@ -22,10 +22,10 @@ This page contains descriptions of recently implemented functions.
 | [metricTag()](#metricTag) | Returns the value of the metric tag from metadata object for the series |
 | [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Creates dropdown's options where values are retrieved from the defined field of the series |
 | [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Creates dropdown's options where values are retrieved from the defined field of the metric |
-| [requestPropertiesValues()](#requestPropertiesValues) | Creates dropdown's options where values are retrieved from the defined field of the entity or the property |
+| [requestPropertiesValues()](#requestPropertiesValues) | Creates dropdown's options where values are retrieved from the defined field of the entity tags or the property |
 | [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Creates dropdown's options where values are retrieved from the defined field of the series |
 | [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Creates dropdown's options where values are retrieved from the defined field of the metric |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates dropdown's options where values are retrieved from the defined field of the entity or the property |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates dropdown's options where values are retrieved from the defined field of the entity tags or the property |
 
 
 
@@ -41,18 +41,21 @@ This page contains descriptions of recently implemented functions.
 ## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
-Receives series descriptor objects and unique values of the tag defined with `tagName` from each series descriptor. Retrieved values are then sorted. This function can be used at the preprocessing stage in a `var` expression. The returned array includes the `list.escape()` function, which escapes any commas in each element.
+From the `url` loads series for the `metric` and the `entity`, which last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+Additional `queryParameters` can be specified.
+Then unique values of the tag with name `tagName` are retrieved from the tags of the loaded series and sorted.
+The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 ### Syntax
 ```
-getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParams]]]]])
+getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
 
 ### API Request
-Sends _synchronous_ request to the
+Sends _synchronous_ GET request to the
 [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 ### Return value
@@ -68,7 +71,7 @@ Sends _synchronous_ request to the
 | minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
+| queryParameters | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
@@ -130,18 +133,20 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 ## [⇧](#header) <a name="getSeries"></a> getSeries()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/metrics/{metric}/series?entity={entity}&minInsertDate={minInsertDate}&maxInsertDate={maxInsertDate}`. Returns series descriptor objects. This function can be used at the preprocessing stage in a `var` expression.
+From the `url` loads series for the `metric` and the `entity`, which last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+Additional `queryParameters` can be specified.
+Returns loaded series.
 
 ### Syntax
 ```
-getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParams]]]]])
+getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
 
 ### API Request
-Sends _synchronous_ request to the
+Sends _synchronous_ GET request to the
 [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 ### Return value
@@ -156,11 +161,11 @@ Sends _synchronous_ request to the
 | minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/end-time-syntax.md)) |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
+| queryParameters | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-[Look at the example for a `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+[Look at the example for a `queryParameters` argument in the `getTags()` section.](#requestParametersArg)
 
 #### Returns a series for the metric `disk_used` and the entity `nurswgvml007`.
 
@@ -226,18 +231,21 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ## [⇧](#header) <a name="getMetrics"></a> getMetrics()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entities/{entity}/metrics?expression={expression}&tags={tags}`. Receives metric descriptor objects and returns the `name` field. This function can be used at the preprocessing stage in the `var` expression. The returned array includeds the `list.escape()` function, which escapes commas in each element.
+From the `url` loads metrics for the `entity`, which satisfy `expression`.
+Additional `queryParameters` can be specified.
+Returns sorted names of loaded metrics.
+The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 ### Syntax
 ```
-getMetrics(entity, [expression, [tags, [url, [queryParams]]]])
+getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
 
 ### Scope of usage
 Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
 
 ### API Request
-Sends _synchronous_ request to the
+Sends _synchronous_ GET request to the
 [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 ### Return value
@@ -251,11 +259,11 @@ Sends _synchronous_ request to the
 | expression | optional | string | `expression` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/api/meta/expression.md)) |
 | tags | optional | string | `tags` request parameter |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
+| queryParameters | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-[Look at an example for the `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+[Look at an example for the `queryParameters` argument in the `getTags()` section.](#requestParametersArg)
 
 #### Returns metrics for the entity `nurswgvml007` which contains the "cpu" and "user" substrings.
 
@@ -293,18 +301,21 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ## [⇧](#header) <a name="getEntities"></a> getEntities()
 
 ### Description
-Makes a synchronous request to the `{url}api/v1/entity-groups/{group}/entities?expression={expression}&tags={tags}`. Receives entity descriptor objects and returns the `name` field. This function can be used at the preprocessing stage in the `var` expression. The returned array includes the `list.escape()` function, which escapes commas in each element.
+From the `url` loads entities for contained in `group` entity-group, which satisfy `expression`.
+Additional `queryParameters` can be specified.
+Returns sorted names of loaded entities.
+The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 ### Syntax
 ```
-getEntities(group, [expression, [tags, [url, [queryParams]]]])
+getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
 
 ### Scope of usage
 Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
 
 ### API Request
-Sends _synchronous_ request to the
+Sends _synchronous_ GET request to the
 [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md)
 
 ### Return value
@@ -318,11 +329,11 @@ Sends _synchronous_ request to the
 | expression | optional | string | `expression` query parameter ([syntax](https://github.com/axibase/atsd/blob/master/api/meta/expression.md)) |
 | tags | optional | string | `tags` request parameter |
 | url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParams | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
+| queryParameters | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
 
 ### Examples
 
-[Look at the example for `queryParams` argument in the `getTags()` section.](#requestParametersArg)
+[Look at the example for `queryParameters` argument in the `getTags()` section.](#requestParametersArg)
 
 #### Get entities contained in entity-group `docker-hosts` which names are started with `nur` substring.
 
@@ -360,7 +371,12 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ## [⇧](#header) <a name="range"></a> range()
 
 ### Description
-Generates an array of numbers from `start` to `end` with a `step` formatted with `format`. The default step is set to 1. If start > end then numbers are generated in descending order.
+
+
+Generates an array of numbers from `start` to `end` regularly-spaced with `step`.
+If `step` is not specified, numbers are sequental.
+If `start` is greater than `end` numbers are generated in descending order.
+If `format` is specified, each number is formatted and converted to string.
 
 ### Syntax
 ```
@@ -512,14 +528,19 @@ range(1, 12, "d3.format('02d')(value)")
 ## [⇧](#header) <a name="csv_inline"></a> CSV inline text mode
 
 ### Description
-Parse CSV-like text placed between `csv` and `endcsv` keywords. Limitations and features that are applied:
+Parse CSV-like text placed between `csv name = ` and `endcsv` keywords into an arrat of objects.
+First line contains header - columns' names.
+Other lines contain data.
+Each data line is parsed into the object, where keys are columns' names and values are the values of corresponidng cells.
+The generated array uses the `.value(column_name)` method to get unique sorted values of defined column.
+
+Limitations and features that are applied:
  - There can be empty lines and spaces.
  - To escape spaces, double-quotes(`"`) should be used.
  - Value should not contain double-quotes(`"`).
  - Multi-line rows are not supported.
  - The delimiter symbol is a comma (`,`)
 
-The generated array uses the `.value(column_name)` method to get unique sorted values of some column.
 
 ### Syntax
 
@@ -625,14 +646,17 @@ endfor
 ## [⇧](#header) <a name="csv_from"></a> CSV from mode
 
 ### Description
-Parse a CSV file located at the defined `url`. Limitation and features that are applied to the text:
+Parse a CSV file located at the defined `url` into the array of objects.
+Each data line is parsed into the object, where keys are columns' names and values are the values of corresponidng cells.
+The generated array uses the `.value(column_name)` method to get unique sorted values of defined column.
+
+Limitation and features that are applied to the text:
  - There can be empty lines and spaces.
  - To escape spaces double-quotes(`"`) should be used.
  - Values should not contain double-quotes(`"`).
  - Multi-line rows are not supported.
  - The delimiter symbol is a comma (`,`)
 
-Generated array has `.value(column_name)` method to get unique sorted values of some column.
 
 ### Syntax
 
@@ -735,9 +759,9 @@ endfor
 ## [⇧](#header) <a name="csv_values"></a> csv.values()
 
 ### Description
-Arrays generated from `csv` use the `.values()` method. This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
-
-The generated array uses the `.escape()` method which escapes commas in each element.
+Arrays generated from `csv` use the `.values()` method.
+This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
+The generated array has the `.escape()` method which escapes commas in each element.
 
 ### Syntax
 
@@ -851,7 +875,8 @@ Then we iterate over each value and set the country tag.
 ## [⇧](#header) <a name="list_escape"></a> list.escape()
 
 ### Description
-Escapes commas for each value in the array of strings. The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and `csv.values()` method.
+Escapes commas for each value in the array of strings.
+The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and `csv.values()` method.
 
 ### Syntax
 
@@ -957,8 +982,8 @@ country = @{countries.values('name').escape()}
 ## [⇧](#header) <a name="previous"></a> previous()
 
 ### Description
-
-Get the value of the previous point in the series named by the `alias` parameter. Relative to the current point, the index can be controlled by the `offset` argument. This function can be executed in a `value-expression`.
+Get the value of the previous point in the series named by the `alias` parameter.
+Relative to the current point, the index can be controlled by the `offset` argument.
 
 ### Syntax
 ```
@@ -1047,7 +1072,8 @@ value = 1 - previous('raw', 2) / value('raw')
 
 ### Description
 
-Calculates the moving average using `count` previous points in the series defined by `alias`. The average is calculated if at least `minCount` previous points are available.  This function can be executed in `value-expression`.
+Calculates the moving average using `count` previous points in the series defined by `alias`.
+The average is calculated if at least `minCount` previous points are available.
 
 ### Syntax
 ```
@@ -1058,7 +1084,7 @@ movavg([alias], count, [minCount])
 Can be used in `value-expression` settings.
 
 ### Return value
-`number` - value of the previous point.
+`number` - calculated moving average.
 
 ### Arguments
 
@@ -1111,7 +1137,10 @@ value = movavg('raw', 30, 0)
 
 ### Description
 
-Return metadata loaded for a series defined by `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`. It must be used with `value(alias)` in one expression.
+Return metadata loaded for a series defined by `alias`.
+The `[series]` `add-meta` setting should be set to true.
+
+_Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1161,7 +1190,10 @@ value = value('raw') / meta('raw').metric.maxValue
 
 ### Description
 
-Returns tag with `tagName` from entity metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`.
+Returns tag with `tagName` from entity metadata loaded for series with `alias`.
+The `[series]` `add-meta` setting should be set to true.
+
+_Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1211,7 +1243,10 @@ size = entityTag('cpu_count')
 
 ### Description
 
-Returns tag with `tagName` from metric metadata loaded for series with `alias`. The `[series]` `add-meta` setting should be set to true. This function can be executed in `value-expression`.
+Returns tag with `tagName` from metric metadata loaded for series with `alias`.
+The `[series]` `add-meta` setting should be set to true.
+
+_Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1271,18 +1306,22 @@ alert-expression = value() > metricTag('threshold_value')
 ## [⇧](#header) <a name="requestMetricsSeriesValues"></a> requestMetricsSeriesValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/metrics/{metric}/series`. Gets an array of series descriptors and then retrieves the value of the field on the `fieldPath`. `callback` can be applied to the retrieved values or initial series descriptors. If a setting specified in the dropdown's `change-field` parameter is not set in config, this function sets it to the value of the first possible option.
+Request series for the `metric` adding `queryParameters` to the request url.
+If `fieldPath` is specified retrieve fields found by `fieldPath` in the series.
+If `unique` is specified retrieved values would be unqiue and sorted.
+If `callback` function is specified, it  gets the array of retrieved fields or the array of loaded series as argument, wheter `fieldPath` is specified.
+Returns the array of options - objects with `value` property set to the processed retrieved value.
 
 ### Syntax
 ```
-requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParams]]]]])
+requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ GET request to the
 [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 
@@ -1297,7 +1336,7 @@ Sends _asynchronous_ request to the
 | callback | optional | function | function to process series descriptors or retrieved values [expanded description](#valuesCallback) |
 | metric | optional | string | metrics, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
 | unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
-| queryParams | optional | string/object | string or key-value object representing request parameters |
+| queryParameters | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1329,18 +1368,22 @@ Below is the content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsValues"></a> requestEntitiesMetricsValues()
 
 ### Description
-Makes an asynchronous request to the `api/v1/entities/{entity}/metrics`. Retrieve an array of metric descriptors and then retrive values of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial metric descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
+Request metrics for the `entity` adding `queryParameters` to the request url.
+If `fieldPath` is specified retrieve fields found by `fieldPath` in the metric.
+If `unique` is specified retrieved values would be unqiue and sorted.
+If `callback` function is specified, it  gets the array of retrieved fields or the array of loaded metrics as argument, wheter `fieldPath` is specified.
+Returns the array of options - objects with `value` property set to the processed retrieved value.
 
 ### Syntax
 ```
-requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParams]]]]])
+requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ GET request to the
 [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 
@@ -1355,7 +1398,7 @@ Sends _asynchronous_ request to the
 | callback | optional | function | function to process series descriptors or retrieved values [expanded description](#valuesCallback) |
 | entity | optional | string | entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` is used |
 | unique | optional | boolean | specify should retrieved values be unique and sorted, default is true |
-| queryParams | optional | string/object | string or key-value object representing request parameters |
+| queryParameters | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1387,7 +1430,13 @@ Below is the content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesValues"></a> requestPropertiesValues()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Returns an array of entity or property descriptors and then retrieves the value of the field on the `fieldPath`. The `callback` can be applied to the retrieved values or initial entitiy or property descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
+Requests the entity tags or properties for the entity or the entities specified by `entity`.
+If `postBody` is specified, it is sent ignoring `entity` and `propertyType`.
+It requests entity tags if `$entity_tags` is specified as `propertyType` and properties otherwise.
+If `fieldPath` is specified retrieve fields found by `fieldPath` in the entity tags or properties.
+If `unique` is specified retrieved values would be unqiue and sorted.
+If `callback` function is specified, it is applied to the array of retrieved fields or the array of entity tags/properties, wheter `fieldPath` is specified.
+Returns the array of options - objects with `value` property set to the processed retrieved value.
 
 ### Syntax
 ```
@@ -1398,7 +1447,7 @@ requestPropertiesValues([valueFieldPath, [textFieldPath, [callback, [entity, [pr
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ POST request to the
 [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
 
@@ -1562,18 +1611,25 @@ Below is the content of the dropdown:
 ## [⇧](#header) <a name="requestMetricsSeriesOptions"></a> requestMetricsSeriesOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/metrics/{metric}/series`. Retrieves an array of series descriptors and then creates an array of options using `valueFieldPath` as the value and `textFieldPath` as the text. The `callback` can be applied to the initial series descriptors. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
+Request series for the `metric` adding `queryParameters` to the request url.
+Creates an option for each loaded series.
+The value of the field found by `valueFieldPath` is assigned to option's value.
+The value of the field found by `textFieldPath` is assigned to option's text.
+If `textFieldPath` is an array, it sequentially tries to find field by every path.
+When field is found it is assigned to the option's text.
+If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
+`callback` gets loaded series as argument and should return array of options, where at least value should be specified.
 
 ### Syntax
 ```
-requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParams]]]]])
+requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ GET request to the
 [/api/v1/metrics/{metric}/series](https://github.com/axibase/atsd/blob/master/api/meta/metric/series.md)
 
 
@@ -1589,7 +1645,7 @@ Sends _asynchronous_ request to the
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
 | metric | optional | string | metric, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
 | unique | optional | boolean | applied to raw series descriptors, so is *useless* in this context |
-| queryParams | optional | string/object | string or key-value object representing request parameters |
+| queryParameters | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1621,18 +1677,25 @@ Below is the content of the dropdown:
 ## [⇧](#header) <a name="requestEntitiesMetricsOptions"></a> requestEntitiesMetricsOptions()
 
 ### Description
-Makes an asynchronous GET request to the `api/v1/entities/{entity}/metrics`. Retrieves an array of metric descriptors and then creates an array of options using `valueFieldPath` as the value and `textFieldPath` as the text. The `callback` can be applied to the initial series descriptors. If the setting specified in the dropdown's `change-field` parameter is not set in config, this function sets it to the value of the first possible option.
+Request metrics for the `entity` adding `queryParameters` to the request url.
+Creates an option for each loaded metric.
+The value of the field found by `valueFieldPath` is assigned to option's value.
+The value of the field found by `textFieldPath` is assigned to option's text.
+If `textFieldPath` is an array, it sequentially tries to find field by every path.
+When field is found it is assigned to the option's text.
+If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
+`callback` gets loaded metrics as argument and should return array of options, where at least value should be specified.
 
 ### Syntax
 ```
-requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParams]]]]])
+requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
 
 ### Scope of usage
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ GET request to the
 [/api/v1/entities/{entity}/metrics](https://github.com/axibase/atsd/blob/master/api/meta/entity/metrics.md)
 
 
@@ -1648,7 +1711,7 @@ Sends _asynchronous_ request to the
 | callback | optional | function | function to process series descriptors, should return array of options [expanded description](#optionsCallback) |
 | entity | optional | string | entity, for which metrics descriptors are loaded. If not specified, `entity` from the `[widget]` is used |
 | unique | optional | boolean | applied to raw series descriptors, so is *useless* |
-| queryParams | optional | string/object | string or key-value object representing request parameters |
+| queryParameters | optional | string/object | string or key-value object representing request parameters |
 
 ### Examples
 
@@ -1673,14 +1736,25 @@ Below is the content of the dropdown:
 
 
 
-<!-- ************************************ requestPropertiesValues() ************************************ -->
+<!-- ************************************ requestPropertiesOptions() ************************************ -->
 
 
 
 ## [⇧](#header) <a name="requestPropertiesOptions"></a> requestPropertiesOptions()
 
 ### Description
-Makes an asynchronous POST request to the `/api/v1/properties/query`. Retrieves an array of entitiy or property descriptors and then retrieves the value of the field on the `fieldPath`. The `callback` can be applied to the initial entity or property descriptors and should return array of options. If the setting specified in the dropdown's `change-field` is not set in config, this function sets it to the value of the first possible option.
+
+
+Requests the entity tags or properties for the entity or the entities specified by `entity`.
+If `postBody` is specified, it is sent ignoring `entity` and `propertyType`.
+It requests entity tags if `$entity_tags` is specified as `propertyType` and properties otherwise.
+Creates an option for each loaded tags or property object.
+The value of the field found by `valueFieldPath` is assigned to option's value.
+The value of the field found by `textFieldPath` is assigned to option's text.
+If `textFieldPath` is an array, it sequentially tries to find field by every path.
+When field is found it is assigned to the option's text.
+If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
+`callback` gets loaded tags/properties as argument and should return array of options, where at least value should be specified.
 
 ### Syntax
 ```
@@ -1691,7 +1765,7 @@ requestPropertiesOptions([valueFieldPath, [textFieldPath, [callback, [entity, [p
 Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
 
 ### API Request
-Sends _asynchronous_ request to the
+Sends _asynchronous_ POST request to the
 [/api/v1/properties/query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md)
 
 ### Return value
