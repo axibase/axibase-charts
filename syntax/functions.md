@@ -6,26 +6,26 @@ This page contains descriptions of recently implemented functions.
 
 | Name | Description |
 |------|-------------|
-| [getTags()](#getTags) | Retrieves series for the metric and returns a sorted array of unique values of defined tag |
+| [getTags()](#getTags) | Retrieves a metric's series and returns a sorted array of unique values for defined tags |
 | [getSeries()](#getSeries) | Returns an array of series collected for the defined metric |
-| [getMetrics()](#getMetrics) | Returns names of metrics collected for the defined entity |
-| [getEntities()](#getEntities) | Returns names of entities contained in the defined entity-group |
-| [range()](#range) | Returns a regularly-spaced array of numbers |
+| [getMetrics()](#getMetrics) | Returns the names of metrics collected for the defined entity |
+| [getEntities()](#getEntities) | Returns the names of entities contained in the defined entity-group |
+| [range()](#range) | Returns a regularly-spaced, customizable array of numbers |
 | [csv name = ...](#csv_inline) | Parses CSV-like text into an array of objects |
 | [csv name from ...](#csv_from)| Loads a CSV file located at the defined url and parses it into an array of objects |
-| [csv.values()](#csv_values) | Retrieves the sorted, unique values of the definied column |
-| [list.escape()](#list_escape) | Escapes commas in every element of the array |
+| [csv.values()](#csv_values) | Returns the sorted, unique values of a definied column |
+| [list.escape()](#list_escape) | Escapes commas in every element of an array |
 | [previous()](#previous) | Retrieves the value of the previous point in a sequence |
-| [movavg()](#movavg) | Computes the moving average for some number of previous points |
-| [meta()](#meta) | Retrieves metadata object for the series |
-| [entityTag()](#entityTag) | Returns the value of the entity tag from metadata object for the series |
-| [metricTag()](#metricTag) | Returns the value of the metric tag from metadata object for the series |
-| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Creates dropdown's options where values are retrieved from the defined field of the series |
-| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Creates dropdown's options where values are retrieved from the defined field of the metric |
-| [requestPropertiesValues()](#requestPropertiesValues) | Creates dropdown's options where values are retrieved from the defined field of the entity tags or the property |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Creates dropdown's options where values are retrieved from the defined field of the series |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Creates dropdown's options where values are retrieved from the defined field of the metric |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates dropdown's options where values are retrieved from the defined field of the entity tags or the property |
+| [movavg()](#movavg) | Computes the moving average from a desired number of previous points |
+| [meta()](#meta) | Retrieves the metadata object for a series |
+| [entityTag()](#entityTag) | Returns the value of the entity tag from the metadata object for the series |
+| [metricTag()](#metricTag) | Returns the value of the metric tag from the metadata object for the series |
+| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of the series |
+| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of the metric |
+| [requestPropertiesValues()](#requestPropertiesValues) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of entity tags or property |
+| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of the series |
+| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of the metric |
+| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates the selectable options for a dropdown from values which are retrieved from the defined field of the entity tags or the property |
 
 
 
@@ -41,10 +41,10 @@ This page contains descriptions of recently implemented functions.
 ## [⇧](#header) <a name="getTags"></a> getTags()
 
 ### Description
-From the `url` loads series for the `metric` and the `entity`, which last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+Loads a series for the `metric` and the `entity` from a defined `url`, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
 Additional `queryParameters` can be specified.
-Then unique values of the tag with name `tagName` are retrieved from the tags of the loaded series and sorted.
-The returned array includes the `list.escape()` function, which escapes any commas in each element.
+Unique values of the tag defined by `tagName` are retrieved from tags of the loaded series and sorted.
+The returned array includes the `list.escape()` function, which escapes any commas present in each element.
 
 ### Syntax
 ```
@@ -52,7 +52,7 @@ getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryPa
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### API Request
 Sends _synchronous_ GET request to the
@@ -133,9 +133,9 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 ## [⇧](#header) <a name="getSeries"></a> getSeries()
 
 ### Description
-From the `url` loads series for the `metric` and the `entity`, which last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+Loads a series for the `metric` and the `entity` from a defined `url`, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
 Additional `queryParameters` can be specified.
-Returns loaded series.
+Returns a loaded series.
 
 ### Syntax
 ```
@@ -143,7 +143,7 @@ getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameter
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### API Request
 Sends _synchronous_ GET request to the
@@ -231,9 +231,9 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ## [⇧](#header) <a name="getMetrics"></a> getMetrics()
 
 ### Description
-From the `url` loads metrics for the `entity`, which satisfy `expression`.
+Loads metrics for `entity` from a defined `url`, which satisfies `expression`.
 Additional `queryParameters` can be specified.
-Returns sorted names of loaded metrics.
+Returns the sorted names of loaded metrics.
 The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 ### Syntax
@@ -242,7 +242,7 @@ getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### API Request
 Sends _synchronous_ GET request to the
@@ -301,7 +301,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ## [⇧](#header) <a name="getEntities"></a> getEntities()
 
 ### Description
-From the `url` loads entities for contained in `group` entity-group, which satisfy `expression`.
+Loads entities contained in the entity-group defined by `group`, which satisfies `expression`.
 Additional `queryParameters` can be specified.
 Returns sorted names of loaded entities.
 The returned array includes the `list.escape()` function, which escapes any commas in each element.
@@ -312,7 +312,7 @@ getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### API Request
 Sends _synchronous_ GET request to the
@@ -373,10 +373,10 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ### Description
 
 
-Generates an array of numbers from `start` to `end` regularly-spaced with `step`.
+Generates an array of numbers from `start` to `end`, regularly spaced with a defineable `step`.
 If `step` is not specified, numbers are sequental.
-If `start` is greater than `end` numbers are generated in descending order.
-If `format` is specified, each number is formatted and converted to string.
+If `start` is greater than `end`, numbers are generated in descending order.
+If `format` is specified, each number is formatted and converted to a string.
 
 ### Syntax
 ```
@@ -384,7 +384,7 @@ range(start, end, [step], [format])
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### Return value
 `Array<number/string>` - generated (optionally formatted) numbers.
@@ -528,11 +528,11 @@ range(1, 12, "d3.format('02d')(value)")
 ## [⇧](#header) <a name="csv_inline"></a> CSV inline text mode
 
 ### Description
-Parse CSV-like text placed between `csv name = ` and `endcsv` keywords into an arrat of objects.
-First line contains header - columns' names.
+Parses CSV-like text placed between `csv name = ` and `endcsv` keywords into an array of objects.
+First line contains header/column names.
 Other lines contain data.
-Each data line is parsed into the object, where keys are columns' names and values are the values of corresponidng cells.
-The generated array uses the `.value(column_name)` method to get unique sorted values of defined column.
+Each data line is parsed into the object, where keys are column names and values are the values of corresponidng cells.
+The generated array uses the `.value(column_name)` method to get unique sorted values of the defined column.
 
 Limitations and features that are applied:
  - There can be empty lines and spaces.
@@ -553,7 +553,7 @@ endcsv
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope.
+Can be used in `preprocessor` stage.
 
 ### Return value
 `Array<object>` - Array of rows represented as objects with headers as keys and cells as corresponding values.
@@ -646,8 +646,8 @@ endfor
 ## [⇧](#header) <a name="csv_from"></a> CSV from mode
 
 ### Description
-Parse a CSV file located at the defined `url` into the array of objects.
-Each data line is parsed into the object, where keys are columns' names and values are the values of corresponidng cells.
+Parse a CSV file located at the defined `url` into an array of objects.
+Each data line is parsed into the object, where keys are column names and values are the values of the corresponidng cells.
 The generated array uses the `.value(column_name)` method to get unique sorted values of defined column.
 
 Limitation and features that are applied to the text:
@@ -665,7 +665,7 @@ csv csv_name from url
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope.
+Can be used in `preprocessor` stage.
 
 ### Return value
 `Array<object>` - Array of rows represented as objects with headers as keys and cells as corresponding values.
@@ -761,7 +761,7 @@ endfor
 ### Description
 Arrays generated from `csv` use the `.values()` method.
 This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
-The generated array has the `.escape()` method which escapes commas in each element.
+The generated array contains the `.escape()` method which escapes commas in each element.
 
 ### Syntax
 
@@ -875,7 +875,7 @@ Then we iterate over each value and set the country tag.
 ## [⇧](#header) <a name="list_escape"></a> list.escape()
 
 ### Description
-Escapes commas for each value in the array of strings.
+Escapes commas for each value in an array of strings.
 The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and `csv.values()` method.
 
 ### Syntax
@@ -885,7 +885,7 @@ list_name.escape()
 ```
 
 ### Scope of usage
-Can be used in `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` expressions.
+Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### Return value
 `Array<string>` - An  array where commas are escaped for each element. (If the argument is not a string it is returned as is)
@@ -982,8 +982,8 @@ country = @{countries.values('name').escape()}
 ## [⇧](#header) <a name="previous"></a> previous()
 
 ### Description
-Get the value of the previous point in the series named by the `alias` parameter.
-Relative to the current point, the index can be controlled by the `offset` argument.
+Get the value of the previous point in the series, defined by the `alias` parameter.
+The index can be controlled by the `offset` argument, relative to the current point.
 
 ### Syntax
 ```
@@ -1140,7 +1140,7 @@ value = movavg('raw', 30, 0)
 Return metadata loaded for a series defined by `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
-_Note: It must be used with `value(alias)` in one expression._
+_Note: Function must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1193,7 +1193,7 @@ value = value('raw') / meta('raw').metric.maxValue
 Returns tag with `tagName` from entity metadata loaded for series with `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
-_Note: It must be used with `value(alias)` in one expression._
+_Note: Function must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1246,7 +1246,7 @@ size = entityTag('cpu_count')
 Returns tag with `tagName` from metric metadata loaded for series with `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
-_Note: It must be used with `value(alias)` in one expression._
+_Note: Function must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
@@ -1306,11 +1306,11 @@ alert-expression = value() > metricTag('threshold_value')
 ## [⇧](#header) <a name="requestMetricsSeriesValues"></a> requestMetricsSeriesValues()
 
 ### Description
-Request series for the `metric` adding `queryParameters` to the request url.
-If `fieldPath` is specified retrieve fields found by `fieldPath` in the series.
-If `unique` is specified retrieved values would be unqiue and sorted.
-If `callback` function is specified, it  gets the array of retrieved fields or the array of loaded series as argument, wheter `fieldPath` is specified.
-Returns the array of options - objects with `value` property set to the processed retrieved value.
+Requests series for the `metric` adding `queryParameters` to the requested url.
+If `fieldPath` is specified retrieves fields found by `fieldPath` in the series.
+If `unique` is specified retrieved values are unique and sorted.
+If `callback` function is specified, the array of retrieved fields or the array of loaded series as an argument is returned, whether or not `fieldPath` is specified.
+Returns the array of options - objects with `value` property are set to the retrieved and processed value.
 
 ### Syntax
 ```
@@ -1318,7 +1318,7 @@ requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParame
 ```
 
 ### Scope of usage
-Can be used in `[dropdown]` section's `options` setting after `javascript: ` prefix.
+Can be used in a `[dropdown]` field's `options` setting after the `javascript: ` prefix.
 
 ### API Request
 Sends _asynchronous_ GET request to the
@@ -1368,11 +1368,11 @@ Below is the content of the dropdown.
 ## [⇧](#header) <a name="requestEntitiesMetricsValues"></a> requestEntitiesMetricsValues()
 
 ### Description
-Request metrics for the `entity` adding `queryParameters` to the request url.
-If `fieldPath` is specified retrieve fields found by `fieldPath` in the metric.
-If `unique` is specified retrieved values would be unqiue and sorted.
-If `callback` function is specified, it  gets the array of retrieved fields or the array of loaded metrics as argument, wheter `fieldPath` is specified.
-Returns the array of options - objects with `value` property set to the processed retrieved value.
+Requests metrics for the `entity` adding `queryParameters` to the requested url.
+If `fieldPath` is specified, retrieves fields found by `fieldPath` in the metric.
+If `unique` is specified, retrieved values are both unqiue and sorted.
+If `callback` function is specified, the function returns the array of retrieved fields or the array of loaded metrics as argument, whether or not `fieldPath` is specified.
+Returns the array of options - objects with `value` property set to the retrieved and processed value.
 
 ### Syntax
 ```
@@ -1430,12 +1430,12 @@ Below is the content of the dropdown.
 ## [⇧](#header) <a name="requestPropertiesValues"></a> requestPropertiesValues()
 
 ### Description
-Requests the entity tags or properties for the entity or the entities specified by `entity`.
-If `postBody` is specified, it is sent ignoring `entity` and `propertyType`.
-It requests entity tags if `$entity_tags` is specified as `propertyType` and properties otherwise.
+Requests entity tags or properties for the entity or entities specified by the `entity` parameter.
+If `postBody` is specified, `entity` and `propertyType` parameters are ignored.
+Function requests entity tags if `$entity_tags` is specified as `propertyType`, or if not, requests properties.
 If `fieldPath` is specified retrieve fields found by `fieldPath` in the entity tags or properties.
-If `unique` is specified retrieved values would be unqiue and sorted.
-If `callback` function is specified, it is applied to the array of retrieved fields or the array of entity tags/properties, wheter `fieldPath` is specified.
+If `unique` is specified retrieved values are both unqiue and sorted.
+If `callback` function is specified, it is applied to the array of retrieved fields or the array of entity tags/properties, whether or not `fieldPath` is specified.
 Returns the array of options - objects with `value` property set to the processed retrieved value.
 
 ### Syntax
@@ -1546,7 +1546,7 @@ Below is content of the dropdown.
 
 #### <a name=valuesCallback></a> Callback _(optional, type:function)_
 
-`callback` can be used for manual processing of series descriptors or additional processing of retrieved field values. If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array would be the argument.
+`callback` can be used for manual processing of series descriptors or additional processing of retrieved field values. If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array is used as the argument.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/15/)
 
@@ -1611,14 +1611,14 @@ Below is the content of the dropdown:
 ## [⇧](#header) <a name="requestMetricsSeriesOptions"></a> requestMetricsSeriesOptions()
 
 ### Description
-Request series for the `metric` adding `queryParameters` to the request url.
+Request series for the `metric` adding `queryParameters` to the requested url.
 Creates an option for each loaded series.
-The value of the field found by `valueFieldPath` is assigned to option's value.
-The value of the field found by `textFieldPath` is assigned to option's text.
-If `textFieldPath` is an array, it sequentially tries to find field by every path.
+The value of the field found by `valueFieldPath` is assigned to the option's value.
+The value of the field found by `textFieldPath` is assigned to the option's text.
+If `textFieldPath` is an array, it sequentially tries to find a field by every path.
 When field is found it is assigned to the option's text.
 If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
-`callback` gets loaded series as argument and should return array of options, where at least value should be specified.
+`callback` retrieves the loaded series as an argument and returns an array of options, where at least the value should be specified.
 
 ### Syntax
 ```
@@ -1677,14 +1677,14 @@ Below is the content of the dropdown:
 ## [⇧](#header) <a name="requestEntitiesMetricsOptions"></a> requestEntitiesMetricsOptions()
 
 ### Description
-Request metrics for the `entity` adding `queryParameters` to the request url.
+Requests metrics for the `entity` adding `queryParameters` to the requested url.
 Creates an option for each loaded metric.
-The value of the field found by `valueFieldPath` is assigned to option's value.
-The value of the field found by `textFieldPath` is assigned to option's text.
-If `textFieldPath` is an array, it sequentially tries to find field by every path.
-When field is found it is assigned to the option's text.
+The value of the field found by `valueFieldPath` is assigned to the option's value.
+The value of the field found by `textFieldPath` is assigned to the option's text.
+If `textFieldPath` is an array, it sequentially tries to find a field by every path.
+When a field is found it is assigned to the option's text.
 If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
-`callback` gets loaded metrics as argument and should return array of options, where at least value should be specified.
+`callback` gets loaded metrics as an argument and returns an array of options, where at least the value should be specified.
 
 ### Syntax
 ```
@@ -1745,16 +1745,16 @@ Below is the content of the dropdown:
 ### Description
 
 
-Requests the entity tags or properties for the entity or the entities specified by `entity`.
-If `postBody` is specified, it is sent ignoring `entity` and `propertyType`.
-It requests entity tags if `$entity_tags` is specified as `propertyType` and properties otherwise.
-Creates an option for each loaded tags or property object.
-The value of the field found by `valueFieldPath` is assigned to option's value.
-The value of the field found by `textFieldPath` is assigned to option's text.
-If `textFieldPath` is an array, it sequentially tries to find field by every path.
-When field is found it is assigned to the option's text.
-If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
-`callback` gets loaded tags/properties as argument and should return array of options, where at least value should be specified.
+Requests the entity tags or properties for the entity or the entities specified by the `entity` parameter.
+If `postBody` is specified, `entity` and `propertyType` parameters are ignored.
+Function requests entity tags if `$entity_tags` is specified as `propertyType`, or otherwise requestes properties.
+Creates a selectable option for each loaded tag or property object.
+The value of the field found by `valueFieldPath` is assigned to the option's value.
+The value of the field found by `textFieldPath` is assigned to the option's text.
+If `textFieldPath` is an array, the function sequentially tries to find a field at each path.
+When a field is found it is assigned to the option's text.
+If `callback` function is specified, the `valueFieldPath` and `textFieldPath` parameters are ignored.
+`callback` gets loaded tags/properties as an argument and returns an array of options, where at least the value should be specified.
 
 ### Syntax
 ```
@@ -1826,10 +1826,10 @@ Below is the content of the dropdown:
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/14/)
 
-`textFieldPath` is the dot-separated path to field in series descriptor object or array of such paths. If it is an array then second and further elements are used as text if search on previous path failed. If `textFieldPath` is not specified or search on all path failed the value is used as text.
+`textFieldPath` are the period-separated paths to a field in a series descriptor object, or an array of such paths. If it is an array then all elements other than the first are used as text. If `textFieldPath` is not specified or search on all paths failed the value is used as text.
 
 
-To fill dropdown with options in which value is retrieved from `name` field of metric descriptor and text from tag `description` we can use `textFieldPath` as string.
+To fill a dropdown with selectable options in which values are retrieved from the `name` field of the metric descriptor and text from the tag `description`, `textFieldPath` as string can be used.
 
 ```
   [dropdown]
@@ -1837,12 +1837,12 @@ To fill dropdown with options in which value is retrieved from `name` field of m
     change-field = metric
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown.
 
 ![](images/options:fieldPath:string.png)
 
 
-Fill the dropdown with values retrieved from the `name` field of the metric descriptor and the text from the tag `description` or tag `documentation`, if the descriptor has no value for the tag `description`, we can use `textFieldPath` as an array.
+Fill the dropdown with values retrieved from the `name` field of the metric descriptor and the text from the tag `description` or tag `documentation`, if the descriptor has no value for the tag `description`, `textFieldPath` as an array can be used
 
 ```
   [dropdown]
@@ -1850,7 +1850,7 @@ Fill the dropdown with values retrieved from the `name` field of the metric desc
     change-field = metric
 ```
 
-Below is content of the dropdown.
+Below is the content of the dropdown.
 
 ![](images/options:fieldPath:array.png)
 
