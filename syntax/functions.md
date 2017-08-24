@@ -987,7 +987,7 @@ Relative to the current point, the index can be controlled by the `offset` argum
 
 ### Syntax
 ```
-previous([alias], [offset])
+previous(alias, [offset])
 ```
 
 ### Scope of usage
@@ -1000,7 +1000,7 @@ Can be used in `value-expression` settings.
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, from which the previous value should be retrieved |
+| alias | required | string | alias of the series, from which the previous value should be retrieved |
 | offset | optional | number | the index of the previous point relative to the current point, default is 1 |
 
 ### Examples
@@ -1077,7 +1077,7 @@ The average is calculated if at least `minCount` previous points are available.
 
 ### Syntax
 ```
-movavg([alias], count, [minCount])
+movavg(alias, count, [minCount])
 ```
 
 ### Scope of usage
@@ -1090,7 +1090,7 @@ Can be used in `value-expression` settings.
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, to which movavg should be applied |
+| alias | required | string | alias of the series, to which movavg should be applied |
 | count | required | number | number of points for which movavg is will be calculated |
 | minCount | optional | number | minimal number of points, for which movavg will be calculated, default is `count` |
 
@@ -1144,7 +1144,7 @@ _Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
-meta([alias])
+meta(alias)
 ```
 
 ### Scope of usage
@@ -1157,7 +1157,7 @@ Can be used in `value-expression` settings.
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, from which metadata is returned |
+| alias | required | string | alias of the series, from which metadata is returned |
 
 ### Examples
 
@@ -1197,7 +1197,7 @@ _Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
-entityTag([alias], tagName)
+entityTag(alias, tagName)
 ```
 
 ### Scope of usage
@@ -1210,7 +1210,7 @@ Can be used in `value-expression` settings.
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, from which metadata is returned |
+| alias | required | string | alias of the series, from which metadata is returned |
 | tagName | required | string | name of tag which is retrieved from `meta.entity.tags` |
 
 ### Examples
@@ -1250,7 +1250,7 @@ _Note: It must be used with `value(alias)` in one expression._
 
 ### Syntax
 ```
-metricTag([alias], tagName)
+metricTag(alias, tagName)
 ```
 
 ### Scope of usage
@@ -1263,7 +1263,7 @@ Can be used in `value-expression` settings.
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| alias | optional | string | alias of the series, from which metadata is returned |
+| alias | required | string | alias of the series, from which metadata is returned |
 | tagName | required | string | name of tag which is retrieved from `meta.metric.tags` |
 
 ### Examples
