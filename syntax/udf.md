@@ -52,10 +52,10 @@ If defined `url` is just a file name, then the file is loaded from the current h
 
 [ChartLab Example](https://apps.axibase.com/chartlab/20)
 
-The below setting loads module from `https://github.com/axibase/charts/resources/fred.js`.
+The below setting loads module from `https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js`.
 
 ```
-import fred = https://github.com/axibase/charts/resources/fred.js
+import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
 
 
