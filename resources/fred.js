@@ -45,7 +45,7 @@ FunctionsContainer.prototype.ChangeByOffset = function (alias, offset) {
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.MonthlyChange = function (alias) {
-    return this.ChangeAtoffset(alias, "1 month");
+    return this.ChangeByOffset(alias, "1 month");
 };
 
 /**
@@ -53,7 +53,7 @@ FunctionsContainer.prototype.MonthlyChange = function (alias) {
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.ChangeFromYearAgo = function (alias) {
-    return this.ChangeAtoffset(alias, "1 year");
+    return this.ChangeByOffset(alias, "1 year");
 };
 
 /**
@@ -78,7 +78,7 @@ FunctionsContainer.prototype.PercentChangeByOffset = function (alias, offset) {
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.MonthlyPercentChange = function (alias) {
-    return this.PercentChange(alias, "1 month");
+    return this.PercentChangeByOffset(alias, "1 month");
 };
 
 /**
@@ -86,7 +86,7 @@ FunctionsContainer.prototype.MonthlyPercentChange = function (alias) {
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.PercentChangeFromYearAgo = function (alias) {
-    return this.PercentChange(alias, "1 year");
+    return this.PercentChangeByOffset(alias, "1 year");
 };
 
 /**
@@ -199,7 +199,7 @@ FunctionsContainer.prototype.IndexMax = function (alias) {
  */
 FunctionsContainer.prototype.getValueWithOffset = function (alias, offset) {
     var currentDate = new Date(this.calc.point.t);
-    var parsedOffset = lib.getoffsetValue(offset, null, true, true);
+    var parsedOffset = lib.getIntervalValue(offset, null, true, true);
     var isUTC = this.calc.isUTC();
     var offsetTimestamp = lib.shiftDate(currentDate, parsedOffset, -1 , isUTC).getTime();
     var previousValue = this.getValueAtPoint(alias, offsetTimestamp);
