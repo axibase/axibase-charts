@@ -2,19 +2,19 @@
 module.exports = FunctionsContainer;
 
 /**
- * contains user-defined functions binded to some value-expression calculator
+ * contains user-defined functions tied to some value-expression calculator
  * @constructor
  * @param {Calculator} calculator which calculates value-expression
  */
 function FunctionsContainer(calculator) {
     this.calc = calculator;     /* expression calculator */
-    this.value = getVarFunctionByName(calculator, "value"); /* function to calculate value in current point */
+    this.value = getVarFunctionByName(calculator, "value"); /* function to calculate value at current point */
 }
 
 /**
  * support function to retrieve the variable function with the defined `name`
  * @param {Calculator} calc which calculates value-expression
- * @param {string} name of the function, which should be found
+ * @param {string} name of function to be used
  */
 function getVarFunctionByName(calc, name) {
     var varFunctions = calc.vars();
@@ -24,16 +24,16 @@ function getVarFunctionByName(calc, name) {
 }
 
 /**
- * gets the difference between current point in the series specified by `alias` and the point with `offset`
+ * calculates the difference between current point in the series, specified by `alias,` and modifies the point by the value of the `offset`
  * @param {string} alias of the series, for which value is calculated
- * @param {string} offset by which currently processed point should be shifted
+ * @param {string} variable offset, used to modify the underlying data
  */
 FunctionsContainer.prototype.ChangeByOffset = function (alias, offset) {
     var currentValue = this.value(alias);
     var previousValue = this.getValueWithOffset(alias, offset);
 
     if (previousValue == null) {
-        /* 'missed' flag means, that the value should be recalculated when new data arrive */
+        /* 'missed' flag means, that the value must be recalculated when new data is available */
         this.calc.point.missed = true;
     } else if (currentValue != null) {
         return currentValue - previousValue;
@@ -41,7 +41,7 @@ FunctionsContainer.prototype.ChangeByOffset = function (alias, offset) {
 };
 
 /**
- * gets the difference between current point in the series specified by `alias` and the point with offset `1 month`
+ * gets the difference between current point in the series specified by `alias` and the point with an offset value of `1 month`
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.MonthlyChange = function (alias) {
@@ -49,8 +49,8 @@ FunctionsContainer.prototype.MonthlyChange = function (alias) {
 };
 
 /**
- * gets the difference between current point in the series specified by `alias` and the point with offset `1 year`
- * @param {string} alias of the series, for which value is calculated
+ * gets the difference between current point in the series specified by `alias` and the point with an offset of `1 year`
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.ChangeFromYearAgo = function (alias) {
     return this.ChangeByOffset(alias, "1 year");
@@ -58,7 +58,7 @@ FunctionsContainer.prototype.ChangeFromYearAgo = function (alias) {
 
 /**
  * gets the percent change between current point in the series specified by `alias` and the point with `offset`
- * @param {string} alias of the series, for which value is calculated
+ * @param {string} alias of the series for which value is calculated
  * @param {string} offset by which currently processed point should be shifted
  */
 FunctionsContainer.prototype.PercentChangeByOffset = function (alias, offset) {
@@ -66,7 +66,7 @@ FunctionsContainer.prototype.PercentChangeByOffset = function (alias, offset) {
     var previousValue = this.getValueWithOffset(alias, offset);
 
     if (previousValue == null) {
-        /* 'missed' flag means, that the value should be recalculated when new data arrive */
+        /* 'missed' flag means, that the value should be recalculated when new data becomes available */
         this.calc.point.missed = true;
     } else if (currentValue != null) {
         return (currentValue / previousValue - 1) * 100;
@@ -74,31 +74,31 @@ FunctionsContainer.prototype.PercentChangeByOffset = function (alias, offset) {
 };
 
 /**
- * gets the percent change between current point in the series specified by `alias` and the point with offset `1 month`
- * @param {string} alias of the series, for which value is calculated
+ * calculates the percent change between the current point in the series specified by `alias` and the point with an offset of `1 month`
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.MonthlyPercentChange = function (alias) {
     return this.PercentChangeByOffset(alias, "1 month");
 };
 
 /**
- * get the percent change between current point in the series specified by `alias` and the point with offset `1 year`
- * @param {string} alias of the series, for which value is calculated
+ * calculates the percent change between the current point in the series specified by `alias` and the point with an offset of `1 year`
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.PercentChangeFromYearAgo = function (alias) {
     return this.PercentChangeByOffset(alias, "1 year");
 };
 
 /**
- * get the coumpounded annual rate
- * @param {string} alias of the series, for which value is calculated
+ * calculates the coumpounded annual rate
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.CompoundedAnnualRateOfChange = function (alias) {
     var currentValue = this.value(alias);
     var previousValue = this.getValueWithOffset(alias, "1 year");
 
     if (previousValue == null) {
-        /* 'missed' flag means, that the value should be recalculated when new data arrive */
+        /* 'missed' flag means that the value should be recalculated when new data is available */
         this.calc.point.missed = true;
     } else if (previousValue != null) {
         return (Math.pow(( currentValue / previousValue ), 12) - 1) * 100;
@@ -106,7 +106,7 @@ FunctionsContainer.prototype.CompoundedAnnualRateOfChange = function (alias) {
 };
 
 /**
-* get the continuously coumpounded rate
+* calculates the continuously coumpounded rate
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.ContinuouslyCompoundedRateOfChange = function (alias) {
@@ -114,7 +114,7 @@ FunctionsContainer.prototype.ContinuouslyCompoundedRateOfChange = function (alia
     var previousValue = this.getValueWithOffset(alias, "1 year");
 
     if (previousValue == null) {
-        /* 'missed' flag means, that the value should be recalculated when new data arrive */
+        /* 'missed' flag means, that the value should be recalculated when new data is available */
         this.calc.point.missed = true;
     } else if (previousValue != null) {
         return ( Math.log(currentValue) - Math.log(previousValue) ) * 100;
@@ -122,7 +122,7 @@ FunctionsContainer.prototype.ContinuouslyCompoundedRateOfChange = function (alia
 };
 
 /**
-* get the continuously coumpounded annual rate
+* calculates the continuously coumpounded annual rate
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.ContinuouslyCompoundedAnnualRateOfChange = function (alias) {
@@ -130,7 +130,7 @@ FunctionsContainer.prototype.ContinuouslyCompoundedAnnualRateOfChange = function
     var previousValue = this.getValueWithOffset(alias, "1 year");
 
     if (previousValue == null) {
-        /* 'missed' flag means, that the value should be recalculated when new data arrive */
+        /* 'missed' flag means that the value should be recalculated when new data is available */
         this.calc.point.missed = true;
     } else if (previousValue != null) {
         return ( Math.log(currentValue) - Math.log(previousValue) ) * 100 * 12;
@@ -138,8 +138,8 @@ FunctionsContainer.prototype.ContinuouslyCompoundedAnnualRateOfChange = function
 };
 
 /**
- * get the natural log of the current point
- * @param {string} alias of the series, for which value is calculated
+ * calculates the natural log of the current point
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.NaturalLog = function (alias) {
     var currentValue = this.value(alias);
@@ -148,7 +148,7 @@ FunctionsContainer.prototype.NaturalLog = function (alias) {
 };
 
 /**
- * scale current point value, so that point at the `time` will have value 100
+ * uses the defined 'time' as the index (value = 100) for the remaining data
  * @param {string} alias of the series, for which value is calculated
  * @param {string} time timespamp, at whic
  */
@@ -176,7 +176,7 @@ FunctionsContainer.prototype.Index = function (alias, time) {
 };
 
 /**
- * get the maximum value of the series specified by `alias`
+ * defines the maximum value of the series specified by `alias`
  * @param {string} alias of the series, for which value is calculated
  */
 FunctionsContainer.prototype.IndexMax = function (alias) {
@@ -192,10 +192,10 @@ FunctionsContainer.prototype.IndexMax = function (alias) {
 
 
 /**
- * get value (with interpolation) of the series specified by `alias`
- * at the point with offset `offset` from currently processed point time
+ * defines value (with interpolation) of the series specified by `alias`
+ * at the point with some `offset` from the currently processed point in time
  * @param {string} alias of the series, for which value is calculated
- * @param {string} offset offset,
+ * @param {string} offset,
  */
 FunctionsContainer.prototype.getValueWithOffset = function (alias, offset) {
     var currentDate = new Date(this.calc.point.t);
@@ -207,9 +207,9 @@ FunctionsContainer.prototype.getValueWithOffset = function (alias, offset) {
 };
 
 /**
- * calculates (with interpolation) value of the series specified by `alias` at the given `time`
- * @param {string} alias - alias of series, for which value should be found
- * @param {number} time - timestamp of the interestig point
+ * calculates (with interpolation) the value of the series specified by `alias` at the given `time`
+ * @param {string} alias - alias of series for which value should be found
+ * @param {number} time - timestamp of the desired point
 */
 FunctionsContainer.prototype.getValueAtPoint = function (alias, time) {
     var point = {
@@ -228,8 +228,8 @@ FunctionsContainer.prototype.getValueAtPoint = function (alias, time) {
 };
 
 /**
- * finds series by alias and find maximum value in it's data
- * @param {string} alias of the series, for which value is calculated
+ * defines a series maximum value
+ * @param {string} alias of the series for which value is calculated
  */
 FunctionsContainer.prototype.getMaximumValue = function (alias) {
     var series = this.calc.series.getSeriesByAlias(alias);
