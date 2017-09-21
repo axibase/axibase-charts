@@ -87,7 +87,7 @@ import fred = fred_v1.js
 
 Server restart is **not** required for the new/updated function files to be accessible.
 
-### Writing Functions
+## Writing Functions
 
 The function declaration must start with `exports.` followed by a valid function name. Function names are case-sensitive.
 
@@ -103,3 +103,67 @@ exports.NaturalLog = function (alias) {
 ```
 
 The function must return a numeric value or null.
+
+## Example
+
+This example will illustrate how one can develop and deploy a simple user-defined function. For the purpose of this exercise, we will create a function that multiplies original values by the specified constant value.
+
+### Step 1. Create JavaScript File
+
+Let's call the new function `multiplyBy`. The function will accept series alias as the first argument and a numeric constant as the second argument.
+
+```javascript
+/*
+ This function multiple all values in the original series, identified by alias, by a constant numeric value.
+*/
+exports.multiplyBy = function (alias, num) {
+  // multiple current value from the referenced series by 'num'
+  var result = value(alias) * num;
+  // return the product to the outer function
+  return return;
+};
+```
+
+The function's definition must start with `exports.` qualifier and followed by a JavaScript [function body](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions). 
+
+Notice that each function we define must return a value which is why after using a simple multiplication formula to calculate the product of two numbers, we're returning the computed value stored in `result` variable back to the outer function that called our function with these arguments.
+
+Create a file `my_math.js` and store this function definition in the file.
+
+### Step 2. Deploy the JavaScript File to ATSD Server
+
+Login into ATSD server shell and copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory on the ATSD server.
+
+Verify that the file is accessible at the following url: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
+
+### Step 3. Import Functions
+
+Open **Admin>Portals** page and create a new portal. 
+
+Enter the following configuration text. Replace `mpstat.cpu_busy` and `nurswgvml007` with metric and entity present in your ATSD instance.
+
+```ls
+[configuration]
+  height-units = 2
+  width-units = 2
+  import mm = my_math.js
+
+[group]
+  [widget]
+    type = chart
+    timespan = 1 hour
+    [series]
+      metric = mpstat.cpu_busy
+      entity = nurswgvml007
+      alias = s1
+    [series]
+      value = mm.multiplyBy('s1', 2)
+```
+
+Save the file. View the portal to check results.
+
+[Chartlab Example](https://apps.axibase.com/chartlab/bc36b341)
+
+
+
+
