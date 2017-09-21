@@ -1,7 +1,7 @@
 /**
- * gets the difference between current point in the series specified by `alias` and the point with `offset`
- * @param {string} alias of the series, for which value is calculated
- * @param {string} offset by which currently processed point should be shifted
+ * Calculate the difference between the current value and the historical value at the specified `offset` from current time
+ * @param {string} series alias
+ * @param {string} time offset, specified using the endtime syntax, for example '3 day'
  */
 exports.ChangeByOffset = ChangeByOffset;
 function ChangeByOffset(alias, offset) {
@@ -14,25 +14,25 @@ function ChangeByOffset(alias, offset) {
 };
 
 /**
- * gets the difference between current point in the series specified by `alias` and the point with offset `1 month`
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the difference between the current value and the historical value 1 month ago
+ * @param {string} series alias
  */
 exports.MonthlyChange = function (alias) {
     return ChangeByOffset(alias, "1 month");
 };
 
 /**
- * gets the difference between current point in the series specified by `alias` and the point with offset `1 year`
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the difference between the current value and the historical value 1 year ago
+ * @param {string} series alias
  */
 exports.ChangeFromYearAgo = function (alias) {
     return ChangeByOffset(alias, "1 year");
 };
 
 /**
- * gets the percent change between current point in the series specified by `alias` and the point with `offset`
- * @param {string} alias of the series, for which value is calculated
- * @param {string} offset by which currently processed point should be shifted
+ * Calculate the difference in percent between the current value and the historical value at the specified `offset` from current time
+ * @param {string} series alias
+ * @param {string} time offset, offset specified using the endtime syntax, for example '2 week'
  */
 exports.PercentChangeByOffset = PercentChangeByOffset;
 function PercentChangeByOffset(alias, offset) {
@@ -45,24 +45,24 @@ function PercentChangeByOffset(alias, offset) {
 };
 
 /**
- * gets the percent change between current point in the series specified by `alias` and the point with offset `1 month`
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the difference in percent between the current value and the historical value 1 month ago
+ * @param {string} series alias
  */
 exports.MonthlyPercentChange = function (alias) {
     return PercentChangeByOffset(alias, "1 month");
 };
 
 /**
- * get the percent change between current point in the series specified by `alias` and the point with offset `1 year`
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the difference in percent between the current value and the historical value 1 year ago
+ * @param {string} series alias
  */
 exports.PercentChangeFromYearAgo = function (alias) {
     return PercentChangeByOffset(alias, "1 year");
 };
 
 /**
- * get the coumpounded annual rate
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the compounded annual rate of change
+ * @param {string} series alias
  */
 exports.CompoundedAnnualRateOfChange = function (alias) {
     var currentValue = value(alias);
@@ -74,8 +74,8 @@ exports.CompoundedAnnualRateOfChange = function (alias) {
 };
 
 /**
-* get the continuously coumpounded rate
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the continuously compounded rate of change
+ * @param {string} series alias
  */
 exports.ContinuouslyCompoundedRateOfChange = function (alias) {
     var currentValue = value(alias);
@@ -87,8 +87,8 @@ exports.ContinuouslyCompoundedRateOfChange = function (alias) {
 };
 
 /**
-* get the continuously coumpounded annual rate
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the continuously compounded annual rate of change
+ * @param {string} series alias
  */
 exports.ContinuouslyCompoundedAnnualRateOfChange = function (alias) {
     var currentValue = value(alias);
@@ -100,20 +100,19 @@ exports.ContinuouslyCompoundedAnnualRateOfChange = function (alias) {
 };
 
 /**
- * get the natural log of the current point
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the natural logarithm (base e) of the current value
+ * @param {string} series alias
  */
 exports.NaturalLog = function (alias) {
     var currentValue = value(alias);
-
     return Math.log(currentValue);
 };
 
 var savedValues = {};
 /**
- * scale current point value, so that point at the `time` will have value 100
- * @param {string} alias of the series, for which value is calculated
- * @param {string} time timespamp, at whic
+ * Calculate the ratio of the current value to a historical value recorded at the specific time, multiplies by 100.
+ * @param {string} series alias
+ * @param {string} timespamp. A date specified in ISO 8601 or local datetime format 'YYYY-MM-DD [HH:mm:ss]'
  */
 exports.Index = function (alias, time) {
     var currentValue = value(alias);
@@ -135,8 +134,8 @@ exports.Index = function (alias, time) {
 };
 
 /**
- * get the maximum value of the series specified by `alias`
- * @param {string} alias of the series, for which value is calculated
+ * Calculate the ratio of the current value to its maximum observed value, multiplies by 100.
+ * @param {string} series alias
  */
 exports.IndexMax = function (alias) {
     var currentValue = value(alias);
