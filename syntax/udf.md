@@ -120,7 +120,7 @@ exports.multiplyBy = function (alias, num) {
   // multiple current value from the referenced series by 'num'
   var result = value(alias) * num;
   // return the product to the outer function
-  return return;
+  return result;
 };
 ```
 
