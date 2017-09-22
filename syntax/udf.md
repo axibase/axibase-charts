@@ -140,7 +140,7 @@ Verify that the file is accessible at the following url: `http://atsd_hostname:8
 
 Open **Admin>Portals** page and create a new portal. 
 
-Enter the following configuration text. Replace `mpstat.cpu_busy` and `nurswgvml007` with metric and entity present in your ATSD instance.
+Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` with metric and entity present in your ATSD instance.
 
 ```ls
 [configuration]
@@ -153,7 +153,7 @@ Enter the following configuration text. Replace `mpstat.cpu_busy` and `nurswgvml
     type = chart
     timespan = 1 hour
     [series]
-      metric = mpstat.cpu_busy
+      metric = cpu_busy
       entity = nurswgvml007
       alias = s1
     [series]
