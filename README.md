@@ -14,11 +14,11 @@ Existing docs and examples are currently hosted on https://axibase.com/products/
 
 * [Layout](layout)
 * [Data Loading](integration)
-* [Syntax](syntax)
-  - [Functions](syntax/functions.md)
+* [Syntax](syntax)  
   - Inheritance
   - Computed Metrics
   - Control Structures
+  - [Functions](syntax/functions.md)  
   - Summary Portals
   - Label Formatting
   - Meta Data
@@ -31,6 +31,7 @@ Existing docs and examples are currently hosted on https://axibase.com/products/
   - Extended Aggregators
   - Wildcards
   - Dropdowns
+  - [Used-Defined Functions](syntax/udf.md)   
 * [Widgets](widgets)
   - [Time Chart](widgets/chart)
   - [Gauge](widgets/gauge)
