@@ -37,7 +37,7 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 If the `url` parameter is relative, the function is loaded from `/portal/resource/scripts/{file_name}` path on the current host.
 
-[Example](https://apps.axibase.com/chartlab/19)
+[Example](https://apps.axibase.com/chartlab/d220468d/19)
 
 ## Usage
 
