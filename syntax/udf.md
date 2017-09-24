@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to develop custom time series functions and to apply them in Axibase chart configurations.
+This document describes how to develop custom time series functions and apply them in Axibase chart configurations.
 
 ## Importing Functions
 
@@ -19,14 +19,14 @@ Example:
 import fred = /portal/resource/udf_fred.js
 ```
 
-The package name can be any name and it's purpose is to avoid collisions between similarly named functions loaded from different files. Multiple function files can be loaded by assiging different package names.
+The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files. Multiple function files can be loaded by assiging different package names to each one. 
 
 ```
 import fred_base = /portal/resources/udf_fred_v.1.js
 import fred_advanced = /portal/resources/udf_fred_v.2.js
 ```
 
-The functions can be loaded from the same or a remove server.
+The functions can be loaded from a local server or remote server.
 
 ```
 # load functions from a remote server
@@ -41,7 +41,7 @@ If the `url` parameter is relative, the function is loaded from `/portal/resourc
 
 ## Usage
 
-The imported functions can be referenced in `value` expressions by specifying the functions full name containing the package name, the function name and its arguments.
+The imported functions can be referenced in `value` expressions by specifying the functions full name containing the package name, the function name, and its arguments.
 
 ```
 # Calculate monthly change for series with alias 'raw'
@@ -85,7 +85,7 @@ The JavaScript file will be accessible in chart configurations by its file name:
 import fred = fred_v1.js
 ```
 
-Server restart is **not** required for the new/updated function files to be accessible.
+Server restart is **not** required for new/updated function files to be accessible.
 
 ## Writing Functions
 
@@ -114,10 +114,10 @@ Let's call the new function `multiplyBy`. The function will accept series alias 
 
 ```javascript
 /*
- This function multiple all values in the original series, identified by alias, by a constant numeric value.
+ This function multiples all values in the original series, identified with the alias parameter, by a constant numeric value.
 */
 exports.multiplyBy = function (alias, num) {
-  // multiple current value from the referenced series by 'num'
+  // multiply current value from the referenced series by number 'num'
   var result = value(alias) * num;
   // return the product to the outer function
   return result;
@@ -126,13 +126,13 @@ exports.multiplyBy = function (alias, num) {
 
 The function's definition must start with `exports.` qualifier and followed by a JavaScript [function body](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions). 
 
-Notice that each function we define must return a value which is why after using a simple multiplication formula to calculate the product of two numbers, we're returning the computed value stored in `result` variable back to the outer function that called our function with these arguments.
+Notice that each function we define must return a value, which is why after using a simple multiplication formula to calculate the product of two numbers, we're returning the computed value stored as the `result` variable back to the outer function that called our function with these arguments.
 
 Create a file `my_math.js` and store this function definition in the file.
 
 ### Step 2. Deploy the JavaScript File to ATSD Server
 
-Login into ATSD server shell and copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory on the ATSD server.
+Log in to ATSD server shell and copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory onto the ATSD server.
 
 Verify that the file is accessible at the following url: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
 
