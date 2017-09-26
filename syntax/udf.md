@@ -2,11 +2,11 @@
 
 ## Overview
 
-This document describes how to develop custom time series functions and apply them in Axibase chart configurations.
+This document describes how to develop custom time series functions and then apply them in Axibase chart configurations.
 
 ## Importing Functions
 
-Custom functions are loaded with the `import` keyword, followed by package name and the url to the JavaScript file containing  function definitions. 
+Custom functions are loaded with the `import` keyword, followed by a package name and url to the JavaScript file containing  function definitions. 
 
 ```
 import package_name = url
@@ -19,14 +19,14 @@ Example:
 import fred = /portal/resource/udf_fred.js
 ```
 
-The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files. Multiple function files can be loaded by assiging different package names to each one. 
+The package name can be anything as its purpose is to avoid collisions between similarly named functions loaded from different files. Multiple function files can be loaded by assiging different package names to each one. 
 
 ```
 import fred_base = /portal/resources/udf_fred_v.1.js
 import fred_advanced = /portal/resources/udf_fred_v.2.js
 ```
 
-The functions can be loaded from a local server or remote server.
+Functions can be loaded from a local server or remote server.
 
 ```
 # load functions from a remote server
@@ -119,7 +119,7 @@ Let's call the new function `multiplyBy`. The function will accept series alias 
 exports.multiplyBy = function (alias, num) {
   // multiply current value from the referenced series by number 'num'
   var result = value(alias) * num;
-  // return the product to the outer function
+  // return the product of the outer function
   return result;
 };
 ```
