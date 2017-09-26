@@ -77,6 +77,8 @@ exports.getPercentChangeFromBaseDate = function (alias, date) {  // get the curr
   This function calculates the percentage difference between the current value and the maximum value in the original series, identified by alias.
 */
 exports.getPercentageOfMax = function (alias) {
+  // get the current value
+  var current = value(alias);
   // get the maximum value in the whole series within the loaded timespan
   var maximum = getMaximumValue(alias);
   // calculate the percentage change
