@@ -177,7 +177,7 @@ All functions from the examples can be found in [examples.js file](../resources/
 
 ##### Calculate the range between maximum and minimum in each period, using `max()` and `min()` functions
 
-[Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463)
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/1/)
 
 This example shows, how `max()` and `min()` functions can be used.
 Both functions calculate the aggregated value, so the same value is returned for the whole period.
@@ -207,7 +207,7 @@ The above function can be used as follows:
 
 ##### Calculate the difference between each value and the avarage of the period .
 
-[Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/3/)
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/2/)
 
 This example shows, how `avg()` and `value()` functions can be used.
 The `value()` function returns the current value of the series, identified by alias.
@@ -236,7 +236,7 @@ The above function can be used as follows:
 
 ##### Calculate the weight of each value within the sum of all values in the period.
 
-[Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/4/)
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/3/)
 
 This example shows, how `sum()` and `value()` function can be used.
 The `value()` function returns the current value of the series, identified by alias.
@@ -299,7 +299,7 @@ getValueWithOffset(alias, offset)
 
 ##### Example
 
-[ChartlabExample](https://apps.axibase.com/chartlab/8f8a0463/6/)
+[ChartlabExample](https://apps.axibase.com/chartlab/2595a144/4/)
 
 `getValueWithOffset()` can be used to compute the change between current points and points in the past with constant offset.
 Using `getValueWithOffset()` user can write the `getOffsetChange() function`.
@@ -359,7 +359,7 @@ getValueAtPoint(alias, time)
 
 ##### Example
 
-[Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/7/)
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
 
 `getValueAtPoint()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
 Using `getValueAtPoint()` user can write the `getPercentChangeFromBaseDate() function`.
@@ -420,7 +420,7 @@ getMaximumValue(alias)
 
 ##### Example
 
-[Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/8/)
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/6/)
 
 `getMaximumValue()` can be used to compare the recent value with the maximum value or modify the recent value, using the maximum value.
 Using `getMaximumValue()` user can write the `getPercentageOfMax() function`.
