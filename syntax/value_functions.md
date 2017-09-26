@@ -2,7 +2,24 @@
 
 ## Overview
 
-This document describes functions, which can be used in `value-expression` settings.
+This document describes functions, which can be used in `value` setting.
+
+Here is a small example of how this functions can be used. [Example in ChartLab](https://apps.axibase.com/chartlab/ae6323aa)
+
+```ls
+# first, define base series, which data will be used in calculations
+[series]
+  # provide the base series with an "alias"
+  alias = base
+  metric = cpu_busy
+  entity = nurswgvml007
+
+# than define the computed series with "value" setting
+[series]
+  # call `value()` function, using the alias of base series as argument "alias"
+  value = 2 * value("base")
+  label = computed
+```
 
 ## Statistic functions
 

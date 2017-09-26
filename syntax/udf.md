@@ -166,20 +166,20 @@ Save the file. View the portal to check results.
 
 ## Functions Available in the Package
 
-### Value-Expression Functions
+### Value Setting Functions
 
-In the functions file you can use [all functions, which can be used in value-expressions](./value_functions.md).
+In the functions file you can use [all functions, which can be used in [series] value setting](./value_functions.md).
 
 #### Examples
 
-Below are varians of functions you can write with value-expression functions.
-All functions from the examples can be found in [my_math.js file](../resources/my_math.js).
+Below are varians of functions you can write with value setting functions.
+All functions from the examples can be found in [examples.js file](../resources/examples.js).
 
 ##### Calculate the range between maximum and minimum in each period, using `max()` and `min()` functions
 
 [Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463)
 
-This example shows, how `max()` and `min()` value-expression functions can be used.
+This example shows, how `max()` and `min()` functions can be used.
 Both functions calculate the aggregated value, so the same value is returned for the whole period.
 
 ```javascript
@@ -209,7 +209,7 @@ The above function can be used as follows:
 
 [Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/3/)
 
-This example shows, how `avg()` and `value()` value-expression function can be used.
+This example shows, how `avg()` and `value()` functions can be used.
 The `value()` function returns the current value of the series, identified by alias.
 While the `avg()` calculates the aggregated value, so it returns the same value during the period.
 
@@ -238,7 +238,7 @@ The above function can be used as follows:
 
 [Chartlab Example](https://apps.axibase.com/chartlab/8f8a0463/4/)
 
-This example shows, how `sum()` and `value()` value-expression function can be used.
+This example shows, how `sum()` and `value()` function can be used.
 The `value()` function returns the current value of the series, identified by alias.
 While the `sum()` calculates the aggregated value, so it returns the same value during the period.
 
