@@ -6,7 +6,7 @@ This document describes how to develop custom time series functions and apply th
 
 ## Importing Functions
 
-Custom functions are loaded with the `import` keyword, followed by package name and the url to the JavaScript file containing  function definitions. 
+Custom functions are loaded with the `import` keyword, followed by package name and the URL to the JavaScript file containing function definitions. 
 
 ```
 import package_name = url
@@ -15,16 +15,17 @@ import package_name = url
 Example:
 
 ```
-# load functions from the current server
 import fred = /portal/resource/udf_fred.js
 ```
 
-The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files. Multiple function files can be loaded by assiging different package names to each one. 
+Multiple function files can be loaded by assiging different package names to each one. 
 
 ```
 import fred_base = /portal/resources/udf_fred_v.1.js
 import fred_advanced = /portal/resources/udf_fred_v.2.js
 ```
+
+The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files. 
 
 The functions can be loaded from a local server or remote server.
 
@@ -33,15 +34,15 @@ The functions can be loaded from a local server or remote server.
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
 
-> Note that configurations loaded over the **http** protocol cannot load functions from **https** links.
+> Note that configurations loaded over the **http** protocol cannot load functions from **https** URLs.
 
-If the `url` parameter is relative, the function is loaded from `/portal/resource/scripts/{file_name}` path on the current host.
+If the `url` path is relative, the function is loaded from `/portal/resource/scripts/{file_name}` path on the current host.
 
 [Example](https://apps.axibase.com/chartlab/d220468d/19)
 
 ## Usage
 
-The imported functions can be referenced in `value` expressions by specifying the functions full name containing the package name, the function name, and its arguments.
+The imported functions can be referenced in `value` expressions by specifying the package name, the function name, and the function's arguments.
 
 ```
 # Calculate monthly change for series with alias 'raw'
@@ -52,7 +53,7 @@ value = fred.MonthlyChange('raw')
 
 ## Examples
 
-The following example functions are implemented in the [fred.js](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) file.
+The following sample functions are implemented in the [fred.js](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) file.
 
 | **Function Name** | **Arguments** |
 |-------------|----------------------|
@@ -72,14 +73,13 @@ The following example functions are implemented in the [fred.js](https://apps-ch
 
 ## Deploying Function Files
 
-The following directory is used to store user-defined function files on the ATSD server:
+On the ATSD server, the function files are stored in the following directory:
 
 ```
 /opt/atsd/atsd/conf/portal/scripts
 ```
 
-Copy the JavaScript file containing the function definitions to the functions directory. Create the directory if necessary.
-The JavaScript file will be accessible in chart configurations by its file name:
+The JavaScript files placed into this directory are accessible by file name:
 
 ```
 import fred = fred_v1.js
@@ -91,7 +91,7 @@ Server restart is **not** required for new/updated function files to be accessib
 
 The function declaration must start with `exports.` followed by a valid function name. Function names are case-sensitive.
 
-The function can have any number of arguments however the first argument must be the alias of the series to which the built-in functions and formulas will be applied.
+The function can have any number of arguments however the first argument must be the alias of the series to which the formulas will be applied.
 
 The current value can be accessed with `value(alias)` method.
 
@@ -102,15 +102,53 @@ exports.NaturalLog = function (alias) {
 };
 ```
 
-The function must return a numeric value or null.
+The function's definition must start with the `exports.` qualifier and implemented as a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions). 
+
+The function must return a numeric value or `null` if the result cannot be computed.
+
+```javascript
+exports.devideBy = function (alias, num) {
+  if (num == 0) {
+    //if num is zero, return null
+    return null;
+  }
+  var result = value(alias) / num;
+  return result;
+};
+```
+
+The function body can reference any JavaScript function such as [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [built-in functions, supported in the value setting](value_functions.md), [utility functions](#utility-functions) listed below.
+
+```javascript
+exports.getValueRange = function (alias, period) {
+  // get the maximum value within the current period
+  var maxAtPeriod = max(alias, period);
+  // get the minimum value within the current period
+  var minAtPeriod = min(alias, period);
+  // calculate the difference between maximum and minumum values
+  var result = maxAtPeriod - minAtPeriod;
+  // return the result to the calling function
+  return result;
+};
+```
+
+Additional function examples can be found in [examples.js file](../resources/examples.js).
+
+Chartlab examples:
+
+* https://apps.axibase.com/chartlab/2595a144/1/ - getValueRange
+* https://apps.axibase.com/chartlab/2595a144/2/ - getDifferenceFromAverage
+* https://apps.axibase.com/chartlab/2595a144/3/ - getWeight
 
 ## Example
 
-This example will illustrate how one can develop and deploy a simple user-defined function. For the purpose of this exercise, we will create a function that multiplies original values by the specified constant value.
+This example illustrates how one can develop and deploy a basic user-defined function. For the purpose of this exercise, we will create a function that multiplies original values by the specified constant value.
 
 ### Step 1. Create JavaScript File
 
 Let's call the new function `multiplyBy`. The function will accept series alias as the first argument and a numeric constant as the second argument.
+
+Create a file `my_math.js` and store the below function definition in the file.
 
 ```javascript
 /*
@@ -119,28 +157,22 @@ Let's call the new function `multiplyBy`. The function will accept series alias 
 exports.multiplyBy = function (alias, num) {
   // multiply current value from the referenced series by number 'num'
   var result = value(alias) * num;
-  // return the product to the outer function
+  // return the product to the calling function
   return result;
 };
 ```
 
-The function's definition must start with `exports.` qualifier and followed by a JavaScript [function body](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions). 
+### Step 2. Copy JavaScript File into ATSD
 
-Notice that each function we define must return a value, which is why after using a simple multiplication formula to calculate the product of two numbers, we're returning the computed value stored as the `result` variable back to the outer function that called our function with these arguments.
-
-Create a file `my_math.js` and store this function definition in the file.
-
-### Step 2. Deploy the JavaScript File to ATSD Server
-
-Log in to ATSD server shell and copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory onto the ATSD server.
+Copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory in the ATSD server.
 
 Verify that the file is accessible at the following url: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
 
 ### Step 3. Import Functions
 
-Open **Admin>Portals** page and create a new portal. 
+Open **Admin > Portals** page and create a new portal. 
 
-Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` with metric and entity present in your ATSD instance.
+Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` with a metric and an entity present in your ATSD instance.
 
 ```ls
 [configuration]
@@ -160,291 +192,82 @@ Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` wi
       value = mm.multiplyBy('s1', 2)
 ```
 
-Save the file. View the portal to check results.
+Save the portal. View the portal to check results.
 
 [Chartlab Example](https://apps.axibase.com/chartlab/bc36b341)
 
-## Functions Available in the Package
+## Utility Functions
 
-### Value Setting Functions
+### getValueWithOffset()
 
-In the functions file you can use [all functions, which can be used in [series] value setting](./value_functions.md).
-
-#### Examples
-
-Below are varians of functions you can write with value setting functions.
-All functions from the examples can be found in [examples.js file](../resources/examples.js).
-
-##### Calculate the range between maximum and minimum in each period, using `max()` and `min()` functions
-
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/1/)
-
-This example shows, how `max()` and `min()` functions can be used.
-Both functions calculate the aggregated value, so the same value is returned for the whole period.
-
-```javascript
-/*
- This function calculates the difference between the maximum and minimum values within the period in the original series, identified by alias.
-*/
-exports.getValueRange = function (alias, period) {
-  // get the maximum value within the current period
-  var maxAtPeriod = max(alias, period);
-  // get the minimum value within the current period
-  var minAtPeriod = min(alias, period);
-  // calculate the difference between maximum and minumum values
-  var result = maxAtPeriod - minAtPeriod;
-  // return the result to the calling function
-  return result;
-};
-```
-
-The above function can be used as follows:
-
-```ls
-[series]
-  value = mm.getValueRange("s1", "5 minute")
-```
-
-##### Calculate the difference between each value and the avarage of the period .
-
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/2/)
-
-This example shows, how `avg()` and `value()` functions can be used.
-The `value()` function returns the current value of the series, identified by alias.
-While the `avg()` calculates the aggregated value, so it returns the same value during the period.
-
-```javascript
-/*
- This function calculates the difference between the current value and the average within the period in the original series, identified by alias.
-*/
-exports.getDifferenceFromAverage = function (alias, period) {
-  // calculate the average value for the current period
-  var periodAverage = avg(alias, period);
-  // calculate the difference between current value and the average
-  var result = value(alias) - periodAverage;
-  // return the result to the calling function
-  return result;
-};
-```
-
-The above function can be used as follows:
-
-```ls
-[series]
-  value = mm.getDifferenceFromAverage("s1", "5 minute")
-```
-
-##### Calculate the weight of each value within the sum of all values in the period.
-
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/3/)
-
-This example shows, how `sum()` and `value()` function can be used.
-The `value()` function returns the current value of the series, identified by alias.
-While the `sum()` calculates the aggregated value, so it returns the same value during the period.
-
-
-```javascript
-/*
- This function calculates the weight if the current value within the sum of all values in the period for the original series, identified by alias.
-*/
-exports.getWeight = function (alias, period) {
-  // calculate the sum total of all values in the current period
-  var periodSum = sum(alias, period);
-  // calculate weight of the current value
-  var result = (periodSum == 0) ? 0 : value(alias) / periodSum;
-  // return the result to the calling function
-  return result;
-};
-
-```
-
-The above function can be used as follows:
-
-```ls
-[series]
-  value = mm.getWeight("s1", "5 minute")
-```
-
-
-### Support Functions
-
-This functions are available only in the user defined functions file.
-
-#### getValueWithOffset()
-
-##### Description
+* Description
 
 Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`.
 (`current_time` is the time of currently processed point)
 If there is no point with such `timestamp`, the value will be linearly interpolated.
 If `timestamp` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
 
-##### Syntax
+* Syntax
 
 ```javascript
 getValueWithOffset(alias, offset)
 ```
 
-##### Return Value
+* Arguments
 
-`number|null` - value of the point with `offset` from current
-
-##### Arguments
-
-| Name | Necessity | Type | Description |
+| **Name** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | required | string | alias of the series, from which the value should be retrieved |
-| offset | required | string | offset, with which the previous value is retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| alias | yes | string | alias of the series, from which the value should be retrieved |
+| offset | yes | string | offset, with which the previous value is retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
 
+* Example
 
-##### Example
+[Chartlab](https://apps.axibase.com/chartlab/2595a144/4/)
 
-[ChartlabExample](https://apps.axibase.com/chartlab/2595a144/4/)
+### getValueAtPoint()
 
-`getValueWithOffset()` can be used to compute the change between current points and points in the past with constant offset.
-Using `getValueWithOffset()` user can write the `getOffsetChange() function`.
-
-```javascript
-/*
-  This function calculates the difference between the current value and a value with offset in the original series, identified by alias.
-*/
-exports.getOffsetChange = function (alias, offset) {
-  // get the current value
-  var current = value(alias);
-  // get the value with offset. offset can be positive (past), or negative (future)
-  var offsetValue = getValueWithOffset(alias, offset);
-  var result = null;
-  // check that values are not null
-  if (current != null && offsetValue != null) {
-    // calculate the absolute difference between values
-    result = Math.abs(current - offsetValue);
-  }
-  // return the result to the calling function
-  return result;
-};
-```
-
-The function can be used as follows:
-
-```ls
-value = mm.getOffsetChange('s1', '1 day')
-```
-
-
-#### getValueAtPoint()
-
-##### Description
+* Description
 
 Get the value of the series, identified by `alias`, in point with `time`.
 If there is no point with such `time`, the value will be linearly interpolated.
 If `time` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
 
-##### Syntax
+* Syntax
 
 ```javascript
 getValueAtPoint(alias, time)
 ```
 
-##### Return Value
+* Arguments
 
-`number|null` - value of the point with `time`
-
-##### Arguments
-
-| Name | Necessity | Type | Description |
+| **Name** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | required | string | alias of the series, from which the value should be retrieved |
-| time | required | string | time, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| alias | yes | string | alias of the series, from which the value should be retrieved |
+| time | yes | string | time, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
 
+* Example 
 
-##### Example
+[Chartlab](https://apps.axibase.com/chartlab/2595a144/5/)
 
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
+### getMaximumValue()
 
-`getValueAtPoint()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
-Using `getValueAtPoint()` user can write the `getPercentChangeFromBaseDate() function`.
-
-```javascript
-/*
-  This function calculates the percentage difference between the current value and a value on the specified date in the original series, identified by alias.
-*/
-exports.getPercentChangeFromBaseDate = function (alias, date) {  // get the current value
-  // get the current value
-  var current = value(alias);
-  // get the value at the specified base date
-  var baseValue = getValueAtPoint(alias, date);
-  // calculate the percentage change
-  var result = null;
-  // check that values are not null
-  if (current != null && baseValue != null) {
-     result = (baseValue == 0) ? 0  : current / baseValue * 100;
-  }
-  // return the result to the calling function
-  return result;
-};
-```
-
-The function can be used as follows:
-
-```ls
-value = mm.getPercentChangeFromBaseDate('s1', "2016-05-05")
-```
-
-
-
-
-#### getMaximumValue()
-
-##### Description
+* Description
 
 Get the maximum value of the series, identified by `alias`.
 
-
-##### Syntax
+* Syntax
 
 ```javascript
 getMaximumValue(alias)
 ```
 
+* Arguments
 
-##### Return Value
-
-`number` - maximum value in the series
-
-##### Arguments
-
-| Name | Necessity | Type | Description |
+| **Name** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | required | string | alias of the series, from which the value should be retrieved |
+| alias | yes | string | alias of the series, from which the value should be retrieved |
 
 
-##### Example
+* Example
 
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/6/)
-
-`getMaximumValue()` can be used to compare the recent value with the maximum value or modify the recent value, using the maximum value.
-Using `getMaximumValue()` user can write the `getPercentageOfMax() function`.
-
-```javascript
-/*
-  This function calculates the percentage difference between the current value and the maximum value in the original series, identified by alias.
-*/
-exports.getPercentageOfMax = function (alias) {
-  // get the maximum value in the whole series within the loaded timespan
-  var maximum = getMaximumValue(alias);
-  // calculate the percentage change
-  var result = null;
-  // check that values are not null
-  if (current != null && maximum != null) {
-     result = (maximum == 0) ? 0  : current / maximum * 100;
-  }
-  // return the result to the calling function
-  return result;
-};
-```
-
-The function can be used as follows:
-
-```ls
-value = mm.getPercentageOfMax('s1')
-```
+[Chartlab](https://apps.axibase.com/chartlab/2595a144/6/)
