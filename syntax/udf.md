@@ -275,8 +275,8 @@ This functions are available only in the user defined functions file.
 ##### Description
 
 Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`.
-(`current_time` is the time of currently processed point)
-If there is no point with such `timestamp`, the value will be linearly interpolated.
+(`current_time` is the time of currently processed value)
+If there is no value for such `timestamp` in the series, the value will be linearly interpolated.
 If `timestamp` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
 
 ##### Syntax
@@ -287,7 +287,7 @@ getValueWithOffset(alias, offset)
 
 ##### Return Value
 
-`number|null` - value of the point with `offset` from current
+`number|null` - value of with `offset`
 
 ##### Arguments
 
@@ -301,7 +301,7 @@ getValueWithOffset(alias, offset)
 
 [ChartlabExample](https://apps.axibase.com/chartlab/2595a144/4/)
 
-`getValueWithOffset()` can be used to compute the change between current points and points in the past with constant offset.
+`getValueWithOffset()` can be used to compute the change between current value and value in the past with constant offset.
 Using `getValueWithOffset()` user can write the `getOffsetChange() function`.
 
 ```javascript
@@ -335,8 +335,8 @@ value = mm.getOffsetChange('s1', '1 day')
 
 ##### Description
 
-Get the value of the series, identified by `alias`, in point with `time`.
-If there is no point with such `time`, the value will be linearly interpolated.
+Get the value of the series, identified by `alias`, at specified `time`.
+If there is no value for such `time`, the value will be linearly interpolated.
 If `time` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
 
 ##### Syntax
@@ -347,7 +347,7 @@ getValueForDate(alias, time)
 
 ##### Return Value
 
-`number|null` - value of the point with `time`
+`number|null` - value at specified `time`
 
 ##### Arguments
 
