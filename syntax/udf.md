@@ -57,19 +57,19 @@ The following sample functions are implemented in the [fred.js](https://apps-cha
 
 | **Function Name** | **Arguments** |
 |-------------|----------------------|
-| [MonthlyChange](https://apps.axibase.com/chartlab/d220468d/5/) | alias |
-| [ChangeFromYearAgo](https://apps.axibase.com/chartlab/d220468d/6/) | alias |
-| [ChangeByOffset](https://apps.axibase.com/chartlab/d220468d/7/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
-| [MonthlyPercentChange](https://apps.axibase.com/chartlab/d220468d/8/) | alias |
-| [PercentChangeFromYearAgo](https://apps.axibase.com/chartlab/d220468d/9/) | alias |
-| [PercentChangeByOffset](https://apps.axibase.com/chartlab/d220468d/10/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
-| [CompoundedAnnualRateOfChange](https://apps.axibase.com/chartlab/d220468d/11/) | alias |
-| [ContinuouslyCompoundedRateOfChange](https://apps.axibase.com/chartlab/d220468d/12/) | alias |
-| [NaturalLog](https://apps.axibase.com/chartlab/d220468d/13/) |  alias |
-| [IndexMax](https://apps.axibase.com/chartlab/d220468d/14/) | alias |
-| [Index](https://apps.axibase.com/chartlab/d220468d/15/) | alias, [time](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [MonthlyChange](https://apps.axibase.com/chartlab/d220468d/22/) | alias |
+| [ChangeFromYearAgo](https://apps.axibase.com/chartlab/d220468d/23/) | alias |
+| [ChangeByOffset](https://apps.axibase.com/chartlab/d220468d/27/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [MonthlyPercentChange](https://apps.axibase.com/chartlab/d220468d/25/) | alias |
+| [PercentChangeFromYearAgo](https://apps.axibase.com/chartlab/d220468d/26/) | alias |
+| [PercentChangeByOffset](https://apps.axibase.com/chartlab/d220468d/28/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [CompoundedAnnualRateOfChange](https://apps.axibase.com/chartlab/d220468d/29/) | alias |
+| [ContinuouslyCompoundedRateOfChange](https://apps.axibase.com/chartlab/d220468d/30/) | alias |
+| [NaturalLog](https://apps.axibase.com/chartlab/d220468d/31/) |  alias |
+| [IndexMax](https://apps.axibase.com/chartlab/d220468d/32/) | alias |
+| [Index](https://apps.axibase.com/chartlab/d220468d/33/) | alias, [time](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
 
-[Summary Example](https://apps.axibase.com/chartlab/d220468d/3)
+[Summary Example](https://apps.axibase.com/chartlab/d220468d/34)
 
 ## Deploying Function Files
 
