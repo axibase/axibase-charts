@@ -164,6 +164,287 @@ Save the file. View the portal to check results.
 
 [Chartlab Example](https://apps.axibase.com/chartlab/bc36b341)
 
+## Functions Available in the Package
+
+### Value Setting Functions
+
+In the functions file you can use [all functions, which can be used in [series] value setting](./value_functions.md).
+
+#### Examples
+
+Below are varians of functions you can write with value setting functions.
+All functions from the examples can be found in [examples.js file](../resources/examples.js).
+
+##### Calculate the range between maximum and minimum in each period, using `max()` and `min()` functions
+
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/1/)
+
+This example shows, how `max()` and `min()` functions can be used.
+Both functions calculate the aggregated value, so the same value is returned for the whole period.
+
+```javascript
+/*
+ This function calculates the difference between the maximum and minimum values within the period in the original series, identified by alias.
+*/
+exports.getValueRange = function (alias, period) {
+  // get the maximum value within the current period
+  var maxAtPeriod = max(alias, period);
+  // get the minimum value within the current period
+  var minAtPeriod = min(alias, period);
+  // calculate the difference between maximum and minumum values
+  var result = maxAtPeriod - minAtPeriod;
+  // return the result to the calling function
+  return result;
+};
+```
+
+The above function can be used as follows:
+
+```ls
+[series]
+  value = mm.getValueRange("s1", "5 minute")
+```
+
+##### Calculate the difference between each value and the avarage of the period .
+
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/2/)
+
+This example shows, how `avg()` and `value()` functions can be used.
+The `value()` function returns the current value of the series, identified by alias.
+While the `avg()` calculates the aggregated value, so it returns the same value during the period.
+
+```javascript
+/*
+ This function calculates the difference between the current value and the average within the period in the original series, identified by alias.
+*/
+exports.getDifferenceFromAverage = function (alias, period) {
+  // calculate the average value for the current period
+  var periodAverage = avg(alias, period);
+  // calculate the difference between current value and the average
+  var result = value(alias) - periodAverage;
+  // return the result to the calling function
+  return result;
+};
+```
+
+The above function can be used as follows:
+
+```ls
+[series]
+  value = mm.getDifferenceFromAverage("s1", "5 minute")
+```
+
+##### Calculate the weight of each value within the sum of all values in the period.
+
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/3/)
+
+This example shows, how `sum()` and `value()` function can be used.
+The `value()` function returns the current value of the series, identified by alias.
+While the `sum()` calculates the aggregated value, so it returns the same value during the period.
+
+
+```javascript
+/*
+ This function calculates the weight if the current value within the sum of all values in the period for the original series, identified by alias.
+*/
+exports.getWeight = function (alias, period) {
+  // calculate the sum total of all values in the current period
+  var periodSum = sum(alias, period);
+  // calculate weight of the current value
+  var result = (periodSum == 0) ? 0 : value(alias) / periodSum;
+  // return the result to the calling function
+  return result;
+};
+
+```
+
+The above function can be used as follows:
+
+```ls
+[series]
+  value = mm.getWeight("s1", "5 minute")
+```
+
+
+### Support Functions
+
+This functions are available only in the user defined functions file.
+
+#### getValueWithOffset()
+
+##### Description
+
+Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`.
+(`current_time` is the time of currently processed point)
+If there is no point with such `timestamp`, the value will be linearly interpolated.
+If `timestamp` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
+
+##### Syntax
+
+```javascript
+getValueWithOffset(alias, offset)
+```
+
+##### Return Value
+
+`number|null` - value of the point with `offset` from current
+
+##### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| alias | required | string | alias of the series, from which the value should be retrieved |
+| offset | required | string | offset, with which the previous value is retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+
+
+##### Example
+
+[ChartlabExample](https://apps.axibase.com/chartlab/2595a144/4/)
+
+`getValueWithOffset()` can be used to compute the change between current points and points in the past with constant offset.
+Using `getValueWithOffset()` user can write the `getOffsetChange() function`.
+
+```javascript
+/*
+  This function calculates the difference between the current value and a value with offset in the original series, identified by alias.
+*/
+exports.getOffsetChange = function (alias, offset) {
+  // get the current value
+  var current = value(alias);
+  // get the value with offset. offset can be positive (past), or negative (future)
+  var offsetValue = getValueWithOffset(alias, offset);
+  var result = null;
+  // check that values are not null
+  if (current != null && offsetValue != null) {
+    // calculate the absolute difference between values
+    result = Math.abs(current - offsetValue);
+  }
+  // return the result to the calling function
+  return result;
+};
+```
+
+The function can be used as follows:
+
+```ls
+value = mm.getOffsetChange('s1', '1 day')
+```
+
+
+#### getValueAtPoint()
+
+##### Description
+
+Get the value of the series, identified by `alias`, in point with `time`.
+If there is no point with such `time`, the value will be linearly interpolated.
+If `time` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
+
+##### Syntax
+
+```javascript
+getValueAtPoint(alias, time)
+```
+
+##### Return Value
+
+`number|null` - value of the point with `time`
+
+##### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| alias | required | string | alias of the series, from which the value should be retrieved |
+| time | required | string | time, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+
+
+##### Example
+
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
+
+`getValueAtPoint()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
+Using `getValueAtPoint()` user can write the `getPercentChangeFromBaseDate() function`.
+
+```javascript
+/*
+  This function calculates the percentage difference between the current value and a value on the specified date in the original series, identified by alias.
+*/
+exports.getPercentChangeFromBaseDate = function (alias, date) {  // get the current value
+  // get the current value
+  var current = value(alias);
+  // get the value at the specified base date
+  var baseValue = getValueAtPoint(alias, date);
+  // calculate the percentage change
+  var result = null;
+  // check that values are not null
+  if (current != null && baseValue != null) {
+     result = (baseValue == 0) ? 0  : current / baseValue * 100;
+  }
+  // return the result to the calling function
+  return result;
+};
+```
+
+The function can be used as follows:
+
+```ls
+value = mm.getPercentChangeFromBaseDate('s1', "2016-05-05")
+```
 
 
 
+
+#### getMaximumValue()
+
+##### Description
+
+Get the maximum value of the series, identified by `alias`.
+
+
+##### Syntax
+
+```javascript
+getMaximumValue(alias)
+```
+
+
+##### Return Value
+
+`number` - maximum value in the series
+
+##### Arguments
+
+| Name | Necessity | Type | Description |
+|------|-----------|------|-------------|
+| alias | required | string | alias of the series, from which the value should be retrieved |
+
+
+##### Example
+
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/6/)
+
+`getMaximumValue()` can be used to compare the recent value with the maximum value or modify the recent value, using the maximum value.
+Using `getMaximumValue()` user can write the `getPercentageOfMax() function`.
+
+```javascript
+/*
+  This function calculates the percentage difference between the current value and the maximum value in the original series, identified by alias.
+*/
+exports.getPercentageOfMax = function (alias) {
+  // get the maximum value in the whole series within the loaded timespan
+  var maximum = getMaximumValue(alias);
+  // calculate the percentage change
+  var result = null;
+  // check that values are not null
+  if (current != null && maximum != null) {
+     result = (maximum == 0) ? 0  : current / maximum * 100;
+  }
+  // return the result to the calling function
+  return result;
+};
+```
+
+The function can be used as follows:
+
+```ls
+value = mm.getPercentageOfMax('s1')
+```
