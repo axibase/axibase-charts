@@ -126,7 +126,7 @@ exports.Index = function (alias, time) {
     if (aliasSavedValues[time] != null) {
         indexValue = aliasSavedValues[time];
     } else {
-        indexValue = getValueAtPoint(alias, time);
+        indexValue = getValueForDate(alias, time);
         aliasSavedValues[time] = indexValue;
     }
 

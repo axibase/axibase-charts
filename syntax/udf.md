@@ -331,7 +331,7 @@ value = mm.getOffsetChange('s1', '1 day')
 ```
 
 
-#### getValueAtPoint()
+#### getValueForDate()
 
 ##### Description
 
@@ -342,7 +342,7 @@ If `time` is less than the minimum timestamp or greater than the maximum timesta
 ##### Syntax
 
 ```javascript
-getValueAtPoint(alias, time)
+getValueForDate(alias, time)
 ```
 
 ##### Return Value
@@ -361,8 +361,8 @@ getValueAtPoint(alias, time)
 
 [Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
 
-`getValueAtPoint()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
-Using `getValueAtPoint()` user can write the `getPercentChangeFromBaseDate() function`.
+`getValueForDate()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
+Using `getValueForDate()` user can write the `getPercentChangeFromBaseDate() function`.
 
 ```javascript
 /*
@@ -372,7 +372,7 @@ exports.getPercentChangeFromBaseDate = function (alias, date) {  // get the curr
   // get the current value
   var current = value(alias);
   // get the value at the specified base date
-  var baseValue = getValueAtPoint(alias, date);
+  var baseValue = getValueForDate(alias, date);
   // calculate the percentage change
   var result = null;
   // check that values are not null

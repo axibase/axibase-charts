@@ -62,7 +62,7 @@ exports.getPercentChangeFromBaseDate = function (alias, date) {  // get the curr
   // get the current value
   var current = value(alias);
   // get the value at the specified base date
-  var baseValue = getValueAtPoint(alias, date);
+  var baseValue = getValueForDate(alias, date);
   // calculate the percentage change
   var result = null;
   // check that values are not null
