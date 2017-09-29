@@ -198,7 +198,7 @@ Save the portal. View the portal to check results.
 
 ## Utility Functions
 
-### getValueWithOffset()
+#### getValueWithOffset()
 
 Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`, where  `current_time` is the time of currently processed sample. If there is no sample with such `timestamp`, the value is linearly interpolated from the neighboring samples.
 
@@ -215,7 +215,8 @@ getValueWithOffset(alias, offset)
 | alias | yes | string | Alias of the series, from which the value should be retrieved. |
 | offset | yes | string | Offset, with which the previous value is retrieved, specified as interval, for example '1 day'. |
 
-### getValueAtPoint()
+
+### getValueForDate()
 
 Get the value of the series, identified by `alias`, for the specified `datetime`.
 If there is no sample recorded for the specified `datetime`, the value is linearly interpolated from the neighboring samples.
@@ -225,7 +226,7 @@ If there is no sample recorded for the specified `datetime`, the value is linear
 **Syntax**
 
 ```javascript
-getValueAtPoint(alias, datetime)
+getValueForDate(alias, datetime)
 ```
 
 | **Argument** | **Required** | **Type** | **Description** |
