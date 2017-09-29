@@ -200,74 +200,53 @@ Save the portal. View the portal to check results.
 
 ### getValueWithOffset()
 
-* Description
+Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`, where  `current_time` is the time of currently processed sample. If there is no sample with such `timestamp`, the value is linearly interpolated from the neighboring samples.
 
-Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`.
-(`current_time` is the time of currently processed point)
-If there is no point with such `timestamp`, the value will be linearly interpolated.
-If `timestamp` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/4/)
 
-* Syntax
+**Syntax**
 
 ```javascript
 getValueWithOffset(alias, offset)
 ```
 
-* Arguments
-
-| **Name** | **Required** | **Type** | **Description** |
+| **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | yes | string | alias of the series, from which the value should be retrieved |
-| offset | yes | string | offset, with which the previous value is retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
-
-* Example
-
-[Chartlab](https://apps.axibase.com/chartlab/2595a144/4/)
+| alias | yes | string | Alias of the series, from which the value should be retrieved. |
+| offset | yes | string | Offset, with which the previous value is retrieved, specified as interval, for example '1 day'. |
 
 ### getValueAtPoint()
 
-* Description
+Get the value of the series, identified by `alias`, for the specified `datetime`.
+If there is no sample recorded for the specified `datetime`, the value is linearly interpolated from the neighboring samples.
 
-Get the value of the series, identified by `alias`, in point with `time`.
-If there is no point with such `time`, the value will be linearly interpolated.
-If `time` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
 
-* Syntax
+**Syntax**
 
 ```javascript
-getValueAtPoint(alias, time)
+getValueAtPoint(alias, datetime)
 ```
 
-* Arguments
-
-| **Name** | **Required** | **Type** | **Description** |
+| **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | yes | string | alias of the series, from which the value should be retrieved |
-| time | yes | string | time, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
-
-* Example 
-
-[Chartlab](https://apps.axibase.com/chartlab/2595a144/5/)
+| alias | yes | string | Alias of the series, from which the value should be retrieved. |
+| datetime | yes | string | Time, for which value should be retrieved. Can be specified as local time, ISO time, or using an [end_time](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) expression. |
 
 ### getMaximumValue()
 
-* Description
+Get the maximum value of the series, identified by `alias`, for the loaded timespan.
 
-Get the maximum value of the series, identified by `alias`.
+[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/6/)
 
-* Syntax
+**Syntax**
 
 ```javascript
 getMaximumValue(alias)
 ```
 
-* Arguments
-
-| **Name** | **Required** | **Type** | **Description** |
+| **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | yes | string | alias of the series, from which the value should be retrieved |
+| alias | yes | string | Alias of the series, from which the value should be retrieved. |
 
 
-* Example
-
-[Chartlab](https://apps.axibase.com/chartlab/2595a144/6/)
