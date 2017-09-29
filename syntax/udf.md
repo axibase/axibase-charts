@@ -335,33 +335,33 @@ value = mm.getOffsetChange('s1', '1 day')
 
 ##### Description
 
-Get the value of the series, identified by `alias`, at specified `time`.
-If there is no value for such `time`, the value will be linearly interpolated.
-If `time` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
+Get the value of the series, identified by `alias`, at specified `date`.
+If there is no value for such `date`, the value will be linearly interpolated.
+If `date` is less than the minimum timestamp or greater than the maximum timestamp in the series, then function returns `null`.
 
 ##### Syntax
 
 ```javascript
-getValueForDate(alias, time)
+getValueForDate(alias, date)
 ```
 
 ##### Return Value
 
-`number|null` - value at specified `time`
+`number|null` - value at specified `date`
 
 ##### Arguments
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
 | alias | required | string | alias of the series, from which the value should be retrieved |
-| time | required | string | time, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| date | required | string | date, for which value should be retrieved [(syntax)](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
 
 
 ##### Example
 
 [Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
 
-`getValueForDate()` can be used to compare the recent value with the value for some time or modify the recent value, using the constant value.
+`getValueForDate()` can be used to compare the recent value with the value for some date or modify the recent value, using the constant value.
 Using `getValueForDate()` user can write the `getPercentChangeFromBaseDate() function`.
 
 ```javascript
