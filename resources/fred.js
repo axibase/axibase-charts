@@ -30,7 +30,7 @@ exports.ChangeFromYearAgo = function (alias) {
 };
 
 /**
- * Calculate the difference in percent between the current value and the historical value at the specified `offset` from current time
+ * Calculate the percent difference between the current value and the historical value at the specified `offset` from current time
  * @param {string} series alias
  * @param {string} time offset, offset specified using the endtime syntax, for example '2 week'
  */
@@ -45,7 +45,7 @@ function PercentChangeByOffset(alias, offset) {
 };
 
 /**
- * Calculate the difference in percent between the current value and the historical value 1 month ago
+ * Calculate the percent difference between the current value and the historical value 1 month ago
  * @param {string} series alias
  */
 exports.MonthlyPercentChange = function (alias) {
@@ -53,7 +53,7 @@ exports.MonthlyPercentChange = function (alias) {
 };
 
 /**
- * Calculate the difference in percent between the current value and the historical value 1 year ago
+ * Calculate the percent difference between the current value and the historical value 1 year ago
  * @param {string} series alias
  */
 exports.PercentChangeFromYearAgo = function (alias) {
@@ -110,7 +110,7 @@ exports.NaturalLog = function (alias) {
 
 var savedValues = {};
 /**
- * Calculate the ratio of the current value to a historical value recorded at the specific time, multiplies by 100.
+ * Calculate the ratio of the current value to a historical value recorded at the specific time, multiplied by 100.
  * @param {string} series alias
  * @param {string} timespamp. A date specified in ISO 8601 or local datetime format 'YYYY-MM-DD [HH:mm:ss]'
  */
@@ -134,7 +134,7 @@ exports.Index = function (alias, time) {
 };
 
 /**
- * Calculate the ratio of the current value to its maximum observed value, multiplies by 100.
+ * Calculate the ratio of the current value to its maximum observed value, multiplied by 100.
  * @param {string} series alias
  */
 exports.IndexMax = function (alias) {
