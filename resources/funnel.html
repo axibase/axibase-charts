@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <script src="./JavaScript/jquery-1.9.1.js"></script>
+    <script src="./JavaScript/axibase-atsdApi-bundle.min.js"></script>
+    <script src="./JavaScript/highcharts.js"></script>
+    <script src="./JavaScript/funnel.js"></script>
+    <script src="./JavaScript/exporting.js"></script>
+</head>
+
+<body>
+<div id="funnelContainer" style="min-width: 410px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+
+<script>
+        $(function () {
+            var startTime = Date.now() - 1 * 3600 * 1000,
+                endTime = Date.now();
+
+            var postData = [
+                {
+                    startTime: startTime,
+                    endTime: endTime,
+                    entity: "atsd",
+                    metric: "disabled_metric_received_per_second",
+                    limit: 1,
+                    aggregate: {
+                        types: ["AVG"],
+                        interval: {
+                            count: 1,
+                            unit: "HOUR"
+                        }
+                    }
+                },
+                {
+                    startTime: startTime,
+                    endTime: endTime,
+                    entity: "atsd",
+                    metric: "filtered_metric_received_per_second",
+                    limit: 1,
+                    aggregate: {
+                        types: ["AVG"],
+                        interval: {
+                            count: 1,
+                            unit: "HOUR"
+                        }
+                    }
+                },
+                {
+                    startTime: startTime,
+                    endTime: endTime,
+                    entity: "atsd",
+                    metric: "non_persistent_metric_received_per_second",
+                    limit: 1,
+                    aggregate: {
+                        types: ["AVG"],
+                        interval: {
+                            count: 1,
+                            unit: "HOUR"
+                        }
+                    }
+                }
+            ];
+
+            var client = axibase.atsdClient("");
+            client.series.queries(postData)
+                .then(function (series) {
+                    return series
+                        .map(function (series) {
+                            var label = labels[series.metric];
+                            return [labels[series.metric], series.data[0].v];
+                        })
+                        .sort(function (a, b) {
+                            return b[1] - a[1];
+                        });
+                })
+                .then(function (data) {
+
+                    $('#funnelContainer').highcharts({
+                        chart: {
+                            type: 'funnel'
+                        },
+                        title: {
+                            text: 'Non saved series samples Funnel Chart'
+                        },
+                        tooltip: {
+                            pointFormat: '{point.y:,.3f}',
+                            style: {
+                                width: "100px"
+                            }
+                        },
+                        plotOptions: {
+                            series: {
+                                dataLabels: {
+                                    allowOverlap: true,
+                                    enabled: true,
+                                    format: '<b>{point.name}</b> ({point.y:,.3f})',
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                                    style: { width: '100px' }
+                                },
+                                center: ['40%', '50%'],
+                                neckWidth: '30%',
+                                neckHeight: '25%',
+                                width: '80%'
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'Non saved samples',
+                            data: data
+                        }]
+                    });
+                })
+                .fail(function (error) {
+                    console.log(error);
+                });
+
+            var labels = {
+                disabled_metric_received_per_second: "Series samples for disabled metric received.",
+                filtered_metric_received_per_second: "Series samples discarded due to Invalid Value Action.",
+                non_persistent_metric_received_per_second: "Non-persisted series samples"
+            };
+
+        });
+    </script>
+</body>
+
+</html>
