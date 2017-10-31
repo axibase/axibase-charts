@@ -48,11 +48,30 @@ Now you can access this page by URL `{https://your.atsd.host}/portal/resource/we
 
 ```
 [configuration]
-  width-units = 1
+  width-units = 2
   height-units = 1
+  update-interval = 0
+
 [group]
+  [widget]
+    type = chart
+    timespan = 5 minute
+    mode = column
+    multiple-series = true
+    format = fixed(3)
+    entity = atsd
+    [series]
+      metric = disabled_metric_received_per_second
+    [series]
+      metric = filtered_metric_received_per_second
+    [series]
+      metric = non_persistent_metric_received_per_second
+
   [widget]
     type = page
     url = /portal/resource/web/funnel.html
 ```
 
+The rendered Portal will be like the following.
+
+![](images/funnelChart.png)
