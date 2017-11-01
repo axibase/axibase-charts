@@ -18,7 +18,7 @@ mkdir -p /opt/atsd/atsd/conf/portal/web/JavaScript
 
 ## Download and Copy Dependencies
 
-Download exteranal libraries into the `/opt/atsd/atsd/conf/portal/web/JavaScript` directory. The list of dependencies is specific for each library.
+Download external libraries into the `/opt/atsd/atsd/conf/portal/web/JavaScript` directory. The list of dependencies is specific for each library.
 
 ```sh
 curl https://code.highcharts.com/highcharts.js > /opt/atsd/atsd/conf/portal/web/JavaScript/highcharts.js
@@ -51,7 +51,7 @@ The output should be as follows.
 
 ## Create External Chart
 
-The external chart is created using the syntax and settings provided by the external library and is populated with ATSd data loaded via the ATSD client adapter.
+The external chart is created using the syntax and settings provided by the external library and is populated with ATSD data using the ATSD client adapter.
 
 ```sh
 curl https://raw.githubusercontent.com/axibase/charts/master/resources/funnel.html > /opt/atsd/atsd/conf/portal/web/funnel.html
