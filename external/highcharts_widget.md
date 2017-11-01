@@ -1,32 +1,45 @@
-# Show external widget in ATSD Portal
+# Create External Widget
 
-This page describes steps to add a `Page` widget in ATSD Portal.
+## Overview
 
-## Step 1. Create directory for the resource files
+This document describes how to incorporate charts created with external JavaScript libraries into an ATSD portal. 
+
+The task can be accomplished by creating an HTML file with the external chart and including this chart using the `page` widget in ATSD.
+
+## Create Resource Directory
+
+Login into ATSD server and create a directory in the ATSD installation directory that will contain static resources such as JavaScript files, CSS files, and images used by external charting libraries.
 
 ```sh
 mkdir -p /opt/atsd/atsd/conf/portal/web/JavaScript
 ```
 
-## Step 2. Load and copy dependencies
+> Note that access to files in the `conf/portal` directory doesn't required authentication.
 
-Copy exteranal libraries and our [atsdClient](../resources/atsdClient.bundle.js) into the `/opt/atsd/atsd/conf/portal/web/JavaScript` directory.
+## Download and Copy Dependencies
+
+Download exteranal libraries into the `/opt/atsd/atsd/conf/portal/web/JavaScript` directory. The list of dependencies is specific for each library.
 
 ```sh
-curl https://code.jquery.com/jquery-1.9.1.js > /opt/atsd/atsd/conf/portal/web/JavaScript/jquery-1.9.1.js
-curl https://raw.githubusercontent.com/axibase/charts/master/resources/atsdClient.bundle.js > /opt/atsd/atsd/conf/portal/web/JavaScript/atsdClient.bundle.js
 curl https://code.highcharts.com/highcharts.js > /opt/atsd/atsd/conf/portal/web/JavaScript/highcharts.js
 curl https://code.highcharts.com/modules/funnel.js > /opt/atsd/atsd/conf/portal/web/JavaScript/funnel.js
 curl https://code.highcharts.com/modules/exporting.js > /opt/atsd/atsd/conf/portal/web/JavaScript/exporting.js
 ```
 
-## Step 3. Check all dependencies are loaded
+Download the ATSD client adapter [atsdClient](../resources/atsdClient.bundle.js) and its dependencies into the same directory.
+
+```sh
+curl https://code.jquery.com/jquery-1.9.1.js > /opt/atsd/atsd/conf/portal/web/JavaScript/jquery-1.9.1.js
+curl https://raw.githubusercontent.com/axibase/charts/master/resources/atsdClient.bundle.js > /opt/atsd/atsd/conf/portal/web/JavaScript/atsdClient.bundle.js
+```
+
+## Verify Dependencies
 
 ```sh
 ll /opt/atsd/atsd/conf/portal/web/JavaScript
 ```
 
-The output should be like in the following listing.
+The output should be as follows.
 
 ```sh
 -rw-r--r-- 1 axibase axibase   3994 Oct 30 14:12 atsdClient.bundle.js
@@ -36,17 +49,29 @@ The output should be like in the following listing.
 -rw-r--r-- 1 axibase axibase 268381 Oct 30 14:12 jquery-1.9.1.js
 ```
 
-## Step 4. Create HTML page, which should be displayed in ATSD Portal
+## Create External Chart
+
+The external chart is created using the syntax and settings provided by the external library and is populated with ATSd data loaded via the ATSD client adapter.
 
 ```sh
-curl https://raw.githubusercontent.com/axibase/charts/master/resources/funnel.html
+curl https://raw.githubusercontent.com/axibase/charts/master/resources/funnel.html > /opt/atsd/atsd/conf/portal/web/funnel.html
 ```
 
-Now you can access this page by URL `{https://your.atsd.host}/portal/resource/web/funnel.html`.
+Check that the file can be accessed at `https://atsd_host:8443/portal/resource/web/funnel.html`.
 
-## Step 5. Create configuration of the Portal
+## Create Portal
 
+Create a portal in ATSD and include a `page` widget with the `url` setting referencing the HTML file as follows:
+
+```ls
+  [widget]
+    type = page
+    url = /portal/resource/web/funnel.html
 ```
+
+## Sample Portal
+
+```ls
 [configuration]
   width-units = 2
   height-units = 1
@@ -71,7 +96,5 @@ Now you can access this page by URL `{https://your.atsd.host}/portal/resource/we
     type = page
     url = /portal/resource/web/funnel.html
 ```
-
-The rendered Portal will be like the following.
 
 ![](images/funnelChart.png)
