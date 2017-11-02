@@ -14,7 +14,7 @@ Login into ATSD server and create a directory in the ATSD installation directory
 mkdir -p /opt/atsd/atsd/conf/portal/web/JavaScript
 ```
 
-> Note that access to files in the `conf/portal` directory doesn't required authentication.
+> Note that access to files in the `conf/portal` directory doesn't require authentication.
 
 ## Download and Copy Dependencies
 
