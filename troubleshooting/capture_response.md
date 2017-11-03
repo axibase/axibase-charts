@@ -2,24 +2,28 @@
 
 ## Overview
 
-The following instructions outline steps required to record network responses in ATSD portals.
+The following instructions outline steps required to record network response in ATSD portals for a particular widget.
 
 ## Google Chrome
 
-Open an ATSD portal.
+- Open an ATSD portal.
 
-Open Developer Tools, open the Network panel.
+- Click `F12` on Windows or `Command+Option+I` on Mac to open Developer Tools.
 
-![](images/network_panel.png)
+- Open the **Network** panel.
 
-Clear request history by clicking on the Clear icon  ![](images/clear_button.png)  in the toolbar.
+  ![](images/network_panel.png)
 
-Click on widget header. The widget will open in dialog mode which will trigger a request to ATSD to load data specifically for this widget.
+- Click on `Clear` icon  ![](images/clear_button.png)  in the toolbar to clear the request history.
 
-![](images/response_received.png)
+- Click on the widget header. The widget will open in dialog mode which will trigger a request to ATSD to load data specifically for this widget.
 
-Right click on request row, select option Copy > Copy response and save the output into a file such as widget_xyz_response.json
+  ![](images/response_received.png)
 
-![](images/copy_response.png)
+- Right click on the request row. Select option **Copy > Copy Response**.
+
+- Save copied output into a file such as `widget_xyz_response.json`.
+
+  ![](images/copy_response.png)
 
 
