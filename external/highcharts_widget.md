@@ -26,11 +26,11 @@ curl https://code.highcharts.com/modules/funnel.js > /opt/atsd/atsd/conf/portal/
 curl https://code.highcharts.com/modules/exporting.js > /opt/atsd/atsd/conf/portal/web/JavaScript/exporting.js
 ```
 
-Download the ATSD client adapter [atsdClient](../resources/atsdClient.bundle.js) and its dependencies into the same directory.
+Download the ATSD client adapter [atsdClient](resources/atsdClient.bundle.js) and its dependencies into the same directory.
 
 ```sh
 curl https://code.jquery.com/jquery-1.9.1.js > /opt/atsd/atsd/conf/portal/web/JavaScript/jquery-1.9.1.js
-curl https://raw.githubusercontent.com/axibase/charts/master/resources/atsdClient.bundle.js > /opt/atsd/atsd/conf/portal/web/JavaScript/atsdClient.bundle.js
+curl https://raw.githubusercontent.com/axibase/charts/master/external/resources/atsdClient.bundle.js > /opt/atsd/atsd/conf/portal/web/JavaScript/atsdClient.bundle.js
 ```
 
 ## Verify Dependencies
@@ -54,7 +54,7 @@ The output should be as follows.
 The external chart is created using the syntax and settings provided by the external library and is populated with ATSD data using the ATSD client adapter.
 
 ```sh
-curl https://raw.githubusercontent.com/axibase/charts/master/resources/funnel.html > /opt/atsd/atsd/conf/portal/web/funnel.html
+curl https://raw.githubusercontent.com/axibase/charts/master/external/resources/funnel.html > /opt/atsd/atsd/conf/portal/web/funnel.html
 ```
 
 Check that the file can be accessed at `https://atsd_host:8443/portal/resource/web/funnel.html`.
