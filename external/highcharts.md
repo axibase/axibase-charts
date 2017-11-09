@@ -2,7 +2,7 @@
 
 [Highcharts](https://www.highcharts.com/) offers an extensive library of interactive JavaScript charts.
 
-The following examples convert ATSD JSON into Highchart arrays and have a refresh method that reloads values at a specified time interval:
+The following examples convert ATSD JSON into Highchart arrays:
 
 |Chart name|Example|
 |---|---|
