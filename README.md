@@ -48,6 +48,7 @@ Existing docs and examples are currently hosted on https://axibase.com/products/
   - [Property](widgets/property)
   - [Alert](widgets/alert)
   - [Map](widgets/map)
+* [External Charting Frameworks](external)  
 * [Embedded](embed)
 * Tools
   - [ChartLab](https://apps.axibase.com/chartlab)
