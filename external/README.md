@@ -1,6 +1,6 @@
-# Retrieving data with external JavaScript applications
+# External JavaScript Charting Frameworks
 
-ATSD offers data retrieval and graphing with external javascript applications. Examples are built up with javascript in jsfiddle using Highcharts, Google Charts, Chart.js, FusionCharts, amCharts, and n3-charts for graphing.
+In addition to the built-in graphics library, ATSD provides a JavaScript client adapter to visualize time series data stored in the database using external JavaScript charting frameworks.
 
  * [Highcharts](./highcharts.md)
  * [Google Charts](./google_charts.md)
