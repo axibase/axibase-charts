@@ -8,3 +8,4 @@ ATSD offers data retrieval and graphing with external javascript applications. E
  * [n3-charts](./n3-charts.md)
  * [FusionCharts](./fusioncharts.md)
  * [amCharts](./amcharts.md)
+ * [Heatmap](./heatmap.md)
