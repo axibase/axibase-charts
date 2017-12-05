@@ -314,6 +314,16 @@ getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ### Scope of usage
 Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
+To load multiple groups you can retrieve members of each group separately and then concatenate the elements into one array.
+
+```javascript
+var agents = [].concat(getEntities("group1"), getEntities("group2"))
+
+var agents = getEntities("group1").concat(getEntities("group2"))  
+```
+
+The elements in the concatenated array are sorted first by group, then by element name.
+
 ### API Request
 Sends _synchronous_ GET request to the
 [/api/v1/entity-groups/{group}/entities](https://github.com/axibase/atsd/blob/master/api/meta/entity-group/get-entities.md)
