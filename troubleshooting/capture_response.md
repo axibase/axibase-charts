@@ -26,4 +26,50 @@ The following instructions outline steps required to record network response in 
 
   ![](images/copy_response.png)
 
+## Internet Explorer
 
+- Open an ATSD portal.
+
+- Click `F12` to open 'Developer Tools'.
+
+- Open the **Network** panel with `Control+4`.
+
+  ![](images/network_panel_ie.png)
+
+- Enable network traffic capturing by clicking on `F5`.
+
+  ![](images/enable_traffic_capturing_ie.png)
+
+- Click on the widget header. The dialog mode will initiate a request into ATSD to load data for the selected widget.
+
+  ![](images/response_received_ie.png)
+
+- Double click on the request row. Select **Response body** tab.
+
+  ![](images/open_details_ie.png)
+
+- Save the request output into a file such as `widget_xyz_response.json`.
+
+  ![](images/copy_response_ie.png)
+
+## Edge
+
+- Open an ATSD portal.
+
+- Click `F12` to open Developer Tools.
+
+- Open the **Network** panel.
+
+  ![](images/network_panel_edge.png)
+
+- Click on `Clear session` icon  ![](images/clear_button_edge.png)  in the toolbar to clear the request history.
+
+- Click on the widget header. The dialog mode will initiate a request into ATSD to load data for the selected widget.
+
+  ![](images/response_received_edge.png)
+
+- Right-click on the request row. Select **Copy response payload** option.
+
+- Save the request output into a file such as `widget_xyz_response.json`.
+
+  ![](images/copy_response_edge.png)
