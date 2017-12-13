@@ -51,3 +51,25 @@ The following instructions outline steps required to record network response in 
 - Save the request output into a file such as `widget_xyz_response.json`.
 
   ![](images/copy_response_ie.png)
+
+## Edge
+
+- Open an ATSD portal.
+
+- Click `F12` to open Developer Tools.
+
+- Open the **Network** panel.
+
+  ![](images/network_panel_edge.png)
+
+- Click on `Clear session` icon  ![](images/clear_button_edge.png)  in the toolbar to clear the request history.
+
+- Click on the widget header. The dialog mode will initiate a request into ATSD to load data for the selected widget.
+
+  ![](images/response_received_edge.png)
+
+- Right-click on the request row. Select **Copy response payload** option.
+
+- Save the request output into a file such as `widget_xyz_response.json`.
+
+  ![](images/copy_response_edge.png)
