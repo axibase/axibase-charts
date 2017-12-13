@@ -30,13 +30,13 @@ The following instructions outline steps required to record network response in 
 
 - Open an ATSD portal.
 
-- Click `F12` to open Developer Tools.
+- Click `F12` to open 'Developer Tools'.
 
-- Open the **Network** panel by `Control+4` .
+- Open the **Network** panel with `Control+4`.
 
   ![](images/network_panel_ie.png)
 
-- Enable network traffic capturing by `F5`.
+- Enable network traffic capturing by clicking on `F5`.
 
   ![](images/enable_traffic_capturing_ie.png)
 
