@@ -16,13 +16,13 @@ The following instructions outline steps required to record network response in 
 
 - Click on `Clear` icon  ![](images/clear_button.png)  in the toolbar to clear the request history.
 
-- Click on the widget header. The widget will open in dialog mode which will trigger a request to ATSD to load data specifically for this widget.
+- Click on the widget header. The dialog mode will initiate a request into ATSD to load data for the selected widget.
 
   ![](images/response_received.png)
 
-- Right click on the request row. Select option **Copy > Copy Response**.
+- Right-click on the request row. Select **Copy > Copy Response** option.
 
-- Save copied output into a file such as `widget_xyz_response.json`.
+- Save the request output into a file such as `widget_xyz_response.json`.
 
   ![](images/copy_response.png)
 
