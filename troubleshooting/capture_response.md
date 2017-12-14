@@ -2,9 +2,13 @@
 
 ## Overview
 
-The following instructions outline steps required to record network response in ATSD portals for a particular widget.
+The following instructions outline the steps required to record network response in ATSD portals in supported web browsers.
 
-## Google Chrome
+* [Chrome](#chrome)
+* [Internet Explorer](#internet-explorer)
+* [Edge](#edge)
+
+## Chrome
 
 - Open an ATSD portal.
 
