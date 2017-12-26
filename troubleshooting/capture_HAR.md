@@ -6,6 +6,7 @@ The following instructions outline the steps required to export web browser requ
 
 
 * [Chrome](#chrome)
+* [Firefox](#firefox)
 * [Internet Explorer 11](#internet-explorer-11)
 * [Edge](#edge)
 
@@ -35,6 +36,32 @@ The following instructions outline the steps required to export web browser requ
 
 - Save the request output into a file such as `widget_xyz.har`.
 
+## Firefox
+
+- Open a portal.
+
+- Click `F12` on Windows or `Command+Option+I` on Mac to open Developer Tools.
+
+- Open the **Network** panel.
+
+  ![](images/network_panel_ff.png)
+
+- Click on `Clear` icon  ![](images/clear_button_ff.png)  in the toolbar to clear the request history.
+
+- Click on the widget header. 
+
+  ![](images/widget_header_ff.png)
+  
+- The dialog mode will initiate a request into ATSD to load data for the selected widget.
+
+  ![](images/response_received_ff.png)
+
+- Right-click on the request row. Select **Copy > Copy all as HAR** option.
+
+  ![](images/copy_all_as_har_ff.png)
+
+- Save the request output into a file such as `widget_xyz.har`.
+
 ## Internet Explorer 11
 
 IE 11 unable to generate `HAR`, but instead saves the data you've recorded to an XML or CSV format.
@@ -53,7 +80,7 @@ IE 11 unable to generate `HAR`, but instead saves the data you've recorded to an
 
 - Click on the widget header. 
 
-  ![](images/widget_header.png)
+  ![](images/widget_header_ie.png)
   
 - The dialog mode will initiate a request into ATSD to load data for the selected widget.
   
@@ -79,7 +106,7 @@ IE 11 unable to generate `HAR`, but instead saves the data you've recorded to an
 
 - Click on the widget header. 
 
-  ![](images/widget_header.png)
+  ![](images/widget_header_edge.png)
   
 - The dialog mode will initiate a request into ATSD to load data for the selected widget.
 
