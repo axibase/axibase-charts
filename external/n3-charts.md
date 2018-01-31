@@ -4,7 +4,7 @@
 
 |Chart name|Example|
 |---|---|
-|Line|https://jsfiddle.net/tmvhqes8/|
-|Log-Line|https://jsfiddle.net/o5wbn7cL/|
-|Stacked-Column|https://jsfiddle.net/dcksysuy/|
-|Interpolation|https://jsfiddle.net/my66gran/|
+|Line|https://jsfiddle.net/tmvhqes8/1/|
+|Log-Line|https://jsfiddle.net/o5wbn7cL/1/|
+|Stacked-Column|https://jsfiddle.net/dcksysuy/1/|
+|Interpolation|https://jsfiddle.net/my66gran/1/|
