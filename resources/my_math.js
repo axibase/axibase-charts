@@ -1,5 +1,5 @@
 /*
- This function multiplies values in the original series, identified by alias, by a constant numeric value.
+ This function multiplies all values in the original series, identified by alias, by a constant numeric value.
 */
 exports.multiplyBy = function (alias, num) {
   // multiply current value in the referenced series by 'num'
