@@ -18,7 +18,7 @@ Example:
 import fred = /portal/resource/udf_fred.js
 ```
 
-Multiple function files can be loaded by assiging different package names to each one. 
+Multiple function files can be loaded by assigning different package names to each one. 
 
 ```
 import fred_base = /portal/resources/udf_fred_v.1.js
@@ -134,7 +134,7 @@ exports.getValueRange = function (alias, period) {
 
 Additional function examples can be found in [examples.js file](../resources/examples.js).
 
-Chartlab examples:
+ChartLab examples:
 
 * https://apps.axibase.com/chartlab/2595a144/1/ - getValueRange
 * https://apps.axibase.com/chartlab/2595a144/2/ - getDifferenceFromAverage
@@ -249,5 +249,4 @@ getMaximumValue(alias)
 | **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
 | alias | yes | string | Alias of the series, from which the value should be retrieved. |
-
 
