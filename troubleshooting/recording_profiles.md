@@ -43,6 +43,6 @@ The following instructions outline steps required to record JavaScript timelines
 
 - Click on the red `Record` circle  ![](images/red_record_button.png) to stop recording the session.
 
-- Click on "Save" to Save Profile to a heaptimeline file.
+- Click on "Save" to Save Profile to a heap timeline file.
 
   ![](images/memory_profile_save.png)
