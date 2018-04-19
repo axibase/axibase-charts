@@ -1,6 +1,6 @@
 
 /*
- This function calculates the difference between the maximum and minimum values within the period in the original series, identified by alias.
+ This function calculates the difference between the maximum and minimum values within some period in the original series, identified by alias.
 */
 exports.getValueRange = function (alias, period) {
   // get the maximum value within the current period
@@ -14,7 +14,7 @@ exports.getValueRange = function (alias, period) {
 };
 
 /*
- This function calculates the difference between the current value and the average within the period in the original series, identified by alias.
+ This function calculates the difference between the current value and the average within some period in the original series, identified by alias.
 */
 exports.getDifferenceFromAverage = function (alias, period) {
   // calculate the average value for the current period
@@ -26,7 +26,7 @@ exports.getDifferenceFromAverage = function (alias, period) {
 };
 
 /*
- This function calculates the weight if the current value within the sum of all values in the period for the original series, identified by alias.
+ This function calculates the weight of the current value within the sum of all values in some period for the original series, identified by alias.
 */
 exports.getWeight = function (alias, period) {
   // calculate the sum total of all values in the current period

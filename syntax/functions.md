@@ -13,7 +13,7 @@ This page contains descriptions of recently implemented functions.
 | [range()](#range) | Returns a regularly-spaced, customizable array of numbers |
 | [csv name = ...](#csv_inline) | Parses CSV-like text into an array of objects |
 | [csv name from ...](#csv_from)| Loads a CSV file located at the defined url and parses it into an array of objects |
-| [csv.values()](#csv_values) | Returns the sorted, unique values of a definied column |
+| [csv.values()](#csv_values) | Returns the sorted, unique values of a defined column |
 | [list.escape()](#list_escape) | Escapes commas in every element of an array |
 | [previous()](#previous) | Retrieves the value of the previous point in a sequence |
 | [movavg()](#movavg) | Computes the moving average from a desired number of previous points |
@@ -383,8 +383,8 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ### Description
 
 
-Generates an array of numbers from `start` to `end`, regularly spaced with a defineable `step`.
-If `step` is not specified, numbers are sequental.
+Generates an array of numbers from `start` to `end`, regularly spaced with a definable `step`.
+If `step` is not specified, numbers are sequential.
 If `start` is greater than `end`, numbers are generated in descending order.
 If `format` is specified, each number is formatted and converted to a string.
 
@@ -405,14 +405,14 @@ Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or
 |------|-----------|------|-------------|
 | start | required | number | first number in list |
 | end | required | number | last number is list |
-| step | optional | number | offset betwen adjacent numbers |
+| step | optional | number | offset between adjacent numbers |
 | format | optional | string | formatter name ([available formats](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings)) |
 
 ### Examples
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/6/)
 
-#### Get sequental numbers from 1 to 10
+#### Get sequential numbers from 1 to 10
 
 ##### Usage
 
@@ -468,7 +468,7 @@ range(10,1,2)
 10,8,6,4,2
 ```
 
-#### Format sequental numbers 1 to 10 as a percent
+#### Format sequential numbers 1 to 10 as a percent
 
 ##### Usage
 
@@ -496,7 +496,7 @@ range(1,10,2,'percent')
 1%,3%,5%,7%,9%
 ```
 
-#### Format sequental numbers from 1 to 10 as minutes
+#### Format sequential numbers from 1 to 10 as minutes
 
 ##### Usage
 
@@ -510,7 +510,7 @@ range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
 00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
 ```
 
-#### Format sequental numbers from 1 to 12 with an additional fill character (0) for single digit values.
+#### Format sequential numbers from 1 to 12 with an additional fill character (0) for single digit values.
 
 ##### Usage
 
@@ -541,7 +541,7 @@ range(1, 12, "d3.format('02d')(value)")
 Parses CSV-like text placed between `csv name = ` and `endcsv` keywords into an array of objects.
 First line contains header/column names.
 Other lines contain data.
-Each data line is parsed into the object, where keys are column names and values are the values of corresponidng cells.
+Each data line is parsed into the object, where keys are column names and values are the values of corresponding cells.
 The generated array uses the `.value(column_name)` method to get unique sorted values of the defined column.
 
 Limitations and features that are applied:
@@ -657,7 +657,7 @@ endfor
 
 ### Description
 Parse a CSV file located at the defined `url` into an array of objects.
-Each data line is parsed into the object, where keys are column names and values are the values of the corresponidng cells.
+Each data line is parsed into the object, where keys are column names and values are the values of the corresponding cells.
 The generated array uses the `.value(column_name)` method to get unique sorted values of defined column.
 
 Limitation and features that are applied to the text:
@@ -1108,7 +1108,7 @@ Can be used in `value-expression` settings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/22/)
 
-#### Caluculate movavg only when there are a defined amount of points for calculation
+#### Calculate movavg only when there are a defined amount of points for calculation
 
 ##### Usage
 
@@ -1336,7 +1336,7 @@ Sends _asynchronous_ GET request to the
 
 
 ### Return value
-`Array<string>` - values to fill the dropdown, retrived from series descriptors.
+`Array<string>` - values to fill the dropdown, retrieved from series descriptors.
 
 ### Arguments
 
@@ -1444,7 +1444,7 @@ Requests entity tags or properties for the entity or entities specified by the `
 If `postBody` is specified, `entity` and `propertyType` parameters are ignored.
 Function requests entity tags if `$entity_tags` is specified as `propertyType`, or if not, requests properties.
 If `fieldPath` is specified retrieve fields found by `fieldPath` in the entity tags or properties.
-If `unique` is specified retrieved values are both unqiue and sorted.
+If `unique` is specified retrieved values are both unique and sorted.
 If `callback` function is specified, it is applied to the array of retrieved fields or the array of entity tags/properties, whether or not `fieldPath` is specified.
 Returns the array of options - objects with `value` property set to the processed retrieved value.
 
@@ -1462,7 +1462,7 @@ Sends _asynchronous_ POST request to the
 
 
 ### Return value
-`Array<string>` - values to fill the dropdown, retrived from properties descriptors.
+`Array<string>` - values to fill the dropdown, retrieved from properties descriptors.
 
 ### Arguments
 
@@ -1912,6 +1912,3 @@ To populate the dropdown with the names of metrics, collected for the entity, an
 Below are the contents of the dropdown.
 
 ![](images/options_callback.png)
-
-
-
