@@ -32,7 +32,7 @@ The expression specified in the `value` setting is invoked for each "time:value"
 
 | Function | Arguments | Description |
 |----------|-----------|-------------|
-| value | alias | Value of the series at the current timesamp. |
+| value | alias | Value of the series at the current timestamp. |
 | previous | alias, count | Value of series `count` samples ago. |
 | time |  | Timestamp in Unix milliseconds for which the expression is invoked. |
 
@@ -42,7 +42,7 @@ The expression specified in the `value` setting is invoked for each "time:value"
 |----------|-----------|-------------|
 | movavg | alias, count, minCount | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds this parameter. |
 | percentile | percentage, alias, period |  Value, which is greater than the `percentage` of samples in the current `period`.  |
-| max<br>maximun | alias, period | Maximum in the current `period`. |
+| max<br>maximum | alias, period | Maximum in the current `period`. |
 | min<br>minimum | alias, period | Minimum in the current `period`. |
 | avg<br>average | alias, period | Average in the current `period`. |
 | sum | alias, period | Sum of values in the current `period`. |
@@ -70,3 +70,25 @@ The expression specified in the `value` setting is invoked for each "time:value"
 | entityTag | alias, tagName | Entity tag. |
 | metricTag | alias, tagName | Metric tag. |
 
+## Window Functions
+
+Define a custom JavaScript function in the `window` object using the `script` / `endscript` section in the configuration text.
+
+```ls
+script
+  window.checkRange = function (val) {
+     if (val < 0) {
+       return 0;
+     }
+     return false;
+  };
+endscript
+```
+
+The custom function can be accessed in the `value` field by referencing it by name.
+
+```ls
+value = return checkRange(value);
+```
+
+Functions in the `window` scope can be invoked in other settings that support functions, for example, in the `format` setting.

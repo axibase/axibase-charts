@@ -2,34 +2,57 @@
 
 ## Overview
 
-This document describes how to develop custom time series functions and apply them in Axibase chart configurations.
+This document describes how to define custom time series functions and apply them in chart configurations.
 
-## Importing Functions
+## Window Functions
 
-Custom functions are loaded with the `import` keyword, followed by package name and the URL to the JavaScript file containing function definitions. 
+Window functions can be used to perform scalar calculations which do not require access to the series object.
 
+Define a custom JavaScript function in the `window` object using the `script` / `endscript` section in the configuration text.
+
+```ls
+script
+  window.checkRange = function (val) {
+     if (val < 0) {
+       return 0;
+     }
+     return false;
+  };
+endscript
 ```
+
+The custom window function can be accessed in any field that supports functions by referencing the function by name, for example, the `value` field or the `format` field.
+
+```ls
+value = return checkRange(value);
+```
+
+## Function Libraries
+
+A collection of custom functions can be loaded into the configuration with the `import` keyword, followed by package name and the URL to the JavaScript file containing function definitions.
+
+```ls
 import package_name = url
 ```
 
 Example:
 
-```
+```ls
 import fred = /portal/resource/udf_fred.js
 ```
 
-Multiple function files can be loaded by assiging different package names to each one. 
+Multiple function files can be loaded by assigning different package names to each one.
 
-```
+```ls
 import fred_base = /portal/resources/udf_fred_v.1.js
 import fred_advanced = /portal/resources/udf_fred_v.2.js
 ```
 
-The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files. 
+The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files.
 
 The functions can be loaded from a local server or remote server.
 
-```
+```ls
 # load functions from a remote server
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
@@ -44,7 +67,7 @@ If the `url` path is relative, the function is loaded from `/portal/resource/scr
 
 The imported functions can be referenced in `value` expressions by specifying the package name, the function name, and the function's arguments.
 
-```
+```ls
 # Calculate monthly change for series with alias 'raw'
 value = fred.MonthlyChange('raw')
 ```
@@ -75,13 +98,13 @@ The following sample functions are implemented in the [fred.js](https://apps-cha
 
 On the ATSD server, the function files are stored in the following directory:
 
-```
+```txt
 /opt/atsd/atsd/conf/portal/scripts
 ```
 
 The JavaScript files placed into this directory are accessible by file name:
 
-```
+```ls
 import fred = fred_v1.js
 ```
 
@@ -102,7 +125,7 @@ exports.NaturalLog = function (alias) {
 };
 ```
 
-The function's definition must start with the `exports.` qualifier and implemented as a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions). 
+The function's definition must start with the `exports.` qualifier and implemented as a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions).
 
 The function must return a numeric value or `null` if the result cannot be computed.
 
@@ -134,11 +157,11 @@ exports.getValueRange = function (alias, period) {
 
 Additional function examples can be found in [examples.js file](../resources/examples.js).
 
-Chartlab examples:
+ChartLab examples:
 
-* https://apps.axibase.com/chartlab/2595a144/1/ - getValueRange
-* https://apps.axibase.com/chartlab/2595a144/2/ - getDifferenceFromAverage
-* https://apps.axibase.com/chartlab/2595a144/3/ - getWeight
+* [getValueRange](https://apps.axibase.com/chartlab/2595a144/1/)
+* [getDifferenceFromAverage](https://apps.axibase.com/chartlab/2595a144/2/)
+* [getWeight](https://apps.axibase.com/chartlab/2595a144/3/)
 
 ## Example
 
@@ -170,7 +193,7 @@ Verify that the file is accessible at the following url: `http://atsd_hostname:8
 
 ### Step 3. Import Functions
 
-Open **Admin > Portals** page and create a new portal. 
+Open the **Portals > Configure** page in the top menu and create a new portal.
 
 Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` with a metric and an entity present in your ATSD instance.
 
@@ -194,17 +217,17 @@ Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` wi
 
 Save the portal. View the portal to check results.
 
-[Chartlab Example](https://apps.axibase.com/chartlab/bc36b341)
+[ChartLab Example](https://apps.axibase.com/chartlab/bc36b341)
 
 ## Utility Functions
 
-#### getValueWithOffset()
+### getValueWithOffset()
 
 Get the value of the series, identified by `alias`, for the `timestamp`, which is calculated as `current_time - offset`, where  `current_time` is the time of currently processed sample. If there is no sample with such `timestamp`, the value is linearly interpolated from the neighboring samples.
 
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/4/)
+[ChartLab Example](https://apps.axibase.com/chartlab/2595a144/4/)
 
-**Syntax**
+* Syntax
 
 ```javascript
 getValueWithOffset(alias, offset)
@@ -215,15 +238,14 @@ getValueWithOffset(alias, offset)
 | alias | yes | string | Alias of the series, from which the value should be retrieved. |
 | offset | yes | string | Offset, with which the previous value is retrieved, specified as interval, for example '1 day'. |
 
-
 ### getValueForDate()
 
 Get the value of the series, identified by `alias`, for the specified `datetime`.
 If there is no sample recorded for the specified `datetime`, the value is linearly interpolated from the neighboring samples.
 
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/5/)
+[ChartLab Example](https://apps.axibase.com/chartlab/2595a144/5/)
 
-**Syntax**
+* Syntax
 
 ```javascript
 getValueForDate(alias, datetime)
@@ -238,9 +260,9 @@ getValueForDate(alias, datetime)
 
 Get the maximum value of the series, identified by `alias`, for the loaded timespan.
 
-[Chartlab Example](https://apps.axibase.com/chartlab/2595a144/6/)
+[ChartLab Example](https://apps.axibase.com/chartlab/2595a144/6/)
 
-**Syntax**
+* Syntax
 
 ```javascript
 getMaximumValue(alias)
@@ -249,5 +271,3 @@ getMaximumValue(alias)
 | **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
 | alias | yes | string | Alias of the series, from which the value should be retrieved. |
-
-
