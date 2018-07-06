@@ -1,54 +1,53 @@
 # Axibase Charts
 
-## Overview
-
-Axibase Charts provides 15 widgets and an easy-to-use declarative syntax to create time-series visualizations without writing any code.
-
 ## Status
 
-This repository is the new home of Chart documentation. 
+The new home of Axibase Charts Documentation is under development. See [Legacy Documentation](https://axibase.com/products/axibase-time-series-database/visualization/).
 
-Existing docs and examples are currently hosted on https://axibase.com/products/axibase-time-series-database/visualization/.
+## Overview
 
-## Contents
+Charts is a collection of time-series widgets presented in grid layout.
 
-* [Layout](layout)
-* [Data Loading](integration)
-* [Syntax](syntax)  
-  - Inheritance
-  - Computed Metrics
-  - Control Structures
-  - [Functions](syntax/functions.md)  
-  - Summary Portals
-  - Label Formatting
-  - Meta Data
-  - Alert Expressions
-  - Linking
-  - Display Filters
-  - Configuration
-  - Baselines
-  - Thresholds and SLA
-  - Extended Aggregators
-  - Wildcards
-  - Dropdowns
-  - [Used-Defined Functions](syntax/udf.md)   
-* [Widgets](widgets)
-  - [Time Chart](widgets/chart)
-  - [Gauge](widgets/gauge)
-  - [Box](widgets/box)
-  - [Table](widgets/table)
-  - [Bar](widgets/bar)
-  - [Calendar](widgets/calendar)
-  - [TreeMap](widgets/treemap)
-  - [Text](widgets/text)
-  - [Histogram](widgets/histogram)
-  - [Pie](widgets/pie)
-  - [Graph](widgets/graph)
-  - [Page](widgets/page)
-  - [Property](widgets/property)
-  - [Alert](widgets/alert)
-  - [Map](widgets/map)
-* [External Charting Frameworks](external)  
-* [Embedded](embed)
+The Charts library implements a simple yet powerful syntax, closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema for building real-time dashboards in a declarative way.
+
+* Layout
+* Data Loading
+* Syntax
+  * [Inheritance](./configuration/inheritance.md)
+  * Computed Metrics
+  * Control Structures
+  * [Functions](syntax/functions.md)  
+  * Summary Portals
+  * Label Formatting
+  * Meta Data
+  * Alert Expressions
+  * Linking
+  * Display Filters
+  * Configuration
+  * Baselines
+  * Thresholds and SLA
+  * Extended Aggregators
+  * Wildcards
+  * Dropdowns
+  * [Used-Defined Functions](syntax/udf.md)
+* Widgets
+  * Time Chart
+  * Gauge
+  * Box
+  * Table
+  * Bar
+  * Calendar
+  * TreeMap
+  * Text
+  * Histogram
+  * Pie
+  * Graph
+  * Page
+  * Property
+  * Alert
+  * Map
+* External Charting Frameworks
+* Embedded
 * Tools
-  - [ChartLab](https://apps.axibase.com/chartlab)
+  * [ChartLab](https://axibase.com/use-cases/tutorials/shared/chartlab.html)
+  * [Trends](https://axibase.com/use-cases/tutorials/shared/trends.html)
