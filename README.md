@@ -27,7 +27,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * Baselines
   * Thresholds and SLA
   * Extended Aggregators
-  * Wildcards
+  * [Wildcards](./syntax/wildcards.md)
   * Dropdowns
   * [Used-Defined Functions](syntax/udf.md)
 * Widgets
