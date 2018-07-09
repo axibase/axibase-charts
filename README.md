@@ -20,7 +20,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * [Summary Portals](./configuration/summary-portals.md)
   * [Label Formatting](./syntax/label-formatting.md)
   * [Summary Portals](./configuration/summary-portals.md)
-  * Meta Data
+  * [Meta Data](./configuration/meta-data.md)
   * Alert Expressions
   * Linking
   * Display Filters
