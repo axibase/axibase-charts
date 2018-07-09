@@ -48,18 +48,18 @@ import fred_base = /portal/resources/udf_fred_v.1.js
 import fred_advanced = /portal/resources/udf_fred_v.2.js
 ```
 
-The package name can be anything and its purpose is to avoid collisions between similarly named functions loaded from different files.
+When importing multiple files, assign a unique package name to each library to avoid collisions.
 
-The functions can be loaded from a local server or remote server.
+The function files can be loaded from a local server or remote server.
 
 ```ls
 # load functions from a remote server
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
 
-> Note that configurations loaded over the **http** protocol cannot load functions from **https** URLs.
+> Note that configurations loaded over the **http** protocol cannot load function files from **https** URLs.
 
-If the `url` path is relative, the function is loaded from `/portal/resource/scripts/{file_name}` path on the current host.
+If the `url` path is relative, the function file is loaded from the `/portal/resource/scripts/{file_name}` path on the current host.
 
 [Example](https://apps.axibase.com/chartlab/d220468d/19)
 
