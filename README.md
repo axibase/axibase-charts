@@ -14,11 +14,12 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 * Data Loading
 * Syntax
   * [Inheritance](./configuration/inheritance.md)
-  * Computed Metrics
-  * Control Structures
+  * [Computed Metrics](./configuration/computed-metrics.md)
+  * [Control Structures](./syntax/control-structures.md)
   * [Functions](syntax/functions.md)  
-  * Summary Portals
+  * [Summary Portals](./configuration/summary-portals.md)
   * [Label Formatting](./syntax/label-formatting.md)
+  * [Summary Portals](./configuration/summary-portals.md)
   * Meta Data
   * Alert Expressions
   * Linking
