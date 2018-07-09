@@ -18,7 +18,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * Control Structures
   * [Functions](syntax/functions.md)  
   * Summary Portals
-  * Label Formatting
+  * [Label Formatting](./syntax/label-formatting.md)
   * Meta Data
   * Alert Expressions
   * Linking
