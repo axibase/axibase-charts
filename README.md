@@ -23,7 +23,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * [Meta Data](./configuration/meta-data.md)
   * Alert Expressions
   * Linking
-  * Display Filters
+  * [Display Filters](./configuraton/display-filters.md)
   * Configuration
   * Baselines
   * Thresholds and SLA
