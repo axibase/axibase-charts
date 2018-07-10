@@ -16,10 +16,6 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * [Control Structures](./syntax/control-structures.md)
   * [Label Formatting](./syntax/label-formatting.md)
   * [Alert Expressions](./syntax/alert-expression.md)
-  * Display Filters
-  * Baselines
-  * Thresholds and SLA
-  * Extended Aggregators
   * Dropdowns
   * [Linking](./syntax/linking.md)
   * [Wildcards](./syntax/wildcards.md)
@@ -33,6 +29,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * [Summary Portals](./configuration/summary-portals.md)
   * [Meta Data](./configuration/meta-data.md)
   * [Display Filters](./configuration/display-filters.md)
+  * [Baselines](./configuration/baselines.md)
 * Extended Aggregators
 * Dropdowns
 * Widgets
