@@ -29,28 +29,25 @@ value = return checkRange(value);
 
 ## Function Libraries
 
-A collection of custom functions can be loaded into the configuration with the `import` keyword, followed by package name and the URL to the JavaScript file containing function definitions.
+
+Custom JavaScript functions can be loaded into the configuration with the `import` keyword, followed by package name and the URL of the file containing function definitions.
 
 ```ls
 import package_name = url
 ```
 
-Example:
-
-```ls
-import fred = /portal/resource/udf_fred.js
-```
-
 Multiple function files can be loaded by assigning different package names to each one.
 
 ```ls
-import fred_base = /portal/resources/udf_fred_v.1.js
-import fred_advanced = /portal/resources/udf_fred_v.2.js
+import package_1 = url_1
+import package_2 = url_2
 ```
 
-When importing multiple files, assign a unique package name to each library to avoid collisions.
+When importing multiple files, assign a **unique** package name to each library to avoid collisions.
 
-The function files can be loaded from a local server or remote server.
+The function files can be loaded from both the local server and the remote server.
+
+### Loading from Remote Server
 
 ```ls
 # load functions from a remote server
@@ -59,9 +56,22 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 > Note that configurations loaded over the **http** protocol cannot load function files from **https** URLs.
 
-If the `url` path is relative, the function file is loaded from the `/portal/resource/scripts/{file_name}` path on the current host.
+* Econometric function [example](https://apps.axibase.com/chartlab/d220468d/19)
+* Sun altitude function [example](https://apps.axibase.com/chartlab/8e2917e2/8/)
 
-[Example](https://apps.axibase.com/chartlab/d220468d/19)
+### Loading from Local Server
+
+If the `url` path is relative, the function file is loaded from the `/portal/resource/scripts/{file_name}` path on the current server.
+
+Example:
+
+```ls
+import fred = udf_fred.js
+```
+
+The JavaScript file above will be loaded from `/portal/resource/udf_fred.js`.
+
+On the ATSD server, the `/portal/resource/` directory is mapped to the `/opt/atsd/atsd/conf/portal/scripts/` directory.
 
 ## Usage
 
