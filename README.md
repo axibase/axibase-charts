@@ -13,24 +13,24 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 * Layout
 * Data Loading
 * Syntax
-  * [Inheritance](./configuration/inheritance.md)
-  * [Computed Metrics](./configuration/computed-metrics.md)
   * [Control Structures](./syntax/control-structures.md)
-  * [Functions](syntax/functions.md)  
-  * [Summary Portals](./configuration/summary-portals.md)
   * [Label Formatting](./syntax/label-formatting.md)
-  * [Summary Portals](./configuration/summary-portals.md)
-  * [Meta Data](./configuration/meta-data.md)
+  * [Wildcards](./syntax/wildcards.md)
+  * [Functions](./syntax/functions.md)  
+  * [Used-Defined Functions](./syntax/udf.md)
   * Alert Expressions
   * Linking
-  * [Display Filters](./configuraton/display-filters.md)
-  * Configuration
-  * Baselines
-  * Thresholds and SLA
-  * Extended Aggregators
-  * [Wildcards](./syntax/wildcards.md)
-  * Dropdowns
-  * [Used-Defined Functions](syntax/udf.md)
+  * Display Filters
+* [Configuration](./configuration/README.md)
+  * [Inheritance](./configuration/inheritance.md)
+  * [Computed Metrics](./configuration/computed-metrics.md)
+  * [Summary Portals](./configuration/summary-portals.md)
+  * [Summary Portals](./configuration/summary-portals.md)
+  * [Meta Data](./configuration/meta-data.md)
+* Baselines
+* Thresholds and SLA
+* Extended Aggregators
+* Dropdowns
 * Widgets
   * Time Chart
   * Gauge
