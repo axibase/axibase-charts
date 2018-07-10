@@ -19,8 +19,10 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * Dropdowns
   * [Linking](./syntax/linking.md)
   * [Wildcards](./syntax/wildcards.md)
-  * [Functions](./syntax/functions.md)  
+  * [Functions](./syntax/functions.md)
   * [Used-Defined Functions](./syntax/udf.md)
+  * [Baselines](./syntax/baselines.md)
+  * [Thresholds and SLA](./syntax/thresholds.md)
 * [Configuration](./configuration/README.md)
   * [Inheritance](./configuration/inheritance.md)
   * [Computed Metrics](./configuration/computed-metrics.md)
@@ -28,7 +30,6 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
   * [Meta Data](./configuration/meta-data.md)
   * [Display Filters](./configuration/display-filters.md)
   * [Baselines](./configuration/baselines.md)
-* Thresholds and SLA
 * Extended Aggregators
 * Dropdowns
 * Widgets
