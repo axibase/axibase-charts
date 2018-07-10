@@ -72,6 +72,15 @@ Number of sequences within the period when the series values exceeded the thresh
 
 Total duration of intervals within the period when the series values exceeded the threshold. Note, when using `threshold_duration` with an `alert-expression` the `value` argument is measured in **milliseconds**.
 
+```css
+[series]
+  statistic = threshold_duration
+  min-threshold = 10
+  period = 5 minute
+  alert-expression = value > 180000
+  alert-style = color: green
+```
+
 ![](./images/threshold_duration.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/b73f5d71)
