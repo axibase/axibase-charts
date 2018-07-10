@@ -1,5 +1,7 @@
 # Axibase Charts
 
+![](./images/charts-title-photo.png)
+
 ## Status
 
 The new home of Axibase Charts Documentation is under development. See [Legacy Documentation](https://axibase.com/products/axibase-time-series-database/visualization/).
