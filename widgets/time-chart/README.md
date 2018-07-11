@@ -8,7 +8,7 @@ Time Charts display series values at successive time intervals, showing one or m
 
 ## Syntax
 
-Time Chart inherits Shared Widget syntax.
+Time Charts support [Shared Widget](../shared/README.md) syntax.
 
 ### `[widget]` Settings
 

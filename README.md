@@ -55,6 +55,8 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 
 ## Widgets
 
+All widgets support [Shared Widget](./widgets/shared/README.md) syntax.
+
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
 [![](./images/time-chart.png)](./widgets/time-chart/README.md) | ![](./images/gauge-chart.png) | ![](./images/bar-chart.png)
