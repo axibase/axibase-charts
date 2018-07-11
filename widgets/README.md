@@ -2,7 +2,7 @@
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
-![](./images/time-chart.png) | ![](./images/gauge-chart.png) | ![](./images/bar-chart.png)
+[![](./images/time-chart.png)](./widgets/time-chart/README.md) | ![](./images/gauge-chart.png) | ![](./images/bar-chart.png)
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
