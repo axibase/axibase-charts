@@ -118,4 +118,4 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-4.png)
 
-[![](./images/buton.png)](https://apps.axibase.com/chartlab/343ec3ea)
+[![](./images/button.png)](https://apps.axibase.com/chartlab/343ec3ea)

@@ -4,7 +4,7 @@
 
 |Chart name|Example|
 |---|---|
-|AngularGauge|https://jsfiddle.net/v7txc023/1/|
+|`AngularGauge`|https://jsfiddle.net/v7txc023/1/|
 |Area 2D|https://jsfiddle.net/po5xh89f/1/|
 |Cylinder|https://jsfiddle.net/3okL6fj2/1/|
 |Doughnut 3D|https://jsfiddle.net/6fzmh33b/|
