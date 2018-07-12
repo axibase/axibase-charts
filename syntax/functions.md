@@ -13,8 +13,8 @@ The list contains built-in utility functions that can be included in Axibase Cha
 | [`range()`](#range) | Returns a regularly spaced, customizable array of numbers |
 | [`CSV Inline Text Mode`](#csv-inline-text-mode) | Parses CSV-like text into an array of objects |
 | [`CSV From Mode`](#csv-from-mode)| Loads a CSV file located at the defined URL and parses it into an array of objects |
-| [`csv.values()`](#csv.values) | Returns the sorted, unique values of a defined column |
-| [`list.escape()`](#list.escape) | Escapes commas in every element of an array |
+| [`csv.values()`](#csvvalues) | Returns the sorted, unique values of a defined column |
+| [`list.escape()`](#listescape) | Escapes commas in every element of an array |
 | [`previous()`](#previous) | Retrieves the value of the previous point in a sequence |
 | [`movavg()`](#movavg) | Computes the moving average from a desired number of previous points |
 | [`meta()`](#meta) | Retrieves the metadata object for a series |
@@ -23,9 +23,9 @@ The list contains built-in utility functions that can be included in Axibase Cha
 | [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the defined series field |
 | [`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the defined metric field |
 | [`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from value values retrieved for the defined entity tag or property |
-| [`requestMetricsSeriesOptions()`](#requestmetricsseriesoptions) | Creates drop-down list from values retrieved for the defined series field |
-| [`requestEntitiesMetricsOptions()`](#requestentitiesmetricsoptions) | Creates drop-down list from values retrieved for the defined metric field |
-| [`requestPropertiesOptions()`](#requestpropertiesoptions) | Creates drop-down list from values retrieved for the defined entity tag or property |
+| [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field |
+| [`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list from values retrieved for the defined metric field |
+| [`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the defined entity tag or property |
 
 ---
 
