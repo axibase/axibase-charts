@@ -6,93 +6,98 @@ The list contains built-in utility functions that can be included in Axibase cha
 
 | Name | Description |
 |------|-------------|
-| [getTags()](#getTags) | Retrieves metric series and returns a sorted array of unique values for defined tags |
-| [getSeries()](#getSeries) | Returns an array of series collected for the defined metric |
-| [getMetrics()](#getMetrics) | Returns the names of metrics collected for the defined entity |
-| [getEntities()](#getEntities) | Returns the names of entities contained in the defined entity-group |
-| [range()](#range) | Returns a regularly-spaced, customizable array of numbers |
-| [csv name = ...](#csv_inline) | Parses CSV-like text into an array of objects |
-| [csv name from ...](#csv_from)| Loads a CSV file located at the defined url and parses it into an array of objects |
-| [csv.values()](#csv_values) | Returns the sorted, unique values of a defined column |
-| [list.escape()](#list_escape) | Escapes commas in every element of an array |
-| [previous()](#previous) | Retrieves the value of the previous point in a sequence |
-| [movavg()](#movavg) | Computes the moving average from a desired number of previous points |
-| [meta()](#meta) | Retrieves the metadata object for a series |
-| [entityTag()](#entityTag) | Returns the value of the entity tag from the metadata object for the series |
-| [metricTag()](#metricTag) | Returns the value of the metric tag from the metadata object for the series |
-| [requestMetricsSeriesValues()](#requestMetricsSeriesValues) | Creates dropdown option values from values retrieved for the defined series field |
-| [requestEntitiesMetricsValues()](#requestEntitiesMetricsValues) | Creates dropdown option values from values retrieved for the defined metric field |
-| [requestPropertiesValues()](#requestPropertiesValues) | Creates dropdown options from value values retrieved for the defined entity tag or property |
-| [requestMetricsSeriesOptions()](#requestMetricsSeriesOptions) | Creates dropdown options from values retrieved for the defined series field |
-| [requestEntitiesMetricsOptions()](#requestEntitiesMetricsOptions) | Creates dropdown options from values retrieved for the defined metric field |
-| [requestPropertiesOptions()](#requestPropertiesOptions) | Creates dropdown options from values retrieved for the defined entity tag or property |
+| [`getTags()`](#getTags) | Retrieves metric series and returns a sorted array of unique values for defined tags |
+| [`getSeries()`](#getSeries) | Returns an array of series collected for the defined metric |
+| [`getMetrics()`](#getMetrics) | Returns the names of metrics collected for the defined entity |
+| [`getEntities()`](#getEntities) | Returns the names of entities contained in the defined entity-group |
+| [`range()`](#range) | Returns a regularly spaced, customizable array of numbers |
+| [`csv name = ...`](#csv_inline) | Parses CSV-like text into an array of objects |
+| [`csv name from ...`](#csv_from)| Loads a CSV file located at the defined URL and parses it into an array of objects |
+| [`csv.values()`](#csv_values) | Returns the sorted, unique values of a defined column |
+| [`list.escape()`](#list_escape) | Escapes commas in every element of an array |
+| [`previous()`](#previous) | Retrieves the value of the previous point in a sequence |
+| [`movavg()`](#movavg) | Computes the moving average from a desired number of previous points |
+| [`meta()`](#meta) | Retrieves the metadata object for a series |
+| [`entityTag()`](#entityTag) | Returns the value of the entity tag from the metadata object for the series |
+| [`metricTag()`](#metricTag) | Returns the value of the metric tag from the metadata object for the series |
+| [`requestMetricsSeriesValues()`](#requestMetricsSeriesValues) | Creates drop-down list values from values retrieved for the defined series field |
+| [`requestEntitiesMetricsValues()`](#requestEntitiesMetricsValues) | Creates drop-down list values from values retrieved for the defined metric field |
+| [`requestPropertiesValues()`](#requestPropertiesValues) | Creates drop-down list from value values retrieved for the defined entity tag or property |
+| [`requestMetricsSeriesOptions()`](#requestMetricsSeriesOptions) | Creates drop-down list from values retrieved for the defined series field |
+| [`requestEntitiesMetricsOptions()`](#requestEntitiesMetricsOptions) | Creates drop-down list from values retrieved for the defined metric field |
+| [`requestPropertiesOptions()`](#requestPropertiesOptions) | Creates drop-down list from values retrieved for the defined entity tag or property |
 
 ---
 
-## getTags()
+## `getTags()`
 
-### Description
-Loads a series for the `metric` and the `entity` from a defined `url`, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
-Additional `queryParameters` can be specified.
-Unique values of the tag defined by `tagName` are retrieved from tags of the loaded series and sorted.
-The returned array includes the `list.escape()` function, which escapes any commas present in each element.
+ **Description**:
 
-### Syntax
-```
+* Loads a series for the `metric` and the `entity` from a defined URL, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+* Additional `queryParameters` can be specified.
+* Unique values of the tag defined by `tagName` are retrieved from tags of the loaded series and sorted.
+* The returned array includes the `list.escape()` function, which escapes any commas present in each element.
+
+ **Syntax**:
+
+```css
 getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
-### Scope of usage
-Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
+### Scope of Usage
+
+Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 ### API Request
-Sends _synchronous_ GET request to the
+
+Sends synchronous `GET` request to
 [/api/v1/metrics/{metric}/series](https://axibase.com/docs/atsd/api/meta/metric/series.html)
 
 ### Return value
-`Array<string>` - unique sorted values of the specified `tagName` series tag.
+
+`Array<string>`: unique sorted values of the specified `tagName` series tag.
 
 ### Arguments
 
 | Name | Necessity | Type | Description |
 |------|-----------|------|-------------|
-| metric | required | string | `metric` path parameter |
-| tagName | required | string | tag which values will be retrieved from series descriptors |
-| entity | optional | string | `entity` query parameter |
-| minInsertDate | optional | string | `minInsertDate` query parameter ([syntax](https://axibase.com/docs/atsd/shared/calendar.html)) |
-| maxInsertDate | optional | string | `maxInsertDate` query parameter ([syntax](https://axibase.com/docs/atsd/shared/calendar.html)) |
-| url | optional | string | protocol, host and path to which `/api/v1` path will be added |
-| queryParameters | optional | object | object with parameter names as keys and its values as values, which will be transformed to query parameters string |
+| `metric` | required | string | `metric` path parameter |
+| `tagName` | required | string | Tag whose values are retrieved from series descriptors |
+| `entity` | optional | string | `entity` query parameter |
+| `minInsertDate` | optional | string | `minInsertDate` query parameter ([syntax](https://axibase.com/docs/atsd/shared/calendar.html)) |
+| `maxInsertDate` | optional | string | `maxInsertDate` query parameter ([syntax](https://axibase.com/docs/atsd/shared/calendar.html)) |
+| `url` | optional | string | Protocol, host and path to which `/api/v1` path is added |
+| `queryParameters` | optional | object | Object with parameter names as keys and values as values, to be transformed to query parameters string |
 
 ### Examples
 
-#### Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` received today.
+**Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` received today:**
 
-[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa)
+[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa)
 
-##### Usage
+ **Usage**:
 
-```
+```css
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_day")
 ```
 
-##### Sent request
+#### Request Sent
 
-```
+```sh
 /api/v1/metrics/disk_used/series?tag=mount_point&entity=nurswgvml006&minInsertDate=current_day
 ```
 
-##### Result
+ **Result**:
 
- ``` json
+ ```json
  ["/", "/media/datadrive", "/mnt/u113452"]
  ```
 
-#### Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` and send server-specific query parameter `cache` while ignoring other parameters
+**Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` and send server-specific query parameter `cache` while ignoring other parameters:**
 
-[ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/2)
+[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/2)
 
-##### Usage
+ **Usage**:
 
 ```
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, null, null, {cache: true})
@@ -104,7 +109,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 /api/v1/metrics/disk_used/series?cache=true&tag=mount_point&entity=nurswgvml007
 ```
 
-##### Result
+ **Result**:
 
 ``` json
 ["/", "/media/datadrive", "/mnt/u113452"]
@@ -114,12 +119,12 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 
 ## getSeries()
 
-### Description
+ **Description**:
 Loads a series for the `metric` and the `entity` from a defined `url`, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
 Additional `queryParameters` can be specified.
 Returns a loaded series.
 
-### Syntax
+ **Syntax**:
 ```
 getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
@@ -153,7 +158,7 @@ Sends _synchronous_ GET request to the
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/3)
 
-##### Usage
+ **Usage**:
 
 ```
 var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
@@ -165,7 +170,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 /api/v1/metrics/disk_used/series?entity=nurswgvml007
 ```
 
-##### Result
+ **Result**:
 
  ``` json
 [
@@ -203,13 +208,13 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 ## getMetrics()
 
-### Description
+ **Description**:
 Loads metrics for `entity` from a defined `url`, which satisfies `expression`.
 Additional `queryParameters` can be specified.
 Returns the sorted names of loaded metrics.
 The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
-### Syntax
+ **Syntax**:
 ```
 getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
@@ -242,7 +247,7 @@ Sends _synchronous_ GET request to the
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/4)
 
-##### Usage
+ **Usage**:
 
 ```
 var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
@@ -254,7 +259,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 /api/v1/entities/nurswgvml007/metrics?expression=name%20LIKE%20%27*cpu*user*%27
 ```
 
-##### Result
+ **Result**:
 
  ``` json
 ["cpu_user","nmon.cpu.user%","nmon.cpu_total.user%"]
@@ -264,13 +269,13 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 
 ## getEntities()
 
-### Description
+ **Description**:
 Loads entities contained in the entity-group defined by `group`, which satisfies `expression`.
 Additional `queryParameters` can be specified.
 Returns sorted names of loaded entities.
 The returned array includes the `list.escape()` function, which escapes any commas in each element.
 
-### Syntax
+ **Syntax**:
 ```
 getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
@@ -313,7 +318,7 @@ Sends _synchronous_ GET request to the
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/5/)
 
-##### Usage
+ **Usage**:
 
 ```
 var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
@@ -325,7 +330,7 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 /api/v1/entity-groups/docker-hosts/entities?expression=name%20LIKE%20%27nur*%27
 ```
 
-##### Result
+ **Result**:
 
  ``` json
 ["nurswghbs001"]
@@ -333,14 +338,14 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 
 ## range()
 
-### Description
+ **Description**:
 
 Generates an array of numbers from `start` to `end`, regularly spaced with a configurable `step`.
 If `step` is not specified, numbers are sequential.
 If `start` is greater than `end`, numbers are generated in descending order.
 If `format` is specified, each number is formatted and converted to a string.
 
-### Syntax
+ **Syntax**:
 ```
 range(start, end, [step], [format])
 ```
@@ -366,13 +371,13 @@ Can be used at `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or
 
 #### Get sequential numbers from 1 to 10
 
-##### Usage
+ **Usage**:
 
 ```
 range(1,10)
 ```
 
-##### Result
+ **Result**:
 
 ```
 1,2,3,4,5,6,7,8,9,10
@@ -380,13 +385,13 @@ range(1,10)
 
 #### Get numbers from 1 to 10 with a double step
 
-##### Usage
+ **Usage**:
 
 ```
 range(1,10,2)
 ```
 
-##### Result
+ **Result**:
 
 ```
 1,3,5,7,9
@@ -394,13 +399,13 @@ range(1,10,2)
 
 #### Get numbers from 10 to 1 with a single step
 
-##### Usage
+ **Usage**:
 
 ```
 range(10,1)
 ```
 
-##### Result
+ **Result**:
 
 ```
 10,9,8,7,6,5,4,3,2,1
@@ -408,13 +413,13 @@ range(10,1)
 
 #### Get numbers from 10 to 1 with a double step
 
-##### Usage
+ **Usage**:
 
 ```
 range(10,1,2)
 ```
 
-##### Result
+ **Result**:
 
 ```
 10,8,6,4,2
@@ -422,13 +427,13 @@ range(10,1,2)
 
 #### Format sequential numbers 1 to 10 as a percent
 
-##### Usage
+ **Usage**:
 
 ```
 range(1,10,'percent')
 ```
 
-##### Result
+ **Result**:
 
 ```
 1%,2%,3%,4%,5%,6%,7%,8%,9%,10%
@@ -436,13 +441,13 @@ range(1,10,'percent')
 
 #### Get numbers from 1 to 10 with a double step and format as a percent
 
-##### Usage
+ **Usage**:
 
 ```
 range(1,10,2,'percent')
 ```
 
-##### Result
+ **Result**:
 
 ```
 1%,3%,5%,7%,9%
@@ -450,13 +455,13 @@ range(1,10,2,'percent')
 
 #### Format sequential numbers from 1 to 10 as minutes
 
-##### Usage
+ **Usage**:
 
 ```
 range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
 ```
 
-##### Result
+ **Result**:
 
 ```
 00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
@@ -464,13 +469,13 @@ range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
 
 #### Format sequential numbers from 1 to 12 with an additional fill character (0) for single digit values.
 
-##### Usage
+ **Usage**:
 
 ```
 range(1, 12, "d3.format('02d')(value)")
 ```
 
-##### Result
+ **Result**:
 
 ```
 01,02,03,04,05,06,07,08,09,10,11,12
@@ -480,7 +485,7 @@ range(1, 12, "d3.format('02d')(value)")
 
 ## CSV inline text mode
 
-### Description
+ **Description**:
 
 Parses CSV-like text placed between `csv name = ` and `endcsv` keywords into an array of objects.
 First line contains header/column names.
@@ -495,7 +500,7 @@ Limitations and features that are applied:
  - Multi-line rows are not supported.
  - The delimiter symbol is a comma (`,`)
 
-### Syntax
+ **Syntax**:
 
 ```
 csv name = header1, header2 ...
@@ -589,7 +594,7 @@ endfor
 
 ## CSV from mode
 
-### Description
+ **Description**:
 
 Parse a CSV file located at the defined `url` into an array of objects.
 Each data line is parsed into the object, where keys are column names and values are the values of the corresponding cells.
@@ -603,7 +608,7 @@ Limitation and features that are applied to the text:
  - The delimiter symbol is a comma (`,`)
 
 
-### Syntax
+ **Syntax**:
 
 ```
 csv csv_name from url
@@ -692,13 +697,13 @@ endfor
 
 ## csv.values()
 
-### Description
+ **Description**:
 
 Arrays generated from `csv` use the `.values()` method.
 This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
 The generated array contains the `.escape()` method which escapes commas in each element.
 
-### Syntax
+ **Syntax**:
 
 ```
 csv_name.values(column_name)
@@ -800,12 +805,12 @@ Then we iterate over each value and set the country tag.
 
 ## list.escape()
 
-### Description
+ **Description**:
 
 Escapes commas for each value in an array of strings.
 The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and `csv.values()` method.
 
-### Syntax
+ **Syntax**:
 
 ```
 list_name.escape()
@@ -825,7 +830,7 @@ In the following examples we want to get a list of escaped country names. Countr
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/11/)
 
-##### Usage
+ **Usage**:
 
 ```
   list countries =
@@ -842,7 +847,7 @@ In the following examples we want to get a list of escaped country names. Countr
   country = @{countries.escape()}
 ```
 
-##### Result
+ **Result**:
 
 ```
 ["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
@@ -852,7 +857,7 @@ In the following examples we want to get a list of escaped country names. Countr
 
 [ChartLab](https://apps.axibase.com/chartlab/df616dfa/12/)
 
-##### Usage
+ **Usage**:
 
 ```
 var countries = getTags('state.visa-refusal-rate', 'country', 'travel.state.gov')
@@ -860,7 +865,7 @@ var countries = getTags('state.visa-refusal-rate', 'country', 'travel.state.gov'
 country = @{countries.escape()}
 ```
 
-##### Result
+ **Result**:
 Part of result:
 
 ```
@@ -871,7 +876,7 @@ Part of result:
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/7/)
 
-##### Usage
+ **Usage**:
 
 ```
 csv countries =
@@ -889,7 +894,7 @@ endcsv
 country = @{countries.values('name').escape()}
 ```
 
-##### Result
+ **Result**:
 
 ```
 ["Brazil","Congo\\, Dem. Rep. of the (Kinshasa)","Croatia","Georgia","Honduras","Liechtenstein","Micronesia\\, Federated States of","Tonga"]
@@ -899,12 +904,12 @@ country = @{countries.values('name').escape()}
 
 ## previous()
 
-### Description
+ **Description**:
 
 Get the value of the previous point in the series, defined by the `alias` parameter.
 The index can be controlled by the `offset` argument, relative to the current point.
 
-### Syntax
+ **Syntax**:
 
 ```
 previous(alias, [offset])
@@ -929,51 +934,51 @@ Can be used in `value-expression` settings.
 
 #### Show a copy of the series shifted one point
 
-#### Usage
+ **Usage**:
 
 ```
 value = previous('raw')
 ```
 
-#### Result
+ **Result**:
 
 ![](images/previous_one.png)
 
 #### Show copy of the seres shifted two points
 
-#### Usage
+ **Usage**:
 
 ```
 value = previous('raw', 2)
 ```
 
-#### Result
+ **Result**:
 
 ![](images/previous_two.png)
 
 
 #### Show the percentage difference of the last (n) and last (n - 1) points
 
-#### Usage
+ **Usage**:
 
 ```
 value = 1 - previous('raw') / value('raw')
 ```
 
-#### Result
+ **Result**:
 
 ![](images/previous_diff_one.png)
 
 
 #### Show the percentage difference of the last (n) and last (n - 1) points
 
-#### Usage
+ **Usage**:
 
 ```
 value = 1 - previous('raw', 2) / value('raw')
 ```
 
-#### Result
+ **Result**:
 
 ![](images/previous_diff_two.png)
 
@@ -981,12 +986,12 @@ value = 1 - previous('raw', 2) / value('raw')
 
 ## movavg()
 
-### Description
+ **Description**:
 
 Calculates the moving average using `count` previous points in the series defined by `alias`.
 The average is calculated if at least `minCount` previous points are available.
 
-### Syntax
+ **Syntax**:
 ```
 movavg(alias, count, [minCount])
 ```
@@ -1011,25 +1016,25 @@ Can be used in `value-expression` settings.
 
 #### Calculate movavg only when there are a defined amount of points for calculation
 
-##### Usage
+ **Usage**:
 
 ```
 value = movavg('raw', 30)
 ```
 
-##### Result
+ **Result**:
 
 ![](images/movavg_without_minCount.png)
 
 #### Calculate movavg regardless of the number of points present
 
-##### Usage
+ **Usage**:
 
 ```
 value = movavg('raw', 30, 0)
 ```
 
-##### Result
+ **Result**:
 
 ![](images/movavg_with_minCount.png)
 
@@ -1037,14 +1042,14 @@ value = movavg('raw', 30, 0)
 
 ## meta()
 
-### Description
+ **Description**:
 
 Return metadata loaded for a series defined by `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
 _Note: Function must be used with `value(alias)` in one expression._
 
-### Syntax
+ **Syntax**:
 ```
 meta(alias)
 ```
@@ -1067,13 +1072,13 @@ Can be used in `value-expression` settings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/23/)
 
-##### Usage
+ **Usage**:
 
 ```
 value = value('raw') / meta('raw').metric.maxValue
 ```
 
-##### Result
+ **Result**:
 
 ![](images/meta_maxValue.png)
 
@@ -1081,14 +1086,14 @@ value = value('raw') / meta('raw').metric.maxValue
 
 ## entityTag()
 
-### Description
+ **Description**:
 
 Returns tag with `tagName` from entity metadata loaded for series with `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
 _Note: Function must be used with `value(alias)` in one expression._
 
-### Syntax
+ **Syntax**:
 ```
 entityTag(alias, tagName)
 ```
@@ -1112,27 +1117,27 @@ Can be used in `value-expression` settings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/24/)
 
-##### Usage
+ **Usage**:
 
 ```
 size = entityTag('cpu_count')
 ```
 
-##### Result
+ **Result**:
 ![](images/entityTag.png)
 
 ---
 
 ## metricTag()
 
-### Description
+ **Description**:
 
 Returns tag with `tagName` from metric metadata loaded for series with `alias`.
 The `[series]` `add-meta` setting should be set to true.
 
 _Note: Function must be used with `value(alias)` in one expression._
 
-### Syntax
+ **Syntax**:
 ```
 metricTag(alias, tagName)
 ```
@@ -1156,14 +1161,14 @@ Can be used in `value-expression` settings.
 
 [ChartLab Example](https://apps.axibase.com/chartlab/df616dfa/25/)
 
-##### Usage
+ **Usage**:
 
 ```
 value = metricTag('raw', 'threshold_value')
 alert-expression = value() > metricTag('threshold_value')
 ```
 
-##### Result
+ **Result**:
 
 ![](images/metricTag.png)
 
@@ -1171,14 +1176,14 @@ alert-expression = value() > metricTag('threshold_value')
 
 ## requestMetricsSeriesValues()
 
-### Description
+ **Description**:
 Requests series for the `metric` adding `queryParameters` to the requested url.
 If `fieldPath` is specified retrieves fields found by `fieldPath` in the series.
 If `unique` is specified retrieved values are unique and sorted.
 If `callback` function is specified, the array of retrieved fields or the array of loaded series as an argument is returned, whether or not `fieldPath` is specified.
 Returns the array of options - objects with `value` property are set to the retrieved and processed value.
 
-### Syntax
+ **Syntax**:
 ```
 requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
@@ -1224,14 +1229,14 @@ Below is the content of the dropdown.
 
 ## requestEntitiesMetricsValues()
 
-### Description
+ **Description**:
 Requests metrics for the `entity` adding `queryParameters` to the requested url.
 If `fieldPath` is specified, retrieves fields found by `fieldPath` in the metric.
 If `unique` is specified, retrieved values are both unique and sorted.
 If `callback` function is specified, the function returns the array of retrieved fields or the array of loaded metrics as argument, whether or not `fieldPath` is specified.
 Returns the array of options - objects with `value` property set to the retrieved and processed value.
 
-### Syntax
+ **Syntax**:
 ```
 requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
@@ -1275,7 +1280,7 @@ Below is the content of the dropdown.
 
 ## requestPropertiesValues()
 
-### Description
+ **Description**:
 Requests entity tags or properties for the entity or entities specified by the `entity` parameter.
 If `postBody` is specified, `entity` and `propertyType` parameters are ignored.
 Function requests entity tags if `$entity_tags` is specified as `propertyType`, or if not, requests properties.
@@ -1284,7 +1289,7 @@ If `unique` is specified retrieved values are both unique and sorted.
 If `callback` function is specified, it is applied to the array of retrieved fields or the array of entity tags/properties, whether or not `fieldPath` is specified.
 Returns the array of options - objects with `value` property set to the processed retrieved value.
 
-### Syntax
+ **Syntax**:
 ```
 requestPropertiesValues([valueFieldPath, [textFieldPath, [callback, [entity, [propertyType, [unique, [postBody]]]]]]])
 ```
@@ -1410,7 +1415,7 @@ Below is the content of the dropdown:
 
 ## requestMetricsSeriesOptions()
 
-### Description
+ **Description**:
 Request series for the `metric` adding `queryParameters` to the requested url.
 Creates an option for each loaded series.
 The value of the field found by `valueFieldPath` is assigned to the option's value.
@@ -1420,7 +1425,7 @@ When field is found it is assigned to the option's text.
 If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
 `callback` retrieves the loaded series as an argument and returns an array of options, where at least the value should be specified.
 
-### Syntax
+ **Syntax**:
 ```
 requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
@@ -1465,7 +1470,7 @@ Below is the content of the dropdown:
 
 ## requestEntitiesMetricsOptions()
 
-### Description
+ **Description**:
 Requests metrics for the `entity` adding `queryParameters` to the requested url.
 Creates an option for each loaded metric.
 The value of the field found by `valueFieldPath` is assigned to the option's value.
@@ -1475,7 +1480,7 @@ When a field is found it is assigned to the option's text.
 If `callback` function is specified `valueFieldPath` and `textFieldPath` are ignored.
 `callback` gets loaded metrics as an argument and returns an array of options, where at least the value should be specified.
 
-### Syntax
+ **Syntax**:
 ```
 requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
@@ -1520,7 +1525,7 @@ Below is the content of the dropdown:
 
 ## requestPropertiesOptions()
 
-### Description
+ **Description**:
 
 Requests the entity tags or properties for the entity or the entities specified by the `entity` parameter.
 If `postBody` is specified, `entity` and `propertyType` parameters are ignored.
@@ -1533,7 +1538,7 @@ When a field is found it is assigned to the option's text.
 If `callback` function is specified, the `valueFieldPath` and `textFieldPath` parameters are ignored.
 `callback` gets loaded tags/properties as an argument and returns an array of options, where at least the value should be specified.
 
-### Syntax
+ **Syntax**:
 ```
 requestPropertiesOptions([valueFieldPath, [textFieldPath, [callback, [entity, [propertyType, [unique, [postBody]]]]]]])
 ```

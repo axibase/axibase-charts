@@ -46,7 +46,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 * [Used-Defined Functions](./syntax/udf.md)
 * [Drop-down Lists](./configuration/drop-down-lists.md)
 * [Inheritance](./configuration/inheritance.md)
-* [Display Filters](./configuration/display-filters.png)
+* [Display Filters](./configuration/display-filters.md)
 * [Computed Metrics](./configuration/computed-metrics.md)
 * [Summary Portals](./configuration/summary-portals.md)
 * [Meta Data](./configuration/meta-data.md)
@@ -54,6 +54,8 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 ---
 
 ## Widgets
+
+All widgets support [Shared Widget](./widgets/shared/README.md) syntax.
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
@@ -63,7 +65,7 @@ Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
 ![](./images/histogram.png) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
 
-`TreeMap` Widget | Pie Chart | Graph Widget
+Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
 ![](./images/treemap-widget.png) | ![](./images/pie-chart.png) | ![](./images/graph.png)
 
