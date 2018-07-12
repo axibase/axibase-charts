@@ -1,6 +1,6 @@
 # Computed Metrics
 
-Create computed metrics in any portal using existing metrics. Manipulate underlying series orjoin multiple series to perform ratio or roll-up  calculations, such as percentage or average values respectively.
+Create computed metrics in any portal using existing metrics. Manipulate underlying series or join multiple series to perform ratio or roll-up  calculations, such as percentage or average values respectively.
 
 Use the `replace-value` setting to replace the input value when no references to other series are required.
 
