@@ -126,7 +126,7 @@ To add a four day aggregation period, double click between `1d` and `1w` on the 
 
 ![](./images/added-new-timespan.png)
 
-To remove selection intervals and aggregation periods, drag and drop the undesired interval or period off the Time Chart controls. In the example below, `1w` is removed.
+To remove selection intervals and aggregation periods, drag and drop the interval or period off the Time Chart controls. In the example below, `1w` is removed.
 
 ![](./images/removed-timespan.png)
 

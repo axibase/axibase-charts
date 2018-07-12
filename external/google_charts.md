@@ -14,4 +14,4 @@ In this example, ATSD JSON is converted into Google Data Table.
 |Histogram|https://jsfiddle.net/emaj90pc/1/|
 |Line|https://jsfiddle.net/jpvbtpee/|
 |Pie and Donut|https://jsfiddle.net/518xg1Lz/1/|
-|Treemap|https://jsfiddle.net/forno9sj/1/|
+|`TreeMap`|https://jsfiddle.net/forno9sj/1/|

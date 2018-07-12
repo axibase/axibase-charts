@@ -6,7 +6,7 @@ Use these fields in widget settings for several common use cases:
 
 * Add extended `entity` or `metric` information to labels.
 * Calculate derived metrics based on `entity tags`.
-* Set `[threshold]` value or TreeMap sizes based  on `entity tags`, etc.
+* Set `[threshold]` value or `TreeMap` sizes based  on `entity tags`, etc.
 
 ## Placeholders
 
@@ -60,7 +60,7 @@ Access these functions in the following settings:
 * `display`
 * `enabled`
 * `alert-expression`
-* `size` (Treemap)
+* `size` (`TreeMap`)
 * `color`
 * `node-value` (Chart)
 * `link-value` (Chart)

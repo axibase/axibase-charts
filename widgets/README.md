@@ -10,7 +10,7 @@ Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
 ![](./images/histogram.png) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
 
-TreeMap Widget | Pie Chart | Graph Widget
+`TreeMap` Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
 ![](./images/treemap-widget.png) | ![](./images/pie-chart.png) | ![](./images/graph.png)
 
