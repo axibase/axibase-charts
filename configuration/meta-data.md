@@ -60,7 +60,7 @@ Access these functions in the following settings:
 * `display`
 * `enabled`
 * `alert-expression`
-* `size` (`TreeMap`)
+* `size` (Treemap)
 * `color`
 * `node-value` (Chart)
 * `link-value` (Chart)
