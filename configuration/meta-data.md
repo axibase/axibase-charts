@@ -6,7 +6,7 @@ Use these fields in widget settings for several common use cases:
 
 * Add extended `entity` or `metric` information to labels.
 * Calculate derived metrics based on `entity tags`.
-* Set `[threshold]` value or TreeMap sizes based  on `entity tags`, etc.
+* Set `[threshold]` value or `TreeMap` sizes based  on `entity tags`, etc.
 
 ## Placeholders
 
