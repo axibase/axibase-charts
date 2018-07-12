@@ -6,13 +6,13 @@ The list contains built-in utility functions that can be included in Axibase Cha
 
 | Name | Description |
 |------|-------------|
-| [`getTags()`](#getTags) | Retrieves metric series and returns a sorted array of unique values for defined tags |
-| [`getSeries()`](#getSeries) | Returns an array of series collected for the defined metric |
-| [`getMetrics()`](#getMetrics) | Returns the names of metrics collected for the defined entity |
-| [`getEntities()`](#getEntities) | Returns the names of entities contained in the defined entity-group |
+| [`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags |
+| [`getSeries()`](#getseries) | Returns an array of series collected for the defined metric |
+| [`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity |
+| [`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity-group |
 | [`range()`](#range) | Returns a regularly spaced, customizable array of numbers |
-| [`csv name = ...`](#csv_inline) | Parses CSV-like text into an array of objects |
-| [`csv name from ...`](#csv_from)| Loads a CSV file located at the defined URL and parses it into an array of objects |
+| [`CSV Inline Text Mode`](#csv-inline-text-mode) | Parses CSV-like text into an array of objects |
+| [`CSV From Mode`](#csv-from-mode)| Loads a CSV file located at the defined URL and parses it into an array of objects |
 | [`csv.values()`](#csv_values) | Returns the sorted, unique values of a defined column |
 | [`list.escape()`](#list_escape) | Escapes commas in every element of an array |
 | [`previous()`](#previous) | Retrieves the value of the previous point in a sequence |
@@ -279,7 +279,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 * Loads entities contained in the entity-group defined by `group`, which satisfies `expression`.
 * Specify additional `queryParameters`.
 * Returns sorted names of loaded entities.
-* Rturned array includes the `list.escape()` function, which escapes any commas in each element.
+* Returned array includes the `list.escape()` function, which escapes any commas in each element.
 
 **Syntax**:
 
@@ -322,7 +322,7 @@ Sends synchronous `GET` requests to the
 
 **Examples**:
 
-**Get entities contained in entity-group `docker-hosts` whose names brgin with substring `nur`**:
+**Get entities contained in entity-group `docker-hosts` whose names begin with substring `nur`**:
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
 
@@ -851,18 +851,18 @@ The goal in the following example is to retrieve a list of escaped country names
 **Usage**:
 
 ```txt
-  list countries =
-    Brazil,
-    Croatia,
-    Micronesia\, Federated States of,
-    Georgia,
-    Tonga,
-    Honduras,
-    Liechtenstein,
-    Congo\, Dem. Rep. of the (Kinshasa)
-  endlist
+list countries =
+  Brazil,
+  Croatia,
+  Micronesia\, Federated States of,
+  Georgia,
+  Tonga,
+  Honduras,
+  Liechtenstein,
+  Congo\, Dem. Rep. of the (Kinshasa)
+    endlist
 
-  country = @{countries.escape()}
+country = @{countries.escape()}
 ```
 
 **Result**:
