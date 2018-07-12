@@ -72,4 +72,87 @@ Style Stroke-Dasharray | `style = stroke-dasharray: none;`| Remove dashes from f
 Alias | `alias = total`<br>`alias = free` | Create a unique series designation to pass data to other series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
 Alert Expression| `alert-expression = value < 95` | Apply separate alert rules to several series with one `alert-style` in `[widget]` settings. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
 Alert Style | `alert-style = fill: red; stroke: red`| Apply separate alert styles to serveral series with one `alert-expression` in `[widget]` settings.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
-Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.oog' : '/portal/resource/klaxon.oog'`| Play an audio file when `alert-expression` evaluates to `true`.<br>Store audio files in the `opt/atsd/atsd/conf/portal` directory of your ATSD installation.<br>Set the following path in the `audio-alert` setting: `/portal/resource/alarm.oog`.<br>Files in this directory must always be references with the `/resource/` before the file name.<br>Audio is only played on `true` to `false` changes or vise versa.<br>
+Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.oog' : '/portal/resource/klaxon.oog'`| Play an audio file when `alert-expression` evaluates to `true`.<br>Store audio files in the `opt/atsd/atsd/conf/portal` directory of your ATSD installation.<br>Set the following path in the `audio-alert` setting: `/portal/resource/alarm.oog`.<br>Files in this directory must always be references with the `/resource/` before the file name.<br>Audio is only played on `true` to `false` changes or vise versa.<br>Audio is played once, on initial alert occurrence.<br>Supported audio alert formats: `.mp3`, `.oog`, `.wav`.<br>Read Audio Alerts for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)
+Group Keys| `group-keys = type`<br>`group-keys = entity, type`| Count messages by period with a comma-separated list of keys including `entity`, `type`, `source`, and custom tags.<br>Supported in server aggregation mode only: `server-aggregate = true`.| [./images/button.png](https://apps.axibase.com/chartlab/bf166165#)
+Group Statistic | `group-statistic = sum` | Assign a group statistic function to the series.<br>See Aggregators for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b61b7f82)
+Group Period | `group period = 1 month` | Assign a group period to a series for computing group statistics. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b4b72b79)
+Group First | `group-first = false` | Control the sequence of aggregation and grouping. If set to `true`, grouping is performed before aggregation.| [./images/button.png](https://apps.axibase.com/chartlab/732de421)
+Group Interpolation | `group-interpolate = LINEAR` | Interpolate grouped values. | [![](./images/button.png)](https://apps.axibase.com/chartlab/f0a36dac)
+Extended Group Interpolation | `group-interpolate-extend = true` | Fill missing leading and trailing periods with `NEXT` and `PREVIOUS` values.| [![](./images/button.png)](https://apps.axibase.com/chartlab/f0a36dac)
+Series Limit | `series-limit = 10` | Define the maximum number of series retrieved from the database, to prevent the client or server from processing excessive series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/af34dc29)
+Exact Match | `exact-match = true` | Ignore series with tags, other than those specified in the series configuration. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dada4561/2/)
+Merge Fields | `merge-fields = mount_point`<br>`merge-fields = entity`| Combine series into series grouped based on field. Applies only in `multiple-series` mode. Series which use [wildcard](../../syntax/wildcard.md), `entities`, `entityGroup` settings or comma-separated tag values are treated as multiple series by default.<br>Possible values:<br>`entity`: All series with the same entity are combined.<br>`{tag-name}`: All series with the same value of tag `{tag-name}` are combined. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3d45a84c).
+
+### `value` Settings
+
+Specify the `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression returns a number or `null`.
+
+Setting | Syntax | Description | Example
+--|--|--|--
+Value | `value = max('s1')`<br>`value = min('s1', '10 minute')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Define series value.<br>Retrieve the value of the underlying series identified by alias.| [![](./images/button.png)](https://apps.axibase.com/chartlab/2b2e7023/4/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
+Aggregators | `value = avg('s1')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Apply an aggregate statistic to the underlying series grouped by period.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/9/)
+Percentile | `value = (1 - percentile(99,'free','5 minute') / percentile(99,'total','5 minute')) * 100`| Apply percentile statistics to the underlying series.<br>Percentile range from `0` to `100`, `alias` and `period`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/10/)
+Forecast| `value = (1 - forecast('free') / forecast('total')) * 100`| Return a forecast for the underlying series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)
+Confidence Intervals | `value = (1 - lower_confidence(90, 'free') / forecast('total')) * 100`<br>`value = (1 - upper_confidence(90, 'free') / forecast('total')) * 100`| Retrieve upper and lower limits of the confidence interval for the underlying series.<br>Arguments: Level-specified integer from `0` to `100`, and `alias`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/14/)
+
+### Additional `[series]` Settings
+
+Setting | Syntax | Description | Example
+--|--|--|--
+Style | `style = stroke-width: 4; color: green` | Assign a style to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/16/)
+Color | `color = orange` | Assign a color to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/17/)
+Label | `label = CPU Busy - nurswgvml007` | Assign a label to the series. Shown in the series legend/ | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/18/)
+Tooltip | `tooltip = NURSWGVML007` | Define tooltips which are displayed on series mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/19/)
+Axis | `axis = right` | Assign series axis.<br>`left` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/20/)
+Format | `foramt = kilobytes`| Display appropriate series units in legend and on series pointers. See Label Formatting for more information. | [![](./images/button.png)](https://apps.axibase.com/chartlab/bf5b45e9)
+Display | `display = value > top(3)`<br>`display = tags.mount_point = '/'`<br>`display = false` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3ebf1cca)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/2/)
+Enable Series | `enabled = false` | Hide series in the widget legend based on expression or boolean statement.<br>See Expression Examples| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/23/)
+Refresh Interval | `refresh-interval = 120` | Define the period in seconds that ATSD waits before refreshing data with new samples. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/24/)
+Refresh Retry Interval | `retry-refresh-interval = 5 minute`| Define the wait period after ATSD receives an empty sample to retry data refresh.| [![](./images/button.png)](https://apps.axibase.com/chartlab/2ce8eed4)
+Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait period after ATSD handles a server processing error before refreshing data. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dad50363)
+
+## `[tag]` Settings
+
+`[tags]` syntax examples:
+
+```css
+[tags]
+  mount_point = /tmp
+  fstype = tmpfs
+```
+
+If there are several values for the same tag, separate the values with a comma:
+
+```css
+[tags]
+  tag_name = tag_value1, tag_value2
+```
+
+If the tag name contains an equals sign `=` or the tag value contains a comma`,`, escape them with a backslash `\`:
+
+```css
+[tags]
+  tag\=name = tag\,value
+```
+
+The tag name and value are `tag=name` and `tag=value`, respectively.
+
+If the tag name contains reserved names such as setting names, surround the tag name with quotes to avoid collisions:
+
+```css
+[tags]
+  "type" = sensor
+```
+
+### `[series]` Example
+
+```css
+[series]
+  entity    entity == nurswgvml006
+  metric  nurswgvml006    = disk_used_percent
+  statistic = avg
+  period = 15 minute
+  [tags]
+    file_system = none
+    mount_point = /run/shm
+```
