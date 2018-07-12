@@ -46,7 +46,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 * [Used-Defined Functions](./syntax/udf.md)
 * [Drop-down Lists](./configuration/drop-down-lists.md)
 * [Inheritance](./configuration/inheritance.md)
-* [Display Filters](./configuration/display-filters.png)
+* [Display Filters](./configuration/display-filters.md)
 * [Computed Metrics](./configuration/computed-metrics.md)
 * [Summary Portals](./configuration/summary-portals.md)
 * [Meta Data](./configuration/meta-data.md)
