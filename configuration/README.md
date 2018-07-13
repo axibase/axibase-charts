@@ -47,7 +47,7 @@ transpose = true
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/6d918310/1)
 
-Configure the widget to display a drop-down list `type` or `entity` selector.
+Configure the widget to display a drop-down list with `type` or `entity` options.
 
 ![](./images/configuration3.png)
 

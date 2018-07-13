@@ -9,7 +9,7 @@ If all widgets in a portal are created for the same server, set the `entity` set
   type = chart
   title = 'metric'
   
-#metric field will be inherited by all series in the widget
+#metric field is inherited by all series in the widget
   metric = nmon.cpu_total.busy%
 
   [series]
