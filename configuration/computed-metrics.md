@@ -18,7 +18,7 @@ replace-value = Math.log10(value)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/e0e0be77)
 
-In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. In order to reference other series, such underlying series should be assigned unique identifiers with the alias setting.
+In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. Assign underlying series an `alias` to refer to them elsewhere in a configuration.
 
 ```css
 [series]

@@ -1,8 +1,8 @@
 # Drop-down Lists
 
-Drop-down lists provides a way to display interactive selectors inside the widget header.
+Drop-down lists provides a way to display interactive options inside a widget header.
 
-Configure the selector to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
+Configure the list to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
 
 ![](./images/drop-down-header.png)
 
