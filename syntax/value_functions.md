@@ -7,7 +7,7 @@ This document describes functions, which can be referenced in the `value` settin
 The `value` setting is specified by the `series` section.
 
 ```css
-# Define the original series, which values will be used in creating a derived (computed) series.
+# Define the original series, which values used in creating a derived (computed) series.
 # The original series must exist in the database
 [series]
   metric = cpu_busy

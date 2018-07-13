@@ -2,13 +2,13 @@
 
 ## Overview
 
-This document describes how to incorporate charts created with external JavaScript libraries into an ATSD portal. 
+This document describes how to incorporate charts created with external JavaScript libraries into an ATSD portal.
 
 The task can be accomplished by creating an HTML file with the external chart and including this chart using the `page` widget in ATSD.
 
 ## Create Resource Directory
 
-Login into ATSD server and create a directory in the ATSD installation directory that will contain static resources such as JavaScript files, CSS files, and images used by external charting libraries.
+Log in to ATSD server and create a directory in the ATSD installation directory that contains static resources such as JavaScript files, CSS files, and images used by external charting libraries.
 
 ```sh
 mkdir -p /opt/atsd/atsd/conf/portal/web/JavaScript
@@ -64,9 +64,9 @@ Check that the file can be accessed at `https://atsd_host:8443/portal/resource/w
 Create a portal in ATSD and include a `page` widget with the URL setting referencing the HTML file:
 
 ```ls
-  [widget]
-    type = page
-    url = /portal/resource/web/funnel.html
+[widget]
+  type = page
+  url = /portal/resource/web/funnel.html
 ```
 
 ## Sample Portal

@@ -25,7 +25,7 @@ The following instructions outline the steps required to record web browser requ
 
   ![](./images/widget_header.png)
   
-* The dialog mode will initiate a request into ATSD to load data for the selected widget.
+* The dialog mode initiates a request into ATSD to load data for the selected widget.
 
   ![](./images/response_received.png)
 
@@ -51,7 +51,7 @@ The following instructions outline the steps required to record web browser requ
 
   ![](./images/widget_header_ff.png)
   
-* The dialog mode will initiate a request into ATSD to load data for the selected widget.
+* The dialog mode initiates a request into ATSD to load data for the selected widget.
 
   ![](./images/response_received_ff.png)
 
@@ -77,9 +77,9 @@ The following instructions outline the steps required to record web browser requ
 
 * Click the widget header.
 
-  ![](./images/widget_header_ie.png)
+  ![](./images/widget_header.png)
   
-* The dialog mode will initiate a request into ATSD to load data for the selected widget.
+* The dialog mode initiates a request into ATSD to load data for the selected widget.
 
   ![](./images/response_received_ie.png)
 
@@ -107,7 +107,7 @@ The following instructions outline the steps required to record web browser requ
 
   ![](./images/widget_header_edge.png)
   
-* The dialog mode will initiate a request into ATSD to load data for the selected widget.
+* The dialog mode initiates a request into ATSD to load data for the selected widget.
 
   ![](./images/response_received_edge.png)
 
