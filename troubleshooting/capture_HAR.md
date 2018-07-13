@@ -17,21 +17,21 @@ These instructions outline the steps required to export web browser requests gen
 
 * Open the **Network** panel.
 
-  ![](images/network_panel.png)
+  ![](./images/network_panel.png)
 
-* Click the `Clear` icon ![](images/clear_button.png) in the toolbar to clear the request history.
+* Click the `Clear` icon ![](./images/clear_button.png) in the toolbar to clear the request history.
 
 * Click the widget header.
 
-  ![](images/widget_header.png)
+  ![](./images/widget_header.png)
   
 * The dialog mode initiates a request to ATSD and load data for the selected widget.
 
-  ![](images/response_received.png)
+  ![](./images/response_received.png)
 
 * Right-click the request row. Select **Copy > Copy all as HAR**.
 
-  ![](images/copy_all_as_har.png)
+  ![](./images/copy_all_as_har.png)
 
 * Save the request output into a file such as `widget_xyz.har`.
 
@@ -43,21 +43,21 @@ These instructions outline the steps required to export web browser requests gen
 
 * Open the **Network** panel.
 
-  ![](images/network_panel_ff.png)
+  ![](./images/network_panel_ff.png)
 
-* Click the `Clear` icon ![](images/clear_button_ff.png) in the toolbar to clear the request history.
+* Click the `Clear` icon ![](./images/clear_button_ff.png) in the toolbar to clear the request history.
 
 * Click widget header.
 
-  ![](images/widget_header_ff.png)
+  ![](./images/widget_header_ff.png)
   
 * The dialog mode initiates a request to ATSD and load data for the selected widget.
 
-  ![](images/response_received_ff.png)
+  ![](./images/response_received_ff.png)
 
 * Right-click the request row. Select **Copy > Copy all as HAR**.
 
-  ![](images/copy_all_as_har_ff.png)
+  ![](./images/copy_all_as_har_ff.png)
 
 * Save the request output into a file such as `widget_xyz.har`.
 
@@ -67,27 +67,27 @@ IE 11 is unable to generate `HAR`, but instead saves the data you have recorded 
 
 * Open a portal.
 
-* Click `F12` to open 'Developer Tools'.
+* Click `F12` to open Developer Tools.
 
 * Open the **Network** panel with `Control + 4`.
 
-  ![](images/network_panel_ie.png)
+  ![](./images/network_panel_ie.png)
 
 * Enable network traffic capture by clicking `F5`.
 
-  ![](images/enable_traffic_capturing_ie.png)
+  ![](./images/enable_traffic_capturing_ie.png)
 
 * Click widget header.
 
-  ![](images/widget_header.png)
+  ![](./images/widget_header.png)
   
 * The dialog mode initiates a request to ATSD and loads data for the selected widget.
   
-  ![](images/response_received_ie.png)
+  ![](./images/response_received_ie.png)
 
 * Double click the request row. Press **Export captured traffic**.
 
-  ![](images/export_captured_traffic.png)
+  ![](./images/export_captured_traffic.png)
 
 * Save Network Data.
 
@@ -99,20 +99,20 @@ IE 11 is unable to generate `HAR`, but instead saves the data you have recorded 
 
 * Open the **Network** panel.
 
-  ![](images/network_panel_edge.png)
+  ![](./images/network_panel_edge.png)
 
-* Click on `Clear session` icon ![](images/clear_button_edge.png) in the toolbar to clear the request history.
+* Click `Clear session` icon ![](./images/clear_button_edge.png) in the toolbar to clear the request history.
 
 * Click the widget header.
 
-  ![](images/widget_header_edge.png)
+  ![](./images/widget_header_edge.png)
   
 * The dialog mode initiates a request into ATSD to load data for the selected widget.
 
-  ![](images/response_received_edge.png)
+  ![](./images/response_received_edge.png)
 
 * Select the request row. Press **Export as HAR**.
 
-  ![](images/export_as_har.png)
+  ![](./images/export_as_har.png)
   
 * Save the request output into a file such as `widget_xyz.har`.
