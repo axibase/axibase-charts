@@ -29,7 +29,7 @@ As an alternative to specifying list elements manually, lists can be retrieved f
 
 `getResourcesForGroup(group_id, [list of product codes])`:
 
-Return the list of agents collecting data. If the group contains hosts with agents, they are traversed to the agent level in order to return the list of agents. For example, if the groups contains hosts `ABC` (ITM Linux) and `CDE.axibase.com` (SCOM), the method will return agent identifiers: `abc:LX` and `Microsoft.Window.Computer:CDE.axibase.com`.
+Return the list of agents collecting data. If the group contains hosts with agents, they are traversed to the agent level to return the list of agents. For example, if the groups contains hosts `ABC` (ITM Linux) and `CDE.axibase.com` (SCOM), the method will return agent identifiers: `abc:LX` and `Microsoft.Window.Computer:CDE.axibase.com`.
 
 ```css
 list resources = ${getResourcesForGroup("linux")?join(",")}

@@ -198,7 +198,7 @@ exports.multiplyBy = function (alias, num) {
 
 Copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory in the ATSD server.
 
-Verify that the file is accessible at the following url: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
+Verify that the file is accessible at the following URL: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
 
 ### Step 3. Import Functions
 
@@ -244,7 +244,7 @@ getValueWithOffset(alias, offset)
 
 | **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | yes | string | Alias of the series, from which the value should be retrieved. |
+| alias | yes | string | Alias of the series, from which the value is retrieved. |
 | offset | yes | string | Offset, with which the previous value is retrieved, specified as interval, for example '1 day'. |
 
 ### `getValueForDate()`
@@ -263,7 +263,7 @@ getValueForDate(alias, datetime)
 | **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
 | alias | yes | string | Alias of the series, from which the value is retrieved. |
-| datetime | yes | string | Time, for which value should be retrieved. Can be specified as local time, ISO time, or using an [`end_time`](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) expression. |
+| datetime | yes | string | Time, for which value is retrieved. Can be specified as local time, ISO time, or using an [`end_time`](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) expression. |
 
 ### `getMaximumValue()`
 
@@ -279,4 +279,4 @@ getMaximumValue(alias)
 
 | **Argument** | **Required** | **Type** | **Description** |
 |------|-----------|------|-------------|
-| alias | yes | string | Alias of the series, from which the value should be retrieved. |
+| alias | yes | string | Alias of the series, from which the value is retrieved. |

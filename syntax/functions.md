@@ -121,7 +121,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 
 **Description**:
 
-* Loads a series for the `metric` and the `entity` from a defined `url`, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
+* Loads a series for the `metric` and the `entity` from a defined URL, whose last data point has been added after the `minInsertDate` and before the `maxInsertDate`.
 * Specify additional `queryParameters`.
 * Returns a loaded series.
 
@@ -159,7 +159,7 @@ Sends synchronous `GET` requests to the
 
 **Returns a series for the metric `disk_used` and the entity `nurswgvml007`**:
 
-[1[](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
+[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
 
 **Usage**:
 
@@ -190,7 +190,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
         "metric":"disk_used",
         "entity":"nurswgvml007",
         "tags":{
-            "file_system":"10.102.0.2:/home/store/share",
+            "file_system":"172.17.0.2:/home/store/share",
             "mount_point":"/mnt/share"
         },
         "lastInsertDate":"2015-12-25T14:09:49.000Z"
@@ -498,7 +498,7 @@ range(1, 12, "d3.format('02d')(value)")
 
 **Description**:
 
-* Parses CSV-like text placed between `csv name = ` and `endcsv` keywords into an array of objects.
+* Parses CSV-like text placed between `csv name =` and `endcsv` keywords into an array of objects.
 * First line contains header and column names.
 * Other lines contain data.
 * Each data line is parsed into the object, where keys are column names and values are the values of corresponding cells.
@@ -535,22 +535,22 @@ Use in the `preprocessor` stage.
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/8/)
 
-Using a table written in a CSV-like format: There are two columns, `name` (name of the country) and `value2006` (value in the year 2006). The desired return value is the difference between the current year value and the 2006 value so the following CSV is used:
+Using a table written in a CSV-like format: There are two columns, `name` (name of the country) and `value2006` (value in the year 2006). The return value is the difference between the current year value and the 2006 value. The following CSV is used:
 
 ```css
-  csv countries =
-    name, value2006
-    Brazil, 13.2
-    Croatia, 4.9
-    "Micronesia, Federated States of", 100
-    Georgia, 48.2
-    Tonga, 40.8
-    Honduras, 38
-    Liechtenstein, 5.9
-    "Congo, Dem. Rep. of the (Kinshasa)",44.2
-  endcsv
+csv countries =
+  name, value2006
+  Brazil, 13.2
+  Croatia, 4.9
+  "Micronesia, Federated States of", 100
+  Georgia, 48.2
+  Tonga, 40.8
+  Honduras, 38
+  Liechtenstein, 5.9
+  "Congo, Dem. Rep. of the (Kinshasa)",44.2
+endcsv
 
-  country = @{countries.values('name').escape()}
+country = @{countries.values('name').escape()}
 ```
 
 This CSV is transformed into the following array:
@@ -699,13 +699,12 @@ csv rows from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/US
 Iterate over the created array and set the value and entity based on the retrieved country `name` and value or year `2006`.
 
 ```css
-  for row in rows
-    [series]
-      replace-value = value - @{row[2006]}
-    [tags]
-      country = @{row.country.replace(",", "\\,")}
+for row in rows
+  [series]
+    replace-value = value - @{row[2006]}
+  [tags]
+    country = @{row.country.replace(",", "\\,")}
   endfor
-endfor
 ```
 
 ## `csv.values()`
@@ -741,19 +740,19 @@ The goal in this example is to retrieve a list of escaped country names.
 Write the following CSV:
 
 ```txt
-  csv countries =
-    name, value2006
-    Brazil, 13.2
-    Croatia, 4.9
-    "Micronesia, Federated States of", 100
-    Georgia, 48.2
-    Tonga, 40.8
-    Honduras, 38
-    Liechtenstein, 5.9
-    "Congo, Dem. Rep. of the (Kinshasa)",44.2
-  endcsv
+csv countries =
+  name, value2006
+  Brazil, 13.2
+  Croatia, 4.9
+  "Micronesia, Federated States of", 100
+  Georgia, 48.2
+  Tonga, 40.8
+  Honduras, 38
+  Liechtenstein, 5.9
+  "Congo, Dem. Rep. of the (Kinshasa)",44.2
+endcsv
 
-  country = @{countries.values('name').escape()}
+country = @{countries.values('name').escape()}
 ```
 
 The CSV is transformed into the following array:
@@ -810,11 +809,11 @@ Returned values are as follows:
 Iterate over each value and set the country tag.
 
 ```css
-  for country_name in names
-    [series]
-    [tags]
-      country = @{country_name.replace(',', '\\,')}
-  endfor
+for country_name in names
+  [series]
+  [tags]
+    country = @{country_name.replace(',', '\\,')}
+endfor
 ```
 
 ---
@@ -961,7 +960,7 @@ value = previous('raw')
 
 **Result**:
 
-![](images/previous_one.png)
+![](./images/previous_one.png)
 
 **Show a copy of the seres shifted two points**:
 
@@ -973,7 +972,7 @@ value = previous('raw', 2)
 
 **Result**:
 
-![](images/previous_two.png)
+![](./images/previous_two.png)
 
 **Calculate the percentile difference of the last `(n)` and last `(n - 1)` points**
 
@@ -985,7 +984,7 @@ value = 1 - previous('raw') / value('raw')
 
 **Result**:
 
-![](images/previous_diff_one.png)
+![](./images/previous_diff_one.png)
 
 **Calculate the percentage difference of the last `(n)` and last `(n - 1)` points**:
 
@@ -997,7 +996,7 @@ value = 1 - previous('raw', 2) / value('raw')
 
 **Result**:
 
-![](images/previous_diff_two.png)
+![](./images/previous_diff_two.png)
 
 ---
 
@@ -1043,7 +1042,7 @@ value = movavg('raw', 30)
 
 **Result**:
 
-![](images/movavg_without_minCount.png)
+![](./images/movavg_without_minCount.png)
 
 **Calculate `movavg` regardless of the number of points present**:
 
@@ -1055,7 +1054,7 @@ value = movavg('raw', 30, 0)
 
 **Result**:
 
-![](images/movavg_with_minCount.png)
+![](./images/movavg_with_minCount.png)
 
 ---
 
@@ -1101,7 +1100,7 @@ value = value('raw') / meta('raw').metric.maxValue
 
 **Result**:
 
-![](images/meta_maxValue.png)
+![](./images/meta_maxValue.png)
 
 ---
 
@@ -1147,7 +1146,7 @@ size = entityTag('cpu_count')
 
 **Result**:
 
-![](images/entityTag.png)
+![](./images/entityTag.png)
 
 ---
 
@@ -1195,7 +1194,7 @@ alert-expression = value() > metricTag('threshold_value')
 
 **Result**:
 
-![](images/metricTag.png)
+![](./images/metricTag.png)
 
 ---
 
@@ -1245,12 +1244,12 @@ Sends asynchronous `GET` requests to
 The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
 ```css
-  [dropdown]
-    options = javascript: requestMetricsSeriesValues("tags.mount_point")
-    change-field = series.tags.mount_point
+[dropdown]
+  options = javascript: requestMetricsSeriesValues("tags.mount_point")
+  change-field = series.tags.mount_point
 ```
 
-![](images/requestMetricsSeriesValues:fieldPath:tags.png)
+![](./images/requestMetricsSeriesValues:fieldPath:tags.png)
 
 ---
 
@@ -1258,7 +1257,7 @@ The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retriev
 
 **Description**:
 
-* Requests metrics for the `entity` adding `queryParameters` to the requested url.
+* Requests metrics for the `entity` adding `queryParameters` to the requested URL.
   * If `fieldPath` is specified, retrieves fields found by `fieldPath` in the metric.
   * If `unique` is specified, retrieved values are both unique and sorted.
   * If `callback` function is specified, the function returns the array of retrieved fields or the array of loaded metrics as argument, whether or not `fieldPath` is specified.
@@ -1299,14 +1298,14 @@ Sends asynchronous `GET` requests to
 To populate the drop-down list with names of metrics collected for the entity use the following syntax:
 
 ```css
-  [dropdown]
-    options = javascript: requestEntitiesMetricsValues("name")
-    change-field = series.metric
+[dropdown]
+  options = javascript: requestEntitiesMetricsValues("name")
+  change-field = series.metric
 ```
 
 The content of the drop-down list is shown below:
 
-![](images/requestEntitiesMetricsValues.png)
+![](./images/requestEntitiesMetricsValues.png)
 
 ## `requestPropertiesValues()`
 
@@ -1356,18 +1355,18 @@ Sends asynchronous `POST` requests to
 To populate the drop-down list with the IDs of `network` properties use the following syntax:
 
 ```css
-  [dropdown]
-    options = javascript: requestPropertiesValues("key.id", null, null, "network")
-    change-field = property.keys.id
+[dropdown]
+  options = javascript: requestPropertiesValues("key.id", null, null, "network")
+  change-field = property.keys.id
 ```
 
 Below is the content of the drop-down list:
 
-![](images/requestPropertiesValues.png)
+![](./images/requestPropertiesValues.png)
 
 ---
 
-## Dropdown Values Functions Arguments Description
+## Drop-down List Values Function Arguments Description
 
 **`FieldPath _(optional, type: string)`**
 
@@ -1384,7 +1383,7 @@ To populate the drop-down list with the names of entities for which the metric i
 
 Below is the content of the drop-down list:
 
-![](images/requestMetricsSeriesValues:fieldPath:entity.png)
+![](./images/requestMetricsSeriesValues:fieldPath:entity.png)
 
 To populate the drop-down list with values of the `mount_point` tag use the following syntax. The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
@@ -1396,13 +1395,13 @@ To populate the drop-down list with values of the `mount_point` tag use the foll
 
 Below is content of the drop-down list
 
-![](images/requestMetricsSeriesValues:fieldPath:tags.png)
+![](./images/requestMetricsSeriesValues:fieldPath:tags.png)
 
 ---
 
 **`Callback _(optional, type:function)`**
 
-* Use `callback` for manual processing of series descriptors or additional processing of retrieved field values. 
+* Use `callback` for manual processing of series descriptors or additional processing of retrieved field values.
   * If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array is used as the argument.
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/15/)
@@ -1429,7 +1428,7 @@ To fill the drop-down list with values of `mount_point` tag of the series, whose
 
 Below is the content of the drop-down list:
 
-![](images/requestMetricsSeriesValues:callback_without_fieldPath.png)
+![](./images/requestMetricsSeriesValues:callback_without_fieldPath.png)
 
 To fill the drop-down list with entity tag values it is necessary to make two requests:
 
@@ -1448,7 +1447,7 @@ To fill the drop-down list with entity tag values it is necessary to make two re
 
 Below is the content of the drop-down list:
 
-![](images/requestMetricsSeriesValues:callback_with_fieldPath.png)
+![](./images/requestMetricsSeriesValues:callback_with_fieldPath.png)
 
 ---
 
@@ -1456,7 +1455,7 @@ Below is the content of the drop-down list:
 
 **Description**:
 
-* Request series for the `metric` adding `queryParameters` to the requested url.
+* Request series for the `metric` adding `queryParameters` to the requested URL.
 * Creates an option for each loaded series.
 * The value of the field found by `valueFieldPath` is assigned to the option value.
 * The value of the field found by `textFieldPath` is assigned to the option text.
@@ -1509,13 +1508,13 @@ To fill the drop-down list with options with the value of the `iucr` tag and the
 
 Below is the content of the drop-down list:
 
-![](images/requestMetricsSeriesOptions.png)
+![](./images/requestMetricsSeriesOptions.png)
 
 **`requestEntitiesMetricsOptions()`**:
 
 **Description**:
 
-* Requests metrics for the `entity` adding `queryParameters` to the requested url.
+* Requests metrics for the `entity` adding `queryParameters` to the requested URL.
 * Creates an option for each loaded metric.
 * The value of the field found by `valueFieldPath` is assigned to the option value.
 * The value of the field found by `textFieldPath` is assigned to the option text.
@@ -1568,7 +1567,7 @@ To fill the drop-down list with options defined by the value of `iucr` tag and t
 
 Below is the content of the drop-down list:
 
-![](images/requestEntitiesMetricsOptions.png)
+![](./images/requestEntitiesMetricsOptions.png)
 
 ## requestPropertiesOptions()
 
@@ -1630,11 +1629,11 @@ To fill drop-down list with values from `entity` and text from tag `app`, use th
 
 The content of the drop-down list is shown here:
 
-![](images/requestPropertiesOptions.png)
+![](./images/requestPropertiesOptions.png)
 
 ---
 
-## Dropdown Options Functions Arguments Description
+## Drop-down List Values Function Arguments Description
 
 **`TextFieldPath _(optional, type: string/Array<string>)_`**:
 
@@ -1645,14 +1644,14 @@ The content of the drop-down list is shown here:
 To fill a drop-down list with options in which values are retrieved from the `name` field of the metric descriptor and text from the tag `description`, `textFieldPath` as string can be used.
 
 ```css
-  [dropdown]
-    options = javascript: requestEntitiesMetricsOptions('name', 'tags.description', null, null, null, {tags:'*',limit:15})
-    change-field = metric
+[dropdown]
+  options = javascript: requestEntitiesMetricsOptions('name', 'tags.description', null, null, null, {tags:'*',limit:15})
+  change-field = metric
 ```
 
 Below is the content of the drop-down list:
 
-![](images/options:fieldPath:string.png)
+![](./images/options:fieldPath:string.png)
 
 Fill the drop-down list with values retrieved from the `name` field of the metric descriptor and the text from the tag `description` or tag `documentation`, if the descriptor has no value for the tag `description`, `textFieldPath` as an array can be used
 
@@ -1664,14 +1663,14 @@ Fill the drop-down list with values retrieved from the `name` field of the metri
 
 Below is the content of the drop-down list:
 
-![](images/options:fieldPath:array.png)
+![](./images/options:fieldPath:array.png)
 
 ---
 
 **`Callback _(optional, type:function)_`**
 
 * Use `callback` for manual processing of descriptors, which are passed as parameters.
-  * If `callback` is specified, `valueFieldPath` and `textFieldPath` are ignored. 
+  * If `callback` is specified, `valueFieldPath` and `textFieldPath` are ignored.
 * Function returns an array of objects, representing options.
 
 ```css
@@ -1705,4 +1704,4 @@ To populate the drop-down list with the names of metrics, collected for the enti
 
 The contents of the drop-down list are shown here:
 
-![](images/options_callback.png)
+![](./images/options_callback.png)

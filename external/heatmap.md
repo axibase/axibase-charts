@@ -4,4 +4,4 @@
 
 |Chart name|Example|
 |---|---|
-|Gmaps|https://jsfiddle.net/9em2a0ds/|
+|Gmaps|`https://jsfiddle.net/9em2a0ds/`|

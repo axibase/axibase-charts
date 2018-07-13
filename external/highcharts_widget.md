@@ -39,7 +39,7 @@ curl https://raw.githubusercontent.com/axibase/charts/master/external/resources/
 ll /opt/atsd/atsd/conf/portal/web/JavaScript
 ```
 
-The output should be as follows.
+The output is as follows:
 
 ```sh
 -rw-r--r-- 1 axibase axibase   3994 Oct 30 14:12 atsdClient.bundle.js
@@ -61,7 +61,7 @@ Check that the file can be accessed at `https://atsd_host:8443/portal/resource/w
 
 ## Create Portal
 
-Create a portal in ATSD and include a `page` widget with the `url` setting referencing the HTML file as follows:
+Create a portal in ATSD and include a `page` widget with the URL setting referencing the HTML file:
 
 ```ls
   [widget]
@@ -97,4 +97,4 @@ Create a portal in ATSD and include a `page` widget with the `url` setting refer
     url = /portal/resource/web/funnel.html
 ```
 
-![](images/funnelChart.png)
+![](./images/funnelChart.png)
