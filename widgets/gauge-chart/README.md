@@ -2,7 +2,7 @@
 
 ![](./images/multiple-gauges.png)
 
-Gauge Chart displays last series value on a gauge with colored threshold ranges. If the gauge widget contains multiple series, it will display the sum of the series values.
+Gauge Chart displays last series value on a gauge with colored threshold ranges. If the gauge widget contains multiple series, it displays the sum of the series values.
 
 ## Syntax
 
@@ -14,8 +14,8 @@ Gauge Charts support [Shared Widget](../shared/README.md) syntax.
 |--- |--- |--- |--- |
 |Mode|`mode = sleek`|Gauge layout mode.<br>Possible values: `sleek`, `half`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/25/)[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/26/)|
 |Thresholds|`thresholds = 0, 50, 90, 100`|Comma-separated threshold values or expressions to split the gauge axis into multiple ranges.<br>Each range is assigned a color with the `colors` or `color-range` setting. |[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)[![](./images/button.png)](https://apps.axibase.com/chartlab/a1c1aec3)|
-|Colors|`colors = green, yellow, red`|Determines colors of threshold ranges.<br>The number of colors should be equal to the number of thresholds minus `1`: `50` (green), `50-90` (yellow), `90-100` (red).|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)|
-|Color Range|`color-range = black`|Color pallette automatically assigned to threshold ranges.<br>Possible values: `blue`, `red`, `black`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/27/)|
+|Colors|`colors = green, yellow, red`|Determines colors of threshold ranges.<br>The number of colors must be equal to the number of thresholds minus `1`: `50` (green), `50-90` (yellow), `90-100` (red).|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)|
+|Color Range|`color-range = black`|Color palette automatically assigned to threshold ranges.<br>Possible values: `blue`, `red`, `black`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/27/)|
 |Gradient Intensity|`gradient-intensity = -25% / 75%`|Color intensity of the first and the last sector in each range.<br>Possible values: `-.2`/`.7` (or `-20%`/`70%`).|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/10/)|
 |Gradient Count|`gradient-count = 5, 2, 1`|Number of gradients in each range. |[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/34/)|
 |Caption|`caption = KPI`|Text displayed on top of the gauge.<br> Caption can be split into multiple lines.<br>HTML markup is supported.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/25/)|
