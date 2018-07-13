@@ -65,7 +65,7 @@ format = percent
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/9225124b/2/#fullscreen)
 
-Decimal Values | Franctional Values
+Decimal Values | Fractional Values
 --|--
 Formatted as a percentage of `100` | Multiplied by `100` and converted into percentage |
 `format = percent(1)` formats `10.23243232` as `10.2%`. | `format = fraction(2)` formats `0.23243232` as `23.24%`
