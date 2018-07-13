@@ -45,7 +45,7 @@ Expand Panels | `expand-panels = all`| Display control panels in the top left or
 
 ### Series Description
 
-`[widget]` settings include one or more `[series]` settings. For more information about associating `[series]` settings with data stored in ATSD, see Selecting Series.
+`[widget]` settings include one or more `[series]` settings. For more information about associating `[series]` settings with data stored in ATSD, see [Selecting Series](../../syntax/selecting-series.md).
 
 ### `[series]` Settings
 
