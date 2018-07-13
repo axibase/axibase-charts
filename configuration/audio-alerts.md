@@ -6,7 +6,7 @@ When an `alert-expression` evaluates to `true`, play an audio file in your brows
 
 > Store audio files in the `/opt/atsd/atsd/conf/portal` directory of your ATSD installation.
 
-* The following path to audio files stored on the ATSD filesystem must be set in the `audio-alert` setting: `/portal/resource/alarm.ogg`
+* The following path to audio files stored on the ATSD file system must be set in the `audio-alert` setting: `/portal/resource/alarm.ogg`
   * Note that files located in the specified directory must always be referenced with the addition of `/resource/` before audio file name.
 
 Audio is played only on `alert-expression` status change, such as `false` evaluating to `true` or `true` evaluating to `false`.
@@ -57,4 +57,3 @@ Audio Onload | `audio-onload` | Play audio alert on initial widget load if `audi
 Name | Syntax | Description | Example |
 --|--|--|--
 Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa. | [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)
-
