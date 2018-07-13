@@ -16,7 +16,7 @@ Configuration syntax provides a way to load and display data for time series sto
   [series]
    entity = nurswgvml009
    metric = df.bytes.percentused
-/* Some series contain tags */   
+/* Some series contain tags */
       [tags]
         mount = /
         fstype = ext4
@@ -109,7 +109,7 @@ entity = nurswgvml006
     fstype = ext4
 ```
 
-In this example, the response will contain three different series with the same file system type `ext4`, but with different mount points: `/`, `/boot/`, `/media/datadrive`.
+In this example, the response contains three different series with the same file system type `ext4`, but with different mount points: `/`, `/boot/`, `/media/datadrive`.
 
 The resulting series is merged from 3 underlying different series and provides a meaningless result.
 
@@ -139,8 +139,8 @@ The default value of the `multiple-series` setting is `true` in the following ca
 
 * Multiple entities are specified: `entity = nur1, nur2`
 * Multiple tag values are specified: `mount = /, /tmp`
-* Entity name contains [wildcard](./wildcards): `entity = nur*`
-* Tag value contains [wildcard](./wildcards): `mount = /t*`
+* Entity name contains [wildcard](./wildcards.md): `entity = nur*`
+* Tag value contains [wildcard](./wildcards.md): `mount = /t*`
 * `entity-expression`, `entity-group`, or `tag-expression` settings are present.
 
 ```css
