@@ -4,7 +4,7 @@ All widgets support [Shared Widget](./shared/README.md) syntax.
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
-[![](./images/time-chart.png)](./time-chart/README.md) | [![](./images/gauge-chart.png)](./gauge-chart/README.md) | [![](./images/bar-chart.png)](./bar-chart.README.md)
+[![](./images/time-chart.png)](./time-chart/README.md) | [![](./images/gauge-chart.png)](./gauge-chart/README.md) | [![](./images/bar-chart.png)](./bar-chart/README.md)
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
