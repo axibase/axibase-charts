@@ -63,7 +63,7 @@ Time Chart | Gauge Chart | Bar Chart
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
-![](./images/histogram.png) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
+![](./images/histogram.png) | ![](./images/box-chart.png) | [![](./images/calendar-chart.png)](./widgets/calendar-chart/README.md)
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
