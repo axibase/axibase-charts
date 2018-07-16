@@ -4,11 +4,11 @@ All widgets support [Shared Widget](./shared/README.md) syntax.
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
-[![](./images/time-chart.png)](./time-chart/README.md) | [![](./images/gauge-chart.png)](./gauge-chart/README.md) | ![](./images/bar-chart.png)
+[![](./images/time-chart.png)](./time-chart/README.md) | [![](./images/gauge-chart.png)](./gauge-chart/README.md) | [![](./images/bar-chart.png)](./bar-chart.README.md)
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
-![](./images/histogram.png) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
+[![](./images/histogram.png)](./histogram/README.md) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
