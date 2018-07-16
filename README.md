@@ -59,11 +59,11 @@ All widgets support [Shared Widget](./widgets/shared/README.md) syntax.
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
-[![](./images/time-chart.png)](./widgets/time-chart/README.md) | ![](./images/gauge-chart.png) | ![](./images/bar-chart.png)
+[![](./images/time-chart.png)](./widgets/time-chart/README.md) | [![](./images/gauge-chart.png)](./widgets/gauge-chart/README.md) | [![](./images/bar-chart.png)](./widgets/bar-chart/README.md)
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
-![](./images/histogram.png) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
+[![](./images/histogram.png)](./widgets/histogram/README.md) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
