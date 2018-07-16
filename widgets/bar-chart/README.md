@@ -35,3 +35,39 @@ Setting |Syntax |Description |Example
 |Alert Expression and Style|`alert-expression = value > 7`<br>`alert-style = fill: red; stroke: red`|Apply alert style based on total value of series inside the bar.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/16/)|
 |Column Label Format|`column-label-format = tags.mount_point`|Column label pattern containing text and placeholders.<br>Use any combination of the following: `entity`, `metric`, `tagName`, `tagValue`,`tags.{tag-name}`,`statistics`, `period`<br>Default value: `entity: metric: tagName=tagValue: statistics - period`|[![](./images/button.png)](https://apps.axibase.com/chartlab/8bc74658/2/)|
 |Multiple Column|`multiple-column = true`|Applicable to [wildcard](../../syntax/wildcards.md) configurations.<br>Default value is `false`.<br>If `true`, series with the same entity and tags are added into the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/6e37edc8/2/)|
+
+### `[series]` Settings
+
+Settings inherited from [Shared Widget `[series]` Syntax](../shared/README.md): `entity`, `metric`, `type`, `interval`, `style`, `color`, `label`, `tooltip`, `format`, `display`, `hidden`, `refresh-interval`, `retry-refresh-interval`, `error-refresh-interval`.
+
+## Examples
+
+### Horizontal Bar Chart
+
+![](./images/horizontal-bar-chart.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/89c8183d/2/#fullscreen)
+
+### Horizontal Alert
+
+![](./images/horizontal-alert.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/63c825ca)
+
+### Vertical Bar Chart
+
+![](./images/vertical-bar-chart.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b)
+
+### Vertical Alert
+
+![](./images/bar-column-alert.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/17/)
+
+### Alert
+
+![](./images/bar-alert.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/11/)
