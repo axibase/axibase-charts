@@ -8,7 +8,7 @@ Time Chart | Gauge Chart | Bar Chart
 
 Histogram Chart | Box Chart | Calendar Chart
 :--:|:--:|:--:
-[![](./images/histogram.png)](./histogram/README.md) | ![](./images/box-chart.png) | ![](./images/calendar-chart.png)
+[![](./images/histogram.png)](./histogram/README.md) | [![](./images/box-chart.png)](./box-chart/README.md) | ![](./images/calendar-chart.png)
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
