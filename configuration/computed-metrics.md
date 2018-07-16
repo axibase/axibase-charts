@@ -18,7 +18,7 @@ replace-value = Math.log10(value)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/e0e0be77)
 
-In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. In order to reference other series, such underlying series should be assigned unique identifiers with the alias setting.
+In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. To reference other series, such underlying series must be assigned unique identifiers with the alias setting.
 
 ```css
 [series]
@@ -35,7 +35,7 @@ In this example, the underlying series are hidden and another visible series is 
   color = violet
 ```
 
-In addition to obtaining the last value at a given time for the referenced series with the `value('alias')` function, it is also possible to obtain period statistics with `avg()`, `max()`, `min()`, and other aggregation functions. If a custom period is required, the syntax is `avg(alias, period)`, for example `avg(s1, 1 hour)` aggregates data from series `s1` hourly.
+In addition to obtaining the last value at a given time for the referenced series with the `value('alias')` function, it is also possible to obtain period statistics with `avg()`, `max()`, `min()`, and other [aggregation functions](./aggregators.md). If a custom period is required, the syntax is `avg(alias, period)`, for example `avg(s1, 1 hour)` aggregates data from series `s1` hourly.
 
 ## Extrapolation
 
