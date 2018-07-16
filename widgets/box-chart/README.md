@@ -56,6 +56,6 @@ Settings inherited from [Shared Widget `[series]` Syntax](../shared/README.md): 
 
 ### `metro` Mode
 
-![](./images/box-chart-1.png)
+![](./images/box-metro-1.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/6d6ae13c/2/)
