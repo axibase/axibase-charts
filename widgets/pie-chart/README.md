@@ -19,13 +19,17 @@ Pie Charts include unique behavior upon clicking a segment of the visualization:
 
 ### `[widget]` Settings
 
+<!-- markdownlint-disable MD102 -->
+
 Setting|Syntax|Description|Example
 --|--|--|--
 |Mode|`mode = ring`|Display a ring instead of circle.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/9/)|
 |Total Value|`total-value = 1024` `total-value = value('007-root') + value('006-root')`|Define the total value explicitly, otherwise it is computed as the sum of all series values.<br>`total-value` can be calculated by referencing other series similar to computed series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/3/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/61665be7)|
 |Expand|`expand = true`|Set under either `[widget]` or `[series]` settings.<br>Expand all segments or an individual segment.<br> Possible values: `true`, `false`.<br>Double-click modifies `expand` setting interactively.|[![](./images/button.png)](https://apps.axibase.com/chartlab/e670a008/2/)|
-|Selector Mode|`selector-mode = highlight`|Controls how pie segmets react to click interaction. Possible Settings: highlight, expand. Highlight – double click highlights the selected pie segment, other segments are greyed out. Expand – double click expands the selected pie segment.|[![](./images/button.png)](https://apps.axibase.com/chartlab/535a6aec)|
+|Selector Mode|`selector-mode = highlight`|Controls how pie segments react to click interaction. Possible Settings: highlight, expand. Highlight – double click highlights the selected pie segment, other segments are greyed out. Expand – double click expands the selected pie segment.|[![](./images/button.png)](https://apps.axibase.com/chartlab/535a6aec)|
 |Series Double Click|`on-series-double-click = ''`|Disable [double click functionality](#syntax) in the widget.|[![](./images/button.png)](https://apps.axibase.com/chartlab/89dce57d)|
+
+<!-- markdownlint-enable MD102 -->
 
 ### `[series]` Settings
 
