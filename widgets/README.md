@@ -12,7 +12,7 @@ Histogram Chart | Box Chart | Calendar Chart
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
-[![](./images/treemap-widget.png)](./treemap/README.md) | [![](./images/pie-chart.png)](./pie-chart/README.md) | [![](./images/graph.png)](./graph/README/md)
+[![](./images/treemap-widget.png)](./treemap/README.md) | [![](./images/pie-chart.png)](./pie-chart/README.md) | [![](./images/graph.png)](./graph/README.md)
 
 Text Widget | Page Widget | Alert Console
 :--:|:--:|:--:
