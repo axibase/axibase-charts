@@ -67,7 +67,7 @@ Histogram Chart | Box Chart | Calendar Chart
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
-![](./images/treemap-widget.png) | ![](./images/pie-chart.png) | ![](./images/graph.png)
+[![](./images/treemap-widget.png)](./widgets/treemap/README.md) | [![](./images/pie-chart.png)](./widgets/pie-chart/README.md) | ![](./images/graph.png)
 
 Text Widget | Page Widget | Alert Console
 :--:|:--:|:--:
