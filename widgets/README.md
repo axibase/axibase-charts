@@ -12,11 +12,11 @@ Histogram Chart | Box Chart | Calendar Chart
 
 Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
-[![](./images/treemap-widget.png)](./treemap/README.md) | [![](./images/pie-chart.png)](./pie-chart/README.md) | ![](./images/graph.png)
+[![](./images/treemap-widget.png)](./treemap/README.md) | [![](./images/pie-chart.png)](./pie-chart/README.md) | [![](./images/graph.png)](./graph/README.md)
 
 Text Widget | Page Widget | Alert Console
 :--:|:--:|:--:
-![](./images/text-widget.png) | ![](./images/page-widget.png) | ![](./images/alert-console.png)
+[![](./images/text-widget.png)](./text-widget/README.md) | ![](./images/page-widget.png) | ![](./images/alert-console.png)
 
 Streaming Table | Property Table
 :--:|:--:
