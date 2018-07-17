@@ -41,10 +41,133 @@ Apply icons and captions to series when Pie Chart mode is set to [`ring`](#widge
 
 Setting|Syntax|Description|Example
 --|--|--|--
-|Icon|`icon = public/img/svg/linear/users.svg`<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`|Displays an `.svg` icon in the ring.<br>Path to your custom icons must be defined.<br>The suggested directory is  `/opt/atsd/atsd/conf/portal/img/` in your ATSD installation to hold your icons.<br>ATSD includes a built-in collection of icons.<br>Built in icons are referenced by name, without the full path. See the [Icon Reference Sheet.](resources/atsd-embedded-icons.pdf) for available icons.<br>Underscores in built-in icon names can substituted with dashes:`icon = alerts_color_07``icon = alerts-color-07`|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/4/)[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/6/)|
-|icon-alert-expression|`icon-alert-expression = value('s1') > 10`|Alert rules that are applied to the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
-|icon-alert-style|`icon-alert-style = return alert > 12000 ? 'fill: red' : 'fill:green';`|Styles that are applied to the icon when the alert expression is satisfied.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
-|caption|`caption = Administrative Users`|Сaption displayed below the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee)|
-|caption-style|`caption-style = font-size: 64px; font-weight: bold; fill: silver;`|Style applied to the caption.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee/2/)|
-|min-font-size|`min-font-size`|Minimum caption font size.Font size will not scale below set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
-|max-font-size|`max-font-size`|Maximum caption font size.Font size will not scale above set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
+|Icon|`icon = public/img/svg/linear/users.svg`<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`|Display an `.svg` icon in chart ring.<br>Path to custom icons must be defined.<br>The icon directory is `/opt/atsd/atsd/conf/portal/img/` in ATSD.<br>ATSD includes a built-in collection of icons.<br>Built-in icons are referenced by name, without the full path.<br>See the [Icon Reference Sheet.](resources/atsd-embedded-icons.pdf) for available icons.<br>Substitute underscores (`_`) in built-in icon names with dashes(`-`):<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/4/)[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/6/)|
+|Icon Alert Expression|`icon-alert-expression = value('s1') > 10`|Apply alert rules to the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
+|Icon Alert Style|`icon-alert-style = return alert > 12000 ? 'fill: red' : 'fill:green';`|Apply styles to the icon when the `alert-expression` is satisfied.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
+|Caption|`caption = Administrative Users`|Display a caption below the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee)|
+|Caption Style|`caption-style = font-size: 64px; font-weight: bold; fill: silver;`|Apply a style to the caption.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee/2/)|
+|Minimum Font Size|`min-font-size`|Minimum caption font size.<br>Font size cannot scale below set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
+|Maximum Font Size|`max-font-size`|Maximum caption font size.<br>Font size cannot scale above set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
+
+### `[other]` Settings
+
+Setting|Syntax|Description|Example
+--|--|--|--
+|Display|`display = false`|Display the difference between `total-value` and `sum` of visible series values.<br>If `total-value` is defined, but `[other]` tag is missing, `[other]` section is not displayed.<br>Default: `true`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/4/)|
+|Label|`label = Unmonitored memory`|Label of the `[other]` section.<br>Default: `Other`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
+|Tooltip|`tooltip = Unmonitored memory (HMC disabled)`|Tooltip for the `[other]` section displayed upon mouseover.<br>Default: `Other`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
+|Color|`color = silver`|Color of the `[other]` section.<br>Default: `lightgray`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
+
+## Examples
+
+### Configuration
+
+```css
+[widget]
+  type = pie
+  timespan = 15 minute
+  format = kilobytes
+
+  [series]
+    entity = nurswgvml010
+    metric = memfree
+
+  [series]
+    entity = nurswgvml006
+    metric = memfree
+
+  [series]
+    entity = nurswgvml007
+    metric = memfree
+```
+
+![](./images/pie-chart-config.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/2/)
+
+### Ring Icons
+
+```css
+[widget]
+  type = pie
+  mode = ring
+  ring-width = 50
+
+[series]
+  label = Admin Users
+```
+
+![](./images/ring-icons.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/2ffc3aff/3/)
+
+### Series Labels
+
+```css
+[widget]
+  series-labels = value >= 2000000 ? 'connected' : 'auto'
+```
+
+![](./images/series-labels.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/01a92e22)
+
+### Pie
+
+```css
+[widget]
+  type = pie
+```
+
+![](./images/pie-chart-1.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6)
+
+### Ring
+
+```css
+[widget]
+  type = pie
+  mode = ring
+```
+
+![](./images/pie-ring.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/9)
+
+### Alert
+
+```css
+[widget]
+  alert-expression = value < 3*1024*1024
+  alert-style = fill: red
+```
+
+![](./images/pie-alert.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/10)
+
+### Total and Other
+
+```css
+[widget]
+  total-value = 1048576
+
+[other]
+  display = true
+```
+
+![](./images/pie-other.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/837064f0)
+
+### Hidden Other Segment
+
+```css
+[widget]
+total-value = 1048576
+```
+
+![](./images/pie-other-hidden.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/aaca8e62/2/)
