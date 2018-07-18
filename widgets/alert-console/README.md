@@ -53,7 +53,7 @@ Severity Style | `severity-style = row`| Control alert behavior. Highlight a sin
 Click Behavior | `onclick = filter()` | Set interaction behavior for user click.<br>Filter the tables based on the clicked values of a specific column | [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/5/)
 Row Style | `row-style = if (value <= 7) return 'display: none'` | Style assigned to the entire row specified as JavaScript code.<br>In the syntax example all alerts with severity less than `7` are hidden.<br>Filter data prior display in the widget. | [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/6/)
 Sort | `sort = metric DESC` | Sort console based on one or more columns.<br>Additional ascending `ASC` or descending `DESC` parameter is accepted.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/9/)
-Class | `class = terminal` | Change the widget to UNIX-style console with black background.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/10/)
+Class | `class = terminal` | Change the widget to Unix-style console with black background.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/10/)
 
 ## Examples
 
