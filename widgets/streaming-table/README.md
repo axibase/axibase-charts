@@ -97,7 +97,7 @@ metrics that reached minimum are highlighted with green.
 
 ```css
 [column]
-  key = s-6   
+  key = s-6
   label = Query-6
   alert-expression = value+1
   alert-style = alert == 2 ? 'background-color: red' : 'background-color: #8DB600'
