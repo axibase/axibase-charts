@@ -2,7 +2,7 @@
 
 ## Supported Format Settings
 
-```css
+```ls
 format = bytes
 format = kilobytes
 format = megawatt
@@ -33,7 +33,7 @@ Perform rounding on displayed values:
 
 `round(value, number_of_digits)`
 
-```css
+```ls
 format = round(0)
 format = round(value/512, 1)
 format = round(-3)
@@ -57,7 +57,7 @@ Operation | Syntax
 
 Format values as a percentage of `100`.
 
-```css
+```ls
 format = percent
 ```
 
@@ -80,7 +80,7 @@ Control the number of displayed digits. Specify the exact number of digits in th
 
 ### Syntax
 
-```css
+```ls
 fixed(0, 3); // 0.000
 fixed(0); // 0
 fixed(1.2); // 1
@@ -112,7 +112,7 @@ Syntax | Description
 
 Format series values which represent millisecond duration using `intervalFormat` function or `interval-format` setting.
 
-```css
+```ls
 /* invoke intervalFormat function */
 format = intervalFormat('%dd %H:%M:%S')(value*1000)
 
@@ -177,7 +177,7 @@ Control the date format of the `x` axis for year, month, week, and day.
 
 #### Examples
 
-```css
+```ls
 day-format = %m/%d
 day-format = %y/%m/%d
 day-format = %Y/%m/%d
@@ -188,7 +188,7 @@ day-format = %Y %m/%d
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/d0bfcdf8)
 
-```css
+```ls
 day-format = %m %a
 day-format = %m/%aa
 day-format = %x
@@ -217,7 +217,7 @@ Use any combination of the following:
 
 #### Example
 
-```css
+```ls
 hour-format = %I %p
 hour-format = %H:%M
 ```

@@ -27,7 +27,7 @@ Under `[series]` level settings for Streaming Table widget, specify `hide-if-emp
 
 ### Configuration
 
-```css
+```ls
 [widget]
   type = table
   title = CPU Usage
@@ -61,7 +61,7 @@ Under `[series]` level settings for Streaming Table widget, specify `hide-if-emp
 
 ### `min` and `max` Value Time
 
-```css
+```ls
 [widget]
 alert-expression = this.alert = value <= min && value < avg ? 1 : value >= max && value > avg ? 2 : 0
   [column]
@@ -77,7 +77,7 @@ alert-expression = this.alert = value <= min && value < avg ? 1 : value >= max &
 
 ### Sliding Window
 
-```css
+```ls
 /*
 This example visualizes relative changes for
 many metrics at once, highlighting which metrics
@@ -95,7 +95,7 @@ metrics that reached minimum are highlighted with green.
 
 ### Color Grid
 
-```css
+```ls
 [column]
   key = s-6
   label = Query-6
@@ -110,7 +110,7 @@ metrics that reached minimum are highlighted with green.
 
 ### Alert
 
-```css
+```ls
 [widget]
   alert-expression = value > 4
   alert-style = background-color: orange
@@ -124,7 +124,7 @@ metrics that reached minimum are highlighted with green.
 
 <!-- markdownlint-disable MD104 -->
 
-```css
+```ls
 [configuration]
 entity = 10.102.0.15
 metric = dbqueuemonitor
@@ -145,7 +145,7 @@ endlist
 
 ### Multiple Metrics
 
-```css
+```ls
 [series]
   entity = nurswgvml009
   metric = cpu_busy
@@ -165,7 +165,7 @@ endlist
 
 ### Multiple Tags
 
-```css
+```ls
 [column]
   tag = mount_point
   label = Mount Point
@@ -181,7 +181,7 @@ endlist
 
 ### Configure Columns
 
-```css
+```ls
 script
   cmdb = {
    "nurswgvml006": {"location": "Cupertino", "type": "prod"},

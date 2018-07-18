@@ -8,7 +8,7 @@ Specify lower or upper thresholds or combine the two to trigger a violation when
 
 Series violates the threshold when its value exceeds the maximum threshold.
 
-```css
+```ls
 [series]
   max-threshold = 60
   alert-expression = value > 60
@@ -23,7 +23,7 @@ Series violates the threshold when its value exceeds the maximum threshold.
 
 Series violates the threshold when its value is below the minimum threshold.
 
-```css
+```ls
 [series]
   min-threshold = 7
   alert-expression = value > 7
@@ -38,7 +38,7 @@ Series violates the threshold when its value is below the minimum threshold.
 
 Percentage of time within the period when the series values did not exceed the threshold. Computed as sum of violation intervals divided by the period duration.
 
-```css
+```ls
 [series]
   statistic = threshold_percent
   max-threshold = 10
@@ -55,7 +55,7 @@ Percentage of time within the period when the series values did not exceed the t
 
 Number of sequences within the period when the series values exceeded the threshold. Consecutive observations violating the threshold are treated as one sequence.
 
-```css
+```ls
 [series]
   statistic = threshold_count
   max-threshold = 40
@@ -72,7 +72,7 @@ Number of sequences within the period when the series values exceeded the thresh
 
 Total duration of intervals within the period when the series values exceeded the threshold. Note, when using `threshold_duration` with an `alert-expression` the `value` argument is measured in **milliseconds**.
 
-```css
+```ls
 [series]
   statistic = threshold_duration
   min-threshold = 10

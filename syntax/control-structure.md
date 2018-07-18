@@ -6,7 +6,7 @@ The following control structures are supported: `list`, `var`, `for`, `if`.
 
 Assign a list of comma-separated elements, optionally located on multiple lines, to a named array an iterate through the array with a `for` loop.
 
-```css
+```ls
 list servers = awsswgvml001, nurswgvml003,
   nurswgvml006, nurswgvml007, nurswgvml009
 endlist
@@ -14,13 +14,13 @@ endlist
 
 If the elements fit on one line, `endlist` is not required.
 
-```css
+```ls
 list servers = awsswgvml001, nurswgvml003
 ```
 
 The `list` command is similar to `var`, without having to quote and enclose the elements in square brackets.
 
-```css
+```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
 list servers = awsswgvml001, nurswgvml003
 ```
@@ -31,7 +31,7 @@ list servers = awsswgvml001, nurswgvml003
 
 If the `var` assignment occupies one line, closing with  `endvar` is not required.
 
-```css
+```ls
 var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
 for di in disks
     [series]
@@ -43,7 +43,7 @@ endfor
 
 The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getEntities) function.
 
-```css
+```ls
 var hosts = getEntities('svl-hosts')
 for host in hosts
     [series]
@@ -62,7 +62,7 @@ Create the following visualization which tracks metric `cpu_idle` for entities `
 
 ### Iterating Over a List
 
-```css
+```ls
 list servers = nurswgvml010, nurswgvml007
   for server in servers
   [series]
@@ -74,7 +74,7 @@ endfor
 
 ### Iterating Over an Inline Array
 
-```css
+```ls
 for server in ['nurswgvml010', 'nurswgvml007']
   [series]
     entity = @{server}
@@ -87,7 +87,7 @@ endfor
 
  Order is arbitrary when using the [`Object.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) function.
 
-```css
+```ls
   var tags = {
   'level': 'ERROR',
   'command': 'com.axibase.tsd.Server',
@@ -106,7 +106,7 @@ endfor
 
 ### Iterating Over Objects with Named Fields
 
-```css
+```ls
 var servers = [
   {'name': 'nurswgvml001', 'networks': ['en3', 'en4']},
   {'name': 'nurswgvml002', 'networks': ['en5']}
@@ -128,7 +128,7 @@ endfor
 
 ### Iterating Over Object Properties
 
-```css
+```ls
 var servers = {
     'nurswgvml001': ['en3', 'en4'],
     'nurswgvml002': ['en5']
@@ -149,7 +149,7 @@ endfor
 
 ### Iterating Over a Multi-Dimensional Array
 
-```css
+```ls
 var servers = [
       ['nurswgvml001', ['en3', 'en4']],
       ['nurswgvml002', ['en5']]
@@ -173,7 +173,7 @@ Use `elementname_index` without control symbol `@` and brackets to access curren
 
 **Example**: Insert `[group]` line for each 4th element in the array.
 
-```css
+```ls
 for server in servers
   /* add [group] before every 4th element to display 4 widgets per row */
   if server_index % 4 == 0
@@ -187,7 +187,7 @@ endfor
 
 Similar layout with automated row breaks can be accomplished by specifying the `widgets-per-row` setting under `[group]` level.
 
-```css
+```ls
 [group]
   widgets-per-row = 4
 for server in servers
@@ -198,7 +198,7 @@ endfor
 
 Text inside placeholder `@{elementname}` is evaluated as an expression and can be used for concatenation and formatting.
 
-```css
+```ls
 list servers = 001, 003, 006, 007, 009
 for server in servers
   [series]
@@ -212,7 +212,7 @@ Evaluates an expression and prints settings if the expression is `true`. If the 
 
 Array elements are accessed in the `if` or `elseif` expression by name, not as a placeholder.
 
-```css
+```ls
 for server in servers
   [series]
     entity = @{server}
@@ -232,6 +232,6 @@ endfor
 
 To review the final configuration text after pre-processing, add `script = console.log(widgetConfig)` anywhere in the widget configuration and review the text on **Developer Console > Console** page.
 
-```css
+```ls
 script = console.log(widgetConfig)
 ```

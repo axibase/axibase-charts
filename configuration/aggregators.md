@@ -81,7 +81,7 @@ Calculation: `Weight = (sample.time - first.time)/(last.time - first.time + 1)`
 > * `startime = 2015-09-14 10:00:00` includes data points occurring exactly at `10:00:00` and later.<br>
 > * `Endtime = 2015-09-14 11:00:00` includes data points occurring up to `10:59:59`, excluding points that occurred at `11:00:00` and later.
 
-```css
+```ls
 count                  = 11
 first                  = 11
 last                   = 13

@@ -50,7 +50,7 @@ For `[other]` and `[series]` tags in Treemap widget, define `[properties]` level
 
 This setting displays a table in the tooltip that appears upon series rectangle mouseover.
 
-```css
+```ls
 /* Define upper series tooltip */
 [properties]
   Data Center = Cuperito
@@ -72,7 +72,7 @@ This setting displays a table in the tooltip that appears upon series rectangle 
 
 ### Manual Thresholds and Size
 
-```css
+```ls
 width-units = 1
 height-units = 1
 thresholds = 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
@@ -90,7 +90,7 @@ thresholds = 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
 
 ### Manual Thresholds
 
-```css
+```ls
 thresholds = 0, 25, 50, 75, 100
 ```
 

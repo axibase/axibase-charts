@@ -77,13 +77,13 @@ Series Type | `series-type = s3` | Use this setting in `stack` mode as a groupin
 
 Hide empty series:
 
-```css
+```ls
 display = !isNaN(value)
 ```
 
 Hide series without data in the previous 60 minutes:
 
-```css
+```ls
 display = this.lastRequestTime - this.last.t. < 60 * 60000
 ```
 
@@ -132,13 +132,13 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 Modify time chart widget controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
 
-```css
+```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(8)
 ```
 
 Substitute `8` with the desired amount of control to be displayed.
 
-```css
+```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(6)
 ```
 
@@ -148,7 +148,7 @@ defaultChartConfig.script = widget.chart.panels[1].expand(6)
 
 To create specific groups of controls use long-form syntax:
 
-```css
+```ls
 defaultChartConfig.script = widget.panels.type.data(['detail', 'avg', 'max', 'min', 'percentile 50', 'percentile 99', 'percentile 95', 'percentile 90', 'percentile 75', 'sum', 'count', '+'])
 ```
 
@@ -175,7 +175,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Offset
 
-```css
+```ls
 [series]
   label = yesterday
   time-offset = 1 day
@@ -190,7 +190,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Dual Axis
 
-```css
+```ls
 [series]
   entity = nurswgvml007
   metric = memfree
@@ -203,7 +203,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Stack
 
-```css
+```ls
 [widget]
   type = chart
   mode = stack
@@ -215,7 +215,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Stack Average
 
-```css
+```ls
 [widget]
   type = chart
   mode = stack
@@ -228,7 +228,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Area
 
-```css
+```ls
 [widget]
   type = chart
   stack = true
@@ -244,7 +244,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Column
 
-```css
+```ls
 [widget]
   type = chart
   mode = column
@@ -256,7 +256,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Column Stack
 
-```css
+```ls
 [widget]
   type = chart
   mode = column-stack
@@ -268,7 +268,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Column Alert
 
-```css
+```ls
 [series]
   alert-expression = value > 75
   alert-style = fill: orange; stroke: orange
@@ -280,7 +280,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Percentile
 
-```css
+```ls
 [series]
   entity = nurswgvml010
   metric = cpu_busy
@@ -293,7 +293,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Forecast
 
-```css
+```ls
 [series]
   entity = nurswgvml007
   metric = cpu_busy
@@ -306,7 +306,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Disconnect
 
-```css
+```ls
 [widget]
   disconnect-interval = 1 minute
   disconnect-value = 0
@@ -318,7 +318,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Threshold
 
-```css
+```ls
 [threshold]
   color = red
   value = 75
@@ -331,7 +331,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Alert
 
-```css
+```ls
 [widget]
   alert-expression = value > 75
   alert-style = stroke: red; stroke-width: 3
@@ -343,7 +343,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Violations
 
-```css
+```ls
 [series]
   value = var v = value('s7');
   value = if (v > 50) return v;
@@ -356,7 +356,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ### Violations Average
 
-```css
+```ls
 [series]
   entity = nurswgvml006
   metric = nmon.cpu_total.busy%
@@ -381,7 +381,7 @@ Insert messages into the database as series, using series tags to encode message
 series e:e-highlight d:2016-07-21T15:05:00Z m:m-highlight=75 t:msg="Traffic Stopped"
 ```
 
-```css
+```ls
 [series]
   entity = e-highlight
   metric = m-highlight
@@ -395,7 +395,7 @@ series e:e-highlight d:2016-07-21T15:05:00Z m:m-highlight=75 t:msg="Traffic Stop
 
 Overlay multiple intervals on the time (`x`) axis with elapsed time (interval) formatting.
 
-```css
+```ls
 [widget]
   interval-format = true
 ```

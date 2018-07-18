@@ -6,7 +6,7 @@ This document describes functions, which can be referenced in the `value` settin
 
 The `value` setting is specified by the `series` section.
 
-```css
+```ls
 # Define the original series, which values used in creating a derived (computed) series.
 # The original series must exist in the database
 [series]

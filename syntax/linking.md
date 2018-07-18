@@ -6,7 +6,7 @@ The `on-series-click` setting links widgets displayed on the same portal for int
 
 Trigger multiple `on-series-click` actions to update multiple widgets simultaneously.
 
-```css
+```ls
 on-series-click = var seriesConfig = $.extend({}, c.config.originalConfig.series[0], {entity: series.entity, tags: series.tags});
 ```
 
@@ -16,7 +16,7 @@ on-series-click = var seriesConfig = $.extend({}, c.config.originalConfig.series
 
 The `on-series-click` setting does not affect behavior of the widget on the header click handler. The syntax below demonstrates how to update headers when using linking features.
 
-```css
+```ls
 /* update console */
 on-series-click = consoleWidget.post = $.extend(true, {}, consoleWidget.post, { queries: [$.extend(interval, { entities: [series.entity], tags: series.tags })] }); consoleWidget.reload(); 
 

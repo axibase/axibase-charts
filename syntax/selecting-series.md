@@ -4,7 +4,7 @@
 
 Configuration syntax provides a way to load and display data for time series stored in ATSD. Series values change over time and data history is visualized with different types of graphs.
 
-```css
+```ls
 /* Widget level settings affect all series. */
 [widget]
   type = chart
@@ -37,7 +37,7 @@ Review any series in the database on the **Metrics > `metric_name` > Series** pa
 
 Create drop-down lists using `tag-dropdowns` syntax:
 
-```css
+```ls
 [widget]
 tags-dropdowns = true
 label-format = tags
@@ -51,7 +51,7 @@ label-format = tags
 
 To display values for a specific series, specify the composite key in the `[series]` section of the widget configuration:
 
-```css
+```ls
 /* Series without tags */
 metric = cpu_busy
 entity = nurswgvml007
@@ -74,7 +74,7 @@ By default, the database returns all series matching a request, including series
 
 This enables loading series using only a subset of tags that are still sufficient to uniquely identify a series:
 
-```css
+```ls
 /* Series with tags */
 [series]
 metric = df.bytes.percentused
@@ -87,7 +87,7 @@ This configuration matches all series with `mount = /` key-value pair, including
 
 To disable partial tag match, use the `exact-match = true` setting:
 
-```css
+```ls
 /* Series with tags */
 metric = df.bytes.percentused
 entity = nurswgvml006
@@ -100,7 +100,7 @@ When partial match is disabled, the database returns series with exactly the sam
 
 While making the configuration more compact, partial match can produce undetermined results if the partial key matches multiple series where only one series is expected:
 
-```css
+```ls
 /* Series with Tags */
 [series]
 metric = df.bytes.percentused
@@ -119,7 +119,7 @@ The resulting series is merged from 3 underlying different series and provides a
 
 To control how multiple matched series are processed, use the `multiple-series = true | false` setting.
 
-```css
+```ls
 /* Display all series with tag fstype=ext4 without merging */
 multiple-series = true
 [series]
@@ -129,7 +129,7 @@ multiple-series = true
 
 Use the `multiple-series` setting to display all series without specifying any tags in widget configuration:
 
-```css
+```ls
 /* Display all series without merging */
 multiple-series = true
 [series]
@@ -143,7 +143,7 @@ The default value of the `multiple-series` setting is `true` in the following ca
 * Tag value contains [wildcard](./wildcards.md): `mount = /t*`
 * `entity-expression`, `entity-group`, or `tag-expression` settings are present.
 
-```css
+```ls
 /* Select series using tag value wildcards. `multiple-series` is TRUE */
   [tags]
     fstype = ext4  
@@ -192,7 +192,7 @@ Examples:
 
 Widget syntax provides a number of options to select series for multiple entities with the same metric:
 
-```css
+```ls
 /* Select specific entity by name */
 entity = nurswgvml006
 
@@ -217,7 +217,7 @@ entity-group = nur-collectors
 
 > Refer to [Data API Documentation](https://axibase.com/docs/atsd/api/data/series/query.html#entity-filter) for additional information about these settings.
 
-```css
+```ls
 /* Retrieve series for entities starting with nurswgvml00 */
 [series]
   entity = nurswgvml00*
@@ -236,7 +236,7 @@ As an alternative to specifying series settings manually and using [wildcards](.
 
 `getTags()`:
 
-```css
+```ls
 var tags = getTags('df.bytes.percentused', 'mount','nurswgvml006')
 
 for tagValue in tags
@@ -248,7 +248,7 @@ endfor
 
 `getSeries()`
 
-```css
+```ls
 var seriesList = getSeries('df.bytes.percentused','nurswgvml006')
 
 for sobj in seriesList
@@ -268,7 +268,7 @@ endfor
 
 The `series-limit = int` setting can limit the number of possible series returned by the database for wildcard queries. Since the limit is applied to an unsorted list of matched series, the results vary between requests, making the setting useful for exploring a dataset to prevent the widgets from loading excessive series into browser memory.
 
-```css
+```ls
 entity = *
 series-limit = 10
 [series]
@@ -278,7 +278,7 @@ series-limit = 10
 
 For more flexible visibility control on the client, use the display and enabled settings.
 
-```css
+```ls
 entity = *
 display = value == top(1) || value == bottom(1)
 [series]

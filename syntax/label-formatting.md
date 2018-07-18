@@ -4,7 +4,7 @@ Use the `label-format` setting to customize series labels displayed in the widge
 
 The default `label-format` pattern is:
 
-```css
+```ls
 entity: metric: tags: statistics: period: dataType - forecastName: rate
 ```
 
@@ -25,7 +25,7 @@ Supported keywords in the `label-format` pattern are:
 
 Create a new label format configuration using a combination of the supported keywords.
 
-```css
+```ls
 label-format = statistics : metric
 ```
 
@@ -49,7 +49,7 @@ Invoke built-in string functions to format series fields.
 | `removeBeginning` | Removes the given substring from the beginning of the string.|
 | `removeEnding`| Removes the given substring from the end of the string.  |
 
-```css
+```ls
 label-format = javascript:keepAfterLast(tags.logger, '.')
 #returns AuthenticationFilter
 [series]
@@ -63,7 +63,7 @@ label-format = javascript:keepAfterLast(tags.logger, '.')
 
 Functions may be nested to apply multiple format settings.
 
-```css
+```ls
 label-format = javascript:capitalize(replace(metric, '_', ' '))
 /* replace underscores with whitespace and capitalize all words */
 [series]
@@ -81,7 +81,7 @@ Use the `label-format` setting to replace `entity` and `metric` names with label
 
 Include the `addMeta = true` expression on the `[configuration]` level.
 
-```css
+```ls
 [configuration]
 add-meta = true
 /* Format label using metadata identifiers */
@@ -96,7 +96,7 @@ label-format = javascript: (meta.entity.label ? meta.entity.label : entity) + ":
 
 ### `entity`
 
-```css
+```ls
 label-format = entity
 /* Display only the entity name in the legend */
 [series]
@@ -113,7 +113,7 @@ label-format = entity
 
 ### `tags.tagName`
 
-```css
+```ls
   label-format = tags.mount_point
   /* Displays labels from tag mount_point in the legend */
   [series]
@@ -130,7 +130,7 @@ label-format = entity
 
 ### `entity : tagValue`
 
-```css
+```ls
 label-format = entity: tagValue
 /* Displays labels from entity followed by tagValue in the legend */
 [tags]

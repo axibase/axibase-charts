@@ -118,7 +118,7 @@ Link series to edges or vertices by indicating the `alias` in the series paramet
 
 ### Example Configuration
 
-```css
+```ls
 [widget]
 height-units = 4
 width-units = 4
@@ -179,7 +179,7 @@ value = channel1
 
 Activate hierarchial mode using the `mode` setting:
 
-```css
+```ls
 mode = hierarchial
 ```
 
@@ -187,7 +187,7 @@ mode = hierarchial
 
 In the event of an alert-expression response on the time series of the vertex or edge to which the time series is tied. Value of alert-style can be either string or script. If alert-style is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
 
-```css
+```ls
 /* widget level settings */
 [widget]
 alert-style = color: red
@@ -211,7 +211,7 @@ node-alert-style = color: red
 
 ### Example Syntax
 
-```css
+```ls
 /* Modify stroke width of series line on alert */
 link-alert-style = if (alert > 99) return 'stroke-width:3px';
 
@@ -221,7 +221,7 @@ node-alert-style = if (alert > 99) return 'fill:red';
 
 ### Configuration Example
 
-```css
+```ls
 [widget]
 type = graph
 title = Channel_Graph
@@ -308,7 +308,7 @@ Color and width parameters are applied to the edge and vertices based on `link-w
 
 `alert-expression` styles are superimposed over the threshold styles.
 
-```css
+```ls
 [widget]
 mode = hierarchy
 type = graph
