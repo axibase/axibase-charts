@@ -39,7 +39,7 @@ Setting|Syntax|Description|Example
 |Key|`key = iface`|Name of property in JSON that is received from the server.|[![](./images/button.png)](https://apps.axibase.com/chartlab/681f535a/6/)|
 |Tag|`tag = addr`|Tag name.|[![](./images/button.png)](https://apps.axibase.com/chartlab/681f535a/7/)|
 |Value|`value = row.tags.addr`|Receive any value which can be written into the property table via JSON.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/681f535a/8/)|
-|Format|`format = isoformat = jsonformat = bytes`|Formats cellusing the specified [formatting functions](../../syntax/formatting-settings.md).|[![](./images/button.png)](https://apps.axibase.com/chartlab/511b2c80/2/)|
+|Format|`format = isoformat = jsonformat = bytes`|Formats cell using the specified [formatting functions](../../syntax/format-settings.md).|[![](./images/button.png)](https://apps.axibase.com/chartlab/511b2c80/2/)|
 |Number Format|`format-numbers = false`|Disable number formatting.|[![](./images/button.png)](https://apps.axibase.com/chartlab/1309a5ab)|
 |Header Format|`format-headers=true`|Disable column name formatting.|[![](./images/button.png)](https://apps.axibase.com/chartlab/99717743/3/)|
 
