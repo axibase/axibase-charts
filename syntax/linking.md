@@ -18,7 +18,7 @@ The `on-series-click` setting does not affect behavior of the widget on the head
 
 ```ls
 /* update console */
-on-series-click = consoleWidget.post = $.extend(true, {}, consoleWidget.post, { queries: [$.extend(interval, { entities: [series.entity], tags: series.tags })] }); consoleWidget.reload(); 
+on-series-click = consoleWidget.post = $.extend(true, {}, consoleWidget.post, { queries: [$.extend(interval, { entities: [series.entity], tags: series.tags })] }); consoleWidget.reload();
 
 /* change headers */
 on-series-click = $('.detailWidget').find('.widgetTitle').tex (keepAfterLast(series.tags.command, '.') + ': ' + series.entity)  

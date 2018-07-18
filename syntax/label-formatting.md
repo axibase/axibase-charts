@@ -61,7 +61,7 @@ label-format = javascript:keepAfterLast(tags.logger, '.')
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/675c5467)
 
-Functions may be nested to apply multiple format settings.
+Use nested functions to apply multiple format settings.
 
 ```ls
 label-format = javascript:capitalize(replace(metric, '_', ' '))
@@ -114,14 +114,14 @@ label-format = entity
 ### `tags.tagName`
 
 ```ls
-  label-format = tags.mount_point
-  /* Displays labels from tag mount_point in the legend */
-  [series]
-    entity = nurswgvml006
-    metric = disk_used_percent
-    [tags]
-      mount_point = *
-      file_system = *  
+label-format = tags.mount_point
+/* Displays labels from tag mount_point in the legend */
+[series]
+  entity = nurswgvml006
+  metric = disk_used_percent
+  [tags]
+    mount_point = *
+    file_system = *  
 ```
 
 ![](./images/label-formatting2.png)

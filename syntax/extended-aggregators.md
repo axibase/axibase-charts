@@ -2,7 +2,7 @@
 
 ## `min_value_time`
 
-Computes the time when the minimum was reached for the first time in the period.
+Computes the time when the minimum is reached for the first time in the period.
 
 ```ls
 statistic = max_value_time
@@ -10,7 +10,7 @@ statistic = max_value_time
 
 ## `max_value_time`
 
-Computes the time when the maximum was reached for the first time in the period.
+Computes the time when the maximum is reached for the first time in the period.
 
 ```ls
 statistic = min_value_time

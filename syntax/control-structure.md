@@ -29,7 +29,7 @@ list servers = awsswgvml001, nurswgvml003
 
 `var` assigns an array, object, or function to a variable whose value and fields can be invoked with a placeholder.
 
-If the `var` assignment occupies one line, closing with  `endvar` is not required.
+If the `var` assignment occupies one line, closing with `endvar` is not required.
 
 ```ls
 var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
@@ -41,7 +41,7 @@ for di in disks
 endfor
 ```
 
-The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getEntities) function.
+The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getentities) function.
 
 ```ls
 var hosts = getEntities('svl-hosts')
@@ -117,11 +117,11 @@ for server in servers
   [widget] 
     type = box
     entity = @{server.name}
-    metric = network_sent_mb  
+    metric = network_sent_mb
     for net in server.networks
     [series]
       [tags]
-       interface = @{net}  
+       interface = @{net}
     endfor
 endfor
 ```
@@ -142,7 +142,7 @@ for server in servers
   for net in servers[server]
   [series]
     [tags]
-      interface = @{net}  
+      interface = @{net}
   endfor
 endfor
 ```
@@ -160,11 +160,11 @@ for server in servers
   [widget] 
     type = box
     entity = @{server[0]}
-    metric = network_sent_mb  
+    metric = network_sent_mb
     for net in server[1]
     [series]
       [tags]
-       interface = @{net}  
+       interface = @{net}
     endfor
 endfor
 ```

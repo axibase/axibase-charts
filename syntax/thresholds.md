@@ -36,7 +36,7 @@ Series violates the threshold when its value is below the minimum threshold.
 
 ## `threshold_percent`
 
-Percentage of time within the period when the series values did not exceed the threshold. Computed as sum of violation intervals divided by the period duration.
+Percentage of time within the period when the series values does not exceed the threshold. Computed as sum of violation intervals divided by the period duration.
 
 ```ls
 [series]

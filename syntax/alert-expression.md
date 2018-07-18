@@ -5,7 +5,7 @@ Alert expressions provide a way to modify widget graphical properties such as co
 ## Example
 
 * Change bar color to `RED` if the threshold is exceeded.
-* If the threshold is within the normal range, but was violated at least once during the last hour, change the bar color to `YELLOW`.
+* If the threshold is within the normal range, but is violated at least once during the last hour, change the bar color to `YELLOW`.
 * Otherwise, apply `GREEN` as the color.
 
 ```ls
