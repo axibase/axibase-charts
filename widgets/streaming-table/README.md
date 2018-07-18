@@ -79,12 +79,12 @@ alert-expression = this.alert = value <= min && value < avg ? 1 : value >= max &
 
 ```css
 /*
-This example visualizes relative changes for 
-many metrics at once, highlighting which metrics 
-have reached their local minimums or maximums 
-over the loaded time window. 
+This example visualizes relative changes for
+many metrics at once, highlighting which metrics
+have reached their local minimums or maximums
+over the loaded time window.
 
-Metrics that reached maximum are highlighted with red, 
+Metrics that reached maximum are highlighted with red,
 metrics that reached minimum are highlighted with green.
 */
 ```
@@ -122,18 +122,22 @@ metrics that reached minimum are highlighted with green.
 
 ### Toggle Rows
 
+<!-- markdownlint-disable MD104 -->
+
 ```css
 [configuration]
 entity = 10.102.0.15
 metric = dbqueuemonitor
   
-list databases = Risk01, Risk012, Risk02, Risk03, Risk04,   Risk05, Risk06, 
+list databases = Risk01, Risk012, Risk02, Risk03, Risk04,   Risk05, Risk06,
   CorpFinance,
-  Credit01, Credit02, Credit03, Credit04, Credit05, Credit06, Credit07, Credit08, 
-  Mortgage01, Mortgage02, Mortgage03, 
+  Credit01, Credit02, Credit03, Credit04, Credit05, Credit06, Credit07, Credit08,
+  Mortgage01, Mortgage02, Mortgage03,
   Trading01, Trading02, Trading03, Trading04, Trading05
 endlist
 ```
+
+<!-- markdownlint-enable MD104 -->
 
 ![](./images/db-summary.png)
 
@@ -155,7 +159,7 @@ endlist
   metric = memfree
 ```
 
-![](images/streaming-table-2.png)
+![](./images/streaming-table-2.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/6489829c/2/)
 
@@ -180,7 +184,7 @@ endlist
 ```css
 script
   cmdb = {
-   "nurswgvml006": {"location": "Cupertino", "type": "prod"}, 
+   "nurswgvml006": {"location": "Cupertino", "type": "prod"},
    "nurswgvml007": {"location": "Sunnyvale", "type": "dev"}
   }
 endscript
