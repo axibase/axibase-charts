@@ -59,7 +59,7 @@ Class | `class = terminal` | Change the widget to Unix-style console with black 
 
 ### Configuration
 
-```css
+```ls
 [configuration]
   height-units = 2
   width-units = 1
@@ -85,7 +85,7 @@ Class | `class = terminal` | Change the widget to Unix-style console with black 
 
 ### Severity Style: `row`
 
-```css
+```ls
 [widget]
   severity-style = row
   type = console
@@ -97,7 +97,7 @@ Class | `class = terminal` | Change the widget to Unix-style console with black 
 
 ### Severity Style: `column`
 
-```css
+```ls
 [widget]
   severity-style = column
   type = console
