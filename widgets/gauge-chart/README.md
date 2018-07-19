@@ -25,7 +25,7 @@ Gauge Charts support [Shared Widget](../shared/README.md) syntax.
 |Display Ticks|`display-ticks = true`|Display ticks on the axis.<br>`true` by default.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/33/)|
 |Counter Position|`counter-position = none`|Counter position.<br>Possible values: `top`, `bottom`, `none`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/31/)|
 |Display Tip|`display-tip = true`|Display last value marker.<br>Possible values: `true`, `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/30/)|
-|Format Tip|`format-tip = d3.format("0.1f")``format-tip = kilobytes`|Last value format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
+|Format Tip|`format-tip = d3.format("0.1f")`<br>`format-tip = kilobytes`|Last value format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
 |Format Axis|`format-axis = Math.round(value * 10)/10 + "%"`|Value axis format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
 |Format Counter|`format-counter = d3.format("0.3f")`|Counter format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
 |Ring Width|`ring-width = 0.2`|Width of the colored ring area, measured as `%` of radius.<br>Possible values are between `0` and `1`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/3134e9d6)|

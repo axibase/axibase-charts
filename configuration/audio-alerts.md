@@ -2,7 +2,7 @@
 
 ## Overview
 
-When an `alert-expression` evaluates to `true`, play an audio file in your browser. Either set the full URK path to the audio file, or store the  audio file locally on your ATSD installation.
+When an [`alert-expression`](../syntax/alert-expression.md) evaluates to `true`, play an audio file in your browser. Either set the full URK path to the audio file, or store the  audio file locally on your ATSD installation.
 
 > Store audio files in the `/opt/atsd/atsd/conf/portal` directory of your ATSD installation.
 
