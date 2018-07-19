@@ -59,7 +59,7 @@ Access these functions in the following settings:
 * `series-value`
 * `display`
 * `enabled`
-* `alert-expression`
+* [`alert-expression`](../syntax/alert-expression.md)
 * `size` (Treemap)
 * `color`
 * `node-value` (Chart)

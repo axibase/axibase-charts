@@ -71,8 +71,8 @@ Treemap Widget | Pie Chart | Graph Widget
 
 Text Widget | Page Widget | Alert Console
 :--:|:--:|:--:
-[![](./images/text-widget.png)](./widgets/text-widget/README.md) | ![](./images/page-widget.png) | ![](./images/alert-console.png)
+[![](./images/text-widget.png)](./widgets/text-widget/README.md) | [![](./images/page-widget.png)](./widgets/page-widget/README.md) | [![](./images/alert-console.png)](./widgets/alert-console/README.md)
 
 Streaming Table | Property Table
 :--:|:--:
-![](./images/streaming-table.png) | ![](./images/property-widget.png)
+[![](./images/streaming-table.png)](./widgets/streaming-table.png) | [![](./images/property-widget.png)](./images/property-table/README.md)

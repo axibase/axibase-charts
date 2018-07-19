@@ -365,7 +365,7 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 **Returned Value**:
 
-`Array<number/string>`: generated (optionally formatted) numbers.
+`Array<number/string>`: generates optionally formatted numbers.
 
 **Arguments**:
 
@@ -374,7 +374,7 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 | `start` | required | number | First number in list |
 | `end` | required | number | Last number is list |
 | `step` | optional | number | Offset between adjacent numbers |
-| `format` | optional | string | Formatter name ([available formats](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/format-settings)) |
+| `format` | optional | string | Formatter name ([available formats](./format-settings.md)) |
 
 **Examples**:
 
