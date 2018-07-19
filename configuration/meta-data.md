@@ -28,7 +28,7 @@ Use these fields in widget settings for several common use cases:
 
 ## Syntax
 
-```css
+```ls
 [widget]
   type = chart
   label-format = meta.entity.tags.app - statistic
@@ -67,7 +67,7 @@ Access these functions in the following settings:
 * `link-alert-expression` (Chart)
 * `node-alert-expression` (Chart)
 
-```css
+```ls
 [group]
 
 /* columns which are higher than threshold,

@@ -66,7 +66,7 @@ Setting|Syntax|Description|Example
 
 ### Configuration
 
-```css
+```ls
 [widget]
   type = pie
   timespan = 15 minute
@@ -91,7 +91,7 @@ Setting|Syntax|Description|Example
 
 ### Ring Icons
 
-```css
+```ls
 [widget]
   type = pie
   mode = ring
@@ -107,7 +107,7 @@ Setting|Syntax|Description|Example
 
 ### Series Labels
 
-```css
+```ls
 [widget]
   series-labels = value >= 2000000 ? 'connected' : 'auto'
 ```
@@ -118,7 +118,7 @@ Setting|Syntax|Description|Example
 
 ### Pie
 
-```css
+```ls
 [widget]
   type = pie
 ```
@@ -129,7 +129,7 @@ Setting|Syntax|Description|Example
 
 ### Ring
 
-```css
+```ls
 [widget]
   type = pie
   mode = ring
@@ -141,7 +141,7 @@ Setting|Syntax|Description|Example
 
 ### Alert
 
-```css
+```ls
 [widget]
   alert-expression = value < 3*1024*1024
   alert-style = fill: red
@@ -153,7 +153,7 @@ Setting|Syntax|Description|Example
 
 ### Total and Other
 
-```css
+```ls
 [widget]
   total-value = 1048576
 
@@ -167,7 +167,7 @@ Setting|Syntax|Description|Example
 
 ### Hidden Other Segment
 
-```css
+```ls
 [widget]
 total-value = 1048576
 ```

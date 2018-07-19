@@ -35,7 +35,7 @@ Thresholds | `thresholds = 0, 25, 50, 75, 100` | Define threshold value.<br>Defa
 
 ### Custom Colors
 
-```css
+```ls
 colors = green, yellow, red
 thresholds = 0, 50, 75, 100
 ```
@@ -46,7 +46,7 @@ thresholds = 0, 50, 75, 100
 
 ### Left Legend
 
-```css
+```ls
 legend-position = left
 ```
 
@@ -62,7 +62,7 @@ legend-position = left
 
 ### Threshold
 
-```css
+```ls
 thresholds = 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
 ```
 

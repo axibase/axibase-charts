@@ -4,7 +4,7 @@ Specify shared settings at the `[configuration]` level, or group-specific settin
 
 If all widgets in a portal are created for the same server, set the `entity` setting at the `[configuration]` level. All included widgets share the same `entity` setting. This makes syntax more compact and easy to replace shared settings.
 
-```css
+```ls
 [widget]
   type = chart
   title = 'metric'
@@ -33,13 +33,13 @@ In this example, the same metric is inherited by all series in the widget becaus
 
 To override or reset an inherited setting to the default value, specify the name of the setting as an empty string:
 
-```css
+```ls
 statistic =
 ```
 
 If a setting needs to be set to whitespace or empty string, specify the value of the setting in double quotes:
 
-```css
+```ls
 statistic = ""
 ```
 

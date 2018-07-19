@@ -115,7 +115,7 @@ Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait p
 
 `[tags]` syntax examples:
 
-```css
+```ls
 [tags]
   mount_point = /tmp
   fstype = tmpfs
@@ -123,14 +123,14 @@ Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait p
 
 If there are several values for the same tag, separate the values with a comma:
 
-```css
+```ls
 [tags]
   tag_name = tag_value1, tag_value2
 ```
 
 If the tag name contains an equals sign `=` or the tag value contains a comma`,`, escape them with a backslash `\`:
 
-```css
+```ls
 [tags]
   tag\=name = tag\,value
 ```
@@ -139,14 +139,14 @@ The tag name and value are `tag=name` and `tag=value`, respectively.
 
 If the tag name contains reserved names such as setting names, surround the tag name with quotes to avoid collisions:
 
-```css
+```ls
 [tags]
   "type" = sensor
 ```
 
 ### `[series]` Example
 
-```css
+```ls
 [series]
   entity    entity == nurswgvml006
   metric  nurswgvml006    = disk_used_percent

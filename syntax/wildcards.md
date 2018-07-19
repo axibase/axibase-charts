@@ -4,7 +4,7 @@ Use wildcards in tag values to retrieve multiple series from the server instead 
 
 Specify the `*` wildcard as either `tag` value or `entity` name.
 
-```css
+```ls
 [series]
   entity = nurswgvml007
   metric = disk_used_percent

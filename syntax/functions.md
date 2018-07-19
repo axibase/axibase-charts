@@ -40,7 +40,7 @@ The list contains built-in utility functions that can be included in Axibase Cha
 
 **Syntax**:
 
-```css
+```ls
 getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
@@ -77,7 +77,7 @@ Sends synchronous `GET` request to
 
 **Usage**:
 
-```css
+```ls
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_day")
 ```
 
@@ -99,7 +99,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 **Usage**:
 
-```css
+```ls
 var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, null, null, {cache: true})
 ```
 
@@ -127,7 +127,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 
 **Syntax**:
 
-```css
+```ls
 getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
@@ -163,7 +163,7 @@ Sends synchronous `GET` requests to the
 
 **Usage**:
 
-```css
+```ls
 var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 ```
 
@@ -220,7 +220,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 **Syntax**:
 
-```css
+```ls
 getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
 
@@ -254,7 +254,7 @@ Sends synchronous `GET` requests to the
 
 **Usage**:
 
-```css
+```ls
 var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 ```
 
@@ -283,7 +283,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 
 **Syntax**:
 
-```css
+```ls
 getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
 
@@ -328,7 +328,7 @@ Sends synchronous `GET` requests to the
 
 **Usage**:
 
-```css
+```ls
 var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ```
 
@@ -355,7 +355,7 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 
 **Syntax**:
 
-```css
+```ls
 range(start, end, [step], [format])
 ```
 
@@ -514,7 +514,7 @@ Limitations and features that are applied:
 
 **Syntax**:
 
-```css
+```ls
 csv name = header1, header2 ...
 cell11, cell12 ...
 cell21, cell22 ...
@@ -537,7 +537,7 @@ Use in the `preprocessor` stage.
 
 Using a table written in a CSV-like format: There are two columns, `name` (name of the country) and `value2006` (value in the year 2006). The return value is the difference between the current year value and the 2006 value. The following CSV is used:
 
-```css
+```ls
 csv countries =
   name, value2006
   Brazil, 13.2
@@ -594,7 +594,7 @@ This CSV is transformed into the following array:
 
 Iterate over the newly created array and set the value and entity based on thr retrieved country `name` and `value2006`.
 
-```css
+```ls
 for country in countries
     [series]
       replace-value = value - @{country.value2006}
@@ -623,7 +623,7 @@ Limitation and features that are applied to the text:
 
 **Syntax**:
 
-```css
+```ls
 csv csv_name from url
 ```
 
@@ -698,7 +698,7 @@ csv rows from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/US
 
 Iterate over the created array and set the value and entity based on the retrieved country `name` and value or year `2006`.
 
-```css
+```ls
 for row in rows
   [series]
     replace-value = value - @{row[2006]}
@@ -717,7 +717,7 @@ for row in rows
 
 **Syntax**:
 
-```css
+```ls
 csv_name.values(column_name)
 ```
 
@@ -796,7 +796,7 @@ The CSV is transformed into the following array:
 
 Then retrieve values of the column `name`:
 
-```css
+```ls
 var names = countries.values('name')
 ```
 
@@ -808,7 +808,7 @@ Returned values are as follows:
 
 Iterate over each value and set the country tag.
 
-```css
+```ls
 for country_name in names
   [series]
   [tags]
@@ -827,7 +827,7 @@ endfor
 
 **Syntax**:
 
-```css
+```ls
 list_name.escape()
 ```
 
@@ -876,7 +876,7 @@ country = @{countries.escape()}
 
 **Usage**:
 
-```css
+```ls
 var countries = getTags('state.visa-refusal-rate', 'country', 'travel.state.gov')
 
 country = @{countries.escape()}
@@ -927,7 +927,7 @@ country = @{countries.values('name').escape()}
 
 **Syntax**:
 
-```css
+```ls
 previous(alias, [offset])
 ```
 
@@ -954,7 +954,7 @@ Use in `value-expression` settings.
 
 **Usage**:
 
-```css
+```ls
 value = previous('raw')
 ```
 
@@ -966,7 +966,7 @@ value = previous('raw')
 
 **Usage**:
 
-```css
+```ls
 value = previous('raw', 2)
 ```
 
@@ -978,7 +978,7 @@ value = previous('raw', 2)
 
 **Usage**:
 
-```css
+```ls
 value = 1 - previous('raw') / value('raw')
 ```
 
@@ -990,7 +990,7 @@ value = 1 - previous('raw') / value('raw')
 
 **Usage**:
 
-```css
+```ls
 value = 1 - previous('raw', 2) / value('raw')
 ```
 
@@ -1009,7 +1009,7 @@ value = 1 - previous('raw', 2) / value('raw')
 
 **Syntax**:
 
-```css
+```ls
 movavg(alias, count, [minCount])
 ```
 
@@ -1036,7 +1036,7 @@ Use in `value-expression` settings.
 
 **Usage**:
 
-```css
+```ls
 value = movavg('raw', 30)
 ```
 
@@ -1048,7 +1048,7 @@ value = movavg('raw', 30)
 
 **Usage**:
 
-```css
+```ls
 value = movavg('raw', 30, 0)
 ```
 
@@ -1068,7 +1068,7 @@ value = movavg('raw', 30, 0)
 
 **Syntax**:
 
-```css
+```ls
 meta(alias)
 ```
 
@@ -1094,7 +1094,7 @@ Use in `value-expression` settings.
 
 **Usage**:
 
-```css
+```ls
 value = value('raw') / meta('raw').metric.maxValue
 ```
 
@@ -1114,7 +1114,7 @@ value = value('raw') / meta('raw').metric.maxValue
 
 **Syntax**:
 
-```css
+```ls
 entityTag(alias, tagName)
 ```
 
@@ -1140,7 +1140,7 @@ Use in `value-expression` settings.
 
 **Usage**:
 
-```css
+```ls
 size = entityTag('cpu_count')
 ```
 
@@ -1160,7 +1160,7 @@ size = entityTag('cpu_count')
 
 **Syntax**:
 
-```css
+```ls
 metricTag(alias, tagName)
 ```
 
@@ -1187,7 +1187,7 @@ Use in `value-expression` settings.
 
 **Usage**:
 
-```css
+```ls
 value = metricTag('raw', 'threshold_value')
 alert-expression = value() > metricTag('threshold_value')
 ```
@@ -1210,7 +1210,7 @@ alert-expression = value() > metricTag('threshold_value')
 
 **Syntax**:
 
-```css
+```ls
 requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
 
@@ -1243,7 +1243,7 @@ Sends asynchronous `GET` requests to
 
 The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
-```css
+```ls
 [dropdown]
   options = javascript: requestMetricsSeriesValues("tags.mount_point")
   change-field = series.tags.mount_point
@@ -1265,7 +1265,7 @@ The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retriev
 
 **Syntax**:
 
-```css
+```ls
 requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
 
@@ -1297,7 +1297,7 @@ Sends asynchronous `GET` requests to
 
 To populate the drop-down list with names of metrics collected for the entity use the following syntax:
 
-```css
+```ls
 [dropdown]
   options = javascript: requestEntitiesMetricsValues("name")
   change-field = series.metric
@@ -1321,7 +1321,7 @@ The content of the drop-down list is shown below:
 
 **Syntax**:
 
-```css
+```ls
 requestPropertiesValues([valueFieldPath, [textFieldPath, [callback, [entity, [propertyType, [unique, [postBody]]]]]]])
 ```
 
@@ -1354,7 +1354,7 @@ Sends asynchronous `POST` requests to
 
 To populate the drop-down list with the IDs of `network` properties use the following syntax:
 
-```css
+```ls
 [dropdown]
   options = javascript: requestPropertiesValues("key.id", null, null, "network")
   change-field = property.keys.id
@@ -1375,7 +1375,7 @@ Below is the content of the drop-down list:
 
 To populate the drop-down list with the names of entities for which the metric is collected use the following syntax.
 
-```css
+```ls
 [dropdown]
   options = javascript: requestMetricsSeriesValues("entity")
   change-field = series.entity
@@ -1387,7 +1387,7 @@ Below is the content of the drop-down list:
 
 To populate the drop-down list with values of the `mount_point` tag use the following syntax. The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
-```css
+```ls
 [dropdown]
   options = javascript: requestMetricsSeriesValues("tags.mount_point")
   change-field = series.tags.mount_point
@@ -1410,7 +1410,7 @@ To fill the drop-down list with values of `mount_point` tag of the series, whose
 
 > Note that the series can be filtered by entity using the expression `queryParameter`.
 
-```css
+```ls
 [dropdown]
   change-field = series.tags.mount_point
 
@@ -1435,7 +1435,7 @@ To fill the drop-down list with entity tag values it is necessary to make two re
 * Get entity names from series descriptors.
 * Request entity tags for that entities.
 
-```css
+```ls
 [dropdown]
    change-field = series.entity
 
@@ -1466,7 +1466,7 @@ Below is the content of the drop-down list:
 
 **Syntax**:
 
-```css
+```ls
 requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
 
@@ -1500,7 +1500,7 @@ Sends asynchronous `GET` request to
 
 To fill the drop-down list with options with the value of the `iucr` tag and the text from the `description` tag, use the following syntax:
 
-```css
+```ls
 [dropdown]
   options = javascript: requestMetricsSeriesOptions("tags.iucr", "tags.description")
   change-field = series.tags.iucr
@@ -1525,7 +1525,7 @@ Below is the content of the drop-down list:
 
 **Syntax**:
 
-```css
+```ls
 requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
 
@@ -1559,7 +1559,7 @@ Sends asynchronous `GET` request to
 
 To fill the drop-down list with options defined by the value of `iucr` tag and text from the `description` tag, use the following syntax:
 
-```css
+```ls
 [dropdown]
   options = javascript: requestEntitiesMetricsOptions("name", "tags.description", null, null, null,{tags:"*",limit:15})
   change-field = metric
@@ -1586,7 +1586,7 @@ Below is the content of the drop-down list:
 
 **Syntax**:
 
-```css
+```ls
 requestPropertiesOptions([valueFieldPath, [textFieldPath, [callback, [entity, [propertyType, [unique, [postBody]]]]]]])
 ```
 
@@ -1621,7 +1621,7 @@ Sends asynchronous `POST` request to
 
 To fill drop-down list with values from `entity` and text from tag `app`, use the following syntax:
 
-```css
+```ls
 [dropdown]
   options = javascript: requestPropertiesOptions("entity", "tags.app", null, ["nurswgvml006","nurswgvml007", "nurswgvml010", "nurswgvml301", "nurswgvml502"], "$entity_tags")
   change-field = entity
@@ -1643,7 +1643,7 @@ The content of the drop-down list is shown here:
 
 To fill a drop-down list with options in which values are retrieved from the `name` field of the metric descriptor and text from the tag `description`, `textFieldPath` as string can be used.
 
-```css
+```ls
 [dropdown]
   options = javascript: requestEntitiesMetricsOptions('name', 'tags.description', null, null, null, {tags:'*',limit:15})
   change-field = metric
@@ -1655,7 +1655,7 @@ Below is the content of the drop-down list:
 
 Fill the drop-down list with values retrieved from the `name` field of the metric descriptor and the text from the tag `description` or tag `documentation`, if the descriptor has no value for the tag `description`, `textFieldPath` as an array can be used
 
-```css
+```ls
 [dropdown]
   options = javascript: requestEntitiesMetricsOptions('name', ['tags.description','tags.documentation'], null, null, null, {tags:'*',limit:15})
   change-field = metric
@@ -1673,7 +1673,7 @@ Below is the content of the drop-down list:
   * If `callback` is specified, `valueFieldPath` and `textFieldPath` are ignored.
 * Function returns an array of objects, representing options.
 
-```css
+```ls
 [
 ...
 {
@@ -1688,7 +1688,7 @@ Below is the content of the drop-down list:
 
 To populate the drop-down list with the names of metrics, collected for the entity, and texts which are changed values of the `description` tag, use the following syntax:
 
-```css
+```ls
 [dropdown]
   change-field = metric
 

@@ -2,7 +2,7 @@
 
 Multiple timespans of the same series can be combined in one widget using the `time-offset` setting to compare for example, current data versus data from some time ago.
 
-```css
+```ls
 [series]
   label = today
 [series]
@@ -23,7 +23,7 @@ See [ATSD Use Cases](https://axibase.com/use-cases/) for other uses for the `tim
 
 1. [California Water Portals](https://axibase.com/use-cases/chart-of-the-day/water-portal/)
 
-    ```css
+    ```ls
     list ofs = 0, 1, 2, 3, 4, 5, 10
     for offs in ofs
     [series]
@@ -38,7 +38,7 @@ See [ATSD Use Cases](https://axibase.com/use-cases/) for other uses for the `tim
 
 1. [Tax Day 2018: Americans Reverse the Late-Filing Trend](https://axibase.com/use-cases/research/irs-tax-filings/)
 
-    ```css
+    ```ls
     [widget]
      var offsets = range(2,6)
      for ofs in offsets

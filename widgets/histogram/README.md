@@ -33,7 +33,7 @@ Settings inherited from [Shared Widget `[series]` Syntax](../shared/README.md): 
 
 #### Filter series based on a time lag
 
-```css
+```ls
 display = this.lastRequestTime - this.last.t < 60*200
 ```
 
@@ -43,7 +43,7 @@ display = this.lastRequestTime - this.last.t < 60*200
 
 #### Sort top two series by value
 
-```css
+```ls
 display = value >= top(2)
 ```
 
@@ -53,7 +53,7 @@ display = value >= top(2)
 
 #### Filter series with value greater than `10`
 
-```css
+```ls
 display = value < 10
 ```
 
@@ -65,7 +65,7 @@ display = value < 10
 
 #### Stacked Histogram
 
-```css
+```ls
 mode = stack
 ```
 
@@ -75,7 +75,7 @@ mode = stack
 
 #### Multiple Series
 
-```css
+```ls
 [series]
     entity = nurswgvml006
     metric = cpu_busy

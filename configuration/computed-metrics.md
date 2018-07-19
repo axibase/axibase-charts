@@ -10,7 +10,7 @@ Use the `replace-value` setting to replace the input value when no references to
 
 In the example above, the second chart uses `log10` values to compare samples of different magnitude.
 
-```css
+```ls
 replace-value = Math.log10(value)
 ```
 
@@ -20,7 +20,7 @@ replace-value = Math.log10(value)
 
 In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. To reference other series, such underlying series must be assigned unique identifiers with the alias setting.
 
-```css
+```ls
 [series]
   metric = nmon.logical_partition.physicalcpu
   alias = pcpu
