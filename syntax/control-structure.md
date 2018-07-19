@@ -88,12 +88,12 @@ endfor
  Order is arbitrary when using the [`Object.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) function.
 
 ```ls
-  var tags = {
-  'level': 'ERROR',
-  'command': 'com.axibase.tsd.Server',
-  'logger': 'com.axibase.tsd.web.DefaultExceptionHandler'
+var tags = {
+'level': 'ERROR',
+'command': 'com.axibase.tsd.Server',
+'logger': 'com.axibase.tsd.web.DefaultExceptionHandler'
 }
-  endvar
+endvar
 
 [widget]
   type = chart
@@ -114,7 +114,7 @@ var servers = [
 endvar
 
 for server in servers
-  [widget] 
+  [widget]
     type = box
     entity = @{server.name}
     metric = network_sent_mb
@@ -157,7 +157,7 @@ var servers = [
 endvar
 
 for server in servers
-  [widget] 
+  [widget]
     type = box
     entity = @{server[0]}
     metric = network_sent_mb
