@@ -18,7 +18,7 @@ Setting|Syntax|Description|Example
 --|--|--|--
 |Case|`case = upper`|Define case for column headers.<br>Possible values: `lower`, `upper`||
 |Join|`join = true`|Performs join by `entity` and `type`.<br>`join = entity` performs join by `entity` only.<br>Possible values: `true`, `false`, `entity`.<br>Default value: `false`|[![](./images/button.png)](https://apps.axibase.com/chartlab/598f44f3/6/)|
-|Expand Tags|`expand-tags = true`|Show response tags as columns.<br>Useful when exact tags are not known in advance.|[![](/images/button.png)](https://apps.axibase.com/chartlab/d7470e6c/2/)|
+|Expand Tags|`expand-tags = true`|Show response tags as columns.<br>Useful when exact tags are not known in advance.|[![](./images/button.png)](https://apps.axibase.com/chartlab/d7470e6c/2/)|
 |Hide Column|<code>hide-column = value <= 0&#124;column.key.indexOf('paging') == 0<code>|Expression based setting.<br>Hide particular columns if all cell values in a column satisfy the condition or if column name matches the pattern.|[![](./images/button.png)](https://apps.axibase.com/chartlab/d7470e6c)|
 
 Columns created when multiple types are joined into one table, can be hidden using both the full name and the short name:
