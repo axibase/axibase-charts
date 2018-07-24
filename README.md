@@ -71,4 +71,4 @@ Text Widget | Page Widget | Alert Console
 
 Streaming Table | Property Table
 :--:|:--:
-[![](./images/streaming-table.png)](./widgets/streaming-table.png) | [![](./images/property-widget.png)](./images/property-table/README.md)
+[![](./images/streaming-table.png)](./widgets/streaming-table/README.md) | [![](./images/property-widget.png)](./widgets/property-table/README.md)
