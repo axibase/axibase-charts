@@ -16,7 +16,7 @@ The list contains built-in utility functions that can be included in Axibase Cha
 | [`csv.values()`](#csvvalues) | Returns the sorted, unique values of a defined column |
 | [`list.escape()`](#listescape) | Escapes commas in every element of an array |
 | [`previous()`](#previous) | Retrieves the value of the previous point in a sequence |
-| [`movavg()`](#movavg) | Computes the moving average from a desired number of previous points |
+| [`movavg()`](#movavg) | Computes the moving average from a specific number of previous points |
 | [`meta()`](#meta) | Retrieves the metadata object for a series |
 | [`entityTag()`](#entitytag) | Returns the value of the entity tag from the metadata object for the series |
 | [`metricTag()`](#metrictag) | Returns the value of the metric tag from the metadata object for the series |
@@ -656,7 +656,7 @@ Use in the `preprocessor` stage.
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/b00d77c0)
 
-The desired return value in this example is the difference between the current year value and the 2006 value.
+The return value in this example is the difference between the current year value and the 2006 value.
 
 The file is loaded from [ATSD Use Cases](https://axibase.com/use-cases/) and stored  in [CSV format](https://raw.githubusercontent.com/axibase/atsd-use-cases/master/research/us-visa-refusal/resources/visa-refusal.csv).
 
