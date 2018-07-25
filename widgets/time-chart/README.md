@@ -130,13 +130,13 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/removed-timespan.png)
 
-Modify time chart widget controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
+Modify time chart panel controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
 
 ```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(8)
 ```
 
-Substitute `8` with the number of controls to be displayed.
+Substitute `8` with the number of panel controls to be displayed.
 
 ```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(6)
