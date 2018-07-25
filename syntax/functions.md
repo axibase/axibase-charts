@@ -73,6 +73,8 @@ Sends synchronous `GET` request to
 
 **Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` received today:**
 
+![](./images/gettags.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa)
 
 **Usage**:
@@ -94,6 +96,8 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
  ```
 
 **Get values of `mount_point` tag in a series for the metric `disk_used` and the entity `nurswgvml007` and send server-specific query parameter `cache` while ignoring other parameters**:
+
+![](./images/gettags-2.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/2)
 
@@ -157,7 +161,9 @@ Sends synchronous `GET` requests to the
 
 **Examples**:
 
-**Returns a series for the metric `disk_used` and the entity `nurswgvml007`**:
+**Returns a series for the metric `disk_used` and the entity `nurswgvml006`**:
+
+![](./images/getseries.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
 
@@ -248,7 +254,9 @@ Sends synchronous `GET` requests to the
 
 **Examples**:
 
-**Returns metrics for the entity `nurswgvml007` which contains the `cpu` and `user` substrings**:
+**Returns metrics for the entity `nurswgvml006` which contains the `cpu` and `user` substrings**:
+
+![](./images/getmetric.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/4)
 
@@ -324,6 +332,8 @@ Sends synchronous `GET` requests to the
 
 **Get entities contained in entity-group `docker-hosts` whose names begin with substring `nur`**:
 
+![](./images/getentity.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
 
 **Usage**:
@@ -377,6 +387,8 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 | `format` | optional | string | Formatter name ([available formats](./format-settings.md)) |
 
 **Examples**:
+
+![](./images/range-examples.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/6/)
 
@@ -533,6 +545,8 @@ Use in the `preprocessor` stage.
 
 **Create array of objects from tabular structure using CSV**:
 
+![](./images/csv-inline.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/8/)
 
 Using a table written in a CSV-like format: There are two columns, `name` (name of the country) and `value2006` (value in the year 2006). The return value is the difference between the current year value and the 2006 value. The following CSV is used:
@@ -638,7 +652,9 @@ Use in the `preprocessor` stage.
 
 **Create array of objects from CSV file**:
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/9/)
+![](./images/csv-mode.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/b00d77c0)
 
 The desired return value in this example is the difference between the current year value and the 2006 value.
 
@@ -733,7 +749,9 @@ Use in the `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` ex
 
 **Get escaped values of a CSV column**:
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/10/)
+![](./images/csv-values.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/e7ce2234)
 
 The goal in this example is to retrieve a list of escaped country names.
 
@@ -748,7 +766,7 @@ csv countries =
   Georgia, 48.2
   Tonga, 40.8
   Honduras, 38
-  Liechtenstein, 5.9
+  Liechtenstein, 0
   "Congo, Dem. Rep. of the (Kinshasa)",44.2
 endcsv
 
@@ -845,7 +863,9 @@ The goal in the following example is to retrieve a list of escaped country names
 
 **Apply `.escape()` to array generated from `list`**:
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/11/)
+![](./images/list-escape.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/06ec0eaa)
 
 **Usage**:
 
@@ -857,7 +877,6 @@ list countries =
   Georgia,
   Tonga,
   Honduras,
-  Liechtenstein,
   Congo\, Dem. Rep. of the (Kinshasa)
     endlist
 
@@ -871,6 +890,8 @@ country = @{countries.escape()}
 ```
 
 **Apply `.escape()` to the array created in the `var` expression**:
+
+![](./images/list-escape-2.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/12/)
 
@@ -1239,6 +1260,8 @@ Sends asynchronous `GET` requests to
 
 **Examples**:
 
+![](./images/request-series-value.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
 
 The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
@@ -1292,6 +1315,8 @@ Sends asynchronous `GET` requests to
 | `queryParameters` | optional | string/object | string or key-value object representing request parameters. |
 
 **Examples**:
+
+![](./images/request-metric-value.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/16/)
 
@@ -1350,6 +1375,8 @@ Sends asynchronous `POST` requests to
 
 **Examples**:
 
+![](./images/request-property-value.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/17/)
 
 To populate the drop-down list with the IDs of `network` properties use the following syntax:
@@ -1403,6 +1430,8 @@ Below is content of the drop-down list
 
 * Use `callback` for manual processing of series descriptors or additional processing of retrieved field values.
   * If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array is used as the argument.
+
+![](./images/callback-function.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/15/)
 
@@ -1496,7 +1525,9 @@ Sends asynchronous `GET` request to
 
 **Examples**:
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/18/)
+![](./images/request-metric-series-option.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/4f937185)
 
 To fill the drop-down list with options with the value of the `iucr` tag and the text from the `description` tag, use the following syntax:
 
@@ -1554,6 +1585,8 @@ Sends asynchronous `GET` request to
 | `queryParameters` | optional | string/object | String or key-value object representing request parameters. |
 
 **Examples**:
+
+![](./images/tag-description-text.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/19/)
 
@@ -1617,6 +1650,8 @@ Sends asynchronous `POST` request to
 
 **Examples**:
 
+![](./images/request-properties-option.png)
+
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/20/)
 
 To fill drop-down list with values from `entity` and text from tag `app`, use the following syntax:
@@ -1636,6 +1671,8 @@ The content of the drop-down list is shown here:
 ## Drop-down List Values Function Arguments Description
 
 **`TextFieldPath _(optional, type: string/Array<string>)_`**:
+
+![](./images/text-field-path.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
 
@@ -1683,6 +1720,8 @@ Below is the content of the drop-down list:
 ...
 ]
 ```
+
+![](./images/tag-description-option-text.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/26/)
 
