@@ -2,10 +2,6 @@
 
 ![](./images/charts-title-photo.png)
 
-## Status
-
-The new home of Axibase Charts Documentation is under development. See [Legacy Documentation](https://axibase.com/products/axibase-time-series-database/visualization/).
-
 ## Overview
 
 Charts is a collection of time-series [widgets](./widgets/README.md) presented in grid layout.
@@ -75,4 +71,4 @@ Text Widget | Page Widget | Alert Console
 
 Streaming Table | Property Table
 :--:|:--:
-[![](./images/streaming-table.png)](./widgets/streaming-table.png) | [![](./images/property-widget.png)](./images/property-table/README.md)
+[![](./images/streaming-table.png)](./widgets/streaming-table/README.md) | [![](./images/property-widget.png)](./widgets/property-table/README.md)
