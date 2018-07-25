@@ -1,6 +1,6 @@
 # Inheritance
 
-Specify shared settings at the `[configuration]` level, or group-specific settings when designing a large portal at the `[group]` level. Overwrite inherited settings at `[widget]` or `[series]` by defining the inherited setting for the desired widget or series.
+Specify shared settings at the `[configuration]` level, or group-specific settings when designing a large portal at the `[group]` level. Overwrite inherited settings at `[widget]` or `[series]` by defining different settings for a widget or series.
 
 If all widgets in a portal are created for the same server, set the `entity` setting at the `[configuration]` level. All included widgets share the same `entity` setting. This makes syntax more compact and easy to replace shared settings.
 

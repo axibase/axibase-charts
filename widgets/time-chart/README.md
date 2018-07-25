@@ -48,7 +48,7 @@ Forecast Style | `forecast-style = stroke: magenta` | Apply CSS styles to [forec
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/4101b548)
 
-Use `[threshold]` settings to define series thresholds. Load the desired series and include `display = false` settings under `[widget]` settings. Give the series and `alias`. Under `[threshold]` settings, define the threshold value with `value = value('alias')` as seen in the **ChartLab** example below.
+Use `[threshold]` settings to define series thresholds. Load the series and include `display = false` settings under `[widget]` settings. Assign the series an `alias`. Under `[threshold]` settings, define the threshold value with `value = value('alias')` as seen in the **ChartLab** example below.
 
 ![](./images/series-thresholds2.png)
 
@@ -130,13 +130,13 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/removed-timespan.png)
 
-Modify time chart widget controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
+Modify time chart panel controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
 
 ```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(8)
 ```
 
-Substitute `8` with the desired amount of control to be displayed.
+Substitute `8` with the number of panel controls to be displayed.
 
 ```ls
 defaultChartConfig.script = widget.chart.panels[1].expand(6)
