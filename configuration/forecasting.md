@@ -26,7 +26,7 @@ Enter forecast syntax in the **Editor** window in any Charts visualization.
 1. Download the [Forecast Configuration](./resources/forecast-tutorial.xml) XML file.
 1. Import the Forecast Configuraton into ATSD. For instructions on performing this operation, see [Importing Forecast Settings](https://axibase.com/use-cases/tutorials/shared/import-forecast.html).
 1. Open the newly imported forecast, which is named `Example Forecast` by default.
-1. Enter the desired metric and entity to use as historical data in forecast creation.
+1. Specify metric and entity to use as historical data in forecast creation.
 1. At the bottom of the page, click **Save** then **Run**
 1. Open [**ChartLab**](https://apps.axibase.com/chartlab/b3b920d9), enter the name of the metric and entity at the blank `[series]` configuration level:
 
@@ -86,7 +86,7 @@ Click **Create** on the split-button at the bottom of the **Forecasts** page.
 
 ### Define Aggregation
 
-1. Optionally, allow ATSD to automatically aggregate forecast data by setting the flag in the **Auto Aggregate** checkbox.
+1. Optionally, allow ATSD to automatically aggregate forecast data by selecting the **Auto Aggregate** checkbox.
 1. Define the **Aggregation Period** and **Aggregation Statistic** using the drop-down lists.
 
 ![](./images/define-aggregation.png)
@@ -95,13 +95,13 @@ Click **Create** on the split-button at the bottom of the **Forecasts** page.
 
 1. Select the algorithm to use when calculating future sample values. Supported algorithms are Holt-Winters and ARIMA.
 1. **Score Interval** is the period which ATSD uses to compute series variance, this establishing confidence intervals. Samples within the score interval are therefore more important to the calculation of future sample values.
-1. Optionally configure algorithm constants for future value calculation. ATSD is able to automatically calculate and assign these values by setting the flag in the **Auto Period** and **Auto Parameters** checkbox.
+1. Optionally configure algorithm constants for future value calculation. ATSD is able to automatically calculate and assign these values by selecting the **Auto Period** and **Auto Parameters** checkbox.
 
 ![](./images/configure-algorithm.png)
 
 ### Define Forecast Settings
 
-1. Assign the forecast a unique name to use as an identifier for series which have multiple forecasts. To use the current forecast as the default forecast, set the flag in the **Default Forecast** checkbox.
+1. Assign the forecast a unique name to use as an identifier for series which have multiple forecasts. To use the current forecast as the default forecast, select the **Default Forecast** checkbox.
 1. Set a forecast range for data with high variance. Data outside the range is assigned the maximum or minimum range value
 1. Define the period into the future which a forecast is calculated by ATSD.
 
