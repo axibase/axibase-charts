@@ -18,7 +18,7 @@ Enter forecast syntax in the **Editor** window in any Charts visualization.
 |Forecast Name|`forecast-name = hw5`|Unique forecast identifier.<br>Useful when creating multiple forecasts for the same series.<br>If no forecast name is set, the default forecast is loaded.|[![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/3/)|
 |style|`style = stroke-dasharray: none;`|Render forecast as a solid line instead of dashed line.|[![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/4/)|
 |value|`value = (1 - forecast('free') / forecast('total')) * 100`|Returns forecast for the underlying series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)|
-|load-future-data|`load-future-data = true`|Load future series values.<br>Usually used to view imported forecasts generated with 3rd party tools, such as R Language.<br>Allowed values: `true`, `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/87c197be)|
+|load-future-data|`load-future-data = true`|Load future series values.<br>Usually used to view imported forecasts generated with 3rd party tools, such as R Language.<br>Allowed values: `true`, `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/5e8363c0/2/)|
 |forecast-style|`forecast-style = stroke: magenta;`|CSS styles applied to forecasts in `column` and `column-stack` modes.|[![](./images/button.png)](https://apps.axibase.com/chartlab/37c39d18/3/)|
 
 ## Quick Start
