@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <forecastSettingsList>
-<forecastSettings>
-<name>Example Forecast</name>
-<entity>Enter Entity Name</entity>
-<metric>Enter Metric Name</metric>
+<forecastSettings><name>Example Forecast</name>
+<entity>Enter Entity Here</entity>
+<metric>Enter Metric Here</metric>
 <selectionInterval>
 <intervalCount>6</intervalCount>
 <intervalUnit>MONTH</intervalUnit>
@@ -27,17 +26,16 @@
 <autoAveragingInterval>false</autoAveragingInterval>
 <minValue>0.0</minValue>
 <enabled>true</enabled>
-<score-interval-mode>DEFAULT</score-interval-mode>
+<score-interval-mode>CUSTOM</score-interval-mode>
 <score-interval>
 <intervalCount>1</intervalCount>
-<intervalUnit>WEEK</intervalUnit>
+<intervalUnit>MONTH</intervalUnit>
 </score-interval>
 <algorithm>HOLT_WINTERS</algorithm>
 <arima-p>
 <intervalCount>1</intervalCount>
 <intervalUnit>DAY</intervalUnit>
-</arima-p>
-<arima-d>0</arima-d>
+</arima-p><arima-d>0</arima-d>
 <no-tags>false</no-tags>
 <empty-period-threshold>25</empty-period-threshold>
 <default-forecast>false</default-forecast>
