@@ -60,7 +60,7 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 ### Loading from Local Server
 
-If the URL path is relative, the database loads the function file from the `/portal/resource/scripts/{file_name}` path on the current server.
+If the URL path is relative, the base directory is `/portal/resource/`.
 
 Example:
 
@@ -68,9 +68,12 @@ Example:
 import fred = udf_fred.js
 ```
 
-The JavaScript file above is loaded from `/portal/resource/udf_fred.js`.
+The above `js` file is loaded from `/portal/resource/udf_fred.js` and must be located at the `/opt/atsd/atsd/conf/portal/udf_fred.js` path in ATSD.
 
-On the ATSD server, the `/portal/resource/scripts/` path is mapped to the `/opt/atsd/atsd/conf/portal/scripts/` directory.
+On the ATSD server, the `/opt/atsd/atsd/conf/portal/` directory is mapped to `/portal/resource/` path. The subdirectories are mapped correspondingly, for example:
+
+* `/opt/atsd/atsd/conf/portal/scripts/` -> `/portal/resource/scripts/`.
+* `/opt/atsd/atsd/conf/portal/css/` -> `/portal/resource/css/`.
 
 ## Usage
 
