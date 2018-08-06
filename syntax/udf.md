@@ -70,7 +70,7 @@ import fred = udf_fred.js
 
 The JavaScript file above is loaded from `/portal/resource/udf_fred.js`.
 
-On the ATSD server, the `/portal/resource/` directory is mapped to the `/opt/atsd/atsd/conf/portal/scripts/` directory.
+On the ATSD server, the `/portal/resource/scripts/` path is mapped to the `/opt/atsd/atsd/conf/portal/scripts/` directory.
 
 ## Usage
 
