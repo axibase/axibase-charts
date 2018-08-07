@@ -21,7 +21,7 @@ script
 endscript
 ```
 
-Use custom window function in any field that supports functions by referencing. Access the function by name, for example, the `value` field or the `format` field.
+Use custom window function in any field that supports functions by referencing. Access the function by name, for example, in the `value` field or the `format` field.
 
 ```ls
 value = return checkRange(value);
@@ -32,28 +32,26 @@ value = return checkRange(value);
 Load custom JavaScript functions into the configuration with `import` followed by the package name and URL of the file containing function definitions.
 
 ```ls
-import example-package = https://example.org/example-package
+import example_package = https://example.org/package.js
 ```
 
-Load multiple function files by assigning different package names to each one.
+Load multiple function files by assigning different package names to each one. When importing multiple files, assign a unique package name to each library to avoid collisions.
 
 ```ls
-import example-package = https://example.org/example-package
-import example-package-2 = https://example.org/example-package/2
+import example_package = https://example.org/package.js
+import example_package_2 = https://example.org/package_2.js
 ```
 
 Load function files from either local or remote server.
 
-> When importing multiple files, assign a unique package name to each library to avoid collisions.
-
 ### Load from Remote Server
-
-Configurations loaded via **HTTP** protocol cannot load function files from **HTTPS** URLs.
 
 ```ls
 # load functions from a remote server
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
+
+> Configurations loaded via **HTTP** URL cannot load function files from **HTTPS** URLs.
 
 **Econometric Function**:
 
@@ -69,18 +67,20 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 ### Load from Local Server
 
-The base directory for local configuration files is `/portal/resource/`.
+The base directory for configuration files on the ATSD server is `/portal/resource/` which is mapped to the `/opt/atsd/atsd/conf/portal/` directory. Subdirectories are mapped correspondingly.
 
-The JavaScript configuration file is loaded from `/portal/resource/fred.js` and must be stored at `/opt/atsd/atsd/conf/portal/fred.js` in ATSD.
-
-```ls
-import fred = fred.js
-```
-
-On the ATSD server, the directory `/opt/atsd/atsd/conf/portal/` is mapped to `/portal/resource/`. Subdirectories are mapped correspondingly.
-
+* `/opt/atsd/atsd/conf/portal/` --> `/portal/resource/`.
 * `/opt/atsd/atsd/conf/portal/scripts/` --> `/portal/resource/scripts/`.
 * `/opt/atsd/atsd/conf/portal/css/` --> `/portal/resource/css/`.
+
+If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory.
+
+```ls
+/* 
+  Returns /opt/atsd/atsd/conf/portal/scripts/fred.js
+*/
+import fred = fred.js
+```
 
 ## Usage
 
@@ -118,7 +118,7 @@ The following functions are implemented in the [fred.js](https://apps-chartlab.a
 On the ATSD server, store function files in the following directory:
 
 ```txt
-/opt/atsd/atsd/conf/portal/scripts
+/opt/atsd/atsd/conf/portal/scripts/
 ```
 
 JavaScript files placed into this directory are accessible by file name:
