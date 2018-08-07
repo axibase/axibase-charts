@@ -78,8 +78,8 @@ If the path in the `import` setting contains only the file name, the file is loa
 | Setting | Request URL | Local Path |
 |:----------|----:|-----------:|
 | `import fred = fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = path/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = /path/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
+| `import fred = resource/path/fred.js` | `https://atsd.host:port/portal/resource/path/fred.js` | `/opt/atsd/atsd/conf/portal/path/fred.js` |
+| `import fred = /portal/resource/path/fred.js` | `https://atsd.host:port/portal/resource/path/fred.js` | `/opt/atsd/atsd/conf/portal/path/fred.js` |
 | `import fred = https://example.org/path/fred.js` | `https://example.org/path/fred.js` | |
 
 ## Usage
