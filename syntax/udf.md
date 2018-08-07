@@ -74,14 +74,13 @@ The base directory for configuration files on the ATSD server is `/portal/resour
 * `/opt/atsd/atsd/conf/portal/css/` --> `/portal/resource/css/`.
 
 If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory.
-To specify a subdirectory or external URL, use the syntax which is described in the following table:
 
-| Statement | URL | Local path |
+| Setting | Request URL | Local Path |
 |:----------|----:|-----------:|
 | `import fred = fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = resource/scripts/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = /portal/resource/scripts/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = https://example.org/fred.js` | `https://example.org/fred.js` | |
+| `import fred = path/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
+| `import fred = /path/fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
+| `import fred = https://example.org/path/fred.js` | `https://example.org/path/fred.js` | |
 
 ## Usage
 
