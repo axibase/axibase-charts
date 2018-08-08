@@ -21,7 +21,7 @@ script
 endscript
 ```
 
-Use custom window function in any field that supports functions by referencing. Access the function by name, for example, in the `value` field or the `format` field.
+Use custom window function in any setting that supports referencing functions by name, for example, in `value` and `format` setting.
 
 ```ls
 value = return checkRange(value);
@@ -29,25 +29,25 @@ value = return checkRange(value);
 
 ## Function Libraries
 
-Load custom JavaScript functions into the configuration with `import` followed by the package name and URL of the file containing function definitions.
+Load custom JavaScript functions into the configuration with `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
 
 ```ls
 import example_package = https://example.org/package.js
 ```
 
-Load multiple function files by assigning different package names to each one. When importing multiple files, assign a unique package name to each library to avoid collisions.
+When importing multiple files, assign a unique package name to each file to avoid collisions.
 
 ```ls
 import example_package = https://example.org/package.js
 import example_package_2 = https://example.org/package_2.js
 ```
 
-Load function files from either local or remote server.
+The functions can be loaded from either local or remote server.
 
-### Load from Remote Server
+### Load Functions from Remote Server
 
 ```ls
-# load functions from a remote server
+# Specify full URL to load functions from a remote server
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
 
@@ -65,24 +65,28 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/8e2917e2/8/)
 
-### Load from Local Server
+### Load Functions from Local Server
 
-The base directory for configuration files on the ATSD server is `/portal/resource/` which is mapped to the `/opt/atsd/atsd/conf/portal/` directory. Subdirectories are mapped correspondingly.
+The base directory for static files on the ATSD server is `/portal/resource/` which is mapped to the `/opt/atsd/atsd/conf/portal/` directory on the file system. Subdirectories are mapped accordingly.
 
-* `/opt/atsd/atsd/conf/portal/` --> `/portal/resource/`.
-* `/opt/atsd/atsd/conf/portal/scripts/` --> `/portal/resource/scripts/`.
-* `/opt/atsd/atsd/conf/portal/css/` --> `/portal/resource/css/`.
+Directory | Path
+:---|:---
+`/opt/atsd/atsd/conf/portal/` | `/portal/resource/`
+`/opt/atsd/atsd/conf/portal/scripts/` | `/portal/resource/scripts/`
+`/opt/atsd/atsd/conf/portal/css/`| `/portal/resource/css/`
 
-If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory.
+If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory. 
 
-| Setting | Request URL | Local Path |
+| `import` Setting | Request URL | Local Path |
 |:----------|----:|-----------:|
-| `import fred = fred.js` | `https://atsd.host:port/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
-| `import fred = path/fred.js` | `https://atsd.host:port/portal/path/fred.js` | |
-| `import fred = /path/fred.js` | `https://atsd.host:port/path/fred.js` | |
-| `import fred = https://example.org/path/fred.js` | `https://example.org/path/fred.js` | |
-| `import fred = resource/path/fred.js` | `https://atsd.host:port/portal/resource/path/fred.js` | `/opt/atsd/atsd/conf/portal/path/fred.js` |
-| `import fred = /portal/resource/path/fred.js` | `https://atsd.host:port/portal/resource/path/fred.js` | `/opt/atsd/atsd/conf/portal/path/fred.js` |
+| `fred.js` | `https://atsd_hostname:8443/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
+| `resource/scripts/fred.js` | `https://atsd_hostname:8443/portal/resource/scripts/fred.js` | `/opt/atsd/atsd/conf/portal/scripts/fred.js` |
+| `resource/libs/fred.js` | `https://atsd_hostname:8443/portal/resource/libs/fred.js` | `/opt/atsd/atsd/conf/portal/libs/fred.js` |
+| `/portal/resource/libs/fred.js` | `https://atsd_hostname:8443/portal/resource/libs/fred.js` | `/opt/atsd/atsd/conf/portal/libs/fred.js` |
+| `libs/fred.js` | `https://atsd_hostname:8443/portal/libs/fred.js` | `404 Not Found` error. |
+| `/libs/fred.js` | `https://atsd_hostname:8443/libs/fred.js` | `404 Not Found` error. |
+| `https://example.org/path/fred.js` | `https://example.org/path/fred.js` | Loaded from remote server.|
+
 
 ## Usage
 
