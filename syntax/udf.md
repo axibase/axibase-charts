@@ -75,7 +75,7 @@ Directory | Path
 `/opt/atsd/atsd/conf/portal/scripts/` | `/portal/resource/scripts/`
 `/opt/atsd/atsd/conf/portal/css/`| `/portal/resource/css/`
 
-If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory. 
+If the path in the `import` setting contains only the file name, the file is loaded from `/opt/atsd/atsd/conf/portal/scripts/` directory.
 
 | `import` Setting | Request URL | Local Path |
 |:----------|----:|-----------:|
@@ -86,7 +86,6 @@ If the path in the `import` setting contains only the file name, the file is loa
 | `libs/fred.js` | `https://atsd_hostname:8443/portal/libs/fred.js` | `404 Not Found` error. |
 | `/libs/fred.js` | `https://atsd_hostname:8443/libs/fred.js` | `404 Not Found` error. |
 | `https://example.org/path/fred.js` | `https://example.org/path/fred.js` | Loaded from remote server.|
-
 
 ## Usage
 
