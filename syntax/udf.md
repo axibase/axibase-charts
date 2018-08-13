@@ -262,7 +262,7 @@ getValueWithOffset(alias, offset)
 ```
 
 | **Argument** | **Type** | **Description** |
-|------|-----------|------|-------------|
+|---|---|---|
 | `alias` | string | Alias of the series from which the value is retrieved. |
 | `offset` | string | Offset with which the previous value is retrieved, specified as interval, for example `1 day`. |
 
@@ -282,7 +282,7 @@ getValueForDate(alias, datetime)
 ```
 
 | **Argument** | **Type** | **Description** |
-|------|-----------|------|-------------|
+|---|---|---|
 | `alias` | string | Alias of the series, from which the value is retrieved. |
 | `datetime` | string | Time, for which value is retrieved. Can be specified as local time, ISO time, or using an [`end_time`](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) expression. |
 
@@ -301,5 +301,5 @@ getMaximumValue(alias)
 ```
 
 | **Argument** | **Type** | **Description** |
-|------|-----------|------|-------------|
+|---|---|---|
 | `alias` | string | Alias of the series, from which the value is retrieved. |
