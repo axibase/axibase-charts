@@ -2,12 +2,12 @@
 
 The following control structures are supported by Charts applications:
 
-* [`list`](#list-/-endlist)
-* [`var`](#var-/-endvar)
-* [`for`](#for-/-endfor)
-* [`if`](#if-/-endif)
-* [`csv`](#csv-/-endcsv)
-* [`script`](#script-/-endscript)
+* [`list`](#list--endlist)
+* [`var`](#var--endvar)
+* [`for`](#for--endfor)
+* [`if`](#if--endif)
+* [`csv`](#csv--endcsv)
+* [`script`](#script--endscript)
 
 ---
 
@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var-/-endvar), without having to quote and enclose elements in square brackets.
+The `list` command is similar to [`var`](#var--endvar), without having to quote and enclose elements in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
@@ -66,7 +66,7 @@ endfor
 
 ## `for` / `endfor`
 
-Iterates over a list created with the [`list`](#list-/-endlist) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
+Iterates over a list created with the [`list`](#list--endlist) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
 
 > Multiple `for` or `endfor` loops can be nested.
 
@@ -193,7 +193,7 @@ endfor
 
 Use `elementname_index` without control symbol `@` and brackets to access current iterator index starting with `0`.
 
-#### Insert `[group]` line for each fourth element in the array.
+#### Insert `[group]` line for each fourth element in the array
 
 ```ls
 for server in servers
@@ -272,7 +272,7 @@ csv metrics =
 endcsv
 ```
 
-Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for-/-endfor) statements.
+Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for--endfor) statements.
 
 ```ls
 for option in metrics
@@ -321,7 +321,7 @@ Use in the `preprocessor` stage.
 **Returned Value**:
 `Array<object>`: Array of rows represented as objects with headers as keys and cells as corresponding values.
 
-### Create array of objects from tabular structure using CSV:
+### Create array of objects from tabular structure using CSV
 
 ![](./images/csv-inline.png)
 
@@ -384,7 +384,7 @@ This CSV is transformed into the following array:
 ]
  ```
 
-### Iterate over the newly created array and set the value and entity based on thr retrieved country `name` and `value2006`.
+### Iterate over the newly created array and set the value and entity based on retrieved country `name` and `value2006`
 
 ```ls
 for country in countries
@@ -508,7 +508,7 @@ for row in rows
 * Arrays generated from `csv` use the `.values()` method.
 * This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
 * The generated array contains the `.escape()` method which escapes commas in each element.
-* Escapes commas for values within a CSV file using [`list.escape()`](./functions.md#list.escape) method.
+* Escapes commas for values within a CSV file using [`list.escape()`](./functions.md#listescape) method.
 
 **Syntax**:
 
@@ -524,7 +524,7 @@ Use in the `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` ex
 
 `Array<string>`: Array of unique values in the column defined by `column_name`.
 
-#### Get escaped values of a CSV column:
+#### Get escaped values of a CSV column
 
 ![](./images/escape-csv.values.png)
 

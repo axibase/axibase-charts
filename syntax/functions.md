@@ -9,7 +9,7 @@ This document enumerates built-in utility functions which can be included in the
 | [`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity. |
 | [`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity group. |
 | [`range()`](#range) | Returns a regularly spaced, customizable array of numbers. |
-| [`list.escape()`](#list.escape) | Escapes commas in every element of an array. |
+| [`list.escape()`](#listescape) | Escapes commas in every element of an array. |
 | [`previous()`](#previous) | Retrieves the value of the previous point in a sequence. |
 | [`movavg()`](#movavg) | Computes the moving average from a specified number of previous points. |
 | [`meta()`](#meta) | Retrieves the metadata object for a series. |
@@ -29,7 +29,7 @@ This document enumerates built-in utility functions which can be included in the
 * Loads a series for `metric` and `entity` from a defined URL whose last data point has timestamp after `minInsertDate` and before `maxInsertDate`.
 * Additional `queryParameters` can be specified.
 * Unique tag values defined by `tagName` are retrieved from tags of the loaded series and sorted.
-* Returned array is processed by [`list.escape()`](#list.escape) function.
+* Returned array is processed by [`list.escape()`](#listescape) function.
 
 **Syntax**:
 
@@ -211,7 +211,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 * Loads metrics for `entity` from a defined URL, which satisfies `expression`.
 * Specify additional `queryParameters`.
 * Returns the sorted names of loaded metrics.
-* Returned array is processed by [`list.escape()`](#list.escape) function.
+* Returned array is processed by [`list.escape()`](#listescape) function.
 
 **Syntax**:
 
@@ -274,7 +274,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 * Load entities contained in the entity group defined by `group` which satisfies `expression`.
 * Specify additional `queryParameters`.
 * Returns sorted names of loaded entities.
-* Returned array is processed by [`list.escape()`](#list.escape) function.
+* Returned array is processed by [`list.escape()`](#listescape) function.
 
 **Syntax**:
 
@@ -315,7 +315,7 @@ Sends synchronous `GET` requests to the
 | `url` | string | Protocol, host and path to which `/api/v1` path is appended. |
 | `queryParameters` | object | Object with parameter names as keys and its values as values, transformed to query parameters string. |
 
-### Retrieve all entities from entity group `docker-hosts` whose names begin with substring `nur`:
+### Retrieve all entities from entity group `docker-hosts` whose names begin with substring `nur`
 
 ![](./images/getentity.png)
 
@@ -338,13 +338,14 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
  ```json
 ["nurswghbs001"]
  ```
+
 ---
 
 ## `range()`
 
 **Description**:
 
-* Generates a regularly spaced array of numbers from `start` to `end` wth a configurable `step`.
+* Generates a regularly spaced array of numbers from `start` to `end` with configurable `step`.
   * If `step` is not specified, numbers are sequential.
   * If `start` is greater than `end`, numbers are generated in descending order.
   * If `format` is specified, each number is formatted and converted to a string.
@@ -495,7 +496,7 @@ range(1, 12, "d3.format('02d')(value)")
 **Description**:
 
 * Escapes commas for each value in an array of strings.
-* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csv.values) method.
+* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csvvalues) method.
 
 **Syntax**:
 
@@ -563,7 +564,7 @@ country = @{countries.escape()}
 [... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
 ```
 
-#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures#csv.values)
+#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures#csvvalues)
 
 ![](./images/escape-csv.values.png)
 

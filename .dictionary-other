@@ -8,6 +8,7 @@ fullscreen
 treemap
 endlist
 endfor
+endscript
 entityTag
 getTags
 ls
@@ -19,7 +20,9 @@ onload
 postBody
 propertyType
 queryParameters
+roundToTen
 tagName
 unsorted
 unscale
 unscaled
+widgetConfig
