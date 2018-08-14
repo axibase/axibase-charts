@@ -496,7 +496,7 @@ range(1, 12, "d3.format('02d')(value)")
 **Description**:
 
 * Escapes commas for each value in an array of strings.
-* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csvvalues) method.
+* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csv.values) method.
 
 **Syntax**:
 
@@ -544,7 +544,7 @@ country = @{countries.escape()}
 ["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
 ```
 
-#### Apply `.escape()` to the array created in a [`var`](#var-/-endvar) expression
+#### Apply `.escape()` to the array created in a [`var`](#var--endvar) expression
 
 ![](./images/list-escape-2.png)
 
@@ -564,7 +564,7 @@ country = @{countries.escape()}
 [... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
 ```
 
-#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures#csvvalues)
+#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures.md#csv.values)
 
 ![](./images/escape-csv.values.png)
 

@@ -5,7 +5,7 @@ The following control structures are supported by Charts applications:
 * [`list`](#list--endlist)
 * [`var`](#var--endvar)
 * [`for`](#for--endfor)
-* [`if`](#if--endif)
+* [`if`](#if--elseif--else--endif)
 * [`csv`](#csv--endcsv)
 * [`script`](#script--endscript)
 
