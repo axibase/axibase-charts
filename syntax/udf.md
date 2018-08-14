@@ -8,7 +8,7 @@ This document describes how to define custom time series functions and apply the
 
 Use window functions to perform scalar calculations which do not require access to a series object.
 
-Define a custom JavaScript function in the `window` object using [`script` / `endscript`](./control-structure.md) syntax in the **Editor** window.
+Define a custom JavaScript function in the `window` object using [`script` / `endscript`](./control-structures.md) syntax in the **Editor** window.
 
 ```ls
 script

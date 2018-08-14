@@ -126,7 +126,7 @@ label-format = tags.mount_point
 
 ![](./images/label-formatting2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8909d7f4)
+[![](./images/button.png)](https://apps.aschemexibase.com/chartlab/8909d7f4)
 
 ### `entity : tagValue`
 
