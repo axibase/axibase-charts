@@ -83,7 +83,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 **Result**:
 
 ```json
- ["/", "/media/datadrive", "/mnt/u113452"]
+["/", "/media/datadrive", "/mnt/u113452"]
 ```
 
 ### Retrieve values for `mount_point` tag in a series for metric `disk_used` and entity `nurswgvml007` and send server-specific query parameter `cache` and ignore other parameters
