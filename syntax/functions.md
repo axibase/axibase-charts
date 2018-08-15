@@ -170,7 +170,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 **Result**:
 
-``` json
+```json
 [
     {
         "metric":"disk_used",
