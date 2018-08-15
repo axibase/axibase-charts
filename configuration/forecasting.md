@@ -24,7 +24,7 @@ Enter forecast syntax in the **Editor** window of any Charts visualization.
 ## Quick Start
 
 1. Download the [Forecast Configuration](./resources/forecast-tutorial.xml) XML file.
-1. Import the Forecast Configuraton into ATSD. For instructions on performing this operation, see [Importing Forecast Settings](https://axibase.com/use-cases/tutorials/shared/import-forecast.html).
+1. Import the Forecast Configuration into ATSD. For instructions on performing this operation, see [Importing Forecast Settings](https://axibase.com/use-cases/tutorials/shared/import-forecast.html).
 1. Open the newly imported forecast, which is named `Example Forecast` by default.
 1. Specify the metric and entity to use as historical data in forecast creation.
 1. At the bottom of the page, click **Save** then **Run**
