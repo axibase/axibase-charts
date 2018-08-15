@@ -1,10 +1,12 @@
 donut
 downsampling
 draggable
-highchart[s]?
+gmap[s]
 heatmap
+hierarchial
+highchart[s]?
 fullscreen
-treemap
+sparkline[s]?
+treemap[s]?
 unsorted
-unscale
-unscaled
+unscale[d]?

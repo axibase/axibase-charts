@@ -82,9 +82,9 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 **Result**:
 
- ```json
- ["/", "/media/datadrive", "/mnt/u113452"]
- ```
+```json
+["/", "/media/datadrive", "/mnt/u113452"]
+```
 
 ### Retrieve values for `mount_point` tag in a series for metric `disk_used` and entity `nurswgvml007` and send server-specific query parameter `cache` and ignore other parameters
 
@@ -170,7 +170,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 **Result**:
 
- ``` json
+```json
 [
     {
         "metric":"disk_used",
@@ -200,7 +200,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
         "lastInsertDate":"2017-06-21T13:26:00.000Z"
     }
 ]
- ```
+```
 
 ---
 
@@ -261,9 +261,9 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 
 **Result**:
 
- ```json
+```json
 ["cpu_user","nmon.cpu.user%","nmon.cpu_total.user%"]
- ```
+```
 
 ---
 
@@ -335,9 +335,9 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 
 **Result**:
 
- ```json
+```json
 ["nurswghbs001"]
- ```
+```
 
 ---
 

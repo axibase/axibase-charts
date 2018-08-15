@@ -347,7 +347,7 @@ country = @{countries.values('name').escape()}
 
 This CSV is transformed into the following array:
 
- ```json
+```json
 [
     {
         "name":"Brazil",
@@ -382,7 +382,7 @@ This CSV is transformed into the following array:
         "value2006":"44.2"
     }
 ]
- ```
+```
 
 ### Iterate over the newly created array and set the value and entity based on retrieved country `name` and `value2006`
 
@@ -455,7 +455,7 @@ The setting to load and parse the file is shown below:
 csv rows from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USVisaRefusal/Resources/visa-refusal.csv
 ```
 
- ```json
+```json
 [
     {
         "2006":"13.2",
@@ -486,7 +486,7 @@ csv rows from https://raw.githubusercontent.com/axibase/atsd-use-cases/master/US
         "country":"Croatia"
         ...
     },
- ```
+```
 
 #### Iterate over the created array and set the value and entity based on the retrieved country `name` and value or year `2006`
 
@@ -552,7 +552,7 @@ country = @{countries.values('name').escape()}
 
 The CSV is transformed into the following array:
 
- ```json
+```json
 [
     {
         "name":"Brazil",
