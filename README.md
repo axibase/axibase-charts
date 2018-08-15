@@ -30,7 +30,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 
 ## Syntax and Configuration
 
-* [Control Structures](./syntax/control-structure.md)
+* [Control Structures](./syntax/control-structures.md)
 * [Label Formatting](./syntax/label-formatting.md)
 * [Alert Expressions](./syntax/alert-expression.md)
 * [Baselines](./configuration/baselines.md)

@@ -1,6 +1,6 @@
 # Summary Portals
 
-Use a combination of inheritance and [control structures](../syntax/control-structure.md), in particular `for` and `endfor`, to build multi-server portals with minimal configuration.
+Use a combination of inheritance and [control structures](../syntax/control-structures.md), in particular `for` and `endfor`, to build multi-server portals with minimal configuration.
 
 ![](./images/summary-portals.png)
 

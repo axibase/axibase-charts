@@ -157,8 +157,8 @@ Control the date format of the `x` axis for year, month, week, and day.
 
 ### Syntax
 
-* `%a`: Three-letter abbreviated day name, for example: Sun, Mon, Tue, Wed, Thu, Fri, Sat.
-* `%aa`: Two-letter abbreviated day name, for example: Su, Mo, Tu, We, Th, Fr, Sa.
+* `%a`: Three-letter abbreviated day name, for example: `Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`.
+* `%aa`: Two-letter abbreviated day name, for example: `Su`, `Mo`, `Tu`, `We`, `Th`, `Fr`, `Sa`.
 * `%A`: Full day name.
 * `%b`: Abbreviated month name.
 * `%B`: Full month name.

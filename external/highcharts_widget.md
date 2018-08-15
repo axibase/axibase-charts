@@ -26,7 +26,7 @@ curl https://code.highcharts.com/modules/funnel.js > /opt/atsd/atsd/conf/portal/
 curl https://code.highcharts.com/modules/exporting.js > /opt/atsd/atsd/conf/portal/web/JavaScript/exporting.js
 ```
 
-Download the ATSD client adapter [atsdClient](resources/atsdClient.bundle.js) and its dependencies into the same directory.
+Download the ATSD client adapter [`atsdClient`](resources/atsdClient.bundle.js) and its dependencies into the same directory.
 
 ```sh
 curl https://code.jquery.com/jquery-1.9.1.js > /opt/atsd/atsd/conf/portal/web/JavaScript/jquery-1.9.1.js
