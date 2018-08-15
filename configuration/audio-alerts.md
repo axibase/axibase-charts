@@ -50,7 +50,7 @@ Safari | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x:
 
 Name | Syntax | Description | Example
 --|--|--|--
-Audio Onload | `audio-onload` | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Default value, `false`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
+Audio On Load | `audio-onload` | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Default value, `false`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
 
 ## `[series]` Settings
 
