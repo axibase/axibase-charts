@@ -16,7 +16,7 @@ Setting |Description
 |`layout`|Form of the widget in `non-hierarchy` mode, possible values: `circle` or `rectangle`.<br>`circle` by default.|
 |`depth`|Depth of the displayed vertex hierarchy from `1` to the maximum depth of the vertex hierarchy plus `1`<br>Final level corresponds to edges<br>Maximal depth of the hierarchy is default.|
 |`tension`|The degree curvature of edges.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Varies from `0` to `1`, `0` corresponds to straight edges.<br>`0.9` by default.|
-|`bundled`|Hierarchical contraction of edges ([Danny Holten](http://www.win.tue.nl/vis1/home/dholten/) algorithm).<br>`true` by default.|
+|`bundled`|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>`true` by default.|
 |`effects`|Animation when changing the geometry of the graph.<br> `false` by default.|
 |`duration`|The duration of a transaction when changing the geometry of the graph in milliseconds.<br>`1000` by default.|
 |`min-ring-width`|The minimum allowed width of the vertex ring.<br> The value is from `0` to a maximum permissible value of the ring width.<br>`0.3` by default.|
@@ -105,7 +105,7 @@ Adjust graph appearance using the controls located in the top corners of the wid
 |`depth`|Set the depth of the displayed vertex hierarchy.<br>Allows a value of `1` to a maximum height of the vertex tree plus `1`, the final level corresponds to the edges.<br>By default, the depth is equal to the height of the vertex tree displayed.|
 |`width`|Maximum and minimum allowed width of the vertex ring is the percent from the radius of the circle.<br>By default, minimum `30%`, maximum `50%`.|
 |`tension`|The degree of edge curvature.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Varies from `0` to `1` where `0` corresponds to direct edges.<br>Default value is `0.9`.|
-|`bundle`|Hierarchical contraction of edges ([Danny Holten](http://www.win.tue.nl/vis1/home/dholten/) algorithm).<br>Used by default.|
+|`bundle`|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>Used by default.|
 |`effects`|Animation when changing the geometry of the graph.<br>Used by default.|
 |`node-collapse`|Collapse sector peaks when clicked.<br>`true` by default.|
 |`link-animate`|Animation of directed edges.<br>`false` by default.|
