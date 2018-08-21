@@ -14,7 +14,7 @@ Setting |Description
 --|--
 |`mode`|Determines the overall look of the widget, possible values: `hierarchy` or `non-hierarchy`.<br>`non-hierarchy` by default.|
 |`layout`|Form of the widget in `non-hierarchy` mode, possible values: `circle` or `rectangle`.<br>`circle` by default.|
-|`depth`|Depth of the displayed vertex hierarchy from `1` to the maximum depth of the vertex hierarchy plus `1`<br>Final level corresponds to edges<br>Maximal depth of the hierarchy is default.|
+|`depth`|Depth of the displayed vertex hierarchy from `1` to the maximum depth of the vertex hierarchy plus `1`<br>Final level corresponds to edges<br>Maximum depth of the hierarchy is default.|
 |`tension`|The degree curvature of edges.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Varies from `0` to `1`, `0` corresponds to straight edges.<br>`0.9` by default.|
 |`bundled`|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>`true` by default.|
 |`effects`|Animation when changing the geometry of the graph.<br> `false` by default.|
