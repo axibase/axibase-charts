@@ -41,7 +41,7 @@ Cache | `cache = true` | Retrieve the most recent value from the HBase **Last In
 Limit | `limit = 1000` | Limit the number of returned samples for the loaded series.<br>Limit is not applied to alert queries in the Console widget.|[![](./images/button.png)](https://apps.axibase.com/chartlab/13549b9c/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/2604d710)
 On Load Audio | `audio-alert = (alert > 1) ? 'path/to/audio/file'` | Play an audio alert on initial widget data load.<br>See [Audio Alerts](../../configuration/audio-alerts.md) for more information| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
 Display Panels | `display-panels = true` | Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/efa832ea/2/)
-Expand Panels | `expand-panels = all`| Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/808e5846/18/)
+Expand Panels | `expand-panels = all`| Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`, `all`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/808e5846/18/)
 
 ### Series Description
 
