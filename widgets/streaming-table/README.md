@@ -146,17 +146,17 @@ endlist
 ### Calculated Columns
 
 ```ls
-  [series]
-    metric = memtotal
-    alias = tot
+[series]
+  metric = memtotal
+  alias = tot
 
-  [series]
-    metric = active
-    alias = act
+[series]
+  metric = active
+  alias = act
 
-  [series]
-    value = 100 * last('act')/last('tot')
-    alias = active_pct
+[series]
+  value = 100 * last('act')/last('tot')
+  alias = active_pct
 ```
 
 ![](./images/calculated-column.png)
