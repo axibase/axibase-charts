@@ -143,6 +143,26 @@ endlist
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/bb65c060)
 
+### Calculated Columns
+
+```ls
+  [series]
+    metric = memtotal
+    alias = tot
+
+  [series]
+    metric = active
+    alias = act
+
+  [series]
+    value = 100 * last('act')/last('tot')
+    alias = active_pct
+```
+
+![](./images/calculated-column.png)
+
+[![](./images/button.png)](https://apps.axibase.com/chartlab/c771fde1/3/)
+
 ### Multiple Metrics
 
 ```ls

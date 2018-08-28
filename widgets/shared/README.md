@@ -91,6 +91,13 @@ Downsample Gap | `downsample-gap = 10 minute` | Control the occurrence of repeat
 Downsample Ratio | `downsample-ratio = 1.1` | Define downsample [ratio](https://axibase.com/docs/atsd/api/data/series/downsample.html#ratio-check)| [![](./images/button.png)](https://apps.axibase.com/chartlab/63769ef5)
 Downsample Algorithm | `downsample-algorithm = interpolate` | Define [downsample algorithm](https://axibase.com/docs/atsd/api/data/series/downsample.html#algorithm) used for calculation.<br>Possible values: `detail` and `interpolate`.<br>Default value: `detail`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0d5f90f2)
 Downsample Difference | `downsample-difference = 4` |Define deviation between consecutive values which the database considers equivalent.<br>Use this setting to include minor deviations in downsampling. | [![](./images/button.png)](https://apps.axibase.com/chartlab/02f63201)
+[Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) Function | `smooth = AVG` | Weighted [averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Supported functions: `AVG`, `EMA`, `WAVG`, `WTAVG` | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4) |
+Smoothing Factor | `smooth-factor = 0.5` | Weighting parameter used by `EMA` function. If specified, must be `>0 and <1`. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
+Smoothing Range | `smooth-range = 60000` | Weighting parameter used by `EMA` function. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
+Smoothing Count | `smooth-count = 50` | Number of samples in the window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
+Smoothing Interval | `smooth-interval = 15 minute` | Window duration interval. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
+Smoothing Minimum Count | `smooth-minimum-count = 10` | Minimum number of samples in the window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
+Smoothing Incomplete Value | `smooth-incomplete-value = NaN` | Sample value returned if the window is not full. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
 
 ### `value` Settings
 
