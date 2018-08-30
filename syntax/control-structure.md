@@ -169,9 +169,9 @@ for server in servers
 endfor
 ```
 
-Use `elementname_index` without control symbol `@` and brackets to access current iterator index starting with `0`.
+Use `elementname_index` without control symbol `@` and square brackets to access current iterator index starting with `0`.
 
-**Example**: Insert `[group]` line for each 4th element in the array.
+**Example**: Insert `[group]` line for each fourth element in the array.
 
 ```css
 for server in servers
