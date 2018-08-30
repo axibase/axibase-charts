@@ -8,7 +8,7 @@ These expressions can compare `last value` or statistics with a pre-defined thre
 
 ### Display Top Three Results
 
-```css
+```ls
 [series]
 /* show top-3 series by last value */
 display = value >= top(3)
@@ -20,7 +20,7 @@ display = value >= top(3)
 
 ### Single Day Maximum Exceeds Five
 
-```css
+```ls
 [widget]
 enabled = max('1 day') > 5
 ```
@@ -33,7 +33,7 @@ enabled = max('1 day') > 5
 
 Exclude series with `!=` negation syntax.
 
-```css
+```ls
 [series]
 display = tags.mount_point != '/'
 
@@ -52,7 +52,7 @@ tags.mount_point.indexOf('/m') < 0
 
 Calendar display filter.
 
-```css
+```ls
 [widget]
 display = tags.level == 'DEBUG'
 ```

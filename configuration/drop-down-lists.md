@@ -1,8 +1,8 @@
 # Drop-down Lists
 
-Drop-down lists provides a way to display interactive selectors inside the widget header.
+Drop-down lists provides a way to display interactive options inside a widget header.
 
-Configure the selector to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
+Configure the list to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
 
 ![](./images/drop-down-header.png)
 
@@ -26,25 +26,25 @@ Each option has `value` and `text` attributes. If `text` is specified, the text 
 
 Comma-separated list:
 
-```css
+```ls
 options = opt1, opt2, opt3
 ```
 
 Placeholder to `list` of `var` array:
 
-```css
+```ls
 options = @{taglist}
 ```
 
 If the list or array contains elements with a comma, use the `escape()` method to backslash commas:
 
-```css
+```ls
 options = @{taglist.escape()}
 ```
 
 `[option]` fields:
 
-```css
+```ls
 [option]
   text = opt1
 [option]
@@ -58,7 +58,7 @@ options = @{taglist.escape()}
 
 ### Change Widget Type
 
-```css
+```ls
 [widget]
   type = bar
 
@@ -79,7 +79,7 @@ the list of displayed options is specified in options field */
 
 ### Change Property Type
 
-```css
+```ls
 [dropdown]
   on-change = widget.post.queries[0].type = this.value; widget.reload();
   change-field = property.type
@@ -95,7 +95,7 @@ the list of displayed options is specified in options field */
 
 ### Change `Metric`, `Entity`, or Both
 
-```css
+```ls
 [dropdown]
   change-field = series.metric
   options = cpu_user, cpu_system, cpu_busy
@@ -110,7 +110,7 @@ the list of displayed options is specified in options field */
 
 ### Replace Series
 
-```css
+```ls
 [dropdown]
   options = nurswgvml007, nurswgvml006, nurswgvml010
   on-change = replaceEntityInSeriesCollection(cpu_series, this.value); cpu_widget.replaceSeries(cpu_series);  replaceEntityInSeriesCollection(disk_series, this.value); disk_widget.replaceSeries(disk_series);

@@ -1,12 +1,12 @@
 # Summary Portals
 
-Use a combination of inheritance and control structures, in particular `for` and `endfor`, to build multi-server portals with minimal configuration.
+Use a combination of inheritance and [control structures](../syntax/control-structures.md), in particular `for` and `endfor`, to build multi-server portals with minimal configuration.
 
 ![](./images/summary-portals.png)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/3230deb6/1)
 
-```css
+```ls
 list servers = awsswgvml001, nurswgvml003, nurswgvml009
 [widget]
     type = chart
@@ -29,9 +29,9 @@ As an alternative to specifying list elements manually, lists can be retrieved f
 
 `getResourcesForGroup(group_id, [list of product codes])`:
 
-Return the list of agents collecting data. If the group contains hosts with agents, they are traversed to the agent level in order to return the list of agents. For example, if the groups contains hosts `ABC` (ITM Linux) and `CDE.axibase.com` (SCOM), the method will return agent identifiers: `abc:LX` and `Microsoft.Window.Computer:CDE.axibase.com`.
+Return the list of agents collecting data. If the group contains hosts with agents, they are traversed to the agent level to return the list of agents. For example, if the groups contains hosts `ABC` (ITM Linux) and `CDE.axibase.com` (SCOM), the method returns agent identifiers: `abc:LX` and `Microsoft.Window.Computer:CDE.axibase.com`.
 
-```css
+```ls
 list resources = ${getResourcesForGroup("linux")?join(",")}
 list resources = ${getResourcesForGroup("windows_server_2008")?join(",")}
 ```
@@ -40,13 +40,13 @@ list resources = ${getResourcesForGroup("windows_server_2008")?join(",")}
 
 Return list of hosts. If the group contains agents, they are traversed up the tree to return hosts.
 
-```css
+```ls
 list hosts = ${getHostsForGroup("scom-itm_group", "LZ")?join(",")}
 ```
 
 If the group contains agents with different product codes, address specifics using a `if` or `endif` condition based on the agent name, or the method can executed multiple times by filtering the group by different product codes.
 
-```css
+```ls
 [widget]
   type = chart
   title = Memory Usage for Linux and Windows Servers
@@ -55,7 +55,7 @@ If the group contains agents with different product codes, address specifics usi
   for rsc in resources
     [series]
       table = Microsoft.Windows.Server.2008.Monitoring_Memory
-      attribute = % Committed Bytes In Use    
+      attribute = % Committed Bytes In Use
       entity = @{rsc}
   endfor
   #retrieve Linux agents second

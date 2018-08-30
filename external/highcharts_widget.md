@@ -2,13 +2,13 @@
 
 ## Overview
 
-This document describes how to incorporate charts created with external JavaScript libraries into an ATSD portal. 
+This document describes how to incorporate charts created with external JavaScript libraries into an ATSD portal.
 
 The task can be accomplished by creating an HTML file with the external chart and including this chart using the `page` widget in ATSD.
 
 ## Create Resource Directory
 
-Login into ATSD server and create a directory in the ATSD installation directory that will contain static resources such as JavaScript files, CSS files, and images used by external charting libraries.
+Log in to ATSD server and create a directory in the ATSD installation directory that contains static resources such as JavaScript files, CSS files, and images used by external charting libraries.
 
 ```sh
 mkdir -p /opt/atsd/atsd/conf/portal/web/JavaScript
@@ -26,7 +26,7 @@ curl https://code.highcharts.com/modules/funnel.js > /opt/atsd/atsd/conf/portal/
 curl https://code.highcharts.com/modules/exporting.js > /opt/atsd/atsd/conf/portal/web/JavaScript/exporting.js
 ```
 
-Download the ATSD client adapter [atsdClient](resources/atsdClient.bundle.js) and its dependencies into the same directory.
+Download the ATSD client adapter [`atsdClient`](resources/atsdClient.bundle.js) and its dependencies into the same directory.
 
 ```sh
 curl https://code.jquery.com/jquery-1.9.1.js > /opt/atsd/atsd/conf/portal/web/JavaScript/jquery-1.9.1.js
@@ -39,7 +39,7 @@ curl https://raw.githubusercontent.com/axibase/charts/master/external/resources/
 ll /opt/atsd/atsd/conf/portal/web/JavaScript
 ```
 
-The output should be as follows.
+The output is as follows:
 
 ```sh
 -rw-r--r-- 1 axibase axibase   3994 Oct 30 14:12 atsdClient.bundle.js
@@ -61,12 +61,12 @@ Check that the file can be accessed at `https://atsd_host:8443/portal/resource/w
 
 ## Create Portal
 
-Create a portal in ATSD and include a `page` widget with the `url` setting referencing the HTML file as follows:
+Create a portal in ATSD and include a `page` widget with the URL setting referencing the HTML file:
 
 ```ls
-  [widget]
-    type = page
-    url = /portal/resource/web/funnel.html
+[widget]
+  type = page
+  url = /portal/resource/web/funnel.html
 ```
 
 ## Sample Portal
@@ -97,4 +97,4 @@ Create a portal in ATSD and include a `page` widget with the `url` setting refer
     url = /portal/resource/web/funnel.html
 ```
 
-![](images/funnelChart.png)
+![](./images/funnelChart.png)

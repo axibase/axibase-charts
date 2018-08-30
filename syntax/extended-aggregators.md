@@ -2,17 +2,17 @@
 
 ## `min_value_time`
 
-Computes the time when the minimum was reached for the first time in the period.
+Computes the time when the minimum is reached for the first time in the period.
 
-```css
+```ls
 statistic = max_value_time
 ```
 
 ## `max_value_time`
 
-Computes the time when the maximum was reached for the first time in the period.
+Computes the time when the maximum is reached for the first time in the period.
 
-```css
+```ls
 statistic = min_value_time
 ```
 
@@ -26,7 +26,7 @@ statistic = min_value_time
 
 Computes the difference between the last and first value within the period. If there are multiple adjacent periods, computes delta as the difference between the last values of adjacent periods.
 
-```css
+```ls
 statistic = delta
 ```
 
@@ -34,7 +34,7 @@ statistic = delta
 
 Similar to delta except for special processing of resets. Applicable for incrementing non-negative metrics. Reset occurs when the series value is lower than the previous value, in which case the counter adds the difference between 0 and the current value.
 
-```css
+```ls
 statistic = counter
 ```
 

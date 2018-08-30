@@ -2,25 +2,28 @@
 
 ## Overview
 
-This document describes functions, which can be referenced in the `value` setting in order to calculate values of a derived series.
+This document describes functions, which can be referenced in the `value` setting to calculate values of a derived series.
 
 The `value` setting is specified by the `series` section.
 
 ```ls
-# Define the original series, which values will be used in creating a derived (computed) series.
+# Define the original series, which values used in creating a derived (computed) series.
 # The original series must exist in the database
 [series]
   metric = cpu_busy
   entity = nurswgvml007
-  # Specify an alias so that the derived series can refer to the original series by name
+
+  # Specify an alias
   alias = s-1
-  # Optionally, hide the original series, so that only the derived series is displayed
+
+  # Optionally, hide the original series
   display = false
 
-# Define the derived series by specifying an expression in the "value" setting
+# Define the derived series by specifying an expression in the `value` setting
 [series]
   label = My New Series
-  # Specify an expression that will be called for each "time:value" sample in the original series
+
+  # Specify an expression called for each `time:value` sample in the original series
   value = 2 * value("s-1")
 ```
 

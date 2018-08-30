@@ -4,7 +4,7 @@ The Property widget displays `entity tags` and `properties` in tabular format.
 
 The list of selected properties is identified with the `type` field, whereas `$entity_tags` is reserved for `entity tags`.
 
-```css
+```ls
 [widget]
   type = property
   title = Entity Tags
@@ -30,7 +30,7 @@ The list of selected properties is identified with the `type` field, whereas `$e
 
 When the list of columns is not known in advance or there are too many, use `expand-tags` to display all tags returned for the given type.
 
-```css
+```ls
 [widget]
 type = property
 title = Entity Tags
@@ -47,7 +47,7 @@ transpose = true
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/6d918310/1)
 
-Configure the widget to display a drop-down list `type` or `entity` selector.
+Configure the widget to display a drop-down list with `type` or `entity` options.
 
 ![](./images/configuration3.png)
 
