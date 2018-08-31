@@ -39,7 +39,7 @@ The Charts library implements a simple yet powerful syntax, closely integrated w
 * [Linking](./syntax/linking.md)
 * [Wildcards](./syntax/wildcards.md)
 * [Functions](./syntax/functions.md)  
-* [Used-Defined Functions](./syntax/udf.md)
+* [User-Defined Functions](./syntax/udf.md)
 * [Drop-down Lists](./configuration/drop-down-lists.md)
 * [Inheritance](./configuration/inheritance.md)
 * [Display Filters](./configuration/display-filters.md)
