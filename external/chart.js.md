@@ -1,6 +1,6 @@
 # Chart.js example
 
-[Chart.js](http://www.chartjs.org/) offers open source HTLM5 animated and interactive charts.
+[Chart.js](https://www.chartjs.org/) offers open source HTLM5 animated and interactive charts.
 
 * [Bar](https://jsfiddle.net/uxaqnhe5/2/)
 * [Line](https://jsfiddle.net/0g4bh6j3/1/)

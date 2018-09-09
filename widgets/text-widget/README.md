@@ -13,7 +13,7 @@ Setting|Syntax|Description|Example
 |Circle|`circle = true`|Displays background circle.<br>Default value: `false`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/9/)|
 |Minimum Font Size|`min-font-size = 10`|Minimum font size for labels, in pixels.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/10/)|
 |Maximum Font Size|`max-font-size = 14`|Maximum font size for labels, in pixels.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/10/)|
-|Series Click|`on-series-click = callDialog({ type: 'page', url: 'http://www.axibase.com/' })`|Change the type of widget that opens in a dialog window when the value is clicked.<br>Default value: `time chart`|[![](./images/button.png)](https://apps.axibase.com/chartlab/5ab66ecf/13/)|
+|Series Click|`on-series-click = callDialog({ type: 'page', url: 'https://axibase.com/' })`|Change the type of widget that opens in a dialog window when the value is clicked.<br>Default value: `time chart`|[![](./images/button.png)](https://apps.axibase.com/chartlab/5ab66ecf/13/)|
 |Icon Size|`icon-size = auto`|Automatically resize icons to occupy all available space except the area used by the value and label.<br>If `icon-size` is not set, icon is scaled proportionally to the font height which can be controlled using the `min-font-size` and `max-font-size` settings.|[![](./images/button.png)](https://apps.axibase.com/chartlab/ed1f7adf/2/)|
 
 ### `[series]` Settings

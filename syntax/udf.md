@@ -213,7 +213,7 @@ exports.multiplyBy = function (alias, num) {
 
 Copy the `my_math.js` file to the `/opt/atsd/atsd/conf/portal/scripts` directory in the ATSD server.
 
-Verify that the file is accessible at the following URL: `http://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
+Verify that the file is accessible at the following URL: `https://atsd_hostname:8443/portal/resource/scripts/my_math.js`.
 
 ### Step 3. Import Functions
 

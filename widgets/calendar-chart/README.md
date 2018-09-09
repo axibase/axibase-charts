@@ -29,7 +29,7 @@ Inherited settings from [Shared Widget Syntax](../shared/README.md): `entity`, `
 
 Setting |Syntax |Description |Example
 --|--|--|--
-Thresholds | `thresholds = 0, 25, 50, 75, 100` | Define threshold value.<br>Default threshold for arithmetic mean of all metric values for the entire time-span.| [![](./images/button.png)](http://apps.axibase.com/chartlab/fb935e05/21/)
+Thresholds | `thresholds = 0, 25, 50, 75, 100` | Define threshold value.<br>Default threshold for arithmetic mean of all metric values for the entire time-span.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/21/)
 
 ## Examples
 
