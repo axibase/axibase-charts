@@ -1,6 +1,6 @@
 # Widgets
 
-All widgets support either [Shared Widget](./widgets/shared/README.md) or [Shared Table Widget](./widgets/shared-table/README.md) syntax.
+All widgets support either [Shared Widget](./shared/README.md) or [Shared Table Widget](./shared-table/README.md) syntax.
 
 Time Chart | Gauge Chart | Bar Chart
 :--:|:--:|:--:
