@@ -21,8 +21,8 @@ Histogram Charts support [Shared Widget](../shared/README.md) syntax.
 |Percentiles|`percentiles = 1, 10, 50, 90, 99.9`|Percentiles displayed when `top-axis = percentiles`.<br>Multiple percentiles must be separated with commas.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/7/)|
 |Vertical Grid|`vertical-grid = percentiles`|Display a vertical line corresponding to each percentile on the top axis.<br>Possible values: `none`, `percentiles`. Default value: `none`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/8/)|
 |Horizontal Grid|`horizontal-grid = frequency`|Display a horizontal line corresponding to each value on the right or left axis.<br>Possible values: `none`, `density`, `fractions`, `frequency`.<br>Default value: `frequency`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/9/)|
-|Minimum and Maximum Range|`min-range = 20``max-range = 90`|Set the minimum and maximum range of the `x` axis.If value is outside the set maximum or minimum range then it is added to the maximum or minimum bucket in the visible range.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/10/)|
-|Force Minimum and Maximum Range|`min-range-force = 20``max-range-force = 90`|Set the strict minimum and maximum range of the `x` axis.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/11/)|
+|Minimum and Maximum Range|`min-range = 20`<br>`max-range = 90`|Set the minimum and maximum range of the `x` axis.If value is outside the set maximum or minimum range then it is added to the maximum or minimum bucket in the visible range.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/10/)|
+|Force Minimum and Maximum Range|`min-range-force = 20`<br>`max-range-force = 90`|Set the strict minimum and maximum range of the `x` axis.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/11/)|
 |Range Offset|`range-offset = 50`|Adds an offset to the left and right of the dataset, set in pixels.<br>Inactive by default. |[![](./images/button.png)](https://apps.axibase.com/chartlab/394e80a5)|
 
 ### `[series]` Settings
