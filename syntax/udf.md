@@ -21,7 +21,7 @@ script
 endscript
 ```
 
-Use custom window function in any setting that supports referencing functions by name, for example, in `value` and `format` setting.
+Use custom window function in any setting that supports referencing functions by name, for example, in `value` or `format` setting.
 
 ```ls
 value = return checkRange(value);
@@ -29,7 +29,7 @@ value = return checkRange(value);
 
 ## Function Libraries
 
-Load custom JavaScript functions into the configuration with `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
+Load custom JavaScript functions into a configuration with the `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
 
 ```ls
 import example_package = https://example.org/package.js
@@ -42,7 +42,7 @@ import example_package = https://example.org/package.js
 import example_package_2 = https://example.org/package_2.js
 ```
 
-The functions can be loaded from either local or remote server.
+Functions can be loaded from either local or remote server.
 
 ### Load Functions from Remote Server
 
@@ -140,7 +140,7 @@ Function declaration must start with `exports.` followed by a valid function nam
 
 A function can have any number of arguments however, the first argument must be the alias of the series to which the function applies.
 
-The current value is accessible with `value(alias)` method.
+The current value is accessible with the `value(alias)` method.
 
 ```javascript
 exports.NaturalLog = function (alias) {
