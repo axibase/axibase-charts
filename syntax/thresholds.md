@@ -1,6 +1,6 @@
 # Thresholds
 
-Use client-side threshold aggregators to compute the amount of time or number of occurrences a metric violates a user-defined threshold. The threshold can be defined as an upper boundary, a lower boundary, or both.
+Use threshold aggregators to compute the amount of time or number of occurrences a metric violates a user-defined threshold. The threshold can be defined as an upper boundary, a lower boundary, or both.
 
 ## `max-threshold`
 

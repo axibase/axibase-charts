@@ -290,4 +290,4 @@ display = value == top(1) || value == bottom(1)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/13/)
 
-In addition, the `limit = int` setting reduces the number of samples displayed for each series. The `limit = int` setting aids in quicker query execution when loading data for high-frequency series from the server, in particular during the design and validation stages.
+In addition, the `limit = int` setting reduces the number of samples displayed for each series. The `limit = int` setting aids in faster query execution when loading data for high-frequency series from the server, in particular during the design and validation stages.
