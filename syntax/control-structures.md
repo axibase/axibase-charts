@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var--endvar). When using the `list` command, there is no need to enclose the elements of the list in squarre brackets.
+The `list` command is similar to [`var`](#var--endvar). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
