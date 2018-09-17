@@ -70,7 +70,7 @@ entity = nurswgvml006
 
 ## Selecting Multiple Series With Tags
 
-By default, the database returns all series matching a request, including series with extra tags not enumerated in the request.
+By default, the database returns all series which match a request, including series with extra tags not enumerated in the request.
 
 This enables loading series using only a subset of tags that are still sufficient to uniquely identify a series:
 
@@ -117,7 +117,7 @@ The resulting series is merged from 3 underlying different series and provides a
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/59e15fe3)
 
-To control how multiple matched series are processed, use the `multiple-series = true | false` setting.
+To control how multiple matched series are processed, use the `multiple-series` setting.
 
 ```ls
 /* Display all series with tag fstype=ext4 without merging */
@@ -290,4 +290,4 @@ display = value == top(1) || value == bottom(1)
 
 [![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/13/)
 
-In addition, the `limit = int` setting reduces the number of samples displayed for each series. It makes queries execute faster when loading data for high-frequency series from the server, in particular during design and validation stages.
+In addition, the `limit` setting reduces the number of samples displayed for each series. This aids in quicker query execution when loading data for high-frequency series from the server, in particular during design and validation stages.

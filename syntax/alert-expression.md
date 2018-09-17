@@ -1,10 +1,10 @@
 # Alert Expressions
 
-Alert expressions provide a way to modify widget graphical properties such as color, fill, and visibility based on series values and statistics.
+Alert expressions provide a way to modify the graphical properties of a widget such as the color, fill, or visibility based on series values and statistics.
 
 ## Example
 
-* Change bar color to `RED` if the threshold is exceeded.
+* Change bar color to `RED` if a threshold is exceeded.
 * If the threshold is within the normal range, but is violated at least once during the last hour, change the bar color to `YELLOW`.
 * Otherwise, apply `GREEN` as the color.
 

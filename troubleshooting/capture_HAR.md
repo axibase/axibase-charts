@@ -12,15 +12,12 @@ These instructions outline the steps required to export web browser requests gen
 ## Chrome
 
 * Open a portal.
-
 * Click `F12` on Windows or `Command+Option+I` on Mac to open Developer Tools.
-
 * Open the **Network** panel.
 
   ![](./images/network_panel.png)
 
-* Click the `Clear` icon ![](./images/clear_button.png) in the toolbar to clear the request history.
-
+* Click the `Clear` icon ![](./images/clear_button.png) in the toolbar to clear request history.
 * Click the widget header.
 
   ![](./images/widget_header.png)
@@ -38,15 +35,12 @@ These instructions outline the steps required to export web browser requests gen
 ## Firefox
 
 * Open a portal.
-
 * Click `F12` on Windows or `Command+Option+I` on Mac to open Developer Tools.
-
 * Open the **Network** panel.
 
   ![](./images/network_panel_ff.png)
 
-* Click the `Clear` icon ![](./images/clear_button_ff.png) in the toolbar to clear the request history.
-
+* Click the `Clear` icon ![](./images/clear_button_ff.png) in the toolbar to clear request history.
 * Click widget header.
 
   ![](./images/widget_header_ff.png)
@@ -63,12 +57,10 @@ These instructions outline the steps required to export web browser requests gen
 
 ## Internet Explorer 11
 
-IE 11 is unable to generate `HAR`, but instead saves the data you have recorded in XML or CSV format.
+IE 11 is unable to generate `HAR` files, but instead saves recorded data in XML or CSV format.
 
 * Open a portal.
-
 * Click `F12` to open Developer Tools.
-
 * Open the **Network** panel with `Control + 4`.
 
   ![](./images/network_panel_ie.png)
@@ -94,15 +86,12 @@ IE 11 is unable to generate `HAR`, but instead saves the data you have recorded 
 ## Edge
 
 * Open a portal.
-
 * Click `F12` to open Developer Tools.
-
 * Open the **Network** panel.
 
   ![](./images/network_panel_edge.png)
 
-* Click `Clear session` icon ![](./images/clear_button_edge.png) in the toolbar to clear the request history.
-
+* Click `Clear session` icon ![](./images/clear_button_edge.png) in the toolbar to clear request history.
 * Click the widget header.
 
   ![](./images/widget_header_edge.png)

@@ -2,11 +2,11 @@
 
 Use client-side threshold aggregators to compute the amount of time or number of occurrences a metric violates a user-defined threshold.
 
-Specify lower or upper thresholds or combine the two to trigger a violation when a series value is exceeds the specified range.
+Specify upper and lower thresholds or a combination of the two to trigger violations when a series value exceeds the specified range.
 
 ## `max-threshold`
 
-Series violates the threshold when its value exceeds the maximum threshold.
+Series violates the threshold when a value exceeds the maximum threshold.
 
 ```ls
 [series]
@@ -21,7 +21,7 @@ Series violates the threshold when its value exceeds the maximum threshold.
 
 ## `min-threshold`
 
-Series violates the threshold when its value is below the minimum threshold.
+Series violates the threshold when a value is below the minimum threshold.
 
 ```ls
 [series]
@@ -36,7 +36,7 @@ Series violates the threshold when its value is below the minimum threshold.
 
 ## `threshold_percent`
 
-Percentage of time within the period when the series values does not exceed the threshold. Computed as sum of violation intervals divided by the period duration.
+Percentage of time within the period when series values do not exceed the threshold. Computed as the sum of violation intervals divided by the period duration.
 
 ```ls
 [series]
@@ -53,7 +53,7 @@ Percentage of time within the period when the series values does not exceed the 
 
 ## `threshold_count`
 
-Number of sequences within the period when the series values exceeded the threshold. Consecutive observations violating the threshold are treated as one sequence.
+Number of sequences within the period when the series values exceeded the threshold. Consecutive observations violating the threshold are treated as a single sequence.
 
 ```ls
 [series]
@@ -70,7 +70,7 @@ Number of sequences within the period when the series values exceeded the thresh
 
 ## `threshold_duration`
 
-Total duration of intervals within the period when the series values exceeded the threshold. Note, when using `threshold_duration` with an `alert-expression` the `value` argument is measured in **milliseconds**.
+Total duration of intervals within the period when series values exceeded the threshold. Note that when using `threshold_duration` with an `alert-expression` the `value` argument is measured in **milliseconds**.
 
 ```ls
 [series]
