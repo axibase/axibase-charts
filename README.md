@@ -4,9 +4,9 @@
 
 ## Overview
 
-The **Charts Library** is a collection of time-series [widgets](./widgets/README.md) presented in grid layout.
+**Axibase Charts** is a graphics library for visualizing time series data with [widgets](./widgets/README.md).
 
-Charts implement a simple, powerful syntax which is closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative language.
+Charts implement a simple, yet powerful, syntax which is closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative settings.
 
 ### Interactive Analytics
 
