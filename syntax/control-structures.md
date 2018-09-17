@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var--endvar), without having to quote and enclose elements in square brackets.
+The `list` command is similar to [`var`](#var--endvar) without the need to quote and enclose elements in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
@@ -52,7 +52,7 @@ for di in disks
 endfor
 ```
 
-The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getentities) function.
+Load a list of entities into a `var` array from the server using the [`getEntities`](./functions.md#getentities) function.
 
 ```ls
 var hosts = getEntities('svl-hosts')
@@ -191,7 +191,7 @@ for server in servers
 endfor
 ```
 
-Use `elementname_index` without control symbol `@` and brackets to access current iterator index starting with `0`.
+Use `elementname_index` without the control symbol `@` and curly brackets to access current iterator index starting with `0`.
 
 #### Insert `[group]` line for each fourth element in the array
 
@@ -207,7 +207,7 @@ for server in servers
 endfor
 ```
 
-Similar layout with automated row breaks can be accomplished by specifying the `widgets-per-row` setting under `[group]` level.
+Create a similar layout with automated row breaks by specifying the `widgets-per-row` setting at the `[group]` level.
 
 ```ls
 [group]

@@ -21,7 +21,7 @@ script
 endscript
 ```
 
-Use custom window function in any setting that supports referencing functions by name, for example, in `value` and `format` setting.
+Use custom window function in any setting that supports referencing functions by name, for example, in `value` or `format` setting.
 
 ```ls
 value = return checkRange(value);
@@ -29,7 +29,7 @@ value = return checkRange(value);
 
 ## Function Libraries
 
-Load custom JavaScript functions into the configuration with `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
+Load custom JavaScript functions into a configuration with the `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
 
 ```ls
 import example_package = https://example.org/package.js
@@ -42,12 +42,12 @@ import example_package = https://example.org/package.js
 import example_package_2 = https://example.org/package_2.js
 ```
 
-The functions can be loaded from either local or remote server.
+Functions can be loaded from either local or remote server.
 
 ### Load Functions from Remote Server
 
 ```ls
-# Specify full URL to load functions from a remote server
+/* Specify full URL to load functions from a remote server */
 import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/fred.js
 ```
 
@@ -92,7 +92,7 @@ If the path in the `import` setting contains only the file name, the file is loa
 Reference the imported function in a `value` expression by specifying the package name, the function name, and the function arguments.
 
 ```ls
-# Calculate monthly change for series with alias 'raw'
+/* Calculate monthly change for series with alias 'raw' */
 value = fred.MonthlyChange('raw')
 ```
 
@@ -136,11 +136,11 @@ Server restart is **not** required to access new or updated function files.
 
 ## Writing Functions
 
-Function declaration must start with `exports.` followed by a valid function name. Function names are **case-sensitive**.
+Function declaration must start with `exports.` followed by a valid function name. Function names are **case sensitive**.
 
 A function can have any number of arguments however, the first argument must be the alias of the series to which the function applies.
 
-The current value is accessible with `value(alias)` method.
+The current value is accessible with the `value(alias)` method.
 
 ```javascript
 exports.NaturalLog = function (alias) {
@@ -168,13 +168,13 @@ Function body can reference any JavaScript function such as [`Math`](https://dev
 
 ```javascript
 exports.getValueRange = function (alias, period) {
-  // get the maximum value within the current period
+  /* get the maximum value within the current period */
   var maxAtPeriod = max(alias, period);
-  // get the minimum value within the current period
+  /* get the minimum value within the current period */
   var minAtPeriod = min(alias, period);
-  // calculate the difference between maximum and minimum values
+  /* calculate the difference between maximum and minimum values */
   var result = maxAtPeriod - minAtPeriod;
-  // return the result to the calling function
+  /* return the result to the calling function */
   return result;
 };
 ```

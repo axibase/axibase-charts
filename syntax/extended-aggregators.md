@@ -2,7 +2,7 @@
 
 ## `min_value_time`
 
-Computes the time when the minimum is reached for the first time in the period.
+Computes the time when the minimum is reached for the first time in a period.
 
 ```ls
 statistic = max_value_time
@@ -10,7 +10,7 @@ statistic = max_value_time
 
 ## `max_value_time`
 
-Computes the time when the maximum is reached for the first time in the period.
+Computes the time when the maximum is reached for the first time in a period.
 
 ```ls
 statistic = min_value_time
@@ -24,7 +24,7 @@ statistic = min_value_time
 
 ## `delta`
 
-Computes the difference between the last and first value within the period. If there are multiple adjacent periods, computes delta as the difference between the last values of adjacent periods.
+Computes the difference between the first and last values within a period. If there are multiple adjacent periods, the function computes delta as the difference between the last values of adjacent periods.
 
 ```ls
 statistic = delta
