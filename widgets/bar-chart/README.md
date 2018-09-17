@@ -16,13 +16,13 @@ Setting |Syntax |Description |Example
 --|--|--|--
 |Horizontal|`horizontal = true`|Display bars horizontally<br>Default: `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/2/)|
 |Stack|`stack = false`|Disable series grouping.<br>Default: `true`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/8/)|
-|Group|`group = region`<br>`group = entity, metric`|Grouping keys to apply the same color to series in the same group<br>Default: `metric`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/4b5d293d)|
+|Group|`group = region`<br>`group = entity, metric`|Grouping keys to apply the same color to series in the same group<br>Default: `metric`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/e56f5bbc)|
 |Entity Label|`entity-label = srv007`|Override grouped series legend when `group=entity`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/21/)|
 |Metric Label|`metric-label = CPU Busy, %`|Override grouped series legend when `group=metric`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/22/)|
 |Colors|`colors = green, steelblue, orange`|Series colors.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/13/)|
 |Display Values|`display-values = false`|Show or hide bar total values.<br>Default: `true`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/7/)|
 |Rotate Ticks|`rotate-ticks = 45`<br>`rotate-ticks = 90`<br>`rotate-ticks = true`|Rotate `x` axis labels.<br>Set in degrees.<br>Set to `true` to rotate ticks by `90` degrees.<br>Default value: `0`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/29/)|
-|Sort|`sort = DESC`<br>`sort = value ASC`<br>`sort = name DESC`<br>`sort = collectd.df.space.free DESC`|Sort bars by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>In stacking mode bars are sorted using total value.<br>Supports sorting of columns composed from multiple series by specifying metric name.<br>If column has multiple series, value keyword in sort settings stands for sum of series values in this column.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/19/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/41d456a0)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/4204e221/3)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/4204e221/4)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/76ebf83b/5)|
+|Sort|`sort = DESC`<br>`sort = value ASC`<br>`sort = name DESC`<br>`sort = collectd.df.space.free DESC`|Sort bars by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>In stacking mode bars are sorted using total value.<br>Supports sorting of columns composed from multiple series by specifying metric name.<br>If column has multiple series, value keyword in sort settings stands for sum of series values in this column.|[![](./images/button.png)](https://apps.axibase.com/chartlab/4642b100)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/41d456a0)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/4204e221/3)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/4204e221/4)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/76ebf83b/5)|
 |[Alert Expression](../../syntax/alert-expression.md) and Style|`alert-expression = value > 10`<br>`alert-style = fill: red; stroke: red`|Apply alert style to each series separately.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/20/)|
 |Column Alert Expression and Style|`column-alert-expression = value > 10`<br>`column-alert-style = fill: red; stroke: red`|Apply alert style to total value of series in each bar.|[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/17/)|
 |Hide Empty Columns|`hide-empty-columns=true`|Show or hide columns with no data to display.<br>Default value:`false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/e4603a5f)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/377091ff)|
@@ -44,9 +44,9 @@ Settings inherited from [Shared Widget `[series]` Syntax](../shared/README.md): 
 
 ### Horizontal Bar Chart
 
-![](./images/horizontal-bar-chart.png)
+![](./images/hor-bar.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/89c8183d/2/#fullscreen)
+[![](./images/button.png)](https://apps.axibase.com/chartlab/cb231db8/#fullscreen)
 
 ### Horizontal Alert
 

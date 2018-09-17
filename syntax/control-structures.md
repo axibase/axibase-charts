@@ -191,7 +191,7 @@ for server in servers
 endfor
 ```
 
-Use `elementname_index` without control symbol `@` and use curly brackets to access current iterator index starting with `0`.
+Use `elementname_index` without the control symbol `@` and use curly brackets to access current iterator index starting with `0`.
 
 #### Insert `[group]` line for each fourth element in the array
 

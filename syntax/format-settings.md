@@ -16,7 +16,7 @@ format = thousands
 Value | Syntax | Description
 --|--|--
 `binary` | `format = binary('kilo', 3) + 'B'` | Formatting values with size units. Used for bytes.<br>For example, `1024`.
-`decimal`| `format = numeric(1)`<br>`format = numeric`| Number formatting<br>`numeric` is an `alias` for `decimal`.<br>Specify the optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>Example: `format = numeric(1)` rounds to the first decimal. Thus, `4.29` becomes `4.3`.
+`decimal`| `format = numeric(1)`<br>`format = numeric`| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify the optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>Example: `format = numeric(1)` rounds to the first decimal. Thus, `4.29` becomes `4.3`.
 `fixed`| `format = fixed(3)` | Format numbers with the specified number of digits.<br>Example: `format = fixed(1)` rounds `1225` to `1000`.
 `currency` | `format = '$' + currency('million')`| Currency formatting. Any symbol is supported.
 
