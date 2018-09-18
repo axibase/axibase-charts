@@ -18,7 +18,7 @@ Value | Syntax | Description
 `binary` | `format = binary('kilo', 3) + 'B'` | Formatting values with size units. Used for bytes.<br>For example, `1024`.
 `decimal`| `format = numeric(1)`<br>`format = numeric`| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify the optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>Example: `format = numeric(1)` rounds to the first decimal. Thus, `4.29` becomes `4.3`.
 `fixed`| `format = fixed(3)` | Format numbers with the specified number of digits.<br>Example: `format = fixed(1)` rounds `1225` to `1000`.
-`currency` | `format = '$' + currency('million')`| Currency formatting. Any symbol is supported.
+`currency` | `format = '$' + currency('million')`| Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>For example: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).
 
 ### Optional Parameters
 
@@ -153,7 +153,7 @@ interval-format = %H:%M
 
 ## Day Format
 
-Control the date format of the `x` axis for year, month, week, and day.
+Modify the date format of the `x` axis for year, month, week, and day.
 
 ### Syntax
 

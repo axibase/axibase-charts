@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var--endvar), without having to quote and enclose elements in square brackets.
+The `list` command is similar to [`var`](#var--endvar). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
@@ -191,8 +191,6 @@ for server in servers
 endfor
 ```
 
-Use `elementname_index` without the control symbol `@` and use curly brackets to access current iterator index starting with `0`.
-
 #### Insert `[group]` line for each fourth element in the array
 
 ```ls
@@ -207,7 +205,7 @@ for server in servers
 endfor
 ```
 
-Similar layout with automated row breaks can be accomplished by specifying the `widgets-per-row` setting under `[group]` level.
+Use the `widgets-per-row` setting under `[group]` level to control the number of widgets displayed on each row.
 
 ```ls
 [group]
