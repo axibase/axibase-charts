@@ -8,7 +8,7 @@ The Property Table Widget displays properties collected for the entity in tabula
 
 ## Syntax
 
-Property Tables support both [Shared Widget](../shared/README.md) and Shared Table Syntax.
+Property Tables support both [Shared Widget](../shared/README.md) and [Shared Table](../shared-table/README.md) Syntax.
 
 ### `[widget]` Settings
 

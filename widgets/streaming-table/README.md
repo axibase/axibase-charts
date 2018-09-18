@@ -8,7 +8,7 @@ Use Streaming Table widget to display a table of `metric` values. By default, it
 
 ## Syntax
 
-Alert Console supports both [Shared Widget](../shared/README.md) and Shared Table Syntax.
+Alert Console supports both [Shared Widget](../shared/README.md) and [Shared Table](../shared-table/README.md) Syntax.
 
 ### `[widget]` Settings
 
