@@ -38,7 +38,7 @@ Default `alert` columns:
 
 ## Syntax
 
-Alert Console supports both [Shared Widget](../shared/README.md) and Shared Table Syntax.
+Alert Console supports both [Shared Widget](../shared/README.md) and [Shared Table](../shared-table/README.md) Syntax.
 
 ### `[widget]` Settings
 

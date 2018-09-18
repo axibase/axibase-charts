@@ -14,7 +14,7 @@ Calendar Charts support [Shared Widget](../shared/README.md) syntax.
 
 Setting |Syntax |Description |Example
 --|--|--|--
-Period Summary | `summarize-period = 1 hour`<br>`summarize-period = 15 minutes` | Period by which loaded time series data is split. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/14/)
+Period Summary | `summarize-period = 1 hour`<br>`summarize-period = 15 minute` | Period by which loaded time series data is split.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/14/)
 Statistic Summary | `summarize-statistic = percentile_75`<br>`summarize-statistic = avg` | Statistical function applied to values within each period.<br>Possible values: `avg`, `max`, `min`, `sum`, `count`, `percentile_99`, `percentile_95`, `percentile_90`, `percentile_75`, `percentile_50` (median).<br>Median is an alias for `percentile_50`.<br>Default value: `avg`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/23/)
 Color Range | `color-range = green orange`<br>`color-range = green yellow red`| Customize calendar colors. More than two colors can be set.|[![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/15/)
 Gradient Count | `gradient-count = 3` | Specify the number of gradient colors between each color in Color Range. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/16/)

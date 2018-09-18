@@ -4,7 +4,7 @@
 
 ## Overview
 
-The generic table setting are inherited by Table, Property, and Console widgets.
+The generic table setting are inherited by [Table](../streaming-table/README.md), [Property](../property-table/README.md), and [Console](../alert-console/README.md) widgets.
 
 ## Syntax
 
