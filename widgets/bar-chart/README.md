@@ -20,7 +20,7 @@ Name | Example | Description | &nbsp;
 `entity-label`|`entity-label = srv007`|Override grouped series legend when `group=entity`.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/21/)
 `metric-label`|`metric-label = CPU Busy, %`|Override grouped series legend when `group=metric`.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/22/)
 `colors`|`colors = green, steelblue, orange`|Series colors.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/13/)
-`display-values`|`display-values = false`|Show or hide bar values.<br>Default: `true`.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/7/)
+`display-values`|`display-values = false`|Show or hide bar values.<br>If `mode = stack`, total represents total sum of included series.<br>Default: `true`.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/36/)
 `rotate-ticks`|`rotate-ticks = 45`<br>`rotate-ticks = true`|Rotate `x` axis labels by degrees.<br>Set to `true` to rotate ticks by `90` degrees.<br>Default value: `0`.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/29/)
 `sort`|`sort = DESC`<br>`sort = value ASC`<br>`sort = collectd.df.space.free DESC`|Sort bars by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>In `stack` mode bars are sorted by **total** grouped value.<br>If a column has multiple series, keyword in `sort` setting represents the sum of series values.|[↗](https://apps.axibase.com/chartlab/4642b100)<br>[↗](https://apps.axibase.com/chartlab/4204e221/4)<br>[↗](https://apps.axibase.com/chartlab/76ebf83b/5)
 [`alert-expression`](../../syntax/alert-expression.md) and `alert-stlye`|`alert-expression = value > 10`<br>`alert-style = fill: red; stroke: red`|Alert criteria and behavior.<br>Optionally, apply unique alert style to each series.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/20/)
