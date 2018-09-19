@@ -13,7 +13,7 @@ Bar Charts support [Shared Widget](../shared/README.md) syntax.
 ### `[widget]` Settings
 
 Name | Example | Description | &nbsp;
---|--|--|--
+:--|:--|:--|:--
 `horizontal` | `horizontal = true` | Display bars horizontally<br>Default Value: `false`. | [↗](https://apps.axibase.com/chartlab/8fe65e1b/2/)
 `stack` | `stack = false` | Disable series grouping.<br>Default Value: `true`. | [↗](https://apps.axibase.com/chartlab/8fe65e1b/8/)
 `group`|`group = region`<br>`group = entity, metric`|Apply one color to series in the same group.<br>Default Value: `metric`.|[↗](https://apps.axibase.com/chartlab/e56f5bbc)
@@ -32,7 +32,7 @@ Name | Example | Description | &nbsp;
 ### `[column]` Settings
 
 Name | Example | Description | &nbsp;
---|--|--|--
+:--|:--|:--|:--
 `label`|`label = Column-1`|Column legend label displayed below series columns.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/3/)
 `alert-expression`|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/16/)
 `alert-style` | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/8fe65e1b/16/)
