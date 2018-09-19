@@ -35,7 +35,7 @@ Name | Example | Description | &nbsp;
 `alert-expression`|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/8fe65e1b/16/)
 `alert-style` | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/8fe65e1b/16/)
 <a id="column-label-format"></a>`column-label-format`|`column-label-format = tags.mount_point`|Column label pattern containing text and placeholders.<br>Use any combination of: `entity`, `metric`, `tagName`, `tagValue`,`tags.{tag-name}`,`statistics`, `period`<br>Default value: `entity: metric: tagName=tagValue: statistics - period`|[↗](https://apps.axibase.com/chartlab/8bc74658/2/)
-<a id="multiple-column">`multiple-column`|`multiple-column = true`|Applicable to [wildcard](../../syntax/wildcards.md) configurations.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are added into the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/6e37edc8/2/)
+<a id="multiple-column"></a>`multiple-column`|`multiple-column = true`|Applicable to [wildcard](../../syntax/wildcards.md) configurations.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are added into the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/6e37edc8/2/)
 
 ## Examples
 
