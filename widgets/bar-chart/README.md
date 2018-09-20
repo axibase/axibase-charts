@@ -55,7 +55,7 @@ Name | Example | Description | &nbsp;
 
 ## Series Settings
 
-* Apply to  the `[series]` section.
+* The settings apply to  the `[series]` section.
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
