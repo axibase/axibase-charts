@@ -1,22 +1,30 @@
 # Bar Chart
 
-![](./images/bar-chart.png)
-
-## Table of Contents
-
-* [Overview](#overview)
-* [Settings](#syntax)
-  * [`[widget]` Settings](#widget-settings)
-  * [`[column]` Settings](#column-settings)
-* [Examples](#examples)
-
 ## Overview
 
-Bar Charts group series into columns and displays them as horizontal or vertical bars. Refer to [Shared Widget Syntax](../shared/README.md) for inherited settings.
+The **Bar Chart** displays last series values as horizontal or vertical bars.
 
-## Settings
+```ls
+[widget]
+  type = bar
+  timespan = 15 minute
+  metric = cpu_busy
 
-### `[widget]` Settings
+  [column]
+    [series]
+      entity = nurswgvml007
+
+  [column]
+    [series]
+      entity = nurswgvml006
+```
+
+![](./images/bar-chart.png)
+
+## Widget Settings
+
+* Apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
@@ -35,7 +43,9 @@ Name | Example | Description | &nbsp;
 [`column-alert-style`](#column-alert-style) | `column-alert-style = fill: red; stroke: red` | Column alert behavior.<br>Optionally, apply alert style to total value of series in each bar. | [↗](https://apps.axibase.com/chartlab/66a259c4)
 [`hide-empty-columns`](#hide-empty-columns)|`hide-empty-columns = true`|Show or hide columns with no data.<br>Default value:`false`.|[↗](https://apps.axibase.com/chartlab/e4603a5f)<br>[↗](https://apps.axibase.com/chartlab/27050141)
 
-### `[column]` Settings
+## Column Settings
+
+* Apply to the `[column]` section.
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
@@ -43,7 +53,7 @@ Name | Example | Description | &nbsp;
 `alert-expression`|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/da384229)
 `alert-style` | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/754d2f99)
 [`column-label-format`](#column-label-format)|`column-label-format = tags.mount_point`|Column label pattern containing text and placeholders.<br>Use any combination of: `entity`, `metric`, `tagName`, `tagValue`,`tags.{tag-name}`,`statistics`, `period`<br>Default value: `entity: metric: tagName=tagValue: statistics - period`|[↗](https://apps.axibase.com/chartlab/7afc353a)
-[`multiple-column`](#multiple-column)|`multiple-column = true`|Applicable to [wildcard](../../syntax/wildcards.md) configurations.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are added into the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/b1609460)
+[`multiple-column`](#multiple-column)|`multiple-column = true`|Applies to [wildcard](../../syntax/wildcards.md) series.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are grouped in the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/b1609460)
 
 ## Examples
 
