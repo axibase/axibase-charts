@@ -19,7 +19,9 @@ The **Bar Chart** displays last series values as horizontal or vertical bars.
       entity = nurswgvml006
 ```
 
-![](./images/bar-chart.png)
+![](./images/bar-chart-title-1.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/da38d063)
 
 ## Widget Settings
 
@@ -50,8 +52,8 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 [`label`](#label)|`label = Column-1`|Column legend label displayed below series columns.|[↗](https://apps.axibase.com/chartlab/4ceaa563)
-`alert-expression`|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/da384229)
-`alert-style` | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/754d2f99)
+[`alert-expression`](#alert-expression-column)|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/da384229)
+[`alert-style`](#alert-style-column) | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/754d2f99)
 [`column-label-format`](#column-label-format)|`column-label-format = tags.mount_point`|Column label pattern containing text and placeholders.<br>Use any combination of: `entity`, `metric`, `tagName`, `tagValue`,`tags.{tag-name}`,`statistics`, `period`<br>Default value: `entity: metric: tagName=tagValue: statistics - period`|[↗](https://apps.axibase.com/chartlab/7afc353a)
 [`multiple-column`](#multiple-column)|`multiple-column = true`|Applies to [wildcard](../../syntax/wildcards.md) series.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are grouped in the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/b1609460)
 
@@ -59,30 +61,24 @@ Name | Example | Description | &nbsp;
 
 ### Horizontal Bar Chart
 
-![](./images/hor-bar.png)
+![](./images/horizontal-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cb231db8/#fullscreen)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/e1784607)
 
 ### Horizontal Alert
 
-![](./images/horizontal-alert.png)
+![](./images/horizontal-alert-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/63c825ca)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/edb33933)
 
 ### Vertical Bar Chart
 
-![](./images/vertical-bar-chart.png)
+![](./images/vertical-bar-chart-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ee71211d)
 
 ### Vertical Alert
 
-![](./images/bar-column-alert.png)
+![](./images/vertical-alert-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/17/)
-
-### Alert
-
-![](./images/bar-alert.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/11/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/0a9ad3ee)
