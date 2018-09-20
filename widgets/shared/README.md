@@ -6,9 +6,7 @@
 
 Shared Widget syntax is common syntax supported by all other widgets.
 
-## Syntax
-
-### `[widget]` Settings
+## Widget Settings
 
 Inherited settings from the `[configuration]` level: `start-time`, `end-time`, `timespan`, `update-interval`, `timezone`, `batch-update`, `batch-size`, `dialog-maximize`, `url`, `path`, `url-parameters`. Overwrite these settings at the `[widget]` level.
 
@@ -43,11 +41,21 @@ On Load Audio | `audio-alert = (alert > 1) ? 'path/to/audio/file'` | Play an aud
 Display Panels | `display-panels = true` | Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/efa832ea/2/)
 Expand Panels | `expand-panels = all`| Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`, `all`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/808e5846/18/)
 
-### Series Description
+## Series Settings
 
 `[widget]` settings include one or more `[series]` settings. For more information about associating `[series]` settings with data stored in ATSD, see [Selecting Series](../../syntax/selecting-series.md).
 
-### `[series]` Settings
+```ls
+[series]
+  entity = nurswgvml006
+  metric = disk_used_percent
+  statistic = avg
+  period = 15 minute
+  [tags]
+    mount_point = /run/shm
+```
+
+### Data Settings
 
 Setting | Syntax | Description | Example
 --|--|--|--
@@ -99,35 +107,8 @@ Smoothing Interval | `smooth-interval = 15 minute` | Window duration interval. |
 Smoothing Minimum Count | `smooth-minimum-count = 10` | Minimum number of samples in the window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
 Smoothing Incomplete Value | `smooth-incomplete-value = NaN` | Sample value returned if the window is not full. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
 
-### `value` Settings
 
-Specify the `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression returns a number or `null`.
-
-Setting | Syntax | Description | Example
---|--|--|--
-Value | `value = max('s1')`<br>`value = min('s1', '10 minute')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Define series value.<br>Retrieve the value of the underlying series identified by alias.| [![](./images/button.png)](https://apps.axibase.com/chartlab/2b2e7023/4/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
-[Aggregators](../../configuration/aggregators.md) | `value = avg('s1')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Apply an aggregate statistic to the underlying series grouped by period.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/9/)
-Percentile | `value = (1 - percentile(99,'free','5 minute') / percentile(99,'total','5 minute')) * 100`| Apply percentile statistics to the underlying series.<br>Percentile range from `0` to `100`, `alias` and `period`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/10/)
-Forecast| `value = (1 - forecast('free') / forecast('total')) * 100`| Return a forecast for the underlying series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)
-Confidence Intervals | `value = (1 - lower_confidence(90, 'free') / forecast('total')) * 100`<br>`value = (1 - upper_confidence(90, 'free') / forecast('total')) * 100`| Retrieve upper and lower limits of the confidence interval for the underlying series.<br>Arguments: Level-specified integer from `0` to `100`, and `alias`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/14/)
-
-### Additional `[series]` Settings
-
-Setting | Syntax | Description | Example
---|--|--|--
-Style | `style = stroke-width: 4; color: green` | Assign a style to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/16/)
-Color | `color = orange` | Assign a color to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/17/)
-Label | `label = CPU Busy - nurswgvml007` | Assign a label to the series. Shown in the series legend/ | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/18/)
-Tooltip | `tooltip = NURSWGVML007` | Define tooltips which are displayed on series mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/19/)
-Axis | `axis = right` | Assign series axis.<br>`left` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/20/)
-Format | `foramt = kilobytes`| Display appropriate series units in legend and on series pointers. See [Label Formatting](../../syntax/label-formatting.md) for more information. | [![](./images/button.png)](https://apps.axibase.com/chartlab/bf5b45e9)
-Display | `display = value > top(3)`<br>`display = tags.mount_point = '/'`<br>`display = false` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3ebf1cca)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/2/)
-Enable Series | `enabled = false` | Hide series in the widget legend based on expression or boolean statement.<br>See Expression Examples| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/23/)
-Refresh Interval | `refresh-interval = 120` | Define the period in seconds that ATSD waits before refreshing data with new samples. <br>Possible values: `auto`, number. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/24/)
-Refresh Retry Interval | `retry-refresh-interval = 5 minute`| Define the wait period after ATSD receives an empty sample to retry data refresh. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/2ce8eed4)
-Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait period after ATSD handles a server processing error before refreshing data. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dad50363)
-
-## `[tag]` Settings
+### Tag Settings
 
 `[tags]` syntax examples:
 
@@ -160,15 +141,31 @@ If the tag name contains reserved names such as setting names, surround the tag 
   "type" = sensor
 ```
 
-### `[series]` Example
 
-```ls
-[series]
-  entity    entity == nurswgvml006
-  metric  nurswgvml006    = disk_used_percent
-  statistic = avg
-  period = 15 minute
-  [tags]
-    file_system = none
-    mount_point = /run/shm
-```
+### Style Settings
+
+Setting | Syntax | Description | Example
+--|--|--|--
+Style | `style = stroke-width: 4;` | Apply a CSS style to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/16/)
+Color | `color = orange` | Assign a color to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/17/)
+Label | `label = CPU Busy - nurswgvml007` | Assign a label to the series. Shown in the series legend/ | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/18/)
+Tooltip | `tooltip = NURSWGVML007` | Define tooltips which are displayed on series mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/19/)
+Axis | `axis = right` | Assign series axis.<br>`left` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/20/)
+Format | `format = kilobytes`| Display appropriate series units in legend and on series pointers. See [Label Formatting](../../syntax/label-formatting.md) for more information. | [![](./images/button.png)](https://apps.axibase.com/chartlab/bf5b45e9)
+Display | `display = value > top(3)`<br>`display = tags.mount_point = '/'`<br>`display = false` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3ebf1cca)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/2/)
+Enable Series | `enabled = false` | Hide series in the widget legend based on expression or boolean statement.<br>See Expression Examples| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/23/)
+Refresh Interval | `refresh-interval = 120` | Define the period in seconds that ATSD waits before refreshing data with new samples. <br>Possible values: `auto`, number. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/24/)
+Refresh Retry Interval | `retry-refresh-interval = 5 minute`| Define the wait period after ATSD receives an empty sample to retry data refresh. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/2ce8eed4)
+Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait period after ATSD handles a server processing error before refreshing data. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dad50363)
+
+### Derived Value Settings
+
+Specify the `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression returns a number or `null`.
+
+Setting | Syntax | Description | Example
+--|--|--|--
+Value | `value = max('s1')`<br>`value = min('s1', '10 minute')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Define series value.<br>Retrieve the value of the underlying series identified by alias.| [![](./images/button.png)](https://apps.axibase.com/chartlab/2b2e7023/4/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
+[Aggregators](../../configuration/aggregators.md) | `value = avg('s1')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Apply an aggregate statistic to the underlying series grouped by period.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/9/)
+Percentile | `value = (1 - percentile(99,'free','5 minute') / percentile(99,'total','5 minute')) * 100`| Apply percentile statistics to the underlying series.<br>Percentile range from `0` to `100`, `alias` and `period`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/10/)
+Forecast| `value = (1 - forecast('free') / forecast('total')) * 100`| Return a forecast for the underlying series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)
+Confidence Intervals | `value = (1 - lower_confidence(90, 'free') / forecast('total')) * 100`<br>`value = (1 - upper_confidence(90, 'free') / forecast('total')) * 100`| Retrieve upper and lower limits of the confidence interval for the underlying series.<br>Arguments: Level-specified integer from `0` to `100`, and `alias`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/14/)
