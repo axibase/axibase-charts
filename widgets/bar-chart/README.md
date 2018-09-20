@@ -5,7 +5,7 @@
 ## Table of Contents
 
 * [Overview](#overview)
-* [Syntax](#syntax)
+* [Settings](#syntax)
   * [`[widget]` Settings](#widget-settings)
   * [`[column]` Settings](#column-settings)
 * [Examples](#examples)
@@ -14,7 +14,7 @@
 
 Bar Charts group series into columns and displays them as horizontal or vertical bars. Refer to [Shared Widget Syntax](../shared/README.md) for inherited settings.
 
-## Syntax
+## Settings
 
 ### `[widget]` Settings
 
