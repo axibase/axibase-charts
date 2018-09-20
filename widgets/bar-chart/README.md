@@ -39,10 +39,6 @@ Name | Example | Description | &nbsp;
 [`display-values`](#display-values)|`display-values = false`|Show or hide bar values.<br>If `mode = stack`, displayed total represents sum of all included series.<br>Default value: `true`.|[↗](https://apps.axibase.com/chartlab/29f11556)
 [`rotate-ticks`](#rotate-ticks)|`rotate-ticks = 45`<br>`rotate-ticks = true`|Rotate `x` axis labels by `n` degrees.<br>Set to `true` to rotate ticks by `90` degrees clockwise.<br>Default value: `0`.|[↗](https://apps.axibase.com/chartlab/68a42888)
 [`sort`](#sort)|`sort = DESC`<br>`sort = value ASC`<br>`sort = cpu_busy DESC`|Sort bars by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>When `mode = stack`, bars are sorted by **total** grouped value.<br>If a column has multiple series, keyword in `sort` setting represents the sum of series values.|[↗](https://apps.axibase.com/chartlab/ab989019)
-[`alert-expression`](#alert-expression)|`alert-expression = value > 10`|Alert criteria.|[↗](https://apps.axibase.com/chartlab/da384229)
-[`alert-style`](#alert-style) | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Optionally, apply unique behavior for each `alert-expression` and series.| [↗](https://apps.axibase.com/chartlab/754d2f99)
-[`column-alert-expression`](#column-alert-expression)|`column-alert-expression = value > 10`|Column alert criteria.|[↗](https://apps.axibase.com/chartlab/c6b766ba)
-[`column-alert-style`](#column-alert-style) | `column-alert-style = fill: red; stroke: red` | Column alert behavior.<br>Optionally, apply alert style to total value of series in each bar. | [↗](https://apps.axibase.com/chartlab/66a259c4)
 [`hide-empty-columns`](#hide-empty-columns)|`hide-empty-columns = true`|Show or hide columns with no data.<br>Default value:`false`.|[↗](https://apps.axibase.com/chartlab/e4603a5f)<br>[↗](https://apps.axibase.com/chartlab/27050141)
 
 ## Column Settings
@@ -52,10 +48,19 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 [`label`](#label)|`label = Column-1`|Column legend label displayed below series columns.|[↗](https://apps.axibase.com/chartlab/4ceaa563)
-[`alert-expression`](#alert-expression-column)|`alert-expression = value > 7`|Alert criteria.<br>Apply alert style based on total value of series inside the bar.|[↗](https://apps.axibase.com/chartlab/da384229)
-[`alert-style`](#alert-style-column) | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Apply alert style based on total value of series inside the bar.| [↗](https://apps.axibase.com/chartlab/754d2f99)
+[`column-alert-expression`](#column-alert-expression)|`column-alert-expression = value > 10`|Column alert criteria.|[↗](https://apps.axibase.com/chartlab/c6b766ba)
+[`column-alert-style`](#column-alert-style) | `column-alert-style = fill: red; stroke: red` | Column alert behavior.<br>Optionally, apply alert style to total value of series in each bar. | [↗](https://apps.axibase.com/chartlab/66a259c4)
 [`column-label-format`](#column-label-format)|`column-label-format = tags.mount_point`|Column label pattern containing text and placeholders.<br>Use any combination of: `entity`, `metric`, `tagName`, `tagValue`,`tags.{tag-name}`,`statistics`, `period`<br>Default value: `entity: metric: tagName=tagValue: statistics - period`|[↗](https://apps.axibase.com/chartlab/7afc353a)
 [`multiple-column`](#multiple-column)|`multiple-column = true`|Applies to [wildcard](../../syntax/wildcards.md) series.<br>Default value: `false`.<br>If `true`, series with the same entity and tags are grouped in the same column.<br>This applies to derived series which are placed in the same column alongside the underlying series.|[↗](https://apps.axibase.com/chartlab/b1609460)
+
+## Series Settings
+
+* Apply to  the `[series]` section.
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+[`alert-expression`](#alert-expression)|`alert-expression = value > 10`|Alert criteria.|[↗](https://apps.axibase.com/chartlab/da384229)
+[`alert-style`](#alert-style) | `alert-style = fill: red; stroke: red` | Alert behavior.<br>Optionally, apply unique behavior for each `alert-expression` and series.| [↗](https://apps.axibase.com/chartlab/754d2f99)
 
 ## Examples
 
