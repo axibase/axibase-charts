@@ -28,8 +28,7 @@ The **Box Chart** displays the minimum and maximum values, median, and customiza
 
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
-[`percentiles`](#percentiles) | `percentiles = 10%/90%` | Percentile range visualized box portion of the chart.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5275c9a3)
-[`class`](#class) | `class = metro` | Alternative visualization style.| [↗](https://apps.axibase.com/chartlab/c147cb06)
+[`class`](#class) | `class = metro` | Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values:<br><li>`metro`<br><li>`default`<br>Default value: `default`.| [↗](https://apps.axibase.com/chartlab/c147cb06)
 
 ### Series Settings
 
@@ -38,7 +37,8 @@ Name |Example |Description |&nbsp;
 
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
-[`percentile-markers`](#percentile-markers)| `percentile-markers = all`<br>`percentile-markers = top` | Percentiles marker style.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/866a4521)
+[`percentiles`](#percentiles) | `percentiles = 10%/90%` | Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5a6925f5)
+[`percentile-markers`](#percentile-markers)| `percentile-markers = all`<br>`percentile-markers = top` | Percentiles marker position.<br>Possible values:<br><li>`all`<br><li>`none`<br><li>`top`<br><li>`bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/866a4521)
 
 ## Examples
 
@@ -54,7 +54,7 @@ Name |Example |Description |&nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/84397e8d)
 
-### `metro` Mode
+### `metro` Class
 
 ![](./images/metro-mode-1.png)
 
