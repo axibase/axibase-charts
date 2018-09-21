@@ -31,7 +31,7 @@ Name |Example |Description |&nbsp;
 [`percentiles`](#percentiles) | `percentiles = 10%/90%` | Percentile range visualized box portion of the chart.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5275c9a3)
 [`class`](#class) | `class = metro` | Alternative visualization style.| [↗](https://apps.axibase.com/chartlab/c147cb06)
 
-### `[series]` Settings
+### Series Settings
 
 * The settings apply to the `[series]` section.
 * [Shared](../shared/README.md) `[setting]` settings are inherited.
@@ -53,12 +53,6 @@ Name |Example |Description |&nbsp;
 ![](./images/alert-expression-1.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/84397e8d)
-
-### Two Series
-
-![](./images/single-series-1.png)
-
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e25a3d17)
 
 ### `metro` Mode
 
