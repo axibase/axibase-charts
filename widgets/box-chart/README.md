@@ -27,7 +27,7 @@ The **Box Chart** displays the minimum and maximum values, median, and customiza
 * [Shared](../shared/README.md) `[widget]` settings are inherited.
 
 Name |Example |Description |&nbsp;
---|--|--|--
+:--|:--|:--|:--
 [`percentiles`](#percentiles) | `percentiles = 10%/90%` | Percentile range visualized box portion of the chart.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5275c9a3)
 [`class`](#class) | `class = metro` | Alternative visualization style.| [↗](https://apps.axibase.com/chartlab/c147cb06)
 
@@ -37,7 +37,7 @@ Name |Example |Description |&nbsp;
 * [Shared](../shared/README.md) `[setting]` settings are inherited.
 
 Name |Example |Description |&nbsp;
---|--|--|--
+:--|:--|:--|:--
 [`percentile-markers`](#percentile-markers)| `percentile-markers = all`<br>`percentile-markers = top` | Percentiles marker style.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/866a4521)
 
 ## Examples
