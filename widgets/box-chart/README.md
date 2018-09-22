@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Box Chart** displays the minimum and maximum values, median, and customizable percentile range for the user-defined time period.
+The **Box Chart** displays a distribution of observed values over a user-defined time interval. The chart shows the minimum and maximum values, the median, and a customizable percentile range.
 
 ```ls
 [widget]
@@ -12,7 +12,6 @@ The **Box Chart** displays the minimum and maximum values, median, and customiza
 
   [series]
     entity = nurswgvml006
-
   [series]
     entity = nurswgvml007
 ```
