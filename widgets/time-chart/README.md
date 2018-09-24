@@ -1,58 +1,71 @@
 # Time Chart
 
-![](./images/time-chart-title.png)
-
 ## Overview
 
-Time Charts display series values at successive time intervals, showing one or more series, each assigned to the left or right value axis and scaled independently. Time Charts load data for a specified time interval and update the chart with incremental values as new data is received.
+The **Time Chart** displays series values at successive time intervals for one or more series. Data is loaded for a specified intervaled and updated as new samples are received.
 
-## Syntax
+```ls
+[widget]
+  title = Time Chart
+  type = chart
+  time-span = 1 hour
+  max-range = 100
 
-Time Charts support [Shared Widget](../shared/README.md) syntax.
+  [series]
+    entity = nurswgvml007
+    metric = cpu_busy
+```
 
-### `[widget]` Settings
+![](./images/time-chart.png)
 
-Setting | Syntax | Description | Example
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7b9d824c)
+
+## Widget Settings
+
+* The settings apply to the `[widget]` section
+* [Shared](../shared/README.md) `[widget]` settings are inherited.
+
+Name | Example | Description | &nbsp;
 --|--|--|--
-Mode | `mode = column`<br>`mode = stack`<br>`mode = range`<br>`mode = column-stack`| Controls Time Chart mode:<br>Stack: Sum like series.<br>Column: Display Time chart in column-form.<br>Range: Display area between series.<br>Column Stack: Sum like series in column-form.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/18/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/19/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/32/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/a6a1cfef/2/)
-Alert | `alert-expression = value > 75`<br>`alert-style = stroke: red; stroke-width: 3`| Define alert rule and behavior.<br>Applied to each series separately.| [![](./images/button.png)](https://apps.axibase.com/chartlab/e4052904)
-Display | `display = false`<br>`display = value > 5`<br>`display = value >= top(3)`<br>`display = this.lastRequestTime - this.last.t < 60 * 60000` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3ebf1cca)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/2/)
-Context Height | `context-height = 50` | Define the height of the context graph. Used to adjust the displayed timespan.<br>`0` by default for the widget in the main window.<br>`70` by default for the widget in the dialog window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/8/)
-Forced Minimum and Maximum Ranges | `min-range-force = 30`<br>`max-range-right-force = 150` | Define strict minimum and maximum value of the left or right axis. If the value of a series does not fall within the set boundaries set by these value gaps, the series is not displayed.<br> For right axis: add `right` to setting, as seen in the syntax example. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/26/)
-Left Tick Marks | `ticks = 10` | Control the number of tick marks on the left axis.<br>`5` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/9/)
-Right Axis Tick Marks | `ticks-right = 10` | Control the number of tick marks on the right axis.<br>`5` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/10/)
-Time Axis Tick Marks | `ticks-time = 20` | Control the number of tick marks on the time (`x`) axis.<br>`10` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/d0e85b27/)
-Timestamp Format | `day-format = %y/%m/%d`<br>`day-format = %Y/%m/%d`<br>`day-format = %Y %m/%d` | Format `x` axis timestamps using Format Syntax. | [![](./images/button.png)](https://apps.axibase.com/chartlab/40dafe6b/2/)
-Time Offset | `time-offset = -200 day`<br>`time-offset = 10 week` | Offset time series day into either the past or future based on sign.<br>Compare day from today to the same data from some ago.<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Use on either `[widget]` or `[series]` level settings.| [![](./images/button.png)](https://apps.axibase.com/chartlab/075941a0/15)
-Display Date | `display-date = true` | Display the time period captured by the Time Chart.<br>`false` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/12/)
-Series Value Markers | `markers = false` | Hide series value markers.<br>Boolean expression, `true` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/46/)
-Last Series Value Marker | `last-marker = false` | Hide most recent series value marker.<br>Boolean expression, `true` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b0069bfe/6/)
-Horizontal Grid | `horizontal-grid = false` | Hide horizontal grid.<br>Boolean expression, `true` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/13/)
-Vertical Grid | `vertical-grid = false` | Hide vertical grid.<br>Boolean expression, `true` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/15/)
-Pointer Position | `pointer-position = left` | Define the location of the final value pointer.<br>Possible values: `left`,`right`,`auto`,`none`.<br>Default: `right`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/52/)
-Auto-scale | `auto-scale = true` | Automatically scale the visible portion of the graph.<br>`false` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/20/)
-Step Line | `step-line = true` | Connect neighboring samples using a step line instead of one which is linearly interpolated.<br>Toggle step line mode by changing `y` axis controls displayed on mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/4f847a24/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3fc3b5e6)
-Auto-period | `auto-period = false` | Automatically define the aggregation period for the series based on the chosen time interval.<br>`true` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/22/)
-Time Span Retention | `retain-time-span = false` | Save the length of the chosen time interval during widget update.<br>`true` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/23/)
-Disconnect Interval | `disconnect-interval = 1 minute` | Defines maximum time gap between data during which points of the series line are connected.<br>If the gap between data is greater than the specified interval, a break is displayed.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/30/)
-Disconnect Count | `disconnect-count = 50` | Define average distance between time values in the series<br>If the gap between data is greater than the defined value,a break is displayed.<br>If `disconnect-count = 1`, the disconnect interval is equal to the mean interval.<br>See Disconnect Count Behavior for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/33/)
-Disconnect Value| `disconnect-value = 0` | Apply disconnect value in tandem with disconnect interval or count.<br> Define the value to be applied to disconnected areas.<br>Use this setting when ATSD is not collecting `null` values or those below a minimum threshold.<br>Additionally, toggle display of disconnect value with **Connect Values** on left axis mouseover menu.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fedaa42e/34/)
-Moving Average | `moving-average = true` | Enable moving average to set aggregation period based on a sliding window ending with the current time.<br>Disable moving average to set aggregation period based on calendar.<br>Boolean expression, possible values: `true` and `false`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b495f8ad/11/)
-Negative Style | `negative-style = fill: red` | Apply CSS styles to negative values of a series in `column` or `column-stack` mode. | [![](./images/button.png)](https://apps.axibase.com/chartlab/37c39d18/5/)
-Current Period Style | `current-period-style = fill-opacity: 0; stroke-width: 2; stroke-dasharray: 5, 2, 1, 2` | Apply CSS styles to values of the current period, such as the most recent hour, day, or week, in `column` and `column-stack` mode.| [![](./images/button.png)](https://apps.axibase.com/chartlab/37c39d18)
-Forecast Style | `forecast-style = stroke: magenta` | Apply CSS styles to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.| [![](./images/button.png)](https://apps.axibase.com/chartlab/37c39d18/3/)
+Display | `display = false`<br>`display = value > 5`<br>`display = value >= top(3)`<br>`display = this.lastRequestTime - this.last.t < 60 * 60000` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [↗](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[↗](https://apps.axibase.com/chartlab/3ebf1cca)<br>[↗](https://apps.axibase.com/chartlab/3f080fe4/2/)
+Context Height | `context-height = 50` | Define the height of the context graph. Used to adjust the displayed timespan.<br>`0` by default for the widget in the main window.<br>`70` by default for the widget in the dialog window. | [↗](https://apps.axibase.com/chartlab/fedaa42e/8/)
+Forced Minimum and Maximum Ranges | `min-range-force = 30`<br>`max-range-right-force = 150` | Define strict minimum and maximum value of the left or right axis. If the value of a series does not fall within the set boundaries set by these value gaps, the series is not displayed.<br> For right axis: add `right` to setting, as seen in the syntax example. | [↗](https://apps.axibase.com/chartlab/fedaa42e/26/)
+Left Tick Marks | `ticks = 10` | Control the number of tick marks on the left axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/9/)
+Right Axis Tick Marks | `ticks-right = 10` | Control the number of tick marks on the right axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/10/)
+Time Axis Tick Marks | `ticks-time = 20` | Control the number of tick marks on the time (`x`) axis.<br>`10` by default. | [↗](https://apps.axibase.com/chartlab/d0e85b27/)
+Timestamp Format | `day-format = %y/%m/%d`<br>`day-format = %Y/%m/%d`<br>`day-format = %Y %m/%d` | Format `x` axis timestamps using Format Syntax. | [↗](https://apps.axibase.com/chartlab/40dafe6b/2/)
+Time Offset | `time-offset = -200 day`<br>`time-offset = 10 week` | Offset time series day into either the past or future based on sign.<br>Compare day from today to the same data from some ago.<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Use on either `[widget]` or `[series]` level settings.| [↗](https://apps.axibase.com/chartlab/075941a0/15)
+Display Date | `display-date = true` | Display the time period captured by the Time Chart.<br>`false` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/12/)
+Series Value Markers | `markers = false` | Hide series value markers.<br>Boolean expression, `true` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/46/)
+Last Series Value Marker | `last-marker = false` | Hide most recent series value marker.<br>Boolean expression, `true` by default. | [↗](https://apps.axibase.com/chartlab/b0069bfe/6/)
+Horizontal Grid | `horizontal-grid = false` | Hide horizontal grid.<br>Boolean expression, `true` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/13/)
+Vertical Grid | `vertical-grid = false` | Hide vertical grid.<br>Boolean expression, `true` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/15/)
+Pointer Position | `pointer-position = left` | Define the location of the final value pointer.<br>Possible values: `left`,`right`,`auto`,`none`.<br>Default: `right`.| [↗](https://apps.axibase.com/chartlab/fedaa42e/52/)
+Auto-scale | `auto-scale = true` | Automatically scale the visible portion of the graph.<br>`false` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/20/)
+Step Line | `step-line = true` | Connect neighboring samples using a step line instead of one which is linearly interpolated.<br>Toggle step line mode by changing `y` axis controls displayed on mouseover. | [↗](https://apps.axibase.com/chartlab/4f847a24/2/)<br>[↗](https://apps.axibase.com/chartlab/3fc3b5e6)
+Auto-period | `auto-period = false` | Automatically define the aggregation period for the series based on the chosen time interval.<br>`true` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/22/)
+Time Span Retention | `retain-time-span = false` | Save the length of the chosen time interval during widget update.<br>`true` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/23/)
+Disconnect Interval | `disconnect-interval = 1 minute` | Defines maximum time gap between data during which points of the series line are connected.<br>If the gap between data is greater than the specified interval, a break is displayed.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [↗](https://apps.axibase.com/chartlab/fedaa42e/30/)
+Disconnect Count | `disconnect-count = 50` | Define average distance between time values in the series<br>If the gap between data is greater than the defined value,a break is displayed.<br>If `disconnect-count = 1`, the disconnect interval is equal to the mean interval.<br>See Disconnect Count Behavior for more information.| [↗](https://apps.axibase.com/chartlab/fedaa42e/33/)
+Disconnect Value| `disconnect-value = 0` | Apply disconnect value in tandem with disconnect interval or count.<br> Define the value to be applied to disconnected areas.<br>Use this setting when ATSD is not collecting `null` values or those below a minimum threshold.<br>Additionally, toggle display of disconnect value with **Connect Values** on left axis mouseover menu.| [↗](https://apps.axibase.com/chartlab/fedaa42e/34/)
+Moving Average | `moving-average = true` | Enable moving average to set aggregation period based on a sliding window ending with the current time.<br>Disable moving average to set aggregation period based on calendar.<br>Boolean expression, possible values: `true` and `false`.| [↗](https://apps.axibase.com/chartlab/b495f8ad/11/)
+Negative Style | `negative-style = fill: red` | Apply CSS styles to negative values of a series in `column` or `column-stack` mode. | [↗](https://apps.axibase.com/chartlab/37c39d18/5/)
+Current Period Style | `current-period-style = fill-opacity: 0; stroke-width: 2; stroke-dasharray: 5, 2, 1, 2` | Apply CSS styles to values of the current period, such as the most recent hour, day, or week, in `column` and `column-stack` mode.| [↗](https://apps.axibase.com/chartlab/37c39d18)
+Forecast Style | `forecast-style = stroke: magenta` | Apply CSS styles to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.| [↗](https://apps.axibase.com/chartlab/37c39d18/3/)
 
-### `[threshold]` Settings
+### Threshold Settings
+
+* The settings apply to the `[threshold]` section.
 
 ![](./images/threshold-settings.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/4101b548)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/4101b548)
 
 Use `[threshold]` settings to define series thresholds. Load the series and include `display = false` settings under `[widget]` settings. Assign the series an `alias`. Under `[threshold]` settings, define the threshold value with `value = value('alias')` as seen in the **ChartLab** example below.
 
 ![](./images/series-thresholds2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/13899000)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/13899000)
 
 Setting | Syntax | Description
 --|--|--
@@ -60,18 +73,18 @@ Label | `label = threshold` | Define the name of the threshold to be displayed i
 Color | `color = red` | Define threshold line color.<br>By default, a random color is used.
 Value | `value = 60`<br>`value = value('alias')`| Define threshold value. Set in JavaScript form when `alert-expression` for series uses the same format.
 
-### `[series]` Settings
+### Series Settings
 
-If you add several series with the same `entity`, `metric` and other optional settings such as `label`, `color`, `format`, etc., you can set them for the first series only and subsequent series inherit the settings.
+* The settings apply to the `[series]` section.
 
-Setting | Syntax | Description | Example
+Name | Example | Description | &nbsp;
 --|--|--|--
-Mode | `mode = column` | Apply mode setting to both or either `[widget]` and `[series]` settings. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b0069bfe)
-[Alert Expression](../../syntax/alert-expression.md)| `alert-expression = value < 95` | Apply separate alert rules to several series with one `alert-style` in `[widget]` settings. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
-Alert Style | `alert-style = fill: red; stroke: red`| Apply separate alert styles to several series with one `alert-expression` in `[widget]` settings.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
-Fill Value | `fill-value = true`| Apply interpolation mode to a computed series if the values are irregularly spaced.<br>Set to `true` to fill missing samples with interpolated values.<br>Detailed values are filled in using `linear` interpolation.<br>Aggregated periods are filled with `previous` values.<br>If `fill-value = false`, missing samples are filled with `0` or `null`.<br>Boolean expression, `true` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fba9e293)
-Load Future Data | `load-future-data = true` | Load future series values.<br>Import forecasts generated by third-party tools such as R language.<br>Boolean expression. | [![](./images/button.png)](https://apps.axibase.com/chartlab/5e8363c0/2/)
-Series Type | `series-type = s3` | Use this setting in `stack` mode as a grouping parameter.<br>Series of like types are grouped together or summed.<br>Set a unique series type to achieve fill effect without applying `stack` mode.| [![](./images/button.png)](https://apps.axibase.com/chartlab/19146ba0)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/19146ba0/2/)
+[`mode`](#mode) | `mode = column`<br>`mode = stack`<br>`mode = range`<br>`mode = column-stack`| Time Chart mode.<br>Possible values:<br><li>`stack`: Visually stack series.<br><li>`column`: Display series as columns.<br><li>`range`: Display range of series values.<br><li>`column-stack`: Visually stack series in column-form.| [↗](https://apps.axibase.com/chartlab/47c16847)<br>[↗](https://apps.axibase.com/chartlab/711f260c)<br>[↗](https://apps.axibase.com/chartlab/d4af051b)<br>[↗](https://apps.axibase.com/chartlab/976097d9)
+[`alert-expression`](#alert-expression)| `alert-expression = value > 75` | Boolean expression to apply conditional style to the series.<br>The CSS style must be specified in the alert-style setting.<br>The `value` field refers to the series value. | [↗](https://apps.axibase.com/chartlab/deb917bb)
+[`alert-style`](#alert-style) | `alert-style = fill: orange; stroke: orange`| CSS style applied to the series if `alert-expression` is `true`.| [↗](https://apps.axibase.com/chartlab/3f31ad2c)
+[`fill-value`](#fill-value) | `fill-value = true`| Interpolate a computed series with irregularly spaced values.<br>Set to `true` to fill missing samples with interpolated values.<br>Detailed values are filled in using `linear` interpolation.<br>Aggregated periods are filled with `previous` values.<br>If `fill-value = false`, missing samples are filled with `0` or `null`.<br>Boolean expression<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/3a1a0a7a)
+[`load-future-data`](#load-future-data) | `load-future-data = true` | Load future series values.<br>Import forecasts generated by third-party tools such as [R language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Boolean expression.<br>Default value: `false` | [↗](https://apps.axibase.com/chartlab/f7c7a105)
+[`series-type`](#series-type) | `series-type = s1` | `stack` mode grouping parameter.<br>Series the same type are grouped together or summed.<br>Set a unique series type for fill effect without `stack`.| [↗](https://apps.axibase.com/chartlab/19146ba0)<br>[↗](https://apps.axibase.com/chartlab/19146ba0/2/)
 
 ### Series Visibility
 
