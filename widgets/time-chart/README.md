@@ -27,10 +27,8 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 Name | Example | Description | &nbsp;
 --|--|--|--
-Display | `display = false`<br>`display = value > 5`<br>`display = value >= top(3)`<br>`display = this.lastRequestTime - this.last.t < 60 * 60000` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [↗](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[↗](https://apps.axibase.com/chartlab/3ebf1cca)<br>[↗](https://apps.axibase.com/chartlab/3f080fe4/2/)
-Context Height | `context-height = 50` | Define the height of the context graph. Used to adjust the displayed timespan.<br>`0` by default for the widget in the main window.<br>`70` by default for the widget in the dialog window. | [↗](https://apps.axibase.com/chartlab/fedaa42e/8/)
-Forced Minimum and Maximum Ranges | `min-range-force = 30`<br>`max-range-right-force = 150` | Define strict minimum and maximum value of the left or right axis. If the value of a series does not fall within the set boundaries set by these value gaps, the series is not displayed.<br> For right axis: add `right` to setting, as seen in the syntax example. | [↗](https://apps.axibase.com/chartlab/fedaa42e/26/)
-Left Tick Marks | `ticks = 10` | Control the number of tick marks on the left axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/9/)
+[`context-height`](#context-height) | `context-height = 50` | Define the height of the [Context Chart](#time-chart-controls)<br>Default value: `0`.<br> | [↗](https://apps.axibase.com/chartlab/2e0bf373)
+`ticks` | `ticks = 10` | Control the number of tick marks on the left axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/9/)
 Right Axis Tick Marks | `ticks-right = 10` | Control the number of tick marks on the right axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/10/)
 Time Axis Tick Marks | `ticks-time = 20` | Control the number of tick marks on the time (`x`) axis.<br>`10` by default. | [↗](https://apps.axibase.com/chartlab/d0e85b27/)
 Timestamp Format | `day-format = %y/%m/%d`<br>`day-format = %Y/%m/%d`<br>`day-format = %Y %m/%d` | Format `x` axis timestamps using Format Syntax. | [↗](https://apps.axibase.com/chartlab/40dafe6b/2/)
@@ -79,6 +77,7 @@ Value | `value = 60`<br>`value = value('alias')`| Define threshold value. Set in
 
 Name | Example | Description | &nbsp;
 --|--|--|--
+`display` | `display = false`<br>`display = value > 5`<br>`display = value >= top(3)`<br>`display = this.lastRequestTime - this.last.t < 60 * 60000` | Series display setting.<br> Filter series based on metric values for widgets containing many series.<br>Refer to [Expression Syntax Documentation](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax) for more information.| [↗](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[↗](https://apps.axibase.com/chartlab/3ebf1cca)<br>[↗](https://apps.axibase.com/chartlab/3f080fe4/2/)
 [`mode`](#mode) | `mode = column`<br>`mode = stack`<br>`mode = range`<br>`mode = column-stack`| Time Chart mode.<br>Possible values:<br><li>`stack`: Visually stack series.<br><li>`column`: Display series as columns.<br><li>`range`: Display range of series values.<br><li>`column-stack`: Visually stack series in column-form.| [↗](https://apps.axibase.com/chartlab/47c16847)<br>[↗](https://apps.axibase.com/chartlab/711f260c)<br>[↗](https://apps.axibase.com/chartlab/d4af051b)<br>[↗](https://apps.axibase.com/chartlab/976097d9)
 [`alert-expression`](#alert-expression)| `alert-expression = value > 75` | Boolean expression to apply conditional style to the series.<br>The CSS style must be specified in the alert-style setting.<br>The `value` field refers to the series value. | [↗](https://apps.axibase.com/chartlab/deb917bb)
 [`alert-style`](#alert-style) | `alert-style = fill: orange; stroke: orange`| CSS style applied to the series if `alert-expression` is `true`.| [↗](https://apps.axibase.com/chartlab/3f31ad2c)
