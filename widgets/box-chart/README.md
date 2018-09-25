@@ -28,6 +28,7 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
 [`class`](#class) | `class = metro` | Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values:<br><li>`metro`<br><li>`default`<br>Default value: `default`.| [↗](https://apps.axibase.com/chartlab/c147cb06)
+[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
 
 ### Series Settings
 
@@ -37,7 +38,7 @@ Name |Example |Description |&nbsp;
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
 [`percentiles`](#percentiles) | `percentiles = 10%/90%` | Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5a6925f5)
-[`percentile-markers`](#percentile-markers)| `percentile-markers = all`<br>`percentile-markers = top` | Percentiles marker position.<br>Possible values:<br><li>`all`<br><li>`none`<br><li>`top`<br><li>`bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/866a4521)
+[`percentile-markers`](#percentile-markers)| `percentile-markers = all`<br>`percentile-markers = top` | Percentiles marker position.<br>Possible values:<br><li>`all`<br><li>`none`<br><li>`top`<br><li>`bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/061c731e)
 
 ## Examples
 
@@ -55,6 +56,6 @@ Name |Example |Description |&nbsp;
 
 ### `metro` Class
 
-![](./images/metro-mode-1.png)
+![](./images/metro-class-image.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/61dd4397)
