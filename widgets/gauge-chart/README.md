@@ -1,64 +1,81 @@
 # Gauge Chart
 
-![](./images/multiple-gauges.png)
+## Overview
 
-Gauge Chart displays last series value on a gauge with colored threshold ranges. If the gauge widget contains multiple series, it displays the sum of the series values.
+The **Gauge Chart** displays last series value on a gauge with colored threshold ranges.
 
-## Syntax
+```ls
+[widget]
+  type = gauge
+  title = Gauge Chart
+  thresholds = 0
+  thresholds = 100
 
-Gauge Charts support [Shared Widget](../shared/README.md) syntax.
+  [series]
+    entity = nurswgvml006
+    metric = cpu_busy
+```
 
-### `[widget]` Settings
+![](./images/gauge-chart-title.png)
 
-|Setting |Syntax |Description |Example |
-|--- |--- |--- |--- |
-|Mode|`mode = sleek`|Gauge layout mode.<br>Possible values: `sleek`, `half`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/25/)[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/26/)|
-|Thresholds|`thresholds = 0, 50, 90, 100`|Comma-separated threshold values or expressions to split the gauge axis into multiple ranges.<br>Each range is assigned a color with the `colors` or `color-range` setting. |[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)[![](./images/button.png)](https://apps.axibase.com/chartlab/a1c1aec3)|
-|Colors|`colors = green, yellow, red`|Determines colors of threshold ranges.<br>The number of colors must be equal to the number of thresholds minus `1`: `50` (green), `50-90` (yellow), `90-100` (red).|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/24/)|
-|Color Range|`color-range = black`|Color palette automatically assigned to threshold ranges.<br>Possible values: `blue`, `red`, `black`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/27/)|
-|Gradient Intensity|`gradient-intensity = -25% / 75%`|Color intensity of the first and the last sector in each range.<br>Possible values: `-.2`/`.7` (or `-20%`/`70%`).|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/10/)|
-|Gradient Count|`gradient-count = 5, 2, 1`|Number of gradients in each range. |[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/34/)|
-|Caption|`caption = KPI`|Text displayed on top of the gauge.<br> Caption can be split into multiple lines.<br>HTML markup is supported.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/25/)|
-|Caption Style|`caption-style = color: silver`|CSS style applied to caption.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/28/)|
-|Ticks|`ticks = 4`|Number of major ticks on gauge axis.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/11/)|
-|Minor Ticks|`minor-ticks = 4`|Number of minor ticks between major ticks.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/12/)|
-|Display Ticks|`display-ticks = true`|Display ticks on the axis.<br>`true` by default.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/33/)|
-|Counter Position|`counter-position = none`|Counter position.<br>Possible values: `top`, `bottom`, `none`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/31/)|
-|Display Tip|`display-tip = true`|Display last value marker.<br>Possible values: `true`, `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/30/)|
-|Format Tip|`format-tip = d3.format("0.1f")`<br>`format-tip = kilobytes`|Last value format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
-|Format Axis|`format-axis = Math.round(value * 10)/10 + "%"`|Value axis format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
-|Format Counter|`format-counter = d3.format("0.3f")`|Counter format.|[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/29/)|
-|Ring Width|`ring-width = 0.2`|Width of the colored ring area, measured as `%` of radius.<br>Possible values are between `0` and `1`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/3134e9d6)|
-|Border Width|`border-width = 0.3`|Offset between gauge ring and parent container,measured as `%` of radius.<br>Possible values are between `0` and `1`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/3134e9d6/2)|
-|Pin Radius|`pin-radius = 0.2`|Radius of the inner circle holding the arrow, measured as `%` of radius.<br>Possible values are between `0` and `1`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/ea2d99cf)|
-|Arrow Length|`arrow-length = 0.3`|Length of the gauge arrow, measured as `%` of radius.<br>Possible values are between `0` and `1`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/ea2d99cf/2/)|
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/d84140e2)
+
+## Widget Settings
+
+* The settings apply to the `[widget]` section
+* [Shared](../shared/README.md) `[widget]` settings are inherited
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+|[`mode`](#mode)|`mode = sleek`|Widget mode.<br>Possible values: `auto`, `sleek`, `half`.<br>Default value: `auto`|[↗](https://apps.axibase.com/chartlab/d7016bd7)|
+|[`thresholds`](#thresholds)|`thresholds = 0, 50, 90, 100`|Comma-separated threshold **absolute** values or expressions which split the gauge axis into multiple ranges.<br>Assign each range a color with the `colors` or `color-range` setting. |[↗](https://apps.axibase.com/chartlab/01288425/24/)|
+|[`colors`](#colors)|`colors = green, yellow, red`|Color of each threshold range.|[↗](https://apps.axibase.com/chartlab/01288425/24/)|
+|[`color-range`](#color-range)|`color-range = black`|Color palette automatically assigned to threshold ranges.<br>Possible values: `red`, `blue`, `black`.|[↗](https://apps.axibase.com/chartlab/d5f9b1a4)|
+|[`gradient-intensity`](#gradient-intensity)|`gradient-intensity = -20% / 70%`|Contrast of each color range in a gauge.<br>Possible values: `-.2/.7` notation or `-20%/70%` notation.|[↗](https://apps.axibase.com/chartlab/0e2b04c8)|
+|[`gradient-count`](#gradient-count)|`gradient-count = 2, 4, 6, 8`|Number of gradient sections in each color range. |[↗](https://apps.axibase.com/chartlab/afe2a26c)|
+|[`caption`](#caption)|`caption = <h1>Operating System`|Text displayed above gauge.<br>Multiple lines are supported (see example configuration).<br>HTML markup is supported.|[↗](https://apps.axibase.com/chartlab/01288425/25/)|
+|[`caption-style`](#caption-style)|`caption-style = font-size: 64px; font-weight: bold; color: silver;`|CSS style applied to caption.|[↗](https://apps.axibase.com/chartlab/01288425/28/)|
+|[`ticks`](#ticks)|`ticks = 4`|Number of major ticks on gauge axis.<br>Default value: `3`|[↗](https://apps.axibase.com/chartlab/01288425/11/)|
+|[`minor-ticks`](#minor-ticks)|`minor-ticks = 4`|Number of minor ticks per major tick.<br>Default value: `0`|[↗](https://apps.axibase.com/chartlab/01288425/12/)|
+|[`display-ticks`](#display-ticks)|`display-ticks = true`|Display ticks on the axis.<br>Boolean expression.<br>Default value: `true`.|[↗](https://apps.axibase.com/chartlab/01288425/33/)|
+|[`counter-position`](#counter-position)|`counter-position = none`|Counter position.<br>Possible values: `top`, `bottom`, `none`.<br>Default value: `bottom`.|[↗](https://apps.axibase.com/chartlab/01288425/31/)|
+|[`display-tip`](#display-tip)|`display-tip = false`|Value tip marker.<br>Boolean expression.<br>Default value: `true`.|[↗](https://apps.axibase.com/chartlab/01288425/30/)|
+|[`format-tip`](#format-tip)|`format-tip = d3.format("0.1f")`<br>`format-tip = kilobytes`|Value tip format.<br>Refer to [Label Formatting](../../syntax/label-formatting.md) for possible values.|[↗](https://apps.axibase.com/chartlab/01288425/29/)|
+|[`format-axis`](#format-axis)|`format-axis = Math.round(value * 10)/10 + "%"`|Value axis format.<br>Refer to [Label Formatting](../../syntax/label-formatting.md) for possible values.|[↗](https://apps.axibase.com/chartlab/01288425/29/)|
+|[`format-counter`](#format-counter)|`format-counter = d3.format("0.3f")`|Counter format.<br>Refer to [Label Formatting](../../syntax/label-formatting.md) for possible values.|[↗](https://apps.axibase.com/chartlab/01288425/29/)|
+|[`ring-width`](#ring-width)|`ring-width = 0.2`|Width of the gauge ring area.<br>Percent of total possible width.<br>Possible values:<br>**Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/3134e9d6)|
+|[`border-width`](#border-width)|`border-width = 0.3`|Offset between gauge ring and container.<br>Percent of total possible radius.<br>Possible values:<br>**Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/3134e9d6/2)|
+|[`pin-radius`](#pin-radius)|`pin-radius = 0.2`|Radius of pin base.<br>Percent of total possible radius.<br>Possible values:<br>**Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/ea2d99cf)|
+|[`arrow-length`](#arrow-length)|`arrow-length = 0.3`|Length of gauge arrow.<br>Percent of total possible length.<br>Possible values:<br>**Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/ea2d99cf/2/)|
 
 ## Examples
 
 ### Default Style
 
-![](./images/default-style.png)
+![](./images/default-style-image.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/2/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/2c983790)
 
-### Range
+### `half` Mode
 
-![](./images/range.png)
+![](./images/half-mode-image.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/35/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/2fd9e1b1)
 
-### Sleek
+### `sleek` Mode
 
-[![](./images/sleek.png)](https://apps.axibase.com/chartlab/01288425/3/)
+![](./images/sleek-mode.png)
 
-### Half Style
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/01141aa9)
 
-![](./images/half-style.png)
+### Thresholds
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/20/)
+![](./images/thresholds-image-1.png)
 
-### Advanced Sum
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/01288425/20/)
 
-![](./images/gauge-chart.png)
+### Advanced Configuration Example
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/01288425/6/)
+![](./images/advanced-configuration-example.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/a22d8ee0)
