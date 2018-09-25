@@ -10,10 +10,10 @@ The **Shared Settings** are common settings supported by all widgets.
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-[`type`](#type) | `type = chart`| Widget type.<br>Possible values:<br>[`chart`](../time-chart/README.md), [`gauge`](../gauge-chart/README.md), [`bar`](../bar-chart/README.md), [`histogram`](../histogram/README.md), [`box`](../box-chart/README.md), [`calendar`](../calendar-chart/README.md), [`treemap`](../treemap/README.md), [`pie`](../pie-chart/README.md), [`console`](../alert-console/README.md), [`property`](../property-table/README.md), [`text`](../text-widget/README.md), [`page`](../page-widget/README.md), [`graph`](../graph/README.md)| [↗](https://apps.axibase.com/chartlab/e926d483)
+[`type`](#type) | `type = chart`| Widget visualization type: [`chart`](../time-chart/README.md), [`gauge`](../gauge-chart/README.md), [`bar`](../bar-chart/README.md), [`histogram`](../histogram/README.md), [`box`](../box-chart/README.md), [`calendar`](../calendar-chart/README.md), [`treemap`](../treemap/README.md), [`pie`](../pie-chart/README.md), [`console`](../alert-console/README.md), [`property`](../property-table/README.md), [`text`](../text-widget/README.md), [`page`](../page-widget/README.md), [`graph`](../graph/README.md)| [↗](https://apps.axibase.com/chartlab/e926d483)
 [`tooltip`](#tooltip) | `tooltip = Daily Averages` | Widget description displayed on title mouseover. | [↗](https://apps.axibase.com/chartlab/61c9771e)
-[`header-style`](#header-style)| `header-style = color: red`| CSS style to change widget header colors or to hide it.| [↗](https://apps.axibase.com/chartlab/b4c45b71/2/)
-[`colors`](#colors) | `colors = green, #ccc` | Comma separated list of colors applied to series shapes (lines, rectangles, circles).<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default value: `steelblue, orange, green, purple`.| [↗](https://apps.axibase.com/chartlab/55dde7a7)
+[`header-style`](#header-style)| `header-style = color: red`| CSS style to change the header color or to hide it.| [↗](https://apps.axibase.com/chartlab/b4c45b71/2/)
+[`colors`](#colors) | `colors = green, #ccc` | Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default value: `steelblue, orange, green, purple`.| [↗](https://apps.axibase.com/chartlab/55dde7a7)
 [`offset-left`](#offset) | `offset-left = 50` | Offset from the left page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/720677c3)
 [`offset-right`](#offset) | `offset-right = 50` | Offset from the right page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/7c30a34b)
 [`offset-top`](#offset) | `offset-top = 50` | Offset from the top page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/fcbb484b)
@@ -63,9 +63,9 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-[`metric`](#metric) | `metric = cpu_busy` | Metric name.<br>Alternatively: `table` and `attribute`. | [↗](https://apps.axibase.com/chartlab/4e4994ea)
+[`metric`](#metric) | `metric = cpu_busy` | Metric name.<br>When requesting data from a relational database specify both `table` and `attribute` as an alternative. | [↗](https://apps.axibase.com/chartlab/4e4994ea)
 [`table`](#table) | `table = KLZ_CPU`| Table in the relational database from which to retrieve numeric values.<br>Alternative to `metric` setting.<br>Both `table` and `attribute` must be defined.| [↗](https://apps.axibase.com/chartlab/35fde2bf)
-[`attribute`](#attribute) | `attribute = Current_Average` | Column name in a relational database. The column must be of numeric data type.  | [↗](https://apps.axibase.com/chartlab/35fde2bf)
+[`attribute`](#attribute) | `attribute = Current_Average` | Column name in a relational database table. The column must be of numeric data type.  | [↗](https://apps.axibase.com/chartlab/35fde2bf)
 [`data-type`](#data-type) | `data-type = forecast` | Series data type.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.| [↗](https://apps.axibase.com/chartlab/08625792)
 [`forecast-name`](#forecast-name) | `forecast-name = hw5` | Forecast name.<br>If no forecast name is defined, [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.| [↗](https://apps.axibase.com/chartlab/3e5fa03c)
 
@@ -124,14 +124,14 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 [`color`](#color) | `color = orange` | Series color.<br>Possible values: [color name](https://en.wikipedia.org/wiki/Web_colors) or hex code. | [↗](https://apps.axibase.com/chartlab/18bbef10)
 [`label`](#label) | `label = CPU Busy - nurswgvml007` | Series label displayed in the legend. Overrides `label-format`. | [↗](https://apps.axibase.com/chartlab/dad7c267)
-[`style`](#style) | `style = stroke-width: 4`<br>`style = stroke-dasharray: 5 1 2` | CSS style applied to the series line.| [↗](https://apps.axibase.com/chartlab/fb6d13d9)<br>[↗](https://apps.axibase.com/chartlab/6d91d52f) [↗](https://apps.axibase.com/chartlab/5e47cfbe)
+[`style`](#style) | `style = stroke-width: 4`<br>`style = stroke-dasharray: 5 1 2` | CSS style applied to the series shape.| [↗](https://apps.axibase.com/chartlab/fb6d13d9)<br>[↗](https://apps.axibase.com/chartlab/6d91d52f) [↗](https://apps.axibase.com/chartlab/5e47cfbe)
 [`tooltip`](#tooltip) | `tooltip = NURSWGVML007` | Tooltips displayed on mouseover. | [↗](https://apps.axibase.com/chartlab/1687516c)
 [`axis`](#axis) | `axis = right` | Series axis placement.<br>Possible values: `left`, `right`<br>Default value: `left`| [↗](https://apps.axibase.com/chartlab/da03b8a5/20/)
 [`format`](#format)| `format = kilobytes` | Format series values with a [measurement unit](../../syntax/format-settings.md).| [↗](https://apps.axibase.com/chartlab/c957cf22)
 [`display`](#display) | `display = value > top(3)`<br>`display = false` | Hide series based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).| [↗](https://apps.axibase.com/chartlab/fbbab68b)<br>[↗](https://apps.axibase.com/chartlab/628cd2b0)<br>
-[`enabled`](#enabled) | `enabled = false`<br>`enabled = max('1 day') > 10` | Hide series based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>Series legend remains visible when `false`. | [↗](https://apps.axibase.com/chartlab/63c18977)
-[`alert-expression`](#alert-expression)| `alert-expression = value < 95` | Boolean expression to apply conditional style to the series.<br>The CSS style must be specified in the `alert-style` setting.<br>The `value` field refers to the series value. | [↗](https://apps.axibase.com/chartlab/e389a1ab)
-[`alert-style`](#alert-style) | `alert-style = fill: red; stroke: red`| CSS style applied to the series rectangle if `alert-expression` is `true`.| [↗](https://apps.axibase.com/chartlab/ddd854be)
+[`enabled`](#enabled) | `enabled = false`<br>`enabled = max('1 day') > 10` | Toggle series visibility based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>Series legend remains visible when `false`. | [↗](https://apps.axibase.com/chartlab/63c18977)
+[`alert-expression`](#alert-expression)| `alert-expression = value < 95` | Boolean expression to apply conditional CSS style to series shapes.<br>The CSS style must be specified in the `alert-style` setting.<br>The `value` field refers to the series value. | [↗](https://apps.axibase.com/chartlab/e389a1ab)
+[`alert-style`](#alert-style) | `alert-style = fill: red; stroke: red`| CSS style applied to the series shape if `alert-expression` returns `true`.| [↗](https://apps.axibase.com/chartlab/ddd854be)
 [`audio-alert`](#audio-alert) | `audio-alert = /portal/resource/alarm.ogg`| Play an [audio file](../../configuration/audio-alerts.md) when `alert-expression` evaluates to `true`.| [↗](https://apps.axibase.com/chartlab/59a834f3/2/)
 
 ### Transformation
@@ -151,7 +151,9 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 [`statistics`](#statistics) | `statistic = avg`| Aggregation statistic functions.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.| [↗](https://apps.axibase.com/chartlab/0143f4e7)
 [`period`](#period) | `period = 15 minute`| [Aggregator](https://axibase.com/docs/atsd/api/data/series/aggregate.html#aggregate-processor) period.<br>Possible values: `count` + [time unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)| [↗](https://apps.axibase.com/chartlab/661181a3)
-[`align`](#align) | `align = END_TIME` | Alignment of the series start/end time.<br>Possible values: `START_TIME`, `END_TIME`, `CALENDAR`, `FIRST_VALUE_TIME`.<br>Default value: `CALENDAR`<br>Refer to [Aggregate Processor](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) for more information.| [↗](https://apps.axibase.com/chartlab/e2b5bc91)
+[`align`](#align) | `align = END_TIME` | [Alignment](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) of the period start or end time.<br>Possible values: `CALENDAR`, `START_TIME`, `END_TIME`, `FIRST_VALUE_TIME`.<br>Default value: `CALENDAR`.| [↗](https://apps.axibase.com/chartlab/e2b5bc91)
+[`interpolate`](#interpolate) | `interpolate = LINEAR` | Interpolate missing aggregation periods.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE` | [↗](https://apps.axibase.com/chartlab/7af6f848)
+[`interpolate-extend`](#interpolate-extend)| `interpolate-extend = true` | Interpolate leading and trailing periods with `NEXT` or `PREVIOUS` value.| [↗](https://apps.axibase.com/chartlab/4a3b8f7a)
 
 > See also [Aggregation](https://axibase.com/docs/atsd/api/data/series/aggregate.html) transformation in REST API.
 
@@ -159,9 +161,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-[`interpolate`](#interpolate) | `interpolate = LINEAR` | Interpolate missing aggregation periods.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE` | [↗](https://apps.axibase.com/chartlab/7af6f848)
-[`interpolate-extend`](#interpolate-extend)| `interpolate-extend = true` | Interpolate leading and trailing periods with `NEXT` or `PREVIOUS` value.| [↗](https://apps.axibase.com/chartlab/4a3b8f7a)
-[`interpolate-function`](#interpolate-function) | `interpolate-function = linear` | Interpolation function used for entire series, instead of only missing values.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`| [↗](https://apps.axibase.com/chartlab/6221d836)
+[`interpolate-function`](#interpolate-function) | `interpolate-function = linear` | Interpolation function applied to detailed samples.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`| [↗](https://apps.axibase.com/chartlab/6221d836)
 [`interpolate-period`](#interpolate-period) | `interpolate-period = 1 minute` | Define the period for interpolated values.<br>Possible values:<br>`count` + [time unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html) | [↗](https://apps.axibase.com/chartlab/6221d836)
 [`interpolate-boundary`](#interpolate-boundary) | `interpolate-boundary = outer` | [Interpolation](https://axibase.com/docs/atsd/api/data/series/interpolate.html#boundary) for leading and trailing values.<br>Possible values:<br>`inner`: Data outside of the selection interval is not loaded by the database.<br>`outer`: One value before and one value after the selection interval is loaded by the database to interpolate leading and trailing values.<br>Default value: `inner`| [↗](https://apps.axibase.com/chartlab/5713cdf9)
 [`interpolation-fill`](#interpolation-fill) | `interpolate-fill = true` | Interpolate values outside of the selection interval.<br>Possible values: `true`, `false`, `count` of values to fill.<br>Default value: `false`| [↗](https://apps.axibase.com/chartlab/9361ea19)
