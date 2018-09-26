@@ -27,8 +27,8 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
-[`class`](#class) | `class = metro` | Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`, `default`<br>Default value: `default`.| [↗](https://apps.axibase.com/chartlab/c147cb06)
-[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
+<a name="class"></a>[`class`](#class) | `class = metro` | Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`, `default`<br>Default value: `default`.| [↗](https://apps.axibase.com/chartlab/c147cb06)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
 
 ### Series Settings
 
@@ -37,8 +37,8 @@ Name |Example |Description |&nbsp;
 
 Name |Example |Description |&nbsp;
 :--|:--|:--|:--
-[`percentiles`](#percentiles) | `percentiles = 10%/90%` | Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5a6925f5)
-[`percentile-markers`](#percentile-markers)| `percentile-markers = all` | Percentiles marker position.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/061c731e)
+<a name="percentiles"></a>[`percentiles`](#percentiles) | `percentiles = 10%/90%` | Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5a6925f5)
+<a name="percentile-markers"></a>[`percentile-markers`](#percentile-markers)| `percentile-markers = all` | Percentiles marker position.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/061c731e)
 
 ## Examples
 
