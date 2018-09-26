@@ -31,7 +31,7 @@ The **Bar Chart** displays last series values as horizontal or vertical bars.
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="horizontal"></a>`horizontal` | `horizontal = true` | Display bars horizontally.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/e0206a41)
-<a name="stack"></a>`stack` | `stack = false` | Disable series grouping to display each series in a separate column.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/fe3b8818)
+<a name="stack"></a> [`stack`](#stack) | `stack = false` | Disable series grouping to display each series in a separate column.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/fe3b8818)
 <a name=""></a>`group`|`group = region`<br>`group = entity, metric`|List of fields to group series series into columns.<br>Default value: `metric`.|[↗](https://apps.axibase.com/chartlab/f61bafc0)
 <a name="entity-label"></a>`entity-label`|`entity-label = srv007`|Override grouped series legend when `group=entity`.|[↗](https://apps.axibase.com/chartlab/7bee2721)
 <a name="metric-label"></a>`metric-label`|`metric-label = CPU Busy, %`|Override grouped series legend when `group=metric`.|[↗](https://apps.axibase.com/chartlab/7136a0aa)
