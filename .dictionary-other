@@ -7,6 +7,8 @@ hierarchial
 highchart[s]?
 fullscreen
 sparkline[s]?
+tagName
+tagValue
 treemap[s]?
 unsorted
 unscale[d]?
