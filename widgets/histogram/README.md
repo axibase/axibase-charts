@@ -7,11 +7,7 @@ The **Histogram Chart** visualizes data distribution.
 ```ls
 [widget]
   type = histogram
-  right-axis = density
-  top-axis = percentiles
   mode = stack
-  percentiles = 1, 25, 50, 75, 90, 99.9
-  horizontal-grid = density
 
   [series]
       metric = memfree
@@ -21,9 +17,9 @@ The **Histogram Chart** visualizes data distribution.
       entity = nurswgvml006
 ```
 
-![](./images/histogram-chart-title.png)
+![](./images/histogram-title-chart.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/5f79628e)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/dc9b8198)
 
 ## Widget Settings
 
@@ -45,14 +41,14 @@ Name | Example | Description | &nbsp;
 
 ## Examples
 
-### `stack` Mode
-
-![](./images/histogram-chart-title.png)
-
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/5f79628e)
-
 ### Multiple Series
 
 ![](./images/multiple-series.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/34733f85)
+
+### Advanced Configuration Example
+
+![](./images/histogram-chart-title.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/5f79628e)
