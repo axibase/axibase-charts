@@ -6,10 +6,10 @@ install:
   - wget https://raw.githubusercontent.com/axibase/atsd/master/.travis-functions.sh && source .travis-functions.sh
   - install_checkers
 script:
-#  - print_modified_markdown_files
-#  - spellcheck --single
-#  - linkcheck
-#  - stylecheck
+  - print_modified_markdown_files
+  - spellcheck --single
+  - linkcheck
+  - stylecheck
   - validate_anchors
 cache:
   directories:
