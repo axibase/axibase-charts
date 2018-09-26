@@ -30,14 +30,14 @@ The **Calendar Chart** displays the deviation of aggregated series values for a 
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-[`summarize-period`](#summarize-period) | `summarize-period = 1 hour` | Period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `auto`, `count time_unit`.<br>Default value: `auto` (`5 minutes`) | [↗](https://apps.axibase.com/chartlab/5da13f1d)
-[`summarize-statistic`](#summarize-statistic) | `summarize-statistic = percentile_75` | [Statistical function](../../configuration/aggregators.md) applied to values within each period.<br>Possible values: `avg`, `max`, `min`, `sum`, `count`, `percentile_99`, `percentile_95`, `percentile_90`, `percentile_75`, `percentile_50`, `median`.<br>Default value: `avg`.| [↗](https://apps.axibase.com/chartlab/0d76b3c0)
-[`color-range`](#color-range) | `color-range = green yellow orange`| Calendar color range.<br>Each color signifies the sample value relative to the threshold: less than, equal to, and greater than, respectively. |[↗](https://apps.axibase.com/chartlab/e2aa5acc)
+<a name="summarize-period"></a>[`summarize-period`](#summarize-period) | `summarize-period = 1 hour` | Period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `auto`, `count time_unit`.<br>Default value: `auto` (`5 minutes`) | [↗](https://apps.axibase.com/chartlab/5da13f1d)
+<a name="summarize-statistic"></a>[`summarize-statistic`](#summarize-statistic) | `summarize-statistic = percentile_75` | [Statistical function](../../configuration/aggregators.md) applied to values within each period.<br>Possible values: `avg`, `max`, `min`, `sum`, `count`, `percentile_99`, `percentile_95`, `percentile_90`, `percentile_75`, `percentile_50`, `median`.<br>Default value: `avg`.| [↗](https://apps.axibase.com/chartlab/0d76b3c0)
+<a name="color-range"></a>[`color-range`](#color-range) | `color-range = green yellow orange`| Calendar color range.<br>Each color signifies the sample value relative to the threshold: less than, equal to, and greater than, respectively. |[↗](https://apps.axibase.com/chartlab/e2aa5acc)
 [`gradient-count`](#gradient-range) | `gradient-count = 2` | Amount of gradient colors between each color defined by `color-range`. | [↗](https://apps.axibase.com/chartlab/ac1b1044)
-[`palette-ticks`](#palette-ticks) | `palette-ticks = true` | Display legend labels.<br>Boolean expression.<br>Default Value: `false` | [↗](https://apps.axibase.com/chartlab/b9961101)
-[`rotate-palette-ticks`](#rotate-palette-ticks) | `rotate-palette-ticks = true` | Rotate legend labels.<br>Boolean expression<br>`true` rotates ticks to vertical.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/0f9e807b/2/)
-[`range-merge`](#range-merge) | `range-merge = true` | Compute a single set of ranges for all series with minimum and maximum from all loaded series.<br>Boolean expression.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/0f9e807b/4/)
-[`sort`](#sort) | `sort = name DESC` | Sort entities by name or value in ascending (`ASC`) or descending (`DESC`) order.<br> | [↗](https://apps.axibase.com/chartlab/431e0d53)
+<a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks) | `palette-ticks = true` | Display legend labels.<br>Boolean expression.<br>Default Value: `false` | [↗](https://apps.axibase.com/chartlab/b9961101)
+<a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks) | `rotate-palette-ticks = true` | Rotate legend labels.<br>Boolean expression<br>`true` rotates ticks to vertical.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/0f9e807b/2/)
+<a name="range-merge"></a>[`range-merge`](#range-merge) | `range-merge = true` | Compute a single set of ranges for all series with minimum and maximum from all loaded series.<br>Boolean expression.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/0f9e807b/4/)
+<a name="sort"></a>[`sort`](#sort) | `sort = name DESC` | Sort entities by name or value in ascending (`ASC`) or descending (`DESC`) order.<br> | [↗](https://apps.axibase.com/chartlab/431e0d53)
 
 ### Series Settings
 
@@ -46,7 +46,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-[`thresholds`](#thresholds) | `thresholds = 0, 25, 50, 75, 100` | Threshold values by which series values are assigned colors.| [↗](https://apps.axibase.com/chartlab/0c1b1096)
+<a name="thresholds"></a>[`thresholds`](#thresholds) | `thresholds = 0, 25, 50, 75, 100` | Threshold values by which series values are assigned colors.| [↗](https://apps.axibase.com/chartlab/0c1b1096)
 
 ## Examples
 
