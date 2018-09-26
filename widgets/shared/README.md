@@ -15,10 +15,10 @@ Name | Example | Description | &nbsp;
 <a name="tooltip"></a>[`tooltip`](#tooltip) | `tooltip = Daily Averages` | Widget description displayed on title mouseover. | [↗](https://apps.axibase.com/chartlab/61c9771e)
 <a name="header-style"></a>[`header-style`](#header-style)| `header-style = color: red`| CSS style to change the header color or to hide it.| [↗](https://apps.axibase.com/chartlab/b4c45b71/2/)
 <a name="colors"></a>[`colors`](#colors) | `colors = green, #ccc` | Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/55dde7a7)
-[`offset-left`](#offset) | `offset-left = 50` | Offset from the left page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/720677c3)
-[`offset-right`](#offset) | `offset-right = 50` | Offset from the right page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/7c30a34b)
-[`offset-top`](#offset) | `offset-top = 50` | Offset from the top page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/fcbb484b)
-[`offset-bottom`](#offset) | `offset-bottom = 50` | Offset from the bottom page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/1baa3e3a)
+<a name="offset-left"></a>[`offset-left`](#offset-left) | `offset-left = 50` | Offset from the left page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/720677c3)
+<a name="offset-right"></a>[`offset-right`](#offset-right) | `offset-right = 50` | Offset from the right page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/7c30a34b)
+<a name="offset-top"></a>[`offset-top`](#offset-top) | `offset-top = 50` | Offset from the top page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/fcbb484b)
+<a name="offset-bottom"></a>[`offset-bottom`](#offset-bottom) | `offset-bottom = 50` | Offset from the bottom page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/1baa3e3a)
 <a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.| [↗](https://apps.axibase.com/chartlab/1679114f)
 
 ### Data Loading
@@ -27,7 +27,7 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="timespan"></a>[`timespan`](#timespan) | `timespan = 6 hour` | Date interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `endtime` setting, `endtime` is `now`.<br>Format: `count time_unit`.<br>Default value: `1 hour`.| [↗](https://apps.axibase.com/chartlab/f08405c6)
 <a name="start-time"></a>[`start-time`](#start-time)| `start-time = 2018-07-05 12:00:00` | Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html).<br>When `start-time` is specified, either `endtime` **or** `timespan` is also required. | [↗](https://apps.axibase.com/chartlab/451287d3)
-[`end-time`](#endtime) | `endtime = 2018-07-05 13:00:00` | End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html).<br>When `endtime` is specified, either `start-time` **or** `timespan` is also required.| [↗](https://apps.axibase.com/chartlab/1565799f)
+<a name="end-time"></a>[`end-time`](#end-time) | `endtime = 2018-07-05 13:00:00` | End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html).<br>When `endtime` is specified, either `start-time` **or** `timespan` is also required.| [↗](https://apps.axibase.com/chartlab/1565799f)
 <a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | URL of the ATSD server.<br>The setting is necessary if the data is loaded from an ATSD server running on a different host. | [↗](https://apps.axibase.com/chartlab/88885921)
 <a name="context-path"></a>[`context-path`](#context-path) | `context-path = /api/v2/`| Context path is the prefix of the URL path that is used to select the context to which an incoming request is passed.<br>Default value: `/api/v1/`.|[↗](https://apps.axibase.com/chartlab/ed175a7b)
 <a name="method-path"></a>[`method-path`](#method-path) | `method-path = /series/query` | Data API method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`.<br>URL for data requests is assembled from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/ba823304)
@@ -49,7 +49,7 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="legend-position"></a>[`legend-position`](#legend-position) | `legend-position = left` | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.| [↗](https://apps.axibase.com/chartlab/b5b85ba5)
-[`label-format`](#format-labels)| `label-format = entity` | Series label pattern consisting of literal text and [placeholders](../../syntax/label-formatting.md).| [↗](https://apps.axibase.com/chartlab/f2bed31b)
+<a name="label-format"></a>[`label-format`](#label-format)| `label-format = entity` | Series label pattern consisting of literal text and [placeholders](../../syntax/label-formatting.md).| [↗](https://apps.axibase.com/chartlab/f2bed31b)
 
 ### Axis
 
@@ -188,7 +188,7 @@ Name | Example | Description | &nbsp;
 <a name="group-statistic"></a>[`group-statistic`](#group-statistic) | `group-statistic = sum` | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.| [↗](https://apps.axibase.com/chartlab/fb67609c)
 <a name="group-period"></a>[`group-period`](#group-period) | `group period = 1 month` |Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (`15 minutes`)| [↗](https://apps.axibase.com/chartlab/2ee1bace)
 <a name="group-first"></a>[`group-first`](#group-first) | `group-first = false` | The sequence of aggregation and grouping.<br>If set to `true`, grouping is performed before aggregation.| [↗](https://apps.axibase.com/chartlab/732de421)
-[`group-interpolate`](#group-interpolation) | `group-interpolate = LINEAR` | Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.| [↗](https://apps.axibase.com/chartlab/f0a36dac)
+<a name="group-interpolate"></a>[`group-interpolate`](#group-interpolate) | `group-interpolate = LINEAR` | Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.| [↗](https://apps.axibase.com/chartlab/f0a36dac)
 <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](#group-interpolate-extend) | `group-interpolate-extend = true` | Fill missing leading and trailing periods with `NEXT` or `PREVIOUS` values.| [↗](https://apps.axibase.com/chartlab/f0a36dac)
 
 > See also [Grouping](https://axibase.com/docs/atsd/api/data/series/group.html) transformation in REST API.
@@ -210,7 +210,7 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="smooth"></a>[`smooth`](#smooth) | `smooth = AVG` | [Averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Possible values: `AVG`, `EMA`, `WAVG`, `WTAVG`. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
-[`smooth-factor`](#smooth-range) | `smooth-factor = 0.5` | [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter. Possible values: between `0` and `1`. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
+<a name="smooth-factor"></a>[`smooth-factor`](#smooth-factor) | `smooth-factor = 0.5` | [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter. Possible values: between `0` and `1`. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
 <a name="smooth-range"></a>[`smooth-range`](#smooth-range) | `smooth-range = 60000` | Alternative [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
 <a name="smooth-count"></a>[`smooth-count`](#smooth-count) | `smooth-count = 50` | Window size.<br>A larger window performs greater smoothing. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
 <a name="smooth-interval"></a>[`smooth-interval`](#smooth-interval) | `smooth-interval = 15 minute` | Window duration interval, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/3734bd35/4)
