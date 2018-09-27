@@ -7,7 +7,6 @@ The **Gauge Chart** displays last series value on a gauge with colored threshold
 ```ls
 [widget]
   type = gauge
-  title = Gauge Chart
   thresholds = 0
   thresholds = 100
 
