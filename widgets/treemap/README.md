@@ -27,7 +27,7 @@ The **Treemap Widget** displays each series as a colored rectangle according to 
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="display-total"></a>[`display-total`](#display-total) |`display-total = false` |Display the sum of rectangle sizes in widget header<br>Boolean expression.<br>Default value: `true`. |[↗](https://apps.axibase.com/chartlab/8b6c610b)
+<a name="display-total"></a>[`display-total`](#display-total) |`display-total = false` |Display the sum of rectangle sizes in widget header.<br>Boolean expression.<br>Default value: `true`. |[↗](https://apps.axibase.com/chartlab/8b6c610b)
 <a name="size-name"></a>[`size-name`](#size-name) |`size-name = Value` |Specify secondary title if `display-total = true`.<br>`size-name` value appended to default title `Total`. |[↗](https://apps.axibase.com/chartlab/b6f22079)
 <a name="format-size"></a>[`format-size`](#format-size) |`format-size = kilobytes` |Format `size` setting values.<br>Refer to [Format Settings](../../syntax/format-settings.md) for possible values. |[↗](https://apps.axibase.com/chartlab/fa892920) |
 <a name="font-size"></a>[`font-size`](#font-size) |`font-size = 15` |Universal font size in integer value.<br>All widget text, except `title` are affected.<br>Default value: `10`. |[↗](https://apps.axibase.com/chartlab/afef0605)
@@ -36,7 +36,7 @@ Name | Example | Description | &nbsp;
 <a name="gradient-count"></a>[`gradient-count`](#gradient-count) |`gradient-count = 2` |Number of gradients in each range. |[↗](https://apps.axibase.com/chartlab/aeeffb8f/16/)
 <a name="total-size"></a>[`total-size`](#total-size) |`total-size = 70` |Maximum size of all rectangles combined.<br>If `total-size` is greater than combined size of all rectangles, additional space is filled `white`.|[↗](https://apps.axibase.com/chartlab/6542dddf)
 <a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks) | `palette-ticks = true` | Display legend labels on mouseover.<br>Boolean expression.<br>Default Value: `false`. | [↗](https://apps.axibase.com/chartlab/07fb9bac)
-<a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks) | `rotate-palette-ticks = true` | Rotate legend labels.<br>Boolean expression<br>`true` rotates ticks to vertical.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/1401481e)
+<a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks) | `rotate-palette-ticks = true` | Rotate legend labels.<br>Boolean expression.<br>`true` rotates ticks to vertical.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/1401481e)
 <a name="range-merge"></a>[`range-merge`](#range-merge) | `range-merge = true` | Compute a single range for all series with minimum and maximum from all loaded series.<br>Boolean expression.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/b28955af)
 <a name="mode"></a>[`mode`](#mode) |`mode = row` |Specify widget layout.<br>Possible values: `default`, `row`: Align rectangles as rows, `column`: Align rectangles as columns, `auto`: Switch between row and column modes depending on widget size.<br>Default value: `default`. |[↗](https://apps.axibase.com/chartlab/11f02c30)
 
