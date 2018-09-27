@@ -6,7 +6,6 @@ The **Calendar Chart** displays the deviation of aggregated series values for a 
 
 ```ls
 [widget]
-  title = Calendar Chart
   type = calendar
   time-span = 3 hour
   metric = cpu_busy
