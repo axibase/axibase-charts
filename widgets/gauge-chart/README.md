@@ -22,7 +22,7 @@ The **Gauge Chart** displays last series value on a gauge with colored threshold
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md) `[widget]` settings are inherited.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
