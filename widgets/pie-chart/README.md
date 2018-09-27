@@ -29,7 +29,7 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="mode"></a>[`mode`](#mode)|`mode = ring`|Chart mode.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`.|[↗](https://apps.axibase.com/chartlab/7217e679)
-<a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|`on-series-double-click = ''`|Disable [double click functionality](#syntax) in the widget.|[↗](https://apps.axibase.com/chartlab/b18445b6)
+<a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|`on-series-double-click = ''`|Disable [double click functionality](#widget-settings) in the widget.|[↗](https://apps.axibase.com/chartlab/b18445b6)
 <a name="selector-mode"></a>[`selector-mode`](#selector-mode)|`selector-mode = highlight`|Control how series segments react to click interaction.<br>Possible values:<br>`highlight`: Highlights the selected series segment.<br>`expand`: Expands the selected series segment.|[↗](https://apps.axibase.com/chartlab/099862db)
 <a name="total-value"></a>[`total-value`](#total-value)|`total-value = 1024`|Explicitly specify total value.<br> If no `total-value` setting is specified, total widget value is the sum of all series values.<br>Possible values: Numbers, `series('alias')`.|[↗](https://apps.axibase.com/chartlab/64587dc6)
 
@@ -64,10 +64,10 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-|<a name="display"></a>[`display`](#display)|`display = false`|Display the difference between `total-value` and `sum` of visible series values.<br>If `total-value` is defined, but `[other]` tag is missing, `[other]` section is not displayed.<br>Boolean expression.<br>Default: `true`|[↗](https://apps.axibase.com/chartlab/03201f9e)|
-<a name="label"></a>[`label`](#label)|`label = Unmonitored Memory`|Label of the `[other]` section.<br>Default: `Other`|[↗](https://apps.axibase.com/chartlab/064091fa)|
-<a name="tooltip"></a>[`tooltip`](#tooltip)|`tooltip = Unmonitored memory (HMC disabled)`|Tooltip for the `[other]` section displayed upon mouseover.<br>Default: `Other`|[↗](https://apps.axibase.com/chartlab/03be3f7d)|
-<a name="color"></a>[`color`](#color)|`color = black`|Color of the `[other]` section.<br>Default: `lightgray`|[↗](https://apps.axibase.com/chartlab/db9f4d31)|
+|<a name="display"></a>[`display`](#display)|`display = false`|Display the difference between `total-value` and `sum` of visible series values.<br>If `total-value` is defined, but `[other]` tag is missing, `[other]` section is not displayed.<br>Boolean expression.<br>Default: `true`.|[↗](https://apps.axibase.com/chartlab/03201f9e)|
+<a name="label"></a>[`label`](#label)|`label = Unmonitored Memory`|Label of the `[other]` section.<br>Default: `Other`.|[↗](https://apps.axibase.com/chartlab/064091fa)|
+<a name="tooltip"></a>[`tooltip`](#tooltip)|`tooltip = Unmonitored memory (HMC disabled)`|Tooltip for the `[other]` section displayed upon mouseover.<br>Default: `Other`.|[↗](https://apps.axibase.com/chartlab/03be3f7d)|
+<a name="color"></a>[`color`](#color)|`color = black`|Color of the `[other]` section.<br>Default: `lightgray`.|[↗](https://apps.axibase.com/chartlab/db9f4d31)|
 
 ## Examples
 
@@ -89,7 +89,7 @@ Name | Example | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/f1cd6467)
 
-### `total` Setting and `[other]` Section
+### `total-value` Setting and `[other]` Section
 
 ![](./images/total-and-other-example.png)
 
