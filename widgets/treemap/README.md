@@ -69,7 +69,6 @@ Name | Example | Description | &nbsp;
 * If a value contains `=` or `\`, escape the characters, for example `\=` or `\\`, respectively.
 
 ```ls
-/* Define Series Tooltip */
 [properties]
   Data Center = Cuperito
   Site = California
