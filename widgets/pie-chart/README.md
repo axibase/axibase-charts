@@ -1,177 +1,102 @@
 # Pie Chart
 
-![](./images/pie-chart.png)
-
 ## Overview
 
-Pie Chart illustrates numerical proportions between series values and their total value.
+The **Pie Chart** illustrates numerical proportions between series and total values.
 
-## Syntax
+```ls
+[widget]
+  title = Pie Chart
+  type = pie
 
-Pie Charts support [Shared Widget](../shared/README.md) syntax.
+  [series]
+    entity = nurswgvml0*
+    metric = cpu_busy
+```
 
-Pie Charts include unique behavior upon clicking a segment of the visualization:
+![](./images/pie-title-1.png)
 
-* Single-Click: Opens a dialog window with a [time chart](../time-chart/README.md) for the series.
-* Double-Click: Expand or collapse the selected pie segment.
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/28362f9b)
 
-> Control initial segment position with the `expand` setting.
+## Widget Settings
 
-### `[widget]` Settings
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* The **Pie Chart** includes unique behavior upon clicking a segment of the visualization:
+  * Single Click: Opens a dialog window with a [**Time Chart**](../time-chart/README.md) for the series.
+  * Double Click: Controlled by `selector-mode`, `on-series-double-click`, and `expand` setting. Default behavior is `expand` upon double click.
 
-<!-- markdownlint-disable MD102 -->
-
-Setting|Syntax|Description|Example
---|--|--|--
-|Mode|`mode = ring`|Display a ring instead of circle.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/9/)|
-|Total Value|`total-value = 1024` `total-value = value('007-root') + value('006-root')`|Define the total value explicitly, otherwise it is computed as the sum of all series values.<br>`total-value` can be calculated by referencing other series similar to computed series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/3/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/61665be7)|
-|Expand|`expand = true`|Set under either `[widget]` or `[series]` settings.<br>Expand all segments or an individual segment.<br> Possible values: `true`, `false`.<br>Double-click modifies `expand` setting interactively.|[![](./images/button.png)](https://apps.axibase.com/chartlab/e670a008/2/)|
-|Selector Mode|`selector-mode = highlight`|Controls how pie segments react to click interaction. Possible Settings: highlight, expand. Highlight – double click highlights the selected pie segment, other segments are greyed out. Expand – double click expands the selected pie segment.|[![](./images/button.png)](https://apps.axibase.com/chartlab/535a6aec)|
-|Series Double Click|`on-series-double-click = ''`|Disable [double click functionality](#syntax) in the widget.|[![](./images/button.png)](https://apps.axibase.com/chartlab/89dce57d)|
-
-<!-- markdownlint-enable MD102 -->
-
-### `[series]` Settings
-
-Inherited settings from [Shared Widget Syntax](../shared/README.md): `entity`, `metric`, `style`, `color`, `label`, `tooltip`, `format`, `display`, `hidden`, `refresh-interval`, `retry-refresh-interval`, `error-refresh-interval`.
-
-Setting|Syntax|Description|Example
---|--|--|--
-|Series Labels|`series-labels = inside`<br>`series-labels = outside`<br>`series-labels = connected`<br>`series-labels = value >= 2000000 ? 'connected' : 'auto'`|Display values for each pie slice (series) as a tick.<br>Possible settings: `inside`, `outside`, `connected`, `auto`, `none`<br>Default value: `none`<br>Set to an expression that changes the label type depending on series value.|[![](./images/button.png)](https://apps.axibase.com/chartlab/9e04b681)[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/13/)|
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+<a name="mode"></a>[`mode`](#mode)|`mode = ring`|Chart mode.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`.|[↗](https://apps.axibase.com/chartlab/7217e679)
+<a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|`on-series-double-click = ''`|Disable [double click functionality](#syntax) in the widget.|[↗](https://apps.axibase.com/chartlab/b18445b6)
+<a name="selector-mode"></a>[`selector-mode`](#selector-mode)|`selector-mode = highlight`|Control how series segments react to click interaction.<br>Possible values:<br>`highlight`: Highlights the selected series segment.<br>`expand`: Expands the selected series segment.|[↗](https://apps.axibase.com/chartlab/099862db)
+<a name="total-value"></a>[`total-value`](#total-value)|`total-value = 1024`|Explicitly specify total value.<br> If no `total-value` setting is specified, total widget value is the sum of all series values.<br>Possible values: Numbers, `series('alias')`.|[↗](https://apps.axibase.com/chartlab/64587dc6)
 
 ### Icon and Caption Settings
 
-Apply icons and captions to series when Pie Chart mode is set to [`ring`](#widget-settings).
+* Apply icons and captions to the **Pie Chart** when `mode = ring`.
 
-Setting|Syntax|Description|Example
---|--|--|--
-|Icon|`icon = public/img/svg/linear/users.svg`<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`|Display an `.svg` icon in chart ring.<br>Path to custom icons must be defined.<br>The icon directory is `/opt/atsd/atsd/conf/portal/img/` in ATSD.<br>ATSD includes a built-in collection of icons.<br>Built-in icons are referenced by name, without the full path.<br>See the [Icon Reference Sheet.](resources/atsd-embedded-icons.pdf) for available icons.<br>Substitute underscores (`_`) in built-in icon names with dashes(`-`):<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/4/)[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/6/)|
-|Icon Alert Expression|`icon-alert-expression = value('s1') > 10`|Apply alert rules to the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
-|Icon Alert Style|`icon-alert-style = return alert > 12000 ? 'fill: red' : 'fill:green';`|Apply styles to the icon when the `alert-expression` is satisfied.|[![](./images/button.png)](https://apps.axibase.com/chartlab/41a759f9)|
-|Caption|`caption = Administrative Users`|Display a caption below the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee)|
-|Caption Style|`caption-style = font-size: 64px; font-weight: bold; fill: silver;`|Apply a style to the caption.|[![](./images/button.png)](https://apps.axibase.com/chartlab/56400dee/2/)|
-|Minimum Font Size|`min-font-size`|Minimum caption font size.<br>Font size cannot scale below set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
-|Maximum Font Size|`max-font-size`|Maximum caption font size.<br>Font size cannot scale above set size.|[![](./images/button.png)](https://apps.axibase.com/chartlab/91065173/3/)|
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+<a name="icon"></a>[`icon`](#icon)|`icon = public/img/svg/linear/users.svg`|Display `.svg` icon in **Pie Chart** ring.<br>Path to custom icons must be defined.<br>Default ATSD icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without the full path.<br>See the [Icon Reference Sheet](resources/atsd-embedded-icons.pdf) for built-in icons.|[↗](https://apps.axibase.com/chartlab/dfe686f7)
+<a name="icon-alert-expression"></a>[`icon-alert-expression`](#icon-alert-expression)|`icon-alert-expression = value('s1') > value('s2')`|Boolean expression to apply conditional CSS style to series icons.<br>The CSS style must be specified in the `icon-alert-style` setting.<br>The `value` field refers to the series value.|[↗](https://apps.axibase.com/chartlab/f534ac48)
+<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|`icon-alert-style = return alert > 12000 ? 'fill: red' : 'fill:green';`|CSS style applied to the series shape if `icon-alert-expression` returns `true`.|[↗](https://apps.axibase.com/chartlab/f534ac48)
+<a name="caption"></a>[`caption`](#caption)|`caption = Administrative Users`|Display a caption below the icon.<br>Caption is updated upon series double click.|[↗](https://apps.axibase.com/chartlab/9261f982)
+<a name="caption-style"></a>[`caption-style`](#caption-style)|`caption-style = font-size: 64px; font-weight: bold; fill: silver;`|Apply CSS style to the caption.<br>Caption style is updated upon series double click.|[↗](https://apps.axibase.com/chartlab/9145cc0f)
+<a name="min-font-size"></a>[`min-font-size`](#min-font-size)|`min-font-size`|Minimum caption font size.<br>Font size cannot scale below specified size.|[↗](https://apps.axibase.com/chartlab/30d94fc5)
+<a name="max-font-size"></a>[`max-font-size`](#max-font-size)|`max-font-size`|Maximum caption font size.<br>Font size cannot scale above specified size.|[↗](https://apps.axibase.com/chartlab/30d94fc5)
 
-### `[other]` Settings
+## Series Settings
 
-Setting|Syntax|Description|Example
---|--|--|--
-|Display|`display = false`|Display the difference between `total-value` and `sum` of visible series values.<br>If `total-value` is defined, but `[other]` tag is missing, `[other]` section is not displayed.<br>Default: `true`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/4/)|
-|Label|`label = Unmonitored memory`|Label of the `[other]` section.<br>Default: `Other`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
-|Tooltip|`tooltip = Unmonitored memory (HMC disabled)`|Tooltip for the `[other]` section displayed upon mouseover.<br>Default: `Other`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
-|Color|`color = silver`|Color of the `[other]` section.<br>Default: `lightgray`|[![](./images/button.png)](https://apps.axibase.com/chartlab/ae9927ad/2/)|
+* The settings apply to the `[series]` section.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+<a name="expand"></a>[`expand`](#expand)|`expand = true`|Expand series segment when `true`.<br>Expand all series segments when `true` in `[series]` section.<br>Boolean expression.<br>Default value: `false`.|[↗](https://apps.axibase.com/chartlab/f5684bc4)|
+<a name="series-labels"></a>[`series-labels`](#series-labels)|`series-labels = inside`|Display value labels for each series segment.<br>Set as an [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax) which changes the label type based on series value.<br>Possible settings: `inside`, `outside`, `connected`, `auto`, `none`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/e644f68f)|
+
+### Other Settings
+
+* The settings apply to the `[other]` section.
+* Specifying the `[other]` section creates an addition segment not associated with any series which displays a value or spare capacity.
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+|<a name="display"></a>[`display`](#display)|`display = false`|Display the difference between `total-value` and `sum` of visible series values.<br>If `total-value` is defined, but `[other]` tag is missing, `[other]` section is not displayed.<br>Boolean expression.<br>Default: `true`|[↗](https://apps.axibase.com/chartlab/03201f9e)|
+<a name="label"></a>[`label`](#label)|`label = Unmonitored Memory`|Label of the `[other]` section.<br>Default: `Other`|[↗](https://apps.axibase.com/chartlab/064091fa)|
+<a name="tooltip"></a>[`tooltip`](#tooltip)|`tooltip = Unmonitored memory (HMC disabled)`|Tooltip for the `[other]` section displayed upon mouseover.<br>Default: `Other`|[↗](https://apps.axibase.com/chartlab/03be3f7d)|
+<a name="color"></a>[`color`](#color)|`color = black`|Color of the `[other]` section.<br>Default: `lightgray`|[↗](https://apps.axibase.com/chartlab/db9f4d31)|
 
 ## Examples
 
-### Configuration
+### Ring Icons and Captions
 
-```ls
-[widget]
-  type = pie
-  timespan = 15 minute
-  format = kilobytes
+![](./images/ring-icons-and-captions.png)
 
-  [series]
-    entity = nurswgvml010
-    metric = memfree
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/e31d60be)
 
-  [series]
-    entity = nurswgvml006
-    metric = memfree
+### Series Labels Expression
 
-  [series]
-    entity = nurswgvml007
-    metric = memfree
-```
+![](./images/series-labels-expression.png)
 
-![](./images/pie-chart-config.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/2/)
-
-### Ring Icons
-
-```ls
-[widget]
-  type = pie
-  mode = ring
-  ring-width = 50
-
-[series]
-  label = Admin Users
-```
-
-![](./images/ring-icons.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/2ffc3aff/3/)
-
-### Series Labels
-
-```ls
-[widget]
-  series-labels = value >= 2000000 ? 'connected' : 'auto'
-```
-
-![](./images/series-labels.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/01a92e22)
-
-### Pie
-
-```ls
-[widget]
-  type = pie
-```
-
-![](./images/pie-chart-1.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6)
-
-### Ring
-
-```ls
-[widget]
-  type = pie
-  mode = ring
-```
-
-![](./images/pie-ring.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/9)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7f7a1bc3)
 
 ### Alert
 
-```ls
-[widget]
-  alert-expression = value < 3*1024*1024
-  alert-style = fill: red
-```
+![](./images/alert-expression-example.png)
 
-![](./images/pie-alert.png)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/f1cd6467)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7111ece6/10)
+### `total` Setting and `[other]` Section
 
-### Total and Other
+![](./images/total-and-other-example.png)
 
-```ls
-[widget]
-  total-value = 1048576
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/051e6dcf)
 
-[other]
-  display = true
-```
+### Hidden `[other]` Section
 
-![](./images/pie-other.png)
+![](./images/hidden-other-section.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/837064f0)
-
-### Hidden Other Segment
-
-```ls
-[widget]
-total-value = 1048576
-```
-
-![](./images/pie-other-hidden.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aaca8e62/2/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/fe53362c)
