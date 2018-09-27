@@ -60,7 +60,7 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗](https://apps.axibase.com/chartlab/529700a6)
 <a name="label"></a>[`label`](#label) | `label = Total Capacity`| Rectangle label.<br>Default value: `Size`. |[↗](https://apps.axibase.com/chartlab/9777258c)
-`color` | `color = black`| Color applied to `[other]` section.<br>Default value: `grey`.|[↗](https://apps.axibase.com/chartlab/c06aabd2)
+<a name="color"></a>[`color`](#color) | `color = black`| Color applied to `[other]` section.<br>Default value: `grey`.|[↗](https://apps.axibase.com/chartlab/c06aabd2)
 
 ### Properties Settings
 
