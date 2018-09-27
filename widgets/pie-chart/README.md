@@ -20,6 +20,8 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 
 ## Widget Settings
 
+<!-- markdownlint-disable MD102 -->
+
 * The settings apply to the `[widget]` section.
 * [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 * The **Pie Chart** includes unique behavior upon clicking a segment of the visualization:
@@ -32,6 +34,8 @@ Name | Example | Description | &nbsp;
 <a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|`on-series-double-click = ''`|Disable [double click functionality](#widget-settings) in the widget.|[↗](https://apps.axibase.com/chartlab/b18445b6)
 <a name="selector-mode"></a>[`selector-mode`](#selector-mode)|`selector-mode = highlight`|Control how series segments react to click interaction.<br>Possible values:<br>`highlight`: Highlights the selected series segment.<br>`expand`: Expands the selected series segment.|[↗](https://apps.axibase.com/chartlab/099862db)
 <a name="total-value"></a>[`total-value`](#total-value)|`total-value = 1024`|Explicitly specify total value.<br> If no `total-value` setting is specified, total widget value is the sum of all series values.<br>Possible values: Numbers, `series('alias')`.|[↗](https://apps.axibase.com/chartlab/64587dc6)
+
+<!-- markdownlint-enable MD102 -->
 
 ### Icon and Caption Settings
 
