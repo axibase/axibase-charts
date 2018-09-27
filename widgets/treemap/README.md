@@ -38,7 +38,7 @@ Name | Example | Description | &nbsp;
 <a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks) | `palette-ticks = true` | Display legend labels on mouseover.<br>Boolean expression.<br>Default Value: `false`. | [↗](https://apps.axibase.com/chartlab/07fb9bac)
 <a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks) | `rotate-palette-ticks = true` | Rotate legend labels.<br>Boolean expression<br>`true` rotates ticks to vertical.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/1401481e)
 <a name="range-merge"></a>[`range-merge`](#range-merge) | `range-merge = true` | Compute a single range for all series with minimum and maximum from all loaded series.<br>Boolean expression.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/b28955af)
-<a name="mode"></a>[`mode`](#mode) |`mode = row` |Specifiy widget layout.<br>Possible values: `default`, `row`: Align rectangles as rows, `column`: Align rectangles as columns, `auto`: Switch between row and column modes depending on widget size.<br>Default value: `default`. |[↗](https://apps.axibase.com/chartlab/11f02c30)
+<a name="mode"></a>[`mode`](#mode) |`mode = row` |Specify widget layout.<br>Possible values: `default`, `row`: Align rectangles as rows, `column`: Align rectangles as columns, `auto`: Switch between row and column modes depending on widget size.<br>Default value: `default`. |[↗](https://apps.axibase.com/chartlab/11f02c30)
 
 ## Series Settings
 
@@ -47,7 +47,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗](https://apps.axibase.com/chartlab/76515697e)
+<a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗](https://apps.axibase.com/chartlab/76515697)
 <a name="thresholds"></a>[`thresholds`](#thresholds) | `thresholds = 0, 25, 50, 75, 100` | Threshold values by which series values are assigned colors.| [↗](https://apps.axibase.com/chartlab/9777258c)
 <a name="label"></a>[`label`](#label) | `label = Total Capacity`| Rectangle label.<br>Default value: `entity-metric`. |[↗](https://apps.axibase.com/chartlab/1d1ec7aa)
 
