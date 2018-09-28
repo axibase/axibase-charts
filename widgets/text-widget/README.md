@@ -40,10 +40,10 @@ Name|Example|Description|&nbsp;
 Name|Example|Description|&nbsp;
 :--|:--|:--|:--
 <a name="label"></a>[`label`](#label)|`label = Free Memory`|Label displayed below series value.<br>HTML Markup is supported.<br>If `label` is not defined, `entity` and `metric` are displayed below the value.<br>To hide label, add `label =` with an empty value.|[↗](https://apps.axibase.com/chartlab/f3dccb8d)
-<a name="icon"></a>[`icon`](#icon)|`icon = public/img/svg/linear/user.svg`|Display `.svg` icon in the **Text Widget**.<br>Path to custom icons must be defined.<br>Default ATSD icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without directory path.<br>See the [Icon Reference Sheet](resources/atsd-embedded-icons.pdf) for built-in icons.|[↗](https://apps.axibase.com/chartlab/04221c6c)
+<a name="icon"></a>[`icon`](#icon)|`icon = public/img/svg/linear/user.svg`|Display `.svg` icon in the **Text Widget**.<br>Path to custom icons must be defined.<br>Default ATSD icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without directory path.<br>See the [Icon Reference Sheet](../pie-chart/resources/atsd-embedded-icons.pdf) for built-in icons.|[↗](https://apps.axibase.com/chartlab/04221c6c)
 <a name="icon-position"></a>[`icon-position`](#icon-position)|`icon-position = bottom`|Position of the icon relative to the series value.<br>Possible values: `left`, `right`, `top`, `bottom`|[↗](https://apps.axibase.com/chartlab/a81127d4)|
 <a name="icon-color"></a>[`icon-color`](#icon-color)|`icon-color = orange`|Icon color.<br>Possible values: [color name](https://en.wikipedia.org/wiki/Web_colors).|[↗](https://apps.axibase.com/chartlab/b9cf9af7)|
-<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|`icon-alert-style = fill: red;`|CSS style applied to icon when [`alert-expression`](../shared/README.md#alert-expression) is `true`.|[↗](https://apps.axibase.com/chartlab/55a190bd)|
+<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|`icon-alert-style = fill: red;`|CSS style applied to icon when `alert-expression` is `true`.|[↗](https://apps.axibase.com/chartlab/55a190bd)|
 
 ## Examples
 
@@ -57,7 +57,7 @@ Name|Example|Description|&nbsp;
 
 ![](./images/clock-and-series.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/b20f631ffa)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b20f631f)
 
 ### Advanced Configuration Example
 
