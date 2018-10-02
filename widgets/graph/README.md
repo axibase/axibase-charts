@@ -44,7 +44,7 @@ Name | Example | Description | &nbsp;
 <a name="link-labels"></a>[`link-labels`](#link-labels)|`link-labels = false`|Display edge labels.<br>Possible values: `true` or `false`.|
 <a name="link-data"></a>[`link-data`](#link-data)|`link-data =`|Series last value next to the `link-label`.|↗
 <a name="link-color-range"></a>[`link-color-range`](#link-color-range)|`link-color-range =`|Color scheme for `link-threshold`.|↗
-<a name="link-label-zoom-threshold"></a>[`link-label-zoom-threshold`](#link-label-zoom-thresholds)|`link-label-zoom-threshold = 2`|Parameter value is a value of scale when labels appear based on edge threshold.<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.|↗
+<a name="link-label-zoom-threshold"></a>[`link-label-zoom-threshold`](#link-label-zoom-threshold)|`link-label-zoom-threshold = 2`|Parameter value is a value of scale when labels appear based on edge threshold.<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.|↗
 <a name="node-label-zoom-threshold"></a>[`node-label-zoom-threshold`](#node-label-zoom-threshold)|`node-label-zoom-threshold = 2`|Parameter value is a value of scale when labels appear based on vertex threshold<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.|↗
 <a name="auto-padding"></a>[`auto-padding`](#auto-padding)|`auto-padding = false`|Add padding if labels overflow container.<br>Possible values: `true` or `false`.<br>`true` by default.|↗
 <a name="link-width-order"></a>[`link-width-order`](#link-width-order)|`link-width-order = top`|Sort links according to their width<br> Possible values: `top`, `bottom` or `undefined`<br>`undefined` by default.|↗
