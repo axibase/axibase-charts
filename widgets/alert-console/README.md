@@ -1,20 +1,54 @@
 # Alert Console
 
-![](./images/alert-console-2.png)
-
 ## Overview
 
-Alert Console widget displays a continuously updated list of open alerts or a list of messages recorded by the database in tabular format.
+The **Alert Console** displays a continuously updated list of open alerts or messages recorded by the database in tabular format.
 
-Rows are color-coded based on the severity of the underlying alert or message.
+```ls
+[widget]
+  type = console
+  severity-style = row
+  
+  [column]
+    key = repeatCount
+  [column]
+    key = text
+  [column]
+    key = metric
+  [column]
+    key = entity
+```
 
-To display open alerts, set `source = alert`. To display messages, set `source = message`.
+![](./images/alert-console-title.png)
 
-### Default Columns
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b8804073)
 
-Default column vary depending on source.
+## Widget Settings
 
-Default `message` columns:
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Shared Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+<a name="source"></a>[`source`](#source) | `source = alert` | Specify the source of records.<br>Default value: `alert` | ↗
+<a name="rule"></a>[`rule`](#rule) | `rule = cpu_busy_prod` | Name of rule for which alerts are filtered | [↗](https://apps.axibase.com/chartlab/0db89ed0/11/)
+<a name="entity"></a>[`entity`](#entity) | `entity = nurswgvml007` | The host or service for the widget.<br>Multiple entities can be used.| [↗](https://apps.axibase.com/chartlab/0db89ed0/7/)
+<a name="metric"></a>[`metric`](#metric) | `metric = loadavg.5m` | Select metrics for the widget.<br>Multiple metrics can be used.| [↗](https://apps.axibase.com/chartlab/0db89ed0/8/)
+<a name="severity"></a>[`severity`](#severity) | `severity = 6` | Severity rating of alerts displayed in the console:<br>Undefined: `0`<br>Unknown: `1`<br>Normal: `2`<br>Warning: `3`<br>Minor: `4`<br>Critical: `6`<br>Fatal: `7`| [↗](https://apps.axibase.com/chartlab/0db89ed0/3/)
+<a name="severity-style"></a>[`severity-style`](#severity-style) | `severity-style = row`| Control alert behavior. Highlight a single column or entire row.<br>Possible settings: `row`, `column`.| [↗](https://apps.axibase.com/chartlab/0db89ed0/4/)
+<a name="onclick"></a>[`onclick`](#onclick) | `onclick = filter()` | Set interaction behavior for user click.<br>Filter the tables based on the clicked values of a specific column | [↗](https://apps.axibase.com/chartlab/0db89ed0/5/)
+<a name="row-style"></a>[`row-style`](#row-style) | `row-style = if (value <= 7) return 'display: none'` | Style assigned to the entire row specified as JavaScript code.<br>In the syntax example all alerts with severity less than `7` are hidden.<br>Filter data prior display in the widget. | [↗](https://apps.axibase.com/chartlab/0db89ed0/6/)
+<a name="sort"></a>[`sort`](#sort) | `sort = metric DESC` | Sort console based on one or more columns.<br>Additional ascending `ASC` or descending `DESC` parameter is accepted.| [↗](https://apps.axibase.com/chartlab/0db89ed0/9/)
+<a name="class"></a>[`class`](#class) | `class = terminal` | Change the widget to Unix-style console with black background.| [↗](https://apps.axibase.com/chartlab/0db89ed0/10/)
+
+## Default Columns
+
+Rows are color-coded based on the severity of the underlying alert or message. To display open alerts, set `source = alert`. To display messages, set `source = message`.
+
+Default column vary based on source.
+
+### Default `message` Columns
 
 * `Severity`
 * `Time`
@@ -24,7 +58,7 @@ Default `message` columns:
 * `Tags`
 * `Message`
 
-Default `alert` columns:
+### Default `alert` Columns
 
 * `Severity`
 * `Open`
@@ -36,73 +70,22 @@ Default `alert` columns:
 * `Tags`
 * `Text`
 
-## Syntax
-
-Alert Console supports both [Shared Widget](../shared/README.md) and [Shared Table](../shared-table/README.md) Syntax.
-
-### `[widget]` Settings
-
-Setting |Syntax |Description |Example
---|--|--|--
-Source | `source = alert` | Specify the source of records.<br>Default value: `alert` | See [Examples](#examples)
-Rule | `rule = cpu_busy_prod` | Name of rule for which alerts are filtered | [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/11/)
-Entity | `entity = nurswgvml007` | The host or service for the widget.<br>Multiple entities can be used.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/7/)
-Metric | `metric = loadavg.5m` | Select metrics for the widget.<br>Multiple metrics can be used.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/8/)
-Severity | `severity = 6` | Severity rating of alerts displayed in the console:<br>Undefined: `0`<br>Unknown: `1`<br>Normal: `2`<br>Warning: `3`<br>Minor: `4`<br>Critical: `6`<br>Fatal: `7`| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/3/)
-Severity Style | `severity-style = row`| Control alert behavior. Highlight a single column or entire row.<br>Possible settings: `row`, `column`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/4/)
-Click Behavior | `onclick = filter()` | Set interaction behavior for user click.<br>Filter the tables based on the clicked values of a specific column | [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/5/)
-Row Style | `row-style = if (value <= 7) return 'display: none'` | Style assigned to the entire row specified as JavaScript code.<br>In the syntax example all alerts with severity less than `7` are hidden.<br>Filter data prior display in the widget. | [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/6/)
-Sort | `sort = metric DESC` | Sort console based on one or more columns.<br>Additional ascending `ASC` or descending `DESC` parameter is accepted.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/9/)
-Class | `class = terminal` | Change the widget to Unix-style console with black background.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/10/)
-
 ## Examples
 
-### Configuration
+### Advanced Configuration
 
-```ls
-[configuration]
-  height-units = 2
-  width-units = 1
+![](./images/advanced-configuration.png)
 
-[group]
-[widget]
-    title = source = alert
-    type = console
-    entity = *
-
-[group]
-[widget]
-    title = source = message
-    type = console
-    source = message
-    entity = nurswgvml007
-    timespan = 1 hour
-```
-
-![](./images/config-example.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/eb5102c5)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/84fda148)
 
 ### Severity Style: `row`
 
-```ls
-[widget]
-  severity-style = row
-  type = console
-```
+![](./images/severity-style-row.png)
 
-![](./images/alert-console-2.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0/2/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/f5ed12c6)
 
 ### Severity Style: `column`
 
-```ls
-[widget]
-  severity-style = column
-  type = console
-```
+![](./images/severity-style-column.png)
 
-![](./images/alert-console-1.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/0db89ed0)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/cc0f7333)
