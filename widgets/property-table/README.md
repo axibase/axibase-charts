@@ -62,7 +62,7 @@ Name | Example | Description | &nbsp;
 <a name="keys"></a>[`[keys]`](#keys)|`[keys]`<br>`queue = qm1.to.qm3`|One or multiple keys specified as `name = value` pairs under `[keys]` settings.|↗
 <a name="type"></a>[`type`](#type)|`type = nmon.command`|Property type.<br>Use `$entity_tags` to retrieve entity tags.|↗
 <a name="exactmatch"></a>[`exactMatch`](#exactmatch)|`exactMatch = true`|Exact match selects a record with exactly the same key as requested in `[keys]` settings.<br>Default: `false`.<br>Partial match selects records with key that contains requested fields but can also include other fields.|↗
-<a name="keys-manger"></a>[`keys.manager`](#keys-manager)|`keys.manager = 'MGR01' AND tags.queue LIKE 'qm1.*'`|Expression for matching properties with specified keys and tags.<br>Keys are accessed with `keys.{key-name}` and tags with `tags.{tag-name}`.|↗
+<a name="keys-manager"></a>[`keys.manager`](#keys-manager)|`keys.manager = 'MGR01' AND tags.queue LIKE 'qm1.*'`|Expression for matching properties with specified keys and tags.<br>Keys are accessed with `keys.{key-name}` and tags with `tags.{tag-name}`.|↗
 <a name="limit"></a>[`limit`](#limit)|`limit = 10`|Maximum number of returned records.|↗
 <a name="last"></a>[`last`](#last)|`last = true`|Return only records with the update time equal to the maximum update time of matched records.<br>Default: `false`.|↗
 <a name="offset"></a>[`offset`](#offset)|`offset = 5000`|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.|↗
