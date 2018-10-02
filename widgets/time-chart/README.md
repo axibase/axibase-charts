@@ -28,9 +28,9 @@ Name | Example | Description | &nbsp;
 --|--|--|--
 <a name="display-panels"></a>[`display-panels`](#display-panels)  |  `display-panels = true`  |  Display widget controls.<br>Possible values: `true`, `false`, `hover`.<br>Default value: `hover`. |  [↗](https://apps.axibase.com/chartlab/1a1bfdd3)
 <a name="expand-panels"></a>[`expand-panels`](#expand-panels)  |  `expand-panels = compact`  |  Expand widget controls.<br>Allowed values: `all`, `compact`, `none`.  |  [↗](https://apps.axibase.com/chartlab/e9e8cd37)
-[`ahead-time-span`](#ahead-time-span) | `ahead-time-span = 80%` | Visualized time ahead of final series value.<br>Possible values:<br>`count` + `%`| [↗](https://apps.axibase.com/chartlab/adf5eeda)
-[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
-[`centralize-ticks`](#centralize-ticks) | `centralize-ticks = true` | Center time and date markers with respect to ticks.<br>Boolean expression.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/834c0e43)
+<a name="ahead-time-span"></a>[`ahead-time-span`](#ahead-time-span) | `ahead-time-span = 80%` | Visualized time ahead of final series value.<br>Possible values:<br>`count` + `%`| [↗](https://apps.axibase.com/chartlab/adf5eeda)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
+<a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks) | `centralize-ticks = true` | Center time and date markers with respect to ticks.<br>Boolean expression.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/834c0e43)
 <a name="periods"></a>[`periods`](#periods)  |  `periods = 20 minute, 4 hour`  |  Specify custom aggregation periods in widget controls.  |  [↗](https://apps.axibase.com/chartlab/eaf88286)
 <a name="context-height"></a>[`context-height`](#context-height) | `context-height = 50` | Define the height of the [Context Chart](#time-chart-controls)<br>Default value: `0`.<br> | [↗](https://apps.axibase.com/chartlab/2e0bf373)
 <a name="ticks"></a>[`ticks`](#ticks) | `ticks = 10` | Control the number of tick marks on the left axis.<br>`5` by default. | [↗](https://apps.axibase.com/chartlab/fedaa42e/9/)
@@ -48,7 +48,7 @@ Name | Example | Description | &nbsp;
 <a name="step-line"></a>[`step-line`](#step-line) | `step-line = true` | Connect neighboring samples using a step line instead of one which is linearly interpolated.<br>Toggle step line mode by changing `y` axis controls displayed on mouseover. | [↗](https://apps.axibase.com/chartlab/4f847a24/2/)<br>[↗](https://apps.axibase.com/chartlab/3fc3b5e6)
 <a name="auto-period"></a>[`auto-period`](#auto-period) | `auto-period = false` | Automatically define the aggregation period for the series based on the chosen time interval.<br>`true` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/22/)
 <a name="retain-time-span"></a>[`retain-time-span`](#retain-time-span) | `retain-time-span = false` | Save the length of the chosen time interval during widget update.<br>`true` by default.| [↗](https://apps.axibase.com/chartlab/fedaa42e/23/)
-<a name="disconnect-interval"></a>[`disconnect-interval`](#disconenct-interval) | `disconnect-interval = 1 minute` | Defines maximum time gap between data during which points of the series line are connected.<br>If the gap between data is greater than the specified interval, a break is displayed.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [↗](https://apps.axibase.com/chartlab/fedaa42e/30/)
+<a name="disconnect-interval"></a>[`disconnect-interval`](#disconnect-interval) | `disconnect-interval = 1 minute` | Defines maximum time gap between data during which points of the series line are connected.<br>If the gap between data is greater than the specified interval, a break is displayed.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [↗](https://apps.axibase.com/chartlab/fedaa42e/30/)
 <a name="disconnect-count"></a>[`disconnect-count`](#disconnect-count) | `disconnect-count = 50` | Define average distance between time values in the series<br>If the gap between data is greater than the defined value,a break is displayed.<br>If `disconnect-count = 1`, the disconnect interval is equal to the mean interval.<br>See Disconnect Count Behavior for more information.| [↗](https://apps.axibase.com/chartlab/fedaa42e/33/)
 <a name="disconnect-value"></a>[`disconnect-value`](#disconnect-value)| `disconnect-value = 0` | Apply disconnect value in tandem with disconnect interval or count.<br> Define the value to be applied to disconnected areas.<br>Use this setting when ATSD is not collecting `null` values or those below a minimum threshold.<br>Additionally, toggle display of disconnect value with **Connect Values** on left axis mouseover menu.| [↗](https://apps.axibase.com/chartlab/fedaa42e/34/)
 <a name="moving-average"></a>[`moving-average`](#moving-average) | `moving-average = true` | Enable moving average to set aggregation period based on a sliding window ending with the current time.<br>Disable moving average to set aggregation period based on calendar.<br>Boolean expression, possible values: `true` and `false`.| [↗](https://apps.axibase.com/chartlab/b495f8ad/11/)
@@ -64,10 +64,10 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 `display` | `display = value >= top(3)` | Series display setting.<br> Filter series based on metric values for widgets containing many series.<br>Refer to [Expression Syntax Documentation](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax) for more information.| [↗](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[↗](https://apps.axibase.com/chartlab/3ebf1cca)<br>[↗](https://apps.axibase.com/chartlab/3f080fe4/2/)
-[`mode`](#mode) | `mode = column`| Time Chart mode.<br>Possible values:<br>`stack`: Visually stack series.<br>`column`: Display series as columns.<br>`range`: Display range of series values.<br>`column-stack`: Visually stack series in column-form.| [↗](https://apps.axibase.com/chartlab/47c16847)<br>[↗](https://apps.axibase.com/chartlab/711f260c)<br>[↗](https://apps.axibase.com/chartlab/d4af051b)<br>[↗](https://apps.axibase.com/chartlab/976097d9)
-[`fill-value`](#fill-value) | `fill-value = true`| Interpolate a computed series with irregularly spaced values.<br>Set to `true` to fill missing samples with interpolated values.<br>Detailed values are filled in using `linear` interpolation.<br>Aggregated periods are filled with `previous` values.<br>If `fill-value = false`, missing samples are filled with `0` or `null`.<br>Boolean expression<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/3a1a0a7a)
-[`load-future-data`](#load-future-data) | `load-future-data = true` | Load future series values.<br>Import forecasts generated by third-party tools such as [R Language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Boolean expression.<br>Default value: `false` | [↗](https://apps.axibase.com/chartlab/f7c7a105)
-[`series-type`](#series-type) | `series-type = s1` | `stack` mode grouping parameter.<br>Series the same type are grouped together or summed.<br>Set a unique series type for fill effect without `stack`.| [↗](https://apps.axibase.com/chartlab/19146ba0)<br>[↗](https://apps.axibase.com/chartlab/19146ba0/2/)
+<a name="mode"></a>[`mode`](#mode) | `mode = column`| Time Chart mode.<br>Possible values:<br>`stack`: Visually stack series.<br>`column`: Display series as columns.<br>`range`: Display range of series values.<br>`column-stack`: Visually stack series in column-form.| [↗](https://apps.axibase.com/chartlab/47c16847)<br>[↗](https://apps.axibase.com/chartlab/711f260c)<br>[↗](https://apps.axibase.com/chartlab/d4af051b)<br>[↗](https://apps.axibase.com/chartlab/976097d9)
+<a name="fill-value"></a>[`fill-value`](#fill-value) | `fill-value = true`| Interpolate a computed series with irregularly spaced values.<br>Set to `true` to fill missing samples with interpolated values.<br>Detailed values are filled in using `linear` interpolation.<br>Aggregated periods are filled with `previous` values.<br>If `fill-value = false`, missing samples are filled with `0` or `null`.<br>Boolean expression<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/3a1a0a7a)
+<a name="load-future-data"></a>[`load-future-data`](#load-future-data) | `load-future-data = true` | Load future series values.<br>Import forecasts generated by third-party tools such as [R Language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Boolean expression.<br>Default value: `false` | [↗](https://apps.axibase.com/chartlab/f7c7a105)
+<a name="series-type"></a>[`series-type`](#series-type) | `series-type = s1` | `stack` mode grouping parameter.<br>Series the same type are grouped together or summed.<br>Set a unique series type for fill effect without `stack`.| [↗](https://apps.axibase.com/chartlab/19146ba0)<br>[↗](https://apps.axibase.com/chartlab/19146ba0/2/)
 
 ## Threshold Settings
 
@@ -142,8 +142,6 @@ To add a four day aggregation period, double click between `1d` and `1w` on the 
 
 To remove selection intervals and aggregation periods, drag and drop the interval or period off the Time Chart controls. In the example below, `1w` is removed.
 
-![](./images/removed-timespan.png)
-
 Modify time chart panel controls with the `defaultChartConfig.script` setting at the `[configuration]` level.
 
 ```ls
@@ -156,7 +154,7 @@ Substitute `8` with the number of panel controls to be displayed.
 defaultChartConfig.script = widget.chart.panels[1].expand(6)
 ```
 
-![](./images/defaultchartconfig1.png)
+![](./images/default-chart-config.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/7ea19d6a)
 
