@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Alert Console** displays a continuously updated list of open alerts or messages recorded by the database in tabular format.
+The **Alert Console** displays a continuously updated list of open alerts or messages in tabular format.
 
 ```ls
 [widget]
@@ -26,7 +26,6 @@ The **Alert Console** displays a continuously updated list of open alerts or mes
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 * [Shared Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Example | Description | &nbsp;
@@ -42,9 +41,13 @@ Name | Example | Description | &nbsp;
 <a name="sort"></a>[`sort`](#sort) | `sort = metric DESC` | Sort console based on one or more columns.<br>Additional ascending `ASC` or descending `DESC` parameter is accepted.| [↗](https://apps.axibase.com/chartlab/0db89ed0/9/)
 <a name="class"></a>[`class`](#class) | `class = terminal` | Change the widget to Unix-style console with black background.| [↗](https://apps.axibase.com/chartlab/0db89ed0/10/)
 
+## Data Source
+
+To display open alerts, set `source = alert`. To display messages, set `source = message`.
+
 ## Default Columns
 
-Rows are color-coded based on the severity of the underlying alert or message. To display open alerts, set `source = alert`. To display messages, set `source = message`.
+Rows are color-coded based on the severity of the underlying alert or message.
 
 Default column vary based on source.
 
