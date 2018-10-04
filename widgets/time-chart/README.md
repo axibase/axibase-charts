@@ -26,7 +26,7 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="display-panels"></a>[`display-panels`](#display-panels)  |  `display-panels = true`  |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`. |  [↗](https://apps.axibase.com/chartlab/1a1bfdd3)
 <a name="expand-panels"></a>[`expand-panels`](#expand-panels)  |  `expand-panels = compact`  |  Expand widget controls.<br>Allowed values: `all`, `compact`, `none`.  |  [↗](https://apps.axibase.com/chartlab/e9e8cd37)
-<a name="ahead-time-span"></a>[`ahead-time-span`](#ahead-time-span) | `ahead-time-span = 80%` | Visualized time ahead of final series value.<br>Possible values:<br>`count` + `%`| [↗](https://apps.axibase.com/chartlab/61942bcb)
+<a name="ahead-time-span"></a>[`ahead-time-span`](#ahead-time-span) | `ahead-time-span = 80%` | Visualized time ahead of final series value.<br>Possible values:<br>`count` + `%`| [↗](https://apps.axibase.com/chartlab/c559d591)
 <a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical), or `true` (horizontal).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/5b2621a8)
 <a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks) | `centralize-ticks = true` | Center time and date markers over ticks.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/e100936c)
 <a name="periods"></a>[`periods`](#periods)  |  `periods = 20 minute, 4 hour`  |  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.  |  [↗](https://apps.axibase.com/chartlab/eaf88286)
@@ -35,7 +35,7 @@ Name | Example | Description | &nbsp;
 <a name="ticks-right"></a>[`ticks-right`](#ticks-right) | `ticks-right = 10` | Tick marks on the right axis.<br>Default value: `5`. | [↗](https://apps.axibase.com/chartlab/4b783c4e)
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time) | `ticks-time = 20` | Tick marks on the time axis.<br>Default value: `10`. | [↗](https://apps.axibase.com/chartlab/addb441e)
 <a name="day-format"></a>[`day-format`](#day-format) | `day-format = %Y/%m/%d` | Time axis format. | [↗](https://apps.axibase.com/chartlab/717b0f73)
-<a name="time-offset"></a>[`time-offset`](#time-offset) |`time-offset = 10 week` | Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.| [↗](https://apps.axibase.com/chartlab/075941a0/15)
+<a name="time-offset"></a>[`time-offset`](#time-offset) |`time-offset = 10 week` | Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.| [↗](https://apps.axibase.com/chartlab/23e8049e)
 <a name="display-date"></a>[`display-date`](#display-date) | `display-date = true` | Display the time period captured by the **Time Chart**.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/37738a05)
 <a name="markers"></a>[`markers`](#markers) | `markers = false` | Show series value markers.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/263a3ee8)
 <a name="last-marker"></a>[`last-marker`](#last-marker) | `last-marker = false` | Show last series value marker.<br>Possible values: `false`, `true`. Default value: `true`. | [↗](https://apps.axibase.com/chartlab/5a54b7ce)
@@ -81,7 +81,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="threshold-label"></a>[`label`](#threshold-label) | `label = threshold` | Threshold legend label.| [↗](https://apps.axibase.com/chartlab/e926d483)
+<a name="threshold-label"></a>[`label`](#threshold-label) | `label = threshold` | Threshold legend label.| [↗](https://apps.axibase.com/chartlab/6669e7a4)
 <a name="threshold-color"></a>[`color`](#threshold-color) | `color = red` | Threshold color.| [↗](https://apps.axibase.com/chartlab/bf478ab6)
 <a name="threshold-value"></a>[`value`](#threshold-value) | `value = 75`| Threshold value.| [↗](https://apps.axibase.com/chartlab/8bcd5a38)
 
@@ -205,7 +205,7 @@ Add or remove each control component to show or hide it from the widgets:
 
 ![](./images/fill-area.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/a8c1f22b)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/8bc482c9)
 
 ### `alert-expression` Example
 
