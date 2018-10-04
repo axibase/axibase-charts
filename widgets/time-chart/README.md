@@ -7,7 +7,6 @@ The **Time Chart** displays series values at successive time intervals for one o
 ```ls
 [widget]
   type = chart
-  timespan = 1 hour
 
   [series]
     entity = nurswgvml007
@@ -16,7 +15,7 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 ![](./images/time-chart.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/ba94e899)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3146896d)
 
 ## Widget Settings
 
