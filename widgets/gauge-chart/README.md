@@ -41,10 +41,10 @@ Name | Example | Description | &nbsp;
 |<a name="format-tip"></a>[`format-tip`](#format-tip)|`format-tip = d3.format("0.1f")`|Series value format.|[↗](https://apps.axibase.com/chartlab/f84ddeb3)|
 |<a name="format-axis"></a>[`format-axis`](#format-axis)|`format-axis = Math.round(value * 10)/10 + "%"`|Gauge axis values format.|[↗](https://apps.axibase.com/chartlab/b5d44b15)|
 |<a name="format-counter"></a>[`format-counter`](#format-counter)|`format-counter = d3.format("0.3f")`|Counter value format.|[↗](https://apps.axibase.com/chartlab/b6172091)|
-|<a name="ring-width"></a>[`ring-width`](#ring-width)|`ring-width = 0.2`|Gauge ring width.<br>Percent of total possible width.<br>Possible values: **Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/ded3dbb6)|
-|<a name="border-width"></a>[`border-width`](#border-width)|`border-width = 0.2`|Offset between gauge ring and container.<br>Percent of total possible radius.<br>Possible values: **Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/7b7dd137)|
-|<a name="pin-radius"></a>[`pin-radius`](#pin-radius)|`pin-radius = 0.2`|Pin circle radius.<br>Percent of total possible radius.<br>Possible values: **Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/c1fc2e57)|
-|<a name="arrow-length"></a>[`arrow-length`](#arrow-length)|`arrow-length = 0.3`|Length of gauge arrow.<br>Percent of total possible length.<br>Possible values: **Inclusively** between `0` and `1`.|[↗](https://apps.axibase.com/chartlab/989ac542)|
+|<a name="ring-width"></a>[`ring-width`](#ring-width)|`ring-width = 0.2`|Gauge ring width.<br>Percent of total possible width.<br>Possible values: **Inclusively** between `0` and `1`, or `0%` and `100%`.|[↗](https://apps.axibase.com/chartlab/ded3dbb6)|
+|<a name="border-width"></a>[`border-width`](#border-width)|`border-width = 0.2`|Offset between gauge ring and container.<br>Percent of total possible radius.<br>Possible values: **Inclusively** between `0` and `1`, or `0%` and `100%`.|[↗](https://apps.axibase.com/chartlab/7b7dd137)|
+|<a name="pin-radius"></a>[`pin-radius`](#pin-radius)|`pin-radius = 0.2`|Pin circle radius.<br>Percent of total possible radius.<br>Possible values: **Inclusively** between `0` and `1`, or `0%` and `100%`.|[↗](https://apps.axibase.com/chartlab/c1fc2e57)|
+|<a name="arrow-length"></a>[`arrow-length`](#arrow-length)|`arrow-length = 0.3`|Length of gauge arrow.<br>Percent of total possible length.<br>Possible values: **Inclusively** between `0` and `1`, or `0%` and `100%`.|[↗](https://apps.axibase.com/chartlab/989ac542)|
 
 ## Examples
 
