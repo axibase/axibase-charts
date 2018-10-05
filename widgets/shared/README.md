@@ -14,7 +14,7 @@ Name | Example | Description | &nbsp;
 <a name="title"></a>[`title`](#title) | `title = CPU Usage Statistics` | Title displayed above chart.<br>HTML Markup is supported. | [↗](https://apps.axibase.com/chartlab/c91c3205)
 <a name="tooltip"></a>[`tooltip`](#tooltip) | `tooltip = CPU Usage` | Widget description displayed on title mouseover. | [↗](https://apps.axibase.com/chartlab/9c41753e)
 <a name="header-style"></a>[`header-style`](#header-style)| `header-style = color: red`| Widget header CSS style.| [↗](https://apps.axibase.com/chartlab/6fa47d56)
-<a name="colors"></a>[`colors`](#colors) | `colors = green, #ccc` | Colors applied to series shapes.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
+<a name="colors"></a>[`colors`](#colors) | `colors = green, #cccccc` | Colors applied to series shapes.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
 <a name="offset-left"></a>[`offset-left`](#offset-left) | `offset-left = 50` | Offset from the left page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/7d9ac443)
 <a name="offset-right"></a>[`offset-right`](#offset-right) | `offset-right = 50` | Offset from the right page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/5d06446b)
 <a name="offset-top"></a>[`offset-top`](#offset-top) | `offset-top = 50` | Offset from the top page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/2519e595)
@@ -25,7 +25,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="timespan"></a>[`timespan`](#timespan) | `timespan = 6 hour` | Data interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `end-time` setting, `end-time` is `now`.<br>Format: `count time_unit`.<br>Default value: `1 hour`.| [↗](https://apps.axibase.com/chartlab/f08405c6)
+<a name="timespan"></a>[`timespan`](#timespan) | `timespan = 6 hour` | Data interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `end-time` setting, `end-time` is `now`.<br>Format: `count time_unit`.<br>Default value: `1 hour`.| [↗](https://apps.axibase.com/chartlab/a49c40a5)
 <a name="start-time"></a>[`start-time`](#start-time)| `start-time = 2018-07-05 12:00:00` | Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `start-time` is specified, either `end-time` **or** `timespan` is also required. | [↗](https://apps.axibase.com/chartlab/8d40e80d)
 <a name="end-time"></a>[`end-time`](#end-time) | `endtime = 2018-07-05 13:00:00` | End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `end-time` is specified, either `start-time` **or** `timespan` is also required.| [↗](https://apps.axibase.com/chartlab/f784e730)
 <a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | ATSD server URL.<br>Load data from an ATSD server running on a different host.<br>URL for data requests is assembled from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/9cd66119)
@@ -33,7 +33,7 @@ Name | Example | Description | &nbsp;
 <a name="method-path"></a>[`method-path`](#method-path) | `method-path = /series/query` | [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`. | [↗](https://apps.axibase.com/chartlab/16e8cdad)
 <a name="url-parameters"></a>[`url-parameters`](#url-parameters) | `url-parameters = db=1` | Optional request parameters included in Data API requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional. | [↗](https://apps.axibase.com/chartlab/877e0c6b)|
 <a name="batch-update"></a>[`batch-update`](#batch-update) | `batch-update = true`| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/669ac522)
-<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 5` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
+<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
 <a name="timezone"></a>[`timezone`](#timezone) | `timezone = UTC` | Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone. | [↗](https://apps.axibase.com/chartlab/01bcbf1c)
 <a name="series-limit"></a>[`series-limit`](#series-limit) | `series-limit = 10` | Maximum number of series retrieved from the database.<br>Default value: `1000`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | `limit = 10` | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).|[↗](https://apps.axibase.com/chartlab/ace8b96d)
@@ -48,14 +48,14 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="legend-position"></a>[`legend-position`](#legend-position) | `legend-position = left` | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.| [↗](https://apps.axibase.com/chartlab/92167b79)
+<a name="legend-position"></a>[`legend-position`](#legend-position) | `legend-position = left` | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.| [↗](https://apps.axibase.com/chartlab/dbffe43c)
 <a name="label-format"></a>[`label-format`](#label-format)| `label-format = entity` | Series label pattern consisting of literal text and [placeholders](../../syntax/label-formatting.md).| [↗](https://apps.axibase.com/chartlab/49f500c1)
 
 ### Axis
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="axis-title"></a>[`axis-title`](#axis-title) | `axis-title = CPU Usage in %`| Vertical text displayed along the left axis.| [↗](https://apps.axibase.com/chartlab/8f7647ff)
+<a name="axis-title"></a>[`axis-title`](#axis-title) | `axis-title = CPU Utilization in %`| Vertical text displayed along the left axis.| [↗](https://apps.axibase.com/chartlab/8f7647ff)
 <a name="axis-title-right"></a>[`axis-title-right`](#axis-title-right) | `axis-title-right = Free Memory`| Vertical text displayed along the right axis.| [↗](https://apps.axibase.com/chartlab/8f7647ff)
 <a name="day-format"></a>[`day-format`](#day-format) | `day-format = %Y/%m/%d` | Time axis format. | [↗](https://apps.axibase.com/chartlab/717b0f73)
 <a name="min-range"></a>[`min-range`](#min-range) | `min-range = 0`| Left axis minimum range.<br>If loaded data exceeds `min-range` value, axis range is adjusted to show loaded data.| [↗](https://apps.axibase.com/chartlab/d9eeeda5)
@@ -145,7 +145,6 @@ Name | Example | Description | &nbsp;
 <a name="alert-expression"></a>[`alert-expression`](#alert-expression)| `alert-expression = value < 95` | Boolean expression to apply conditional CSS style to series shapes.<br>The CSS style must be specified in the `alert-style` setting.<br>The `value` field refers to the series value. | [↗](https://apps.axibase.com/chartlab/28e4a7f0)
 <a name="alert-style"></a>[`alert-style`](#alert-style) | `alert-style = fill: red; stroke: red`| CSS style applied to the series shape if `alert-expression` returns `true`.| [↗](https://apps.axibase.com/chartlab/28e4a7f0)
 <a name="audio-alert"></a>[`audio-alert`](#audio-alert) | `audio-alert = /portal/resource/alarm.ogg`| Boolean expression to apply conditional CSS style to series shapes.| [↗](https://apps.axibase.com/chartlab/d3943e68)
-<a name="audio-alert-style"></a>[`audio-alert-style`](#audio-alert-style) | `audio-alert = /portal/resource/alarm.ogg`| Play an [audio file](../../configuration/audio-alerts.md) when `audio-alert` evaluates to `true`.| [↗](https://apps.axibase.com/chartlab/d3943e68)
 
 ### Transformation
 
