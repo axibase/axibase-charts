@@ -34,7 +34,6 @@ Name | Example | Description | &nbsp;
 <a name="ticks"></a>[`ticks`](#ticks) | `ticks = 10` | Tick marks on the left axis.<br>Default value: `5`. | [↗](https://apps.axibase.com/chartlab/08a8bf45)
 <a name="ticks-right"></a>[`ticks-right`](#ticks-right) | `ticks-right = 10` | Tick marks on the right axis.<br>Default value: `5`. | [↗](https://apps.axibase.com/chartlab/4b783c4e)
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time) | `ticks-time = 20` | Tick marks on the time axis.<br>Default value: `10`. | [↗](https://apps.axibase.com/chartlab/addb441e)
-<a name="day-format"></a>[`day-format`](#day-format) | `day-format = %Y/%m/%d` | Time axis format. | [↗](https://apps.axibase.com/chartlab/717b0f73)
 <a name="time-offset"></a>[`time-offset`](#time-offset) |`time-offset = 10 week` | Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.| [↗](https://apps.axibase.com/chartlab/23e8049e)
 <a name="display-date"></a>[`display-date`](#display-date) | `display-date = true` | Display the time period captured by the **Time Chart**.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/37738a05)
 <a name="markers"></a>[`markers`](#markers) | `markers = false` | Show series value markers.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/263a3ee8)
