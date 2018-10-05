@@ -57,7 +57,7 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗]()
+<a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗](https://apps.axibase.com/chartlab/8704fff2)
 <a name="label"></a>[`label`](#label) | `label = Total Capacity`| Rectangle label.|[↗](https://apps.axibase.com/chartlab/97baa0e8)
 <a name="color"></a>[`color`](#color) | `color = black`| `[other]` section color.<br>Default value: `grey`.|[↗](https://apps.axibase.com/chartlab/976b6fc3)
 
