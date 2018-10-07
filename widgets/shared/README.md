@@ -14,11 +14,7 @@ Name | Example | Description | &nbsp;
 <a name="title"></a>[`title`](#title) | `title = CPU Usage Statistics` | Title displayed above chart.<br>HTML Markup is supported. | [↗](https://apps.axibase.com/chartlab/c91c3205)
 <a name="tooltip"></a>[`tooltip`](#tooltip) | `tooltip = CPU Usage` | Widget description displayed on title mouseover. | [↗](https://apps.axibase.com/chartlab/9c41753e)
 <a name="header-style"></a>[`header-style`](#header-style)| `header-style = color: red`| Widget header CSS style.| [↗](https://apps.axibase.com/chartlab/6fa47d56)
-<a name="colors"></a>[`colors`](#colors) | `colors = green, #cccccc` | Colors applied to series shapes.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
-<a name="offset-left"></a>[`offset-left`](#offset-left) | `offset-left = 50` | Offset from the left page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/7d9ac443)
-<a name="offset-right"></a>[`offset-right`](#offset-right) | `offset-right = 50` | Offset from the right page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/5d06446b)
-<a name="offset-top"></a>[`offset-top`](#offset-top) | `offset-top = 50` | Offset from the top page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/2519e595)
-<a name="offset-bottom"></a>[`offset-bottom`](#offset-bottom) | `offset-bottom = 50` | Offset from the bottom page border, in pixels.<br>Default value: `0`. | [↗](https://apps.axibase.com/chartlab/6b16f2e5)
+<a name="colors"></a>[`colors`](#colors) | `colors = green, #cccccc` | Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: color [names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue`, `orange`, `green`, `purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
 <a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.| [↗](https://apps.axibase.com/chartlab/8af72f3e)
 
 ### Data Loading
@@ -26,23 +22,41 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="timespan"></a>[`timespan`](#timespan) | `timespan = 6 hour` | Data interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `end-time` setting, `end-time` is `now`.<br>Format: `count time_unit`.<br>Default value: `1 hour`.| [↗](https://apps.axibase.com/chartlab/a49c40a5)
-<a name="start-time"></a>[`start-time`](#start-time)| `start-time = 2018-07-05 12:00:00` | Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `start-time` is specified, either `end-time` **or** `timespan` is also required. | [↗](https://apps.axibase.com/chartlab/8d40e80d)
+<a name="start-time"></a>[`start-time`](#start-time)| `start-time = current_hour` | Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `start-time` is specified, either `end-time` **or** `timespan` is also required. | [↗](https://apps.axibase.com/chartlab/8d40e80d)
 <a name="end-time"></a>[`end-time`](#end-time) | `endtime = 2018-07-05 13:00:00` | End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `end-time` is specified, either `start-time` **or** `timespan` is also required.| [↗](https://apps.axibase.com/chartlab/f784e730)
-<a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | ATSD server URL.<br>Load data from an ATSD server running on a different host.<br>URL for data requests is assembled from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/9cd66119)
-<a name="context-path"></a>[`context-path`](#context-path) | `context-path = /api/v2/`| Context path is the prefix of the URL path used to select the context to which an incoming request to ATSD server is directed.<br>Default value: `/api/v1/`.|[↗](https://apps.axibase.com/chartlab/ccab4e32)
-<a name="method-path"></a>[`method-path`](#method-path) | `method-path = /series/query` | [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`. | [↗](https://apps.axibase.com/chartlab/16e8cdad)
-<a name="url-parameters"></a>[`url-parameters`](#url-parameters) | `url-parameters = db=1` | Optional request parameters included in Data API requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional. | [↗](https://apps.axibase.com/chartlab/877e0c6b)|
-<a name="batch-update"></a>[`batch-update`](#batch-update) | `batch-update = true`| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/669ac522)
-<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
 <a name="timezone"></a>[`timezone`](#timezone) | `timezone = UTC` | Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone. | [↗](https://apps.axibase.com/chartlab/01bcbf1c)
+<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | `multiple-series = true` | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/7a9e4495)
 <a name="series-limit"></a>[`series-limit`](#series-limit) | `series-limit = 10` | Maximum number of series retrieved from the database.<br>Default value: `1000`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | `limit = 10` | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).|[↗](https://apps.axibase.com/chartlab/ace8b96d)
 <a name="cache"></a>[`cache`](#cache) | `cache = true` | Query last values from the cache table for faster response.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/6cb1473e)
+<a name="add-meta"></a>[`add-meta`](#add-meta) | `add-meta = true` | Include metric and entity metadata in the response.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
+
+* Supported formats for `start-time` and `end-time` settings:
+  * [Calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week`.
+  * [ISO format](https://axibase.com/docs/atsd/shared/date-format.html) in UTC time zone: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2017-07-01T00:00:00Z`.
+  * Simple format: `yyyy-MM-dd[ HH:mm:ss[.S]]` in client (browser) time zone, for example: `2017-07-01 00:00:00`, `2017-07-01`.
+
+> See also [Control](https://axibase.com/docs/atsd/api/data/series/query.html#control-fields) fields in REST API.
+
+### Data Update
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
 <a name="update-interval"></a>[`update-interval`](#update-interval) | `update-interval = 5 minute` | Widget update interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`update-interval` can contain several `refresh-interval` periods, whereby data is updated in memory several times but only added to the widget each specified interval.<br>Format: `count time_unit`.<br>Default value: `5 seconds`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
+<a name="batch-update"></a>[`batch-update`](#batch-update) | `batch-update = true`| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/669ac522)
+<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
 <a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval) | `refresh-interval = 5 minute` | Data refresh interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>If `update-interval` is not specified, `update-interval = refresh-interval`.<br>Format: `count time_unit`.<br>Default value: `5 seconds`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
 <a name="retry-refresh-interval"></a>[`retry-refresh-interval`](#retry-refresh-interval) | `retry-refresh-interval = 5 minute`| Interval to skip data requests for the given series if the previous request received empty response, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/d7e21c29)
 <a name="error-refresh-interval"></a>[`error-refresh-interval`](#error-refresh-interval) | `error-refresh-interval = 30 minute`| Interval to skip data requests for the given series if the previous request failed, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/48e8b5cc)
-<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | `multiple-series = true` | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/7a9e4495)
+
+### Data Source
+
+Name | Example | Description | &nbsp;
+:--|:--|:--|:--
+<a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | ATSD server URL.<br>Load data from an ATSD server running on a different host.<br>URL for data requests is assembled from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/9cd66119)
+<a name="context-path"></a>[`context-path`](#context-path) | `context-path = /api/v2/`| Context path is the prefix of the URL path used to select the context to which an incoming request to ATSD server is directed.<br>Default value: `/api/v1/`.|[↗](https://apps.axibase.com/chartlab/ccab4e32)
+<a name="method-path"></a>[`method-path`](#method-path) | `method-path = /series/query` | [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`. | [↗](https://apps.axibase.com/chartlab/16e8cdad)
+<a name="url-parameters"></a>[`url-parameters`](#url-parameters) | `url-parameters = db=1` | Optional request parameters included in Data API requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional. | [↗](https://apps.axibase.com/chartlab/877e0c6b)
 
 ### Legend
 
