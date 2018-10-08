@@ -31,8 +31,8 @@ Name | Example | Description | &nbsp;
 <a name="size-name"></a>[`size-name`](#size-name) |`size-name = Value` |Secondary title when `display-total = true`.<br>`size-name` value appended to default title `Total`. |[↗](https://apps.axibase.com/chartlab/bbe3b8bf)
 <a name="format-size"></a>[`format-size`](#format-size) |`format-size = kilobytes` |`Total` value format.<br>Refer to [Format Settings](../../syntax/format-settings.md) for possible values. |[↗](https://apps.axibase.com/chartlab/e0b5c414) |
 <a name="font-size"></a>[`font-size`](#font-size) |`font-size = 15` |Widget font size.<br>All text, except widget header is affected.<br>Default value: `10`. |[↗](https://apps.axibase.com/chartlab/268cbe21)
-<a name="colors"></a>[`colors`](#colors) | `colors = green, yellow,red` | Threshold range colors.<br>Each color is assigned to a threshold range.<br>If there are more colors than threshold ranges, additional colors are assigned to the lowest threshold range first.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors).| [↗](https://apps.axibase.com/chartlab/1fe8d669)
-<a name="color-range"></a>[`color-range`](#color-range) |`color-range = blue` |Widget color range.<br>Possible values: `red`, `blue`, `black`. <br>Default value: `red`. |[↗](https://apps.axibase.com/chartlab/aa626079)
+<a name="colors"></a>[`colors`](#colors) | `colors = green, yellow, red` | Threshold range colors.<br>The number of [`thresholds`](#thresholds) must be `1` greater than the number of colors.<br>If there are more colors than threshold ranges, additional colors are assigned to the lowest threshold range first.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors).| [↗](https://apps.axibase.com/chartlab/c6effa9d)
+<a name="color-range"></a>[`color-range`](#color-range) |`color-range = blue` |Widget color range.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors)<br>Built-in ranges: `red`, `blue`, `black`. <br>Default value: `red`. |[↗](https://apps.axibase.com/chartlab/c121b493)
 <a name="gradient-count"></a>[`gradient-count`](#gradient-count) |`gradient-count = 2` |Gradients in each color range. |[↗](https://apps.axibase.com/chartlab/66489085)
 <a name="total-size"></a>[`total-size`](#total-size) |`total-size = 70` |Maximum size of all rectangles combined.<br>If `total-size` is greater than combined size of all rectangles, additional space is filled `white`.|[↗](https://apps.axibase.com/chartlab/14253ec2)
 <a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks) | `palette-ticks = true` | Show legend palette ticks.<br>`thresholds` setting must be specified.<br>Possible values: `false`, `true`.<br>Default Value: `false`. | [↗](https://apps.axibase.com/chartlab/8d8fc6c8)
@@ -47,7 +47,7 @@ Name | Example | Description | &nbsp;
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="size"></a>[`size`](#size)|`size = 3`<br>`size = value`|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.|[↗](https://apps.axibase.com/chartlab/76515697)
-<a name="thresholds"></a>[`thresholds`](#thresholds) | `thresholds = 0, 25, 50, 75, 100` | Threshold values.| [↗](https://apps.axibase.com/chartlab/9777258c)
+<a name="thresholds"></a>[`thresholds`](#thresholds) | `thresholds = 0, 25, 50, 75, 100` | Threshold values.<br>The number of specified [`colors`](#colors) must be `1` fewer than the number of thresholds.| [↗](https://apps.axibase.com/chartlab/c6effa9d)
 <a name="label"></a>[`label`](#label) | `label = Total Capacity`| Rectangle label.<br>Set empty `label =` setting to hide label.<br>Default value: `entity-metric`. |[↗](https://apps.axibase.com/chartlab/1d1ec7aa)
 
 ### Other Settings
