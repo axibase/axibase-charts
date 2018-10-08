@@ -28,8 +28,8 @@ Name | Example | Description | &nbsp;
 <a name="multiple-series"></a>[`multiple-series`](#multiple-series) | `multiple-series = true` | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/7a9e4495)
 <a name="series-limit"></a>[`series-limit`](#series-limit) | `series-limit = 10` | Maximum number of series retrieved from the database.<br>Default value: `1000`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | `limit = 10` | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).|[↗](https://apps.axibase.com/chartlab/ace8b96d)
-<a name="cache"></a>[`cache`](#cache) | `cache = true` | Query last values from the cache table for faster response.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/6cb1473e)
-<a name="add-meta"></a>[`add-meta`](#add-meta) | `add-meta = true` | Include metric and entity metadata in the response.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
+<a name="cache"></a>[`cache`](#cache) | `cache = true` | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/6cb1473e)
+<a name="add-meta"></a>[`add-meta`](#add-meta) | `add-meta = true` | Include metric and entity metadata in the response.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
 
 * Supported formats for `start-time` and `end-time` settings:
   * [Calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week`.
@@ -45,9 +45,11 @@ Name | Example | Description | &nbsp;
 <a name="update-interval"></a>[`update-interval`](#update-interval) | `update-interval = 5 minute` | Data update interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `1 minute`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
 <a name="batch-update"></a>[`batch-update`](#batch-update) | `batch-update = true`| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/669ac522)
 <a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
-<a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval) | `refresh-interval = 5 minute` | Data refresh interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>If `update-interval` is not specified, `update-interval = refresh-interval`.<br>Format: `count time_unit`.<br>Default value: `5 seconds`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
+<a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval) | `refresh-interval = 5 minute` | Data refresh interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>If `update-interval` is not specified, `update-interval = refresh-interval`.<br>Format: `count time_unit`.<br>Default value: `5 seconds`. | [↗](https://apps.axibase.com/chartlab/634effc0)
 <a name="retry-refresh-interval"></a>[`retry-refresh-interval`](#retry-refresh-interval) | `retry-refresh-interval = 5 minute`| Interval to skip data requests for the given series if the previous request received empty response, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/d7e21c29)
 <a name="error-refresh-interval"></a>[`error-refresh-interval`](#error-refresh-interval) | `error-refresh-interval = 30 minute`| Interval to skip data requests for the given series if the previous request failed, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/48e8b5cc)
+
+> See also [Data API Endpoints](https://axibase.com/docs/atsd/api/data/#data-api-endpoints) in REST API.
 
 ### Data Source
 
@@ -93,7 +95,7 @@ Name | Example | Description | &nbsp;
 <a name="table"></a>[`table`](#table) | `table = KLZ_CPU`| Table in the relational database from which to retrieve numeric values.<br>Alternative to `metric` setting.<br>Both `table` and `attribute` must be defined.| [↗](https://apps.axibase.com/chartlab/35fde2bf)
 <a name="attribute"></a>[`attribute`](#attribute) | `attribute = Current_Average` | Column name in a relational database table. The column must be of numeric data type.  | [↗](https://apps.axibase.com/chartlab/35fde2bf)
 <a name="data-type"></a>[`data-type`](#data-type) | `data-type = forecast` | Series data type.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.| [↗](https://apps.axibase.com/chartlab/2942e708)
-<a name="forecast-name"></a>[`forecast-name`](#forecast-name) | `forecast-name = hw5` | Forecast name.<br>If no forecast name is defined, [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.| [↗](https://apps.axibase.com/chartlab/533918cc)
+<a name="forecast-name"></a>[`forecast-name`](#forecast-name) | `forecast-name = hw5` | [Forecast name](https://axibase.com/docs/atsd/api/data/series/query.html#forecast-filter).<br>If no forecast name is defined, [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.| [↗](https://apps.axibase.com/chartlab/533918cc)
 
 ### Entity Filter
 
@@ -102,7 +104,7 @@ Name | Example | Description | &nbsp;
 <a name="entity"></a>[`entity`](#entity) | `entity = nurswgvml007`<br>`entity = nurswgvml00*`| Entity name.<br>Supports `?` and `*` [wildcards](../../syntax/wildcards.md).| [↗](https://apps.axibase.com/chartlab/d65bdce1)
 <a name="entities"></a>[`entities`](#entities)| `entities = nurswgvml007, nurswgvml008`| Select multiple entities with one setting.<br>If both `entity` and `entities` are specified, `entity` takes precedence.<br>Supports `?` and `*` [wildcards](../../syntax/wildcards.md).| [↗](https://apps.axibase.com/chartlab/fc94835a)
 <a name="entity-group"></a>[`entity-group`](#entity-group) | `entity-group = nmon-sub-group` | [Entity group](https://axibase.com/docs/atsd/configuration/entity_groups.html) name. | [↗](https://apps.axibase.com/chartlab/f67397d7)
-<a name="entity-expression"></a>[`entity-expression`](#entity-expression) | `entity-expression = tags.app LIKE '*a*'` | Server-side [entity filter](https://axibase.com/docs/atsd/api/data/filter-entity.html#entityexpression-syntax) to select series for matching entities by name, tags, and fields.| [↗](https://apps.axibase.com/chartlab/9b48aaaf)
+<a name="entity-expression"></a>[`entity-expression`](#entity-expression) | `entity-expression = tags.app LIKE '*a*'` | Server-side [entity filter](https://axibase.com/docs/atsd/api/data/filter-entity.html) to select series for matching entities by name, tags, and fields.<br>Refer to [Entity Filter](https://axibase.com/docs/atsd/api/data/series/query.html#entity-filter) REST API documentation for more information.| [↗](https://apps.axibase.com/chartlab/9b48aaaf)
 
 ### Tag Filter
 
