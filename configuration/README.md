@@ -12,7 +12,7 @@ Configuration settings specify the overall layout of a widget or group of widget
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="dialog-maximize"></a>[`dialog-maximize`](#dialog-maximize)  |  `dialog-maximize = true`  |  Expand dialog window to the entire page.<br>Open dialog window by clicking the widget header.<br>Possible values: `true`, `false`.<br>Default: `true`.  |  [↗](https://apps.axibase.com/chartlab/8bc68a84)
+<a name="dialog-maximize"></a>[`dialog-maximize`](#dialog-maximize)  |  `dialog-maximize = true`  |  Expand dialog window to the entire page.<br>Open dialog window by clicking the widget header.<br>Possible values: `false`, `true`.<br>Default: `true`.  |  [↗](https://apps.axibase.com/chartlab/8bc68a84)
 <a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.| [↗](https://apps.axibase.com/chartlab/1679114f)
 
 ### Layout Settings
