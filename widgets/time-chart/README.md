@@ -81,7 +81,7 @@ Name | Example | Description | &nbsp;
 * Use `[threshold]` settings to define series thresholds:
   * Load the series and include `display = false` settings under `[widget]` settings.
   * Assign the series an `alias`.
-  * Under `[threshold]` settings, define the threshold value with `value = value('alias')` as seen in the **ChartLab** example below.
+  * In the `[threshold]` section, specify threshold value with `value = value('alias')` as seen in the **ChartLab** example below.
 
 ![](./images/threshold-settings-2.png)
 
@@ -92,22 +92,6 @@ Name | Example | Description | &nbsp;
 <a name="threshold-label"></a>[`label`](#threshold-label) | `label = threshold` | Threshold legend label.| [↗](https://apps.axibase.com/chartlab/6669e7a4)
 <a name="threshold-color"></a>[`color`](#threshold-color) | `color = red` | Threshold color.| [↗](https://apps.axibase.com/chartlab/bf478ab6)
 <a name="threshold-value"></a>[`value`](#threshold-value) | `value = 75`| Threshold value.| [↗](https://apps.axibase.com/chartlab/8bcd5a38)
-
-## Series Visibility
-
-Hide empty series:
-
-```ls
-display = !isNaN(value)
-```
-
-Hide series without data in the previous 60 minutes:
-
-```ls
-display = this.lastRequestTime - this.last.t. < 60 * 60000
-```
-
-Modify the `60` component of the setting to change the number of minutes to search.
 
 ## **Time Chart** Controls
 
