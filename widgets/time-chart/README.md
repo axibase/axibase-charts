@@ -19,7 +19,7 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 ## Widget Settings
 
-* The settings apply to the `[widget]` section
+* The settings apply to the `[widget]` section.
 * [Shared](../shared/README.md) `[widget]` settings are inherited.
 
 Name | Example | Description | &nbsp;
@@ -122,15 +122,15 @@ Name | Example | Description | &nbsp;
 
 ### Modifying **Time Chart** Controls
 
-Add selection intervals and aggregation periods directly in **Time Chart** controls by double clicking the whitespace between the interval or period where a new interval needs to be added. An interval or period roughly half way between the two values is added on each double click.
+Add selection intervals and aggregation periods directly in **Time Chart** controls by double clicking the whitespace between the interval or period where the new interval is to be added. An interval or period roughly half way between the two values is added on each double click.
 
 ![](./images/add-new-timespan-1.png)
 
-To add a four-day (`4d`) aggregation period, double click between `1d` and `1w` on the aggregation period controls of the **Time Chart**.
+To add a four-day (`4d`) aggregation period, double click between the one-day (`1d`) and one-week (`1w`) aggregation periods in the controls of the **Time Chart**.
 
 ![](./images/add-new-timespan-2.png)
 
-To remove selection intervals and aggregation periods, drag and drop the interval or period off the **Time Chart** controls. In the example below, the one-week (`1w`) timespan is removed.
+To remove selection intervals and aggregation periods, drag and drop the interval or period off the **Time Chart** controls. In the example below, the one-week (`1w`) aggregation period is removed.
 
 ![](./images/add-new-timespan-3.png)
 
