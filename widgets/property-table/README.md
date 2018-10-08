@@ -35,7 +35,7 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="join"></a>[`join`](#join)|`join = true`|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`|[↗](https://apps.axibase.com/chartlab/74da0392)|
 <a name="expand-tags"></a>[`expand-tags`](#expand-tags)|`expand-tags = true`|Show response tags as columns.<br>Useful when exact tags are unknown.|[↗](https://apps.axibase.com/chartlab/35bca3ba)|
-<a name="hide-column"></a>[`hide-column`](#hide-column)|`hide-column = value <= 0 || column.key.indexOf('paging') == 0`|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.|[↗](https://apps.axibase.com/chartlab/f860126d)|
+<a name="hide-column"></a>[`hide-column`](#hide-column)|`hide-column = value <= 0 ||column.key.indexOf('paging') == 0`|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.|[↗](https://apps.axibase.com/chartlab/f860126d)|
 
 ## Column Settings
 
@@ -57,11 +57,11 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="type"></a>[`type`](#type)|`type = nmon.command`|Property type.<br>Use `$entity_tags` to retrieve entity tags.| [↗](https://apps.axibase.com/chartlab/194ca582)
-<a name="exact-match"></a>[`exact-match`](#exact-match)|`exact-match = true`|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Default: `false`.<br>Partial match selects records with key that contains requested fields but can also include other fields.|↗
+<a name="type"></a>[`type`](#type)|`type = nmon.command`|Property type.<br>`$entity_tags` retrieves entity tags.| [↗](https://apps.axibase.com/chartlab/194ca582)
+<a name="exact-match"></a>[`exact-match`](#exact-match)|`exact-match = true`|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>Partial match selects records with key that contains requested fields but can also include other fields.|↗
 <a name="keys-tag-expression"></a>[`key-tag-expression`](#keys-manager)|`keys.manager = 'MGR01' AND tags.queue LIKE 'qm1.*'`|Expression for matching properties with specified keys and tags.<br>Keys are accessed with `keys.{key-name}` and tags with `tags.{tag-name}`.|↗
 <a name="limit"></a>[`limit`](#limit)|`limit = 10`|Maximum number of returned records.|[↗](https://apps.axibase.com/chartlab/7cc3c6cc)
-<a name="last"></a>[`last`](#last)|`last = true`|Return only records with the update time equal to the maximum update time of matched records.<br>Default: `false`.|[↗](https://apps.axibase.com/chartlab/11f2baf7)
+<a name="last"></a>[`last`](#last)|`last = true`|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.|[↗](https://apps.axibase.com/chartlab/11f2baf7)
 <a name="offset"></a>[`offset`](#offset)|`offset = 6000`|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.|[↗](https://apps.axibase.com/chartlab/7c7de881)
 <a name="tag-offset"></a>[`tag-offset`](#tag-offset)|`tag-offset = 15000`|Difference, in milliseconds, between update time of the current record and update time of the tag field.<br>If the difference exceeds `tag-offset`, the tag field is excluded from tags object.|↗
 
