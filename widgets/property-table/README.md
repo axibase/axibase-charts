@@ -35,7 +35,7 @@ Name | Example | Description | &nbsp;
 :--|:--|:--|:--
 <a name="join"></a>[`join`](#join)|`join = true`|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`|[↗](https://apps.axibase.com/chartlab/74da0392)|
 <a name="expand-tags"></a>[`expand-tags`](#expand-tags)|`expand-tags = true`|Show response tags as columns.<br>Useful when exact tags are unknown.|[↗](https://apps.axibase.com/chartlab/35bca3ba)|
-<a name="hide-column"></a>[`hide-column`](#hide-column)|`hide-column = value <= 0||column.key.indexOf('paging') == 0`|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.|[↗](https://apps.axibase.com/chartlab/f860126d)|
+<a name="hide-column"></a>[`hide-column`](#hide-column)|`hide-column = value <= 0`|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.|[↗](https://apps.axibase.com/chartlab/f860126d)|
 
 ## Column Settings
 
