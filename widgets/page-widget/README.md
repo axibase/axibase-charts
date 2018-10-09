@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Page Widget** displays the contents of an external page in a ChartLab portal.
+The **Page Widget** displays the contents of an external page in a **ChartLab** portal.
 
 ```ls
 [widget]
@@ -21,11 +21,11 @@ The **Page Widget** displays the contents of an external page in a ChartLab port
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="disable-alert"></a>[`disable-alert`](#disable-alert)| `disable-alert = true` | Cancel alerts raised by the loaded page.<br>Default value: `false`. | ↗
-<a name="fit-svg"></a>[`fit-svg`](#fit-svg) | `fig-svg = true` | Zooms and positions a user-loaded `svg` file in the center of the widget.<br>Default value: `false`.| ↗
-<a name="zoom-svg"></a>[`zoom-svg`](#zoom-svg) | `zoom-svg = 1.2` | Zoom the user-loaded `svg` file.<br>Possible values: `0` to any positive integer.| ↗
-<a name="unscale"></a>[`scale`](#unscale) | `unscale = .event, .location` | `CSS Selector` to determine unscaled elements in a user-loaded `svg` file.<br>Default value: `.event`| ↗
-<a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Scales the width and height of the target page.<br>Value is the factor by which the page scales.| ↗
+<a name="disable-alert"></a>[`disable-alert`](#disable-alert)| `disable-alert = true` | Cancel alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`. | ↗
+<a name="fit-svg"></a>[`fit-svg`](#fit-svg) | `fig-svg = true` | Zoom and positions a user-loaded `svg` file in the center of the widget.<br>Possible values: `false`, `true`.<br>Default value: `false`.| ↗
+<a name="zoom-svg"></a>[`zoom-svg`](#zoom-svg) | `zoom-svg = 1.2` | Zoom a user-loaded `svg` file.<br>Possible values: Integer &ge; `0`.| ↗
+<a name="unscale"></a>[`unscale`](#unscale) | `unscale = .event, .location` | `CSS Selector` to determine unscaled elements in a user-loaded `.svg` file.<br>Default value: `.event`| ↗
+<a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Widget scale.<br>Possible values: Number > `0`.<br>Default value: `1.0`| [↗](https://apps.axibase.com/chartlab/ca155883)
 
 ## Examples
 
