@@ -24,9 +24,9 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="display-panels"></a>[`display-panels`](#display-panels)  |  `display-panels = true`  |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`. |  [↗](https://apps.axibase.com/chartlab/1a1bfdd3)
-<a name="expand-panels"></a>[`expand-panels`](#expand-panels)  |  `expand-panels = compact`  |  Expand widget controls.<br>Allowed values: `all`, `compact`, `none`.  |  [↗](https://apps.axibase.com/chartlab/e9e8cd37)
-<a name="periods"></a>[`periods`](#periods)  |  `periods = 20 minute, 4 hour`  |  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.  |  [↗](https://apps.axibase.com/chartlab/eaf88286)
+<a name="display-panels"></a>[`display-panels`](#display-panels)  |  `display-panels = true`  |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`. |  [↗](https://apps.axibase.com/chartlab/fbb223ef)
+<a name="expand-panels"></a>[`expand-panels`](#expand-panels)  |  `expand-panels = true`  |  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.  |  [↗](https://apps.axibase.com/chartlab/209a449c)
+<a name="periods"></a>[`periods`](#periods)  |  `periods = 20 minute, 4 hour`  |  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit`.  |  [↗](https://apps.axibase.com/chartlab/eaf88286)
 <a name="context-height"></a>[`context-height`](#context-height) | `context-height = 50` | Height of the [Context Chart](#time-chart-controls).<br>Default value: `0`.<br> | [↗](https://apps.axibase.com/chartlab/67d1027d)
 <a name="markers"></a>[`markers`](#markers) | `markers = false` | Show series value markers.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/263a3ee8)
 <a name="last-marker"></a>[`last-marker`](#last-marker) | `last-marker = false` | Show last series value marker.<br>Possible values: `false`, `true`.<br>Default value: `true`. | [↗](https://apps.axibase.com/chartlab/5a54b7ce)
