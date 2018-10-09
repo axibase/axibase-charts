@@ -21,10 +21,7 @@ The **Page Widget** displays the contents of an external page in a **ChartLab** 
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="disable-alert"></a>[`disable-alert`](#disable-alert)| `disable-alert = true` | Cancel alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`. | ↗
-<a name="fit-svg"></a>[`fit-svg`](#fit-svg) | `fig-svg = true` | Zoom and positions a user-loaded `svg` file in the center of the widget.<br>Possible values: `false`, `true`.<br>Default value: `false`.| ↗
-<a name="zoom-svg"></a>[`zoom-svg`](#zoom-svg) | `zoom-svg = 1.2` | Zoom a user-loaded `svg` file.<br>Possible values: Integer &ge; `0`.| ↗
-<a name="unscale"></a>[`unscale`](#unscale) | `unscale = .event, .location` | `CSS Selector` to determine unscaled elements in a user-loaded `.svg` file.<br>Default value: `.event`| ↗
+<a name="disable-alert"></a>[`disable-alert`](#disable-alert)| `disable-alert = true` | Disable broweser alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/8af88aaa)
 <a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Widget scale.<br>Possible values: Number > `0`.<br>Default value: `1.0`| [↗](https://apps.axibase.com/chartlab/ca155883)
 
 ## Examples
