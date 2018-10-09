@@ -22,7 +22,7 @@ The **Text Widget** displays series last insert value in a text-based interface.
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` syntax is inherited.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name|Example|Description|&nbsp;
 :--|:--|:--|:--
@@ -35,7 +35,7 @@ Name|Example|Description|&nbsp;
 ### Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md#series-settings) `[series]` syntax is inherited.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
 
 Name|Example|Description|&nbsp;
 :--|:--|:--|:--
