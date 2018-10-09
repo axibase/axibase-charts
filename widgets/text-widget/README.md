@@ -29,7 +29,7 @@ Name|Example|Description|&nbsp;
 <a name="circle"></a>[`circle`](#circle)|`circle = true`|Display series values inside a circle.<br>Possible values: `false`, `true`.<br>Default value: `false`|[↗](https://apps.axibase.com/chartlab/3ae9216a)
 <a name="min-font-size"></a>[`min-font-size`](#min-font-size)|`min-font-size = 20`|Minimum font size for labels, in pixels.|[↗](https://apps.axibase.com/chartlab/f52c9b69)
 <a name="max-font-size"></a>[`max-font-size`](#max-font-size)|`max-font-size = 60`|Maximum font size for labels, in pixels.|[↗](https://apps.axibase.com/chartlab/db454826)
-<a name="on-series-click"></a>[`on-series-click`](#on-series-click)|`on-series-click = callDialog({ type: 'page', url: 'https://axibase.com/docs/atsd/' })`|Behavior upon series value click.<br>See example configuration for possible values.|[↗](https://apps.axibase.com/chartlab/0108c090)
+<a name="on-series-click"></a>[`on-series-click`](#on-series-click)|`on-series-click = callDialog({ type: 'page', url: 'https://axibase.com/docs/atsd/' })`|Behavior upon series label click.<br>See example configuration for possible values.|[↗](https://apps.axibase.com/chartlab/0108c090)
 <a name="icon-size"></a>[`icon-size`](#icon-size)|`icon-size = auto`|Resize icon to fill all available space.<br>If `icon-size` is not set, icon is scaled proportionally to font height.<br>Control font size with `min-font-size` and `max-font-size`.<br>Possible value: `auto`.|[↗](https://apps.axibase.com/chartlab/e456ba9d)
 
 ### Series Settings
