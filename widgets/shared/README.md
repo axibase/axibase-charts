@@ -14,8 +14,9 @@ Name | Example | Description | &nbsp;
 <a name="title"></a>[`title`](#title) | `title = CPU Usage Statistics` | Title displayed above chart.<br>HTML Markup is supported. | [↗](https://apps.axibase.com/chartlab/c91c3205)
 <a name="tooltip"></a>[`tooltip`](#tooltip) | `tooltip = CPU Usage` | Widget description displayed on title mouseover. | [↗](https://apps.axibase.com/chartlab/9c41753e)
 <a name="header-style"></a>[`header-style`](#header-style)| `header-style = color: red`| Widget header CSS style.| [↗](https://apps.axibase.com/chartlab/6fa47d56)
-<a name="colors"></a>[`colors`](#colors) | `colors = green, #cccccc` | Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue`, `orange`, `green`, `purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
-<a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.| [↗](https://apps.axibase.com/chartlab/8af72f3e)
+<a name="colors"></a>[`colors`](#colors) | `colors = green, #cccccc` | Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue`, `orange`, `forestgreen`, `blueviolet`, `maroon`, `yellowgreen`, `magenta`, `chocolate`, `deepskyblue`, `gray`.<br>Additional series are assigned colors at random.| [↗](https://apps.axibase.com/chartlab/a2977750)
+
+> See also [Layout Settings](../../configuration/README.md) that determine widget dimensions and grid placement.
 
 ### Data Loading
 
@@ -33,8 +34,8 @@ Name | Example | Description | &nbsp;
 
 * Supported formats for `start-time` and `end-time` settings:
   * [Calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week`.
-  * [ISO format](https://axibase.com/docs/atsd/shared/date-format.html) in UTC time zone: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2017-07-01T00:00:00Z`.
-  * Simple format: `yyyy-MM-dd[ HH:mm:ss[.S]]` in client (browser) time zone, for example: `2017-07-01 00:00:00`, `2017-07-01`.
+  * [ISO format](https://axibase.com/docs/atsd/shared/date-format.html) in UTC time zone: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2017-07-16T20:00:00Z`.
+  * Simple format: `yyyy-MM-dd[ HH:mm:ss[.S]]` in client (browser) time zone, for example: `2017-07-16`, `2017-07-16 20:00:00`.
 
 > See also [Control](https://axibase.com/docs/atsd/api/data/series/query.html#control-fields) fields in REST API.
 
@@ -42,12 +43,12 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="update-interval"></a>[`update-interval`](#update-interval) | `update-interval = 5 minute` | Data update interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `1 minute`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
+<a name="update-interval"></a>[`update-interval`](#update-interval) | `update-interval = 5 minute` | Interval for loading incremental data specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `1 minute`. | [↗](https://apps.axibase.com/chartlab/724a08aa)
+<a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval) | `refresh-interval = 5 minute` | Interval for including the series into the update request to load incremental data.<br>While the setting has no effect on the update frequency, set with `update-interval`, it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/634effc0/2/
+<a name="retry-refresh-interval"></a>[`retry-refresh-interval`](#retry-refresh-interval) | `retry-refresh-interval = 5 minute`| Interval for including **empty** series into the update request to load incremental data. Empty series contain no data.<br>The setting has no effect on the update frequency, set with `update-interval`, however it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/d7e21c29)
+<a name="error-refresh-interval"></a>[`error-refresh-interval`](#error-refresh-interval) | `error-refresh-interval = 30 minute`| Interval for including **failed** series into the update request to load incremental data. Failed series are series for which a request to load data from server produced an error.<br>The setting has no effect on the update frequency, set with `update-interval`, however it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/48e8b5cc)
 <a name="batch-update"></a>[`batch-update`](#batch-update) | `batch-update = true`| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/669ac522)
-<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
-<a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval) | `refresh-interval = 5 minute` | Application refresh interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `5 seconds`. | [↗](https://apps.axibase.com/chartlab/634effc0)
-<a name="retry-refresh-interval"></a>[`retry-refresh-interval`](#retry-refresh-interval) | `retry-refresh-interval = 5 minute`| Interval to skip application refresh for a series if the previous request received an empty response from the server, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/d7e21c29)
-<a name="error-refresh-interval"></a>[`error-refresh-interval`](#error-refresh-interval) | `error-refresh-interval = 30 minute`| Interval to skip application refresh for a series if the previous request failed due to server processing error, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. | [↗](https://apps.axibase.com/chartlab/48e8b5cc)
+<a name="batch-size"></a>[`batch-size`](#batch-size) | `batch-size = 1` | Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set and all series are requested in one query.<br>Valid when `batch-update = true`.<br>Default value: `8`.| [↗](https://apps.axibase.com/chartlab/4dda9f75)
 
 > See also [Data API Endpoints](https://axibase.com/docs/atsd/api/data/#data-api-endpoints) in REST API.
 
@@ -55,10 +56,10 @@ Name | Example | Description | &nbsp;
 
 Name | Example | Description | &nbsp;
 :--|:--|:--|:--
-<a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | ATSD server URL.<br>Load data from an ATSD server running on a different host.<br>URL for data requests is assembled from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/9cd66119)
-<a name="context-path"></a>[`context-path`](#context-path) | `context-path = /api/v2/`| Context path is the prefix of the URL path used to select the context to which an incoming request to ATSD server is directed.<br>Default value: `/api/v1/`.|[↗](https://apps.axibase.com/chartlab/ccab4e32)
+<a name="url"></a>[`url`](#url) | `url = https://atsd.example.org:8443` | Server URL, if different from the origin host.<br>URL for data requests is built from `{url}{context-path}{method-path}{url-parameters}`. | [↗](https://apps.axibase.com/chartlab/9cd66119)
+<a name="context-path"></a>[`context-path`](#context-path) | `context-path = /api/v2/`| Context path for data requests.<br>Default value: `/api/v1/`.|[↗](https://apps.axibase.com/chartlab/ccab4e32)
 <a name="method-path"></a>[`method-path`](#method-path) | `method-path = /series/query` | [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`. | [↗](https://apps.axibase.com/chartlab/16e8cdad)
-<a name="url-parameters"></a>[`url-parameters`](#url-parameters) | `url-parameters = db=1` | Optional request parameters included in Data API requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional. | [↗](https://apps.axibase.com/chartlab/877e0c6b)
+<a name="url-parameters"></a>[`url-parameters`](#url-parameters) | `url-parameters = db=1` | Optional request parameters included in data requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional. | [↗](https://apps.axibase.com/chartlab/877e0c6b)
 
 ### Legend
 
