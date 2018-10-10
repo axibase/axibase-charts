@@ -46,16 +46,7 @@ Name | Description | &nbsp;
 <a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>Supports `method` filter, which allows you to filter the rows in the table to the value of this cell.<br>**Examples**:<ul><li>`onclick = var s = series({ metric: 'nmon.process.%cpu', disconnectInterval: '90 second' })`<li>`onclick = dialog({ series: [s], disconnectValue: 0 })`<li>`onclick = filter()`</ul>|[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>Can be specified as JavaScript code.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`.|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`.|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-
-### Derived Value Settings
-
-Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression must return a number `null`, series with `null` values are hidden.
-
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="value"></a>[`value`](#value)|Define series value.<br>Retrieve the value of the underlying series identified by alias.<br>Supported fields: `value`, `previous`, `detail`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`, [aggregator functions](../../configuration/aggregators.md).<br>**Example**: `value = row.openTime`.|[↗](https://apps.axibase.com/chartlab/95bd95be/7/)
-
-## Examples
+<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Default value: key or tag value.<br>**Example**: `value = row.openTime`.|[↗](https://apps.axibase.com/chartlab/95bd95be/7/)
 
 ### Column Order
 
