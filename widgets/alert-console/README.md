@@ -7,19 +7,9 @@ The **Alert Console** displays a continuously updated list of open alerts or mes
 ```ls
 [widget]
   type = console
-  severity-style = row
-  
-  [column]
-    key = repeatCount
-  [column]
-    key = text
-  [column]
-    key = metric
-  [column]
-    key = entity
 ```
 
-![](./images/alert-console-title.png)
+![](./images/title-chart-example.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/e373cd26)
 
@@ -31,7 +21,7 @@ The **Alert Console** displays a continuously updated list of open alerts or mes
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="source"></a>[`source`](#source)| Specify the source of records.<br>Possible values: `alert`, `message`.<br>Default value: `alert`<br>**Example**: `source = message`. | [↗](https://apps.axibase.com/chartlab/52548551)
+<a name="source"></a>[`source`](#source)| Specify the source of records.<br>Possible values: `alert`, `message`.<br>Default value: `alert`.<br>**Example**: `source = message`. | [↗](https://apps.axibase.com/chartlab/52548551)
 <a name="rule"></a>[`rule`](#rule)| Rule for which alerts are filtered. <br>**Example**: `rule = nginx_server_accepts_counter`. | [↗](https://apps.axibase.com/chartlab/4a11cdff)
 <a name="entity"></a>[`entity`](#entity)| The host or service for the widget.<br>Multiple entities can be used.<br>**Example**: `entity = nurswgvml007`.| [↗](https://apps.axibase.com/chartlab/a0b9421a)
 <a name="metric"></a>[`metric`](#metric)| Select metrics for the widget.<br>Multiple metrics can be used.<br>**Example**: `metric = nmon.cpu_total.busy%`.| [↗](https://apps.axibase.com/chartlab/0e0ecc74)
