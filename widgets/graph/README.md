@@ -19,8 +19,8 @@ Name | Description | &nbsp;
 <a name="layout"></a>[`layout`](#layout)| Widget layout in `non-hierarchy` mode.<br>Possible values: `circle`, `rectangle`.<br>Default value: `circle`.<br>**Example**: `layout = rectange`.|[↗]()
 <a name="depth"></a>[`depth`](#depth)|Depth of the displayed vertex hierarchy from `1` to the maximum depth of the vertex hierarchy plus `1`.<br>Final level corresponds to edges.<br>Maximum depth of the hierarchy is default.<br>**Examples**: `depth = 5`.| [↗]()
 <a name="tension"></a>[`tension`](#tension)|Edge degree curvature.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Possible values: `0` (straight line) to `1`.<br>Default value: `0.9`.<br>**Example**: `tension = 0.1`.| [↗]()
-<a name="bundled"></a>[`bundled`](#bundled)|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>`true` by default.<br>**Example**: `bundled = false`.| [↗]()
-<a name="effects"></a>[`effects`](#effects)|Animation when changing the geometry of the graph.<br> `false` by default.<br>**Example**: `effects = true`.|[↗]()
+<a name="bundled"></a>[`bundled`](#bundled)|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `bundled = false`.| [↗]()
+<a name="effects"></a>[`effects`](#effects)|Animation when changing the geometry of the graph.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `effects = true`.|[↗]()
 <a name="duration"></a>[`duration`](#duration)|The duration of a transaction when changing the geometry of the graph in milliseconds.<br>Default value: `1000`.<br>**Example**: `duration = 2000`.|[↗]()
 <a name="min-ring-width"></a>[`min-ring-width`](#min-ring-width) |The minimum allowed width of the vertex ring.<br> The value is from `0` to a maximum permissible value of the ring width.<br>Default value: `0.3`.<br>**Example**: `min-ring-width = 2`.| [↗]()
 <a name="max-ring-width"></a>[`max-ring-width`](#max-ring-width)|The maximum allowed width of the vertex ring from the current minimal value of the ring width.<br>Default value: `0.5`.<br>**Example**: `max-ring-width = 5`.| [↗]()
@@ -28,14 +28,14 @@ Name | Description | &nbsp;
 <a name="node-connect"></a>[`node-connect`](#node-connect)|Connect vertices on the perimeter<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `node-connect = false`.|[↗]()
 <a name="data"></a>[`data`](#data)|Information about the last time series value next to the image of the corresponding vertex.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `data = true`.|[↗]()
 <a name="node-collapse"></a>[`node-collapse`](#node-collapse)|Collapse vertex sectors when clicked.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `node-collapse = false`.|[↗]()
-<a name="node-alert-style"></a>[`node-alert-style`](#node-alert-style) | Style of vertices, in the event of an `alert-expression` being triggered tied to the time series.<br>**Example**: `node-alert-style = fill: red`|[↗]()
+<a name="node-alert-style"></a>[`node-alert-style`](#node-alert-style) | Style of vertices, in the event of an `alert-expression` being triggered tied to the time series.<br>**Example**: `node-alert-style = fill: red`.|[↗]()
 <a name="link-alert-style"></a>[`link-alert-style`](#link-alert-style)|Style of edges in the event of an `alert-expression` being triggered and tied to the time series.<br>**Example**: `link-alert-style = fill: red`.|[↗]()
 <a name="link-thresholds"></a>[`link-thresholds`](#link-thresholds)|Threshold for time series attached to the edges.<br>Supports both JavaScript and `percentile` functions.<br>**Example**: `link-thresholds =`.|[↗]()
 <a name="link-colors"></a>[`link-colors`](#link-colors)| Color to indicate the threshold of time series.<br>Attached to the edges and separated by commas.<br>**Example**: `link-colors = red, yellow, green`.|[↗]()
 <a name="link-widths"></a>[`link-widths`](#link-widths)|Width to indicate the thresholds of the time series tied to the edges and separated by commas or spaces.<br>**Example**: `link-widths =`.|[↗]()
 <a name="node-thresholds"></a>[`node-thresholds`](#node-thresholds)|Threshold for time series tied to vertices.<br>Supports JavaScript, `percentile` functions, or can be set as an array.<br>**Example**: `node-thresholds =`.|[↗]()
 <a name="node-colors"></a>[`node-colors`](#node-colors)| Color to indicate the threshold of time series that are bound to vertices and separated by commas.<br>**Example**: `node-colors = red, yellow, green`.|[↗]()
-<a name="node-radiuses"></a>[`node-radiuses`](#node-radiuses)|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.<br>**Example**: `node-radiuses =`|[↗]()
+<a name="node-radiuses"></a>[`node-radiuses`](#node-radiuses)|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.<br>**Example**: `node-radiuses =`.|[↗]()
 <a name="node-radius"></a>[`node-radius`](#node-radius)|Radius of the vertex in pixels.<br>Not valid in `hierarchy` mode.<br>**Example**: `node-radius =`.|[↗]()
 <a name="padding"></a>[`padding`](#padding)|Offset from the edge of the container in pixels.<br>**Example**: `padding =`.|[↗]()
 <a name="link-animate"></a>[`link-animate`](#link-animate)|Animation of directed vertices.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `link-animate = true`.|[↗]()
@@ -47,7 +47,7 @@ Name | Description | &nbsp;
 <a name="link-label-zoom-threshold"></a>[`link-label-zoom-threshold`](#link-label-zoom-threshold)|Parameter value is a value of scale when labels appear based on edge threshold.<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.<br>**Example**: `link-label-zoom-threshold = 2`.|[↗]()
 <a name="node-label-zoom-threshold"></a>[`node-label-zoom-threshold`](#node-label-zoom-threshold)|Parameter value is a value of scale when labels appear based on vertex threshold.<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.<br>**Example**: `node-label-zoom-threshold = 2`.|[↗]()
 <a name="auto-padding"></a>[`auto-padding`](#auto-padding)|Add padding if labels overflow container.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `auto-padding = false`.|[↗]()
-<a name="link-width-order"></a>[`link-width-order`](#link-width-order)|Sort links according to their width<br> Possible values: `top`, `bottom`, `undefined`<br>Default value: `undefined`.<br>**Example**: `link-width-order = top`.|[↗]()
+<a name="link-width-order"></a>[`link-width-order`](#link-width-order)|Sort links according to their width.<br> Possible values: `top`, `bottom`, `undefined`<br>Default value: `undefined`.<br>**Example**: `link-width-order = top`.|[↗]()
 
 ## Node Settings
 
@@ -55,12 +55,12 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="id"></a>[`id`](#id)|**Required** Unique name of the vertex.<br>**Example**: `id = HEATHROW`|[↗]()
+<a name="id"></a>[`id`](#id)|**Required** Unique name of the vertex.<br>**Example**: `id = HEATHROW`.|[↗]()
 <a name="parent"></a>[`parent`](#parent)|ID of parent vertex.<br>**Example**: `parent = LONDON`.|[↗]()
 <a name="series"></a>[`series`](#series)|`alias` of time series associated with vertex.<br>**Example**: `series = AIRPORTS`.|[↗]()
 <a name="alert-style"></a>[`alert-style`](#alert-style)|Vertex style upon breach of `alert-expression` condition.<br>**Example**: `alert-style = color: red`.|[↗]()
 <a name="tooltip"></a>[`tooltip`](#tooltip)|Add custom string to tooltip.<br>**Example**: `tooltip = Passenger Information`.|[↗]()
-<a name="label"></a>[`label`](#label)|Text on label.<br>`element-id` by default.<br>**Example**: `label = Airport Usage`|[↗]()
+<a name="label"></a>[`label`](#label)|Text on label.<br>`element-id` by default.<br>**Example**: `label = Airport Usage`.|[↗]()
 
 Use `[properties]` to specify any values divided by an equal sign. If a value contains `=` or `\` escape them with a backslash: `\=` or `\\`.
 
