@@ -19,10 +19,10 @@ The **Page Widget** displays the contents of an external page in a **ChartLab** 
 * The settings apply to the `[widget]` section.
 * [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
-Name | Example | Description | &nbsp;
-:--|:--|:--|:--
-<a name="disable-alert"></a>[`disable-alert`](#disable-alert)| `disable-alert = true` | Disable broweser alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`. | [↗](https://apps.axibase.com/chartlab/8af88aaa)
-<a name="scale"></a>[`scale`](#scale) | `scale = 0.8` | Widget scale.<br>Possible values: Number > `0`.<br>Default value: `1.0`| [↗](https://apps.axibase.com/chartlab/ca155883)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="disable-alert"></a>[`disable-alert`](#disable-alert) | Disable broweser alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `disable-alert = true`. | [↗](https://apps.axibase.com/chartlab/6a7aee6b)
+<a name="scale"></a>[`scale`](#scale)| Widget scale.<br>Possible values: Number > `0`.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`.| [↗](https://apps.axibase.com/chartlab/ca155883)
 
 ## Examples
 
