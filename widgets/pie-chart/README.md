@@ -23,13 +23,13 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 
 * The settings apply to the `[widget]` section.
 * [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
-* The **Pie Chart** includes unique behavior upon clicking a segment of the visualization:
+* The **Pie Chart** includes unique behavior upon clicking a segment of the chart:
   * Single Click: Opens a dialog window with a [**Time Chart**](../time-chart/README.md) for the series.
   * Double Click: Controlled by `selector-mode`, `on-series-double-click`, and `expand` setting. Default behavior is `expand` upon double click.
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="mode"></a>[`mode`](#mode)|Chart mode.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`.<br>**Example**: `mode = ring`|[↗](https://apps.axibase.com/chartlab/7217e679)
+<a name="mode"></a>[`mode`](#mode)|Chart mode.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`.<br>**Example**: `mode = ring`.|[↗](https://apps.axibase.com/chartlab/7217e679)
 <a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|Disable [double click functionality](#widget-settings) in the widget.<br>**Example**: `on-series-double-click = ''`.|[↗](https://apps.axibase.com/chartlab/b18445b6)
 <a name="selector-mode"></a>[`selector-mode`](#selector-mode)|Control how series segments react to click interaction.<br>Possible values: `highlight` - Highlights the selected series segment. `expand` - Expands the selected series segment.<br>**Example**: `selector-mode = highlight`.|[↗](https://apps.axibase.com/chartlab/2cfa5cbe)
 <a name="total-value"></a>[`total-value`](#total-value)|Specify total value.<br> If no `total-value` setting is specified, total widget value is the sum of all series values.<br>Possible values: Number, `series('alias')`.<br>**Example**: `total-value = 100`.|[↗](https://apps.axibase.com/chartlab/94599517)
@@ -63,12 +63,12 @@ Name | Description | &nbsp;
 ### Other Settings
 
 * The settings apply to the `[other]` section.
-* Specifying the `[other]` section creates an addition segment not associated with any series which displays a value or spare capacity.
+* Specifying the `[other]` section creates an additional segment not associated with any series which displays a value or spare capacity.
 
 Name | Description | &nbsp;
 :--|:--|:--
-|<a name="display"></a>[`display`](#display)|Display the difference between `total-value` and sum of visible series values.<br>Possible values: `false`, `true`.<br>Default: `true`.<br>**Example**: `display = false`|[↗](https://apps.axibase.com/chartlab/03201f9e)|
-<a name="label"></a>[`label`](#label)|`[other]` section label.<br>Default: `Other`.<br>**Example**: `label = Unmonitored Memory`|[↗](https://apps.axibase.com/chartlab/064091fa)|
+|<a name="display"></a>[`display`](#display)|Display the difference between `total-value` and sum of visible series values.<br>Possible values: `false`, `true`.<br>Default: `true`.<br>**Example**: `display = false`.|[↗](https://apps.axibase.com/chartlab/03201f9e)|
+<a name="label"></a>[`label`](#label)|`[other]` section label.<br>Default: `Other`.<br>**Example**: `label = Unmonitored Memory`.|[↗](https://apps.axibase.com/chartlab/064091fa)|
 <a name="tooltip"></a>[`tooltip`](#tooltip)|`[other]` section tooltip displayed upon mouseover.<br>Default: `Other`.<br>**Example**: `tooltip = Unmonitored memory (HMC disabled)`.|[↗](https://apps.axibase.com/chartlab/03be3f7d)|
 <a name="color"></a>[`color`](#color)|`[other]` section color.<br>Default: `lightgray`.<br>**Example**: `color = black`.|[↗](https://apps.axibase.com/chartlab/db9f4d31)|
 
