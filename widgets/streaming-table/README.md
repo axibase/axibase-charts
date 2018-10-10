@@ -23,10 +23,10 @@ The **Streaming Table** displays a table of values stored in ATSD.
 * [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 * [Shared Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
 
-Name | Example | Description | &nbsp;
-:--|:--|:--|:--
-<a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series) | `hide-empty-series = false` | Hide series for which no data exists or data whose validity is expired.<br>Default Setting: `true`.| ↗
-<a name="expire-time-span"></a>[`expire-time-span`](#expire-time-span) | `expire-time-span = 10 day` | Interval which determines the validity of series `last insert` data.| ↗
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series)| Hide series for which no data exists or data whose validity is expired.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `hide-empty-series = false`.| [↗](https://apps.axibase.com/chartlab/a3561603)
+<a name="expire-time-span"></a>[`expire-time-span`](#expire-time-span)| Interval which determines the validity of series `last insert` data specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `expire-time-span = 10 day`.| ↗
 
 ## Examples
 
@@ -34,13 +34,13 @@ Name | Example | Description | &nbsp;
 
 ![](./images/min-and-max-value-time.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/5bb723f1)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3f1cbbb4)
 
 ### Sliding Window
 
 ![](./images/sliding-window.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e9763ce8)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b09687f9)
 
 ### Color Grid
 
@@ -50,9 +50,9 @@ Name | Example | Description | &nbsp;
 
 ### Alert
 
-![](./images/alert.png)
+![](./images/alert-example-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/243f21ce)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/4d03229c)
 
 ### Toggle Rows
 
@@ -64,7 +64,7 @@ Name | Example | Description | &nbsp;
 
 ![](./images/calculated-columns.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/b2a7070a)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ff8aabfd)
 
 ### Multiple Metrics
 
