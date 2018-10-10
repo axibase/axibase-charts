@@ -124,59 +124,6 @@ Link series to edges or vertices by indicating the `alias` in the series paramet
 
 ### Configuration Example 1
 
-```ls
-[widget]
-height-units = 4
-width-units = 4
-type = graph
-title = Channel_Graph
-alert-expression = value > 100000
-alert-style = stroke: red
-bundle = false
-circle = false
-tension = 0
-
-[node]
-id = queue_1
-
-[node]
-id = queue_2
-
-[node]
-id = queue_3
-
-[link]
-id = channel_1
-nodes = queue_1-queue_2
-series = ch1
-
-[link]
-id = channel_2
-nodes = queue_2->queue_3
-
-[link]
-id = channel_3
-nodes = queue_1<-queue_3
-
-[series]
-entity = gr01
-metric = message_count
-links = channel_2
-
-[tag]
-name = channel_name
-value = channel2
-
-[series]
-alias = ch1
-entity = gr01
-metric = message_count
-
-[tag]
-name = channel_name
-value = channel1
-```
-
 ![](./images/configuration-example.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/3c8cfe36)
@@ -193,28 +140,6 @@ mode = hierarchial
 
 In the event of an [`alert-expression`](../../syntax/alert-expression.md) response on the time series of the vertex or edge to which the time series is tied. Value of alert-style can be either string or script. If alert-style is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
 
-```ls
-/* widget level settings */
-[widget]
-alert-style = color: red
-link-alert-style = color: red
-node-alert-style = color: red
-
-/* link level settings */
-[link]
-alert-style = color: red
-
-/* node level settings */
-[node]
-alert-style = color: red
-
-/* series level settings */
-[series]
-alert-style = color: red
-link-alert-style = color: red
-node-alert-style = color: red
-```
-
 ### Example Syntax
 
 ```ls
@@ -227,81 +152,6 @@ node-alert-style = if (alert > 99) return 'fill:red';
 
 ### Configuration Example 2
 
-```ls
-[widget]
-type = graph
-title = Channel_Graph
-alert-expression = value > 100000
-node-alert-style = fill: red
-link-alert-style = stroke: red
-bundle = false
-mode = hierarchy
-
-[node]
-id = manager_1
-
-[node]
-id = manager_2
-alert-style = fill: yellow
-
-[node]
-id = manager_3
-
-[node]
-id = alpha.queue
-parent = manager_1
-
-[node]
-id = beta.queue
-parent = manager_1
-
-[node]
-id = lambda.queue
-parent = manager_2
-
-[node]
-id = foo.queue
-parent = manager_3
-
-[link]
-nodes = alpha.queue - foo.queue
-
-[link]
-nodes = lambda.queue -> foo.queue
-
-[link]
-nodes = beta.queue <- alpha.queue
-
-[series]
-entity = gr02
-metric = message_count
-links = lambda.queue - foo.queue
-nodes = lambda.queue, manager_2
-
-[tag]
-name = channel_name
-value = THE.BEST.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - foo.queue
-
-[tag]
-name = channel_name
-value = ALPHA.FOO.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - beta.queue
-nodes = beta.queue
-
-[tag]
-name = channel_name
-value = ALPHA.BETA.CH
-```
-
 ![](./images/configuration-example-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/0d5d6c04)
@@ -313,86 +163,6 @@ Set thresholds for time series which are tied to vertices or edges using the `li
 Color and width parameters are applied to the edge and vertices based on `link-widths` and `link-colors`, additionally `node-radiuses` and `node-colors` under the `[widget]` tag.
 
 `alert-expression` styles are superimposed over the threshold styles.
-
-```ls
-[widget]
-mode = hierarchy
-type = graph
-title = Channel_Graph
-bundle = false
-data = true
-depth = 3
-max-ring-width = .3
-link-thresholds = 1000
-link-thresholds = Math.max(percentile(25), 50000)
-link-thresholds = percentile(90)
-link-widths = 1, 1, 2, 3
-link-colors = blue, green, orange, red
-
-[node]
-id = manager_1
-
-[node]
-id = manager_2
-alert-style = fill: yellow
-
-[node]
-id = manager_3
-
-[node]
-id = alpha.queue
-parent = manager_1
-
-[node]
-id = beta.queue
-parent = manager_1
-
-[node]
-id = lambda.queue
-parent = manager_2
-
-[node]
-id = foo.queue
-parent = manager_3
-
-[link]
-nodes = alpha.queue - foo.queue
-
-[link]
-nodes = lambda.queue -> foo.queue
-
-[link]
-nodes = beta.queue <- alpha.queue
-
-[series]
-entity = gr02
-metric = message_count
-links = lambda.queue - foo.queue
-
-[tag]
-name = channel_name
-value = THE.BEST.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - foo.queue
-
-[tag]
-name = channel_name
-value = ALPHA.FOO.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - beta.queue
-
-nodes = beta.queue
-
-[tag]
-name = channel_name
-value = ALPHA.BETA.CH
-```
 
 ![](./images/thresholds.png)
 
