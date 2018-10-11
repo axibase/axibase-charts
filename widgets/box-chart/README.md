@@ -10,14 +10,12 @@ The **Box Chart** displays a distribution of observed values over a user-defined
   metric = memfree
 
   [series]
-    entity = nurswgvml006
-  [series]
-    entity = nurswgvml007
+    entity = nurswgvml00*
 ```
 
 ![](./images/box-chart-title-2.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/743415a1)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/50fe6882)
 
 ### Widget Settings
 
@@ -46,7 +44,7 @@ Name |Description |&nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/8544efb0)
 
-### Alert
+### Alert Expression
 
 ![](./images/alert-expression-1.png)
 
