@@ -24,8 +24,8 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 
 Name |Description |&nbsp;
 :--|:--|:--
-<a name="class"></a>[`class`](#class)| Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`.<br>**Example**: `class = metro`.| [↗](https://apps.axibase.com/chartlab/793e89f6)
-<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical) or `true` (vertical).<br>Default value: `0`. (vertical).<br>**Example**: `rotate-ticks = 90`.| [↗](https://apps.axibase.com/chartlab/05083c97)
+<a name="class"></a>[`class`](#class)| Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`.<br>**Example**: `class = metro`.| [↗](https://apps.axibase.com/chartlab/b6d2973f)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical) or `true` (vertical).<br>Default value: `0`. (vertical).<br>**Example**: `rotate-ticks = 90`.| [↗](https://apps.axibase.com/chartlab/cbf53fd2)
 
 ### Series Settings
 
