@@ -46,7 +46,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Example**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/76515697)
+<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/76515697)
 <a name="thresholds"></a>[`thresholds`](#thresholds)| Threshold values.<br>The number of specified [`colors`](#colors) must be `1` fewer than the number of thresholds.<br>**Example**: `thresholds = 0, 25, 50, 75, 100`.| [↗](https://apps.axibase.com/chartlab/c6effa9d)
 <a name="label"></a>[`label`](#label) | Rectangle label.<br>Set empty `label =` setting to hide label.<br>Default value: `entity-metric`.<br>**Example**: `label = Total Capacity`.|[↗](https://apps.axibase.com/chartlab/1d1ec7aa)
 
