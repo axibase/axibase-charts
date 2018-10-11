@@ -2,16 +2,16 @@
 
 The following control structures are supported by Charts applications:
 
-* [`list`](#list--endlist)
-* [`var`](#var--endvar)
-* [`for`](#for--endfor)
-* [`if`](#if--elseif--else--endif)
-* [`csv`](#csv--endcsv)
-* [`script`](#script--endscript)
+* [`list`](#list)
+* [`var`](#var)
+* [`for`](#for)
+* [`if`](#if)
+* [`csv`](#csv)
+* [`script`](#script)
 
 ---
 
-## `list` / `endlist`
+## `list`
 
 Assign a list of comma-separated elements, optionally located on multiple lines, to a named array an iterate through the array with a `for` loop.
 
@@ -36,7 +36,7 @@ list servers = awsswgvml001, nurswgvml003
 
 ---
 
-## `var` / `endvar`
+## `var`
 
 `var` assigns an array, object, or function to a variable whose value and fields can be invoked with a placeholder.
 
@@ -64,7 +64,7 @@ endfor
 
 ---
 
-## `for` / `endfor`
+## `for`
 
 Iterates over a list created with the [`list`](#list--endlist) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
 
@@ -228,7 +228,7 @@ endfor
 
 ---
 
-## `if` / `elseif` / `else` / `endif`
+## `if`
 
 Evaluates an expression and prints settings if the expression is `true`. If the expression returns `false`, content located within the branch is excluded from widget configuration.
 
@@ -252,7 +252,7 @@ endfor
 
 ---
 
-## `csv` / `endcsv`
+## `csv`
 
 Create comma-separated value lists in the **Editor** window.
 
@@ -611,7 +611,7 @@ endfor
 
 ---
 
-## `script` / `endscript`
+## `script`
 
 Include inline JavaScript functions using `script` syntax.
 
