@@ -25,7 +25,7 @@ The **Time Chart** displays series values at successive time intervals for one o
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="display-panels"></a>[`display-panels`](#display-panels) |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`.|  [↗](https://apps.axibase.com/chartlab/fbb223ef)
-<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`. |  [↗](https://apps.axibase.com/chartlab/209a449c)
+<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`. |  [↗](https://apps.axibase.com/chartlab/c6ef962a)
 <a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`. |  [↗](https://apps.axibase.com/chartlab/eaf88286)
 <a name="context-height"></a>[`context-height`](#context-height)| Height of the [Context Chart](#time-chart-controls).<br>Default value: `0`.<br>**Example**: `context-height = 50`.| [↗](https://apps.axibase.com/chartlab/67d1027d)
 <a name="markers"></a>[`markers`](#markers)| Show series value markers.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Examples**: `markers = false`.| [↗](https://apps.axibase.com/chartlab/263a3ee8)
