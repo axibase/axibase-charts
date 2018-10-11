@@ -36,7 +36,6 @@ Name | Description | &nbsp;
 <a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`.|[↗](https://apps.axibase.com/chartlab/74da0392)
 <a name="expand-tags"></a>[`expand-tags`](#expand-tags)|Show response tags as columns.<br>Useful when exact tags are unknown.<br>**Example**: `expand-tags = true`.|[↗](https://apps.axibase.com/chartlab/1ef51a50)
 <a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.<br>**Example**: `hide-column = value <= 0`. |[↗](https://apps.axibase.com/chartlab/0e32ca71)
-<a name="class"></a>[`class`](#class)| Unix-style console with black background.<br>Possible values: `terminal`.<br>**Example**: `class = terminal`.| [↗](https://apps.axibase.com/chartlab/bb9fb175)
 
 ## Column Settings
 
@@ -48,8 +47,8 @@ Name | Description | &nbsp;
 <a name="key"></a>[`key`](#key)|Property name in server JSON response.<br>**Example**: `key = iface`.|[↗](https://apps.axibase.com/chartlab/a37ebd8e)
 <a name="tag"></a>[`tag`](#tag)|Tag name in server JSON response.<br>**Example**: `tag = addr`.|[↗](https://apps.axibase.com/chartlab/6ee401c6)
 <a name="value"></a>[`value`](#value)|Value which is writable to the JSON response property table.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.<br>**Example**: `value = value > 1.0`.|[↗](https://apps.axibase.com/chartlab/5a79a608)
-<a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting functions](../../syntax/format-settings.md).<br>**Example**: `format = percent`.|[↗](https://apps.axibase.com/chartlab/60f38f69)
-<a name="format-numbers"></a>[`format-numbers`](#format-numbers)|Value number formatting.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-numbers = true`.|[↗](https://apps.axibase.com/chartlab/f32ee922)
+<a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting functions](../../syntax/format-settings.md).<br>**Examples**:<ul><li>`format = percent`<li>`format = iso`<li>`format = json`</ul>|[↗](https://apps.axibase.com/chartlab/60f38f69)
+<a name="format-numbers"></a>[`format-numbers`](#format-numbers)|Disable number formatting (thousand separator).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-numbers = true`.|[↗](https://apps.axibase.com/chartlab/f32ee922)
 <a name="format-headers"></a>[`format-headers`](#format-headers)|Column header formatting.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-headers = true`.|[↗](https://apps.axibase.com/chartlab/9b9f9f90)
 
 ### Property Settings
