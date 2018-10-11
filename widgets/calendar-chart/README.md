@@ -24,7 +24,7 @@ The **Calendar Chart** displays the deviation of aggregated series values for a 
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="summarize-period"></a>[`summarize-period`](#summarize-period)| Calendar period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit`.<br>Default value: `5 minute`.<br>**Example**: `summarize-period = 1 hour`. | [↗](https://apps.axibase.com/chartlab/48d84a37)
+<a name="summarize-period"></a>[`summarize-period`](#summarize-period)| Loaded data calendar period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `5 minute`.<br>**Example**: `summarize-period = 1 hour`. | [↗](https://apps.axibase.com/chartlab/48d84a37)
 <a name="summarize-statistic"></a>[`summarize-statistic`](#summarize-statistic) | [Statistical function](../../configuration/aggregators.md) applied to values within each period.<br>Default value: `avg`.<br>**Example**: `summarize-statistic = percentile_75`.| [↗](https://apps.axibase.com/chartlab/c16cbc54)
 |<a name="color-range"></a>[`color-range`](#color-range)|Color palette assigned to threshold ranges.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors).<br>Built-in ranges: `red`, `blue`, `black`.<br>**Example**: `color-range = black`.|[↗](https://apps.axibase.com/chartlab/51192659)|
 <a name="gradient-count"></a>[`gradient-count`](#gradient-count)| Number of gradients per threshold range.<br>Default value: `3`.<br>**Example**: `gradient-count = 2`.| [↗](https://apps.axibase.com/chartlab/780b5d11)
