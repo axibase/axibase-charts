@@ -37,6 +37,7 @@ Name |Description |&nbsp;
 Name |Description |&nbsp;
 :--|:--|:--
 <a name="percentiles"></a>[`percentiles`](#percentiles)| Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.<br>**Example**: `percentiles = 10%/90%`.| [↗](https://apps.axibase.com/chartlab/0a83d6f5)
+<a name="percentile-markers"></a>[`percentile-markers`](#percentile-markers)| Percentiles marker position.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.<br>**Example**: `percentile-markers = all`.|[↗](https://apps.axibase.com/chartlab/2ba999db)
 
 ## Examples
 
