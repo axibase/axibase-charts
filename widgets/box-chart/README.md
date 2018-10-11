@@ -7,7 +7,6 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 ```ls
 [widget]
   type = box
-  timespan = 1 hour
   metric = memfree
 
   [series]
@@ -18,27 +17,26 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 
 ![](./images/box-chart-title-2.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/81e2eaad)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/743415a1)
 
 ### Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md) `[widget]` settings are inherited.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
-Name |Example |Description |&nbsp;
-:--|:--|:--|:--
-<a name="class"></a>[`class`](#class) | `class = metro` | Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`, `default`<br>Default value: `default`.| [↗](https://apps.axibase.com/chartlab/c147cb06)
-<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks) | `rotate-ticks = 0` | Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical).<br>Default value: `90` (vertical).| [↗](https://apps.axibase.com/chartlab/9370ecd7)
+Name |Description |&nbsp;
+:--|:--|:--
+<a name="class"></a>[`class`](#class)| Display percentile markers as circles on a dotted line, as common on subway maps.<br>Possible values: `metro`.<br>**Example**: `class = metro`.| [↗](https://apps.axibase.com/chartlab/793e89f6)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical) or `true` (vertical).<br>Default value: `0`. (vertical).<br>**Example**: `rotate-ticks = 90`.| [↗](https://apps.axibase.com/chartlab/05083c97)
 
 ### Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md) `[setting]` settings are inherited.
+* [Shared](../shared/README.md) `[series]` settings are inherited.
 
-Name |Example |Description |&nbsp;
-:--|:--|:--|:--
-<a name="percentiles"></a>[`percentiles`](#percentiles) | `percentiles = 10%/90%` | Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.| [↗](https://apps.axibase.com/chartlab/5a6925f5)
-<a name="percentile-markers"></a>[`percentile-markers`](#percentile-markers)| `percentile-markers = all` | Percentiles marker position.<br>Possible values: `all`, `none`, `top`, `bottom`.<br>Default value: `none`.|[↗](https://apps.axibase.com/chartlab/061c731e)
+Name |Description |&nbsp;
+:--|:--|:--
+<a name="percentiles"></a>[`percentiles`](#percentiles)| Minimum and maximum percentiles for the shaded box area.<br>Possible values: `0%` to `100%`.<br>Default value: `25%/75%`.<br>**Example**: `percentiles = 10%/90%`.| [↗](https://apps.axibase.com/chartlab/0a83d6f5)
 
 ## Examples
 
