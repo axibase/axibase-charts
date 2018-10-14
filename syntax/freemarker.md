@@ -12,7 +12,7 @@ When the portal is requested by the client, the server searches the document for
 
 Example:
 
-```html
+```ls
 <#assign server = "ABC">
 [widget]
   title = ${server}
@@ -20,7 +20,7 @@ Example:
 
 The above text is converted to:
 
-```html
+```ls
 [widget]
   title = ABC
 ```
