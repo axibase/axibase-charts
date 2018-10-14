@@ -1,89 +1,52 @@
 # Histogram Chart
 
-![](./images/stack_histogram.png)
+## Overview
 
-Histogram charts visualize data distribution.
-
-## Syntax
-
-Histogram Charts support [Shared Widget](../shared/README.md) syntax.
-
-### `[widget]` Settings
-
-|Setting |Syntax |Description |Example |
-|--- |--- |--- |--- |
-|Mode|`mode = stack`|If `mode = stack` with multiple series configured, data is merged from all series into one data array.<br>If mode is not set to stack, each series of the histogram is displayed separately.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511)|
-|Bar Count|`bar-count = 20`|Number of bars or distributions.<br>Default value: `50`.<br>Alternatively control bar count from mouseover menu in the upper right corner of the widget.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/2/)|
-|Left Axis|`left-axis = frequency`|Values displayed on the left-axis.<br>Possible values: `none`, `density`, `fraction`, `frequency`.<br>Default value: `frequency`.<br>`density`: Scales the height of the bars such that the sum of their areas equals `1`.<br>`fractions`: Scales the height of the bars such that the sum of their heights equals `1`.<br>`frequency`: Scales the height of the bars such that each bar height is equal to the number of observations in the series. Thus, the sum of the heights is equal to the total number of observations.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/3/)|
-|Right Axis|`right-axis = density`|Values displayed on the right-axis.<br>Possible values: `none`, `density`, `fraction`, `frequency`.<br>Default value: `none`.<br>`density`: Scales the height of the bars such that the sum of their areas equals `1`.<br>`fractions`: Scales the height of the bars such that the sum of their heights equals `1`.<br>`frequency`: Scales the height of the bars such that each bar height is equal to the number of observations in the series. Thus the sum of the heights is equal to the total number of observations.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/4/)|
-|Top Axis|`top-axis = percentiles`|Values displayed on the top axis.<br>Possible values: `none`, `percentiles`, `values`.<br>Default value: `none`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/14/)|
-|Bottom Axis|`bottom-axis = percentiles`|Values displayed on the bottom axis.<br>Possible values: `none`, `percentiles`, `values`. Default value: `values`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/15/)|
-|Percentiles|`percentiles = 1, 10, 50, 90, 99.9`|Percentiles displayed when `top-axis = percentiles`.<br>Multiple percentiles must be separated with commas.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/7/)|
-|Vertical Grid|`vertical-grid = percentiles`|Display a vertical line corresponding to each percentile on the top axis.<br>Possible values: `none`, `percentiles`. Default value: `none`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/8/)|
-|Horizontal Grid|`horizontal-grid = frequency`|Display a horizontal line corresponding to each value on the right or left axis.<br>Possible values: `none`, `density`, `fractions`, `frequency`.<br>Default value: `frequency`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/9/)|
-|Minimum and Maximum Range|`min-range = 20``max-range = 90`|Set the minimum and maximum range of the `x` axis.If value is outside the set maximum or minimum range then it is added to the maximum or minimum bucket in the visible range.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/10/)|
-|Force Minimum and Maximum Range|`min-range-force = 20``max-range-force = 90`|Set the strict minimum and maximum range of the `x` axis.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7f906511/11/)|
-|Range Offset|`range-offset = 50`|Adds an offset to the left and right of the dataset, set in pixels.<br>Inactive by default. |[![](./images/button.png)](https://apps.axibase.com/chartlab/394e80a5)|
-
-### `[series]` Settings
-
-Settings inherited from [Shared Widget `[series]` Syntax](../shared/README.md): `entity`, `metric`, `type`, `interval`, `style`, `color`, `label`, `tooltip`, `display`, `hidden`, `refresh-interval`, `retry-refresh-interval`, `error-refresh-interval`.
-
-### `display` Setting
-
-#### Filter series based on a time lag
+The **Histogram Chart** visualizes data distribution.
 
 ```ls
-display = this.lastRequestTime - this.last.t < 60*200
+[widget]
+  type = histogram
+  mode = stack
+  metric = memfree
+
+  [series]
+      entity = nurswgvml00*
 ```
 
-![](./images/time-lag.png)
+![](./images/histogram-title-chart.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/650b1692/1)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/29223f00)
 
-#### Sort top two series by value
+## Widget Settings
 
-```ls
-display = value >= top(2)
-```
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
-![](./images/top-two.png)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="mode"></a>[`mode`](#mode)|Histogram display mode.<br>Possible values: `stack` - For multiple series, data is displayed as overlapping bars.<br>**Example**: `mode = stack`.|[↗](https://apps.axibase.com/chartlab/c71a8e3c)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: Between `0` (horizontal) and `90` (vertical), or `false` (horizontal).<br>Default value: `0`.<br>**Example**: `rotate-ticks = 45`.|[↗](https://apps.axibase.com/chartlab/4a371589)
+<a name="bar-count"></a>[`bar-count`](#bar-count)|Number of bars in which to group or split loaded data.<br>Default value: `50`.<br>**Example**: `bar-count = 20`.|[↗](https://apps.axibase.com/chartlab/41e3f962)|
+<a name="left-axis"></a>[`left-axis`](#left-axis)|Value statistics displayed on the left axis.<br>Possible values: `none` - No scaling applied. `density` - Scales the height of the bars such that the sum of their areas is equal to `1`. `fractions` - Scales the height of the bars such that the sum of their heights is equal to `1`. `frequency` - Scales the height of the bars such that the height of each bar is equal to the number of observations in the series. Thus, the sum of the heights is equal to the total number of observations.<br>Default value: `frequency`.<br>**Example**: `left-axis = frequency`.|[↗](https://apps.axibase.com/chartlab/30c87fb2)
+<a name="right-axis"></a>[`right-axis`](#right-axis)|Value statistics displayed on the right axis.<br>Possible values: `none` - No scaling applied. `density` - Scales the height of the bars such that the sum of their areas equals `1`. `fractions` - Scales the height of the bars such that the sum of their heights equals `1`. `frequency` - Scales the height of the bars such that each bar height is equal to the number of observations in the series. Thus, the sum of the heights is equal to the total number of observations.<br>Default value: `none`.<br>**Example**: `right-axis = density`.|[↗](https://apps.axibase.com/chartlab/4a85afbd)
+<a name="top-axis"></a>[`top-axis`](#top-axis)|Top axis ticks format.<br>Possible values: `none`, `percentiles`, `values`.<br>Default value: `none`.<br>**Example**: `top-axis = percentiles`.|[↗](https://apps.axibase.com/chartlab/1a350178)
+<a name="bottom-axis"></a>[`bottom-axis`](#bottom-axis)|Bottom axis ticks format.<br>Possible values: `none`, `percentiles`, `values`.<br>Default value: `values`.<br>**Example**: `bottom-axis = percentiles`.|[↗](https://apps.axibase.com/chartlab/792679fc)
+<a name="percentiles"></a>[`percentiles`](#percentiles)|Percentiles displayed when `top-axis` or `bottom-axis = percentiles`.<br>Separate percentiles with commas.<br>Possible values: Between `0` and `100`.<br>**Example**: `percentiles = 1, 10, 50, 90, 99.9`.|[↗](https://apps.axibase.com/chartlab/8abd37b0)
+<a name="vertical-grid"></a>[`vertical-grid`](#vertical-grid)|Display a vertical line corresponding to each percentile on the top axis.<br>`vertical-grid` must be used with `top-axis = percentiles` setting.<br>Possible values: `none`, `percentiles`.<br>Default value: `none`.<br>**Example**: `vertical-grid = percentiles`.|[↗](https://apps.axibase.com/chartlab/c30d3895)
+<a name="horizontal-grid"></a>[`horizontal-grid`](#horizontal-grid)|Display a horizontal line corresponding to each value on the right or left axis.<br>`horiztonal-grid` setting must be the same as `right-axis` or `left-axis` setting.<br>Possible values: `none`, `density`, `fractions`, `frequency`.<br>Default value: `frequency`.<br>**Example**: `horizontal-grid = frequency`.|[↗](https://apps.axibase.com/chartlab/99d89203)
+<a name="range-offset"></a>[`range-offset`](#range-offset)| Offset applied to series range, specified in pixels.<br>Default value: `0`.<br>**Example**:  `range-offset = 100`. | [↗](https://apps.axibase.com/chartlab/34c823a2)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/650b1692/2)
+## Examples
 
-#### Filter series with value greater than `10`
+### Multiple Series
 
-```ls
-display = value < 10
-```
+![](./images/multiple-series.png)
 
-![](./images/greater-than-ten.png)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6f9bf2a8)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/650b1692/3)
+### Advanced Configuration Example
 
-### Examples
+![](./images/advanced-configuration.png)
 
-#### Stacked Histogram
-
-```ls
-mode = stack
-```
-
-![](./images/stack_histogram.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/71546547/2/)
-
-#### Multiple Series
-
-```ls
-[series]
-    entity = nurswgvml006
-    metric = cpu_busy
-[series]
-    entity = nurswgvml007
-    metric = cpu_busy
-```
-
-![](./images/histogram.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/71546547/3/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/bd60b57f)
