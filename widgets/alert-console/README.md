@@ -66,16 +66,16 @@ Default column vary based on source.
 
 ![](./images/advanced-configuration.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/3873ebdc)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/5d300d7a)
 
 ### Severity Style: `row`
 
 ![](./images/severity-style-row.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/7e73c554)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/29416702)
 
 ### Severity Style: `column`
 
 ![](./images/severity-style-column.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/cc0f7333)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/1efce40e)
