@@ -34,8 +34,8 @@ type = property
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`|[↗](https://apps.axibase.com/chartlab/1e6027a6)
-<a name="expand-tags"></a>[`expand-tags`](#expand-tags)|Show tags in response as columns.<br>Useful when exact tags are unknown.<br>**Example**: `expand-tags = true`|[↗](https://apps.axibase.com/chartlab/298d0d57)
-<a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true` or column name matches the pattern.<br>**Example**: `hide-column = value <= 0`|[↗](https://apps.axibase.com/chartlab/2272c72b)
+<a name="expand-tags"></a>[`expand-tags`](#expand-tags)|Show tags in response as columns.<br>Useful when exact tags are unknown.<br>**Example**: `expand-tags = true`|[↗](https://apps.axibase.com/chartlab/90412013)
+<a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true` or column name matches the pattern.<br>**Example**: `hide-column = value <= 0`|[↗](https://apps.axibase.com/chartlab/0ded4531)
 
 ## Column Settings
 
@@ -44,7 +44,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/77456eec)
+<a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
 <a name="tag"></a>[`tag`](#tag)|Tag name.<br>**Example**: `tag = addr`|[↗](https://apps.axibase.com/chartlab/f5077d6c)
 <a name="value"></a>[`value`](#value)|Using JSON code, receive any value that can be written into the property table.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.<br>**Example**: `value = value > 0.75`|[↗](https://apps.axibase.com/chartlab/3db5b3b6)
 <a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting settings](../../syntax/format-settings.md).<br>**Examples**:<ul><li>`format = percent`<li>`format = iso`<li>`format = json`</ul>|[↗](https://apps.axibase.com/chartlab/60f38f69)
