@@ -11,7 +11,7 @@ The **Alert Console** displays a continuously updated list of open alerts or mes
 
 ![](./images/title-chart-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e373cd26)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/1735445f)
 
 ## Widget Settings
 
@@ -21,10 +21,10 @@ The **Alert Console** displays a continuously updated list of open alerts or mes
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="source"></a>[`source`](#source)| Specify the source of records.<br>Possible values: `alert`, `message`.<br>Default value: `alert`.<br>**Example**: `source = message` | [↗](https://apps.axibase.com/chartlab/48e153ed)
+<a name="source"></a>[`source`](#source)| Specify the source of records.<br>Possible values: `alert`, `message`.<br>Default value: `alert`.<br>**Example**: `source = message` | [↗](https://apps.axibase.com/chartlab/1461fbb6)
 <a name="rule"></a>[`rule`](#rule)| Rule for which alerts are filtered. <br>**Example**: `rule = nginx_server_accepts_counter` | [↗](https://apps.axibase.com/chartlab/3b00b4a1)
-<a name="entity"></a>[`entity`](#entity)| The host or service displayed by the widget.<br>Multiple `entity` settings can be specified.<br>**Example**: `entity = nurswgvml007`| [↗](https://apps.axibase.com/chartlab/a0b9421a)
-<a name="metric"></a>[`metric`](#metric)| The metric displayed by the widget.<br>Other metrics are filtered out.<br>Multiple `metric` settings can be specified.<br>**Example**: `metric = nmon.cpu_total.busy%`| [↗](https://apps.axibase.com/chartlab/0e0ecc74)
+<a name="entity"></a>[`entity`](#entity)| The host or service displayed by the widget.<br>Multiple `entity` settings can be specified.<br>**Example**: `entity = nurswgvml007`| [↗](https://apps.axibase.com/chartlab/ff2ce03a)
+<a name="metric"></a>[`metric`](#metric)| The metric displayed by the widget.<br>Other metrics are filtered out.<br>Multiple `metric` settings can be specified.<br>**Example**: `metric = nmon.cpu_total.busy%`| [↗](https://apps.axibase.com/chartlab/aa542ce3)
 <a name="severity"></a>[`severity`](#severity)| Minimum severity rating of console alerts.<br>Possible values: `0` (Undefined), `1` (Unknown), `2` (Normal), `3` (Warning), `4` (Minor), `6` (Critical),`7` (Fatal).<br>Default value: `0`.<br>**Example**: `severity = 6`| [↗](https://apps.axibase.com/chartlab/d9a3d42b)
 <a name="severity-style"></a>[`severity-style`](#severity-style)| Control alert behavior.<br>Highlight a single column or entire row.<br>Possible settings: `row`, `column`.<br>**Example**: `severity-style = row`| [↗](https://apps.axibase.com/chartlab/71113dee)
 <a name="on-click"></a>[`on-click`](#on-click)| Set interaction behavior upon clicking a column.<br>**Example**: `on-click = filter()`| [↗](https://apps.axibase.com/chartlab/f7d929c9)
