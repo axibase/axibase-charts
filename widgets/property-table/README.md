@@ -33,9 +33,9 @@ type = property
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`.|[↗](https://apps.axibase.com/chartlab/74da0392)
-<a name="expand-tags"></a>[`expand-tags`](#expand-tags)|Show response tags as columns.<br>Useful when exact tags are unknown.<br>**Example**: `expand-tags = true`.|[↗](https://apps.axibase.com/chartlab/1ef51a50)
-<a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true`.<br>**Example**: `hide-column = value <= 0`. |[↗](https://apps.axibase.com/chartlab/0e32ca71)
+<a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`|[↗](https://apps.axibase.com/chartlab/1e6027a6)
+<a name="expand-tags"></a>[`expand-tags`](#expand-tags)|Show tags in response as columns.<br>Useful when exact tags are unknown.<br>**Example**: `expand-tags = true`|[↗](https://apps.axibase.com/chartlab/298d0d57)
+<a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true` or column name matches the pattern.<br>**Example**: `hide-column = value <= 0`|[↗](https://apps.axibase.com/chartlab/16d48e5e)
 
 ## Column Settings
 
@@ -44,12 +44,12 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Property name in server JSON response.<br>**Example**: `key = iface`.|[↗](https://apps.axibase.com/chartlab/a37ebd8e)
-<a name="tag"></a>[`tag`](#tag)|Tag name in server JSON response.<br>**Example**: `tag = addr`.|[↗](https://apps.axibase.com/chartlab/6ee401c6)
-<a name="value"></a>[`value`](#value)|Value which is writable to the JSON response property table.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.<br>**Example**: `value = value > 1.0`.|[↗](https://apps.axibase.com/chartlab/5a79a608)
+<a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/ff2a2ed9)
+<a name="tag"></a>[`tag`](#tag)|Tag name.<br>**Example**: `tag = addr`|[↗](https://apps.axibase.com/chartlab/652247ac)
+<a name="value"></a>[`value`](#value)|Using JSON code, receive any value that can be written into the property table.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.<br>**Example**: `value = value > 0.75`|[↗](https://apps.axibase.com/chartlab/3db5b3b6)
 <a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting functions](../../syntax/format-settings.md).<br>**Examples**:<ul><li>`format = percent`<li>`format = iso`<li>`format = json`</ul>|[↗](https://apps.axibase.com/chartlab/60f38f69)
-<a name="format-numbers"></a>[`format-numbers`](#format-numbers)|Disable number formatting (thousand separator).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-numbers = true`.|[↗](https://apps.axibase.com/chartlab/f32ee922)
-<a name="format-headers"></a>[`format-headers`](#format-headers)|Column header formatting.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-headers = true`.|[↗](https://apps.axibase.com/chartlab/9b9f9f90)
+<a name="format-numbers"></a>[`format-numbers`](#format-numbers)|Disable number formatting (thousand separator).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23)
+<a name="format-headers"></a>[`format-headers`](#format-headers)|Column header formatting.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-headers = true`|[↗](https://apps.axibase.com/chartlab/62618861)
 
 ### Property Settings
 
@@ -57,12 +57,12 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="type"></a>[`type`](#type)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`.| [↗](https://apps.axibase.com/chartlab/f5686991)
-<a name="exact-match"></a>[`exact-match`](#exact-match)|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>Partial match selects records with key that contains requested fields but can also include other fields.<br>**Example**: `exact-match = true`.|[↗](https://apps.axibase.com/chartlab/da5f2066)
-<a name="keys-tag-expression"></a>[`key-tag-expression`](#keys-tag-expression)|Expression for matching properties with specified keys and tags.<br>Keys are accessed with `keys.{key-name}` and tags with `tags.{tag-name}`.<br>**Example**: `keys.manager = 'MGR01' AND tags.queue LIKE 'qm1.*'`.| [↗](https://apps.axibase.com/chartlab/266e32eb)
-<a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`.|[↗](https://apps.axibase.com/chartlab/7cc3c6cc)
-<a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`.|[↗](https://apps.axibase.com/chartlab/11f2baf7)
-<a name="offset"></a>[`offset`](#offset)|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.<br>**Example**: `offset = 6000`.|[↗](https://apps.axibase.com/chartlab/7c7de881)
+<a name="type"></a>[`type`](#type)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/f5686991)
+<a name="exact-match"></a>[`exact-match`](#exact-match)|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Partial match selects records with key that contains requested fields but can also include other fields.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `exact-match = true`|[↗](https://apps.axibase.com/chartlab/0be4101c)
+<a name="keys-tag-expression"></a>[`key-tag-expression`](#keys-tag-expression)|Expression for matching properties with specified keys and tags.<br>Keys are accessed with `keys.{key-name}` and tags with `tags.{tag-name}`.<br>**Example**: `keys.manager = 'MGR01' AND tags.queue LIKE 'qm1.*'`| [↗](https://apps.axibase.com/chartlab/266e32eb)
+<a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/fb651274)
+<a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`|[↗](https://apps.axibase.com/chartlab/da112ba6)
+<a name="offset"></a>[`offset`](#offset)|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.<br>**Example**: `offset = 6000`|[↗](https://apps.axibase.com/chartlab/4efa6cc8)
 
 ### Keys Settings
 
@@ -70,7 +70,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|One or multiple keys specified as `key = value` pairs.<br>**Example**: `queue = qm1.to.qm3`.| [↗](https://apps.axibase.com/chartlab/266e32eb)
+<a name="key"></a>[`key`](#key)|One or multiple keys specified as `key = value` pairs.<br>**Example**: `queue = qm1.to.qm3`.| [↗](https://apps.axibase.com/chartlab/74add0d7)
 
 ## Examples
 
