@@ -15,7 +15,7 @@ The **Streaming Table** displays a table of values stored in ATSD.
 
 ![](./images/streaming-table-title.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/132d37c8)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7c05786f)
 
 ## Widget Settings
 
@@ -25,7 +25,7 @@ The **Streaming Table** displays a table of values stored in ATSD.
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series)| Hide series for which no data exists or data whose validity is expired.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `hide-empty-series = false`.| [↗](https://apps.axibase.com/chartlab/657680bc)
+<a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series)| Hide series for which no data exists or data whose validity is expired.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `hide-empty-series = false`| [↗](https://apps.axibase.com/chartlab/cfc5c1bd)
 
 ## Examples
 
@@ -75,7 +75,7 @@ Name | Description | &nbsp;
 
 ![](./images/multiple-tags.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/c2c46923)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/c9e3624d)
 
 ### Configure Columns
 
