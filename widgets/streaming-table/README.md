@@ -33,7 +33,7 @@ Name | Description | &nbsp;
 
 ![](./images/min-and-max-value-time.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/3f1cbbb4)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/905f49d0)
 
 ### Sliding Window
 
