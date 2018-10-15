@@ -12,7 +12,7 @@ The **Page Widget** displays the contents of an external page in a **ChartLab** 
 
 ![](./images/page-widget-title.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/6f15eb1a)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/60d336ab)
 
 ## Widget Settings
 
@@ -21,8 +21,8 @@ The **Page Widget** displays the contents of an external page in a **ChartLab** 
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="disable-alert"></a>[`disable-alert`](#disable-alert) | Disable broweser alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `disable-alert = true`. | [↗](https://apps.axibase.com/chartlab/6a7aee6b)
-<a name="scale"></a>[`scale`](#scale)| Widget scale.<br>Possible values: Number > `0`.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`.| [↗](https://apps.axibase.com/chartlab/ca155883)
+<a name="disable-alert"></a>[`disable-alert`](#disable-alert) | Cancel alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `disable-alert = true` | [↗](https://apps.axibase.com/chartlab/6a7aee6b)
+<a name="scale"></a>[`scale`](#scale)| Scale the width and height of the target page.<br>Value is the factor by which the page scales.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`| [↗](https://apps.axibase.com/chartlab/ca155883)
 
 ## Examples
 
@@ -30,4 +30,4 @@ Name | Description | &nbsp;
 
 ![](./images/chart-and-page-widget.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/50510901)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3d0640c8)
