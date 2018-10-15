@@ -47,7 +47,7 @@ Name | Description | &nbsp;
 <a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
 <a name="tag"></a>[`tag`](#tag)|Tag name.<br>**Example**: `tag = addr`|[↗](https://apps.axibase.com/chartlab/f5077d6c)
 <a name="value"></a>[`value`](#value)|Using JSON code, receive any value that can be written into the property table.<br>Supported arguments: `this`, `value`, `alert`, `row`, `column`, `widget`, `el`, `rowEl`, `td`, `filter`, `dialog`, `series`.<br>**Example**: `value = value > 0.75`|[↗](https://apps.axibase.com/chartlab/3db5b3b6)
-<a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting settings](../../syntax/format-settings.md).<br>**Examples**:<ul><li>`format = percent`<li>`format = iso`<li>`format = json`</ul>|[↗](https://apps.axibase.com/chartlab/60f38f69)
+<a name="format"></a>[`format`](#format)|Formats cell using the specified [formatting settings](../../syntax/format-settings.md).<br>**Examples**:<ul><li>`format = percent`<li>`format = iso`<li>`format = json`</ul>|[↗](https://apps.axibase.com/chartlab/628c8830)
 <a name="format-numbers"></a>[`format-numbers`](#format-numbers)|Disable number formatting (thousand separator).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23)
 <a name="format-headers"></a>[`format-headers`](#format-headers)|Column header formatting.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `format-headers = true`|[↗](https://apps.axibase.com/chartlab/62618861)
 
@@ -57,9 +57,9 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="type"></a>[`type`](#type)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/f5686991)
+<a name="type"></a>[`type`](#type)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/d82b0257)
 <a name="exact-match"></a>[`exact-match`](#exact-match)|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Partial match selects records with key that contains requested fields but can also include other fields.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `exact-match = true`|[↗](https://apps.axibase.com/chartlab/0be4101c)
-<a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/fb651274)
+<a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/b24d0b4b)
 <a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`|[↗](https://apps.axibase.com/chartlab/da112ba6)
 <a name="offset"></a>[`offset`](#offset)|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.<br>**Example**: `offset = 6000`|[↗](https://apps.axibase.com/chartlab/4efa6cc8)
 
@@ -89,4 +89,4 @@ Name | Description | &nbsp;
 
 ![](./images/class-terminal.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/a1b538a8)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/daae97ae)
