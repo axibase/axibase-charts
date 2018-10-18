@@ -31,7 +31,7 @@ Name | Description | &nbsp;
 
 ### `min` and `max` Value Time
 
-![](./images/min-and-max-value-time.png)
+![](./images/min-max-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/905f49d0)
 
@@ -43,7 +43,7 @@ Name | Description | &nbsp;
 
 ### Color Grid
 
-![](./images/color-grid.png)
+![](./images/color-grid-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/0d60397e)
 
@@ -55,7 +55,7 @@ Name | Description | &nbsp;
 
 ### Toggle Rows
 
-![](./images/toggle-rows-1.png)
+![](./images/toggle-rows-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/ae3ece3f)
 
