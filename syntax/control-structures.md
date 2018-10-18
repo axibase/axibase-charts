@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var--endvar). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
+The `list` command is similar to [`var`](#var). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
@@ -66,7 +66,7 @@ endfor
 
 ## `for`
 
-Iterates over a list created with the [`list`](#list--endlist) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
+Iterates over a list created with the [`list`](#list) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
 
 > Multiple `for` or `endfor` loops can be nested.
 
@@ -270,7 +270,7 @@ csv metrics =
 endcsv
 ```
 
-Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for--endfor) statements.
+Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for) statements.
 
 ```ls
 for option in metrics
