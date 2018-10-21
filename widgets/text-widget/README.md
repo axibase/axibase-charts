@@ -1,61 +1,71 @@
 # Text Widget
 
-![](./images/text-widget-6.png)
+## Overview
 
-## Syntax
+The **Text Widget** displays series last insert value in a text-based interface.
 
-Text Widgets support [Shared Widget](../shared/README.md) syntax.
+```ls
+[widget]
+  type = text
+  entity = nurswgvml007
 
-### `[widget]` Settings
+  [series]
+    metric = memtotal
+  [series]
+    metric = memfree
+```
 
-Setting|Syntax|Description|Example
---|--|--|--
-|Circle|`circle = true`|Displays background circle.<br>Default value: `false`|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/9/)|
-|Minimum Font Size|`min-font-size = 10`|Minimum font size for labels, in pixels.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/10/)|
-|Maximum Font Size|`max-font-size = 14`|Maximum font size for labels, in pixels.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/10/)|
-|Series Click|`on-series-click = callDialog({ type: 'page', url: 'https://axibase.com/' })`|Change the type of widget that opens in a dialog window when the value is clicked.<br>Default value: `time chart`|[![](./images/button.png)](https://apps.axibase.com/chartlab/5ab66ecf/13/)|
-|Icon Size|`icon-size = auto`|Automatically resize icons to occupy all available space except the area used by the value and label.<br>If `icon-size` is not set, icon is scaled proportionally to the font height which can be controlled using the `min-font-size` and `max-font-size` settings.|[![](./images/button.png)](https://apps.axibase.com/chartlab/ed1f7adf/2/)|
+![](./images/text-widget-title.png)
 
-### `[series]` Settings
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91)
 
-Inherited settings from [Shared Widget](../shared/README.md)): `entity`, `metric`, `alert-expression`, `alert-style`, `style`, `color`, `label`, `tooltip`, `format`, `refresh-interval`, `retry-refresh-interval`, `error-refresh-interval`.
+## Widget Settings
 
-Setting|Syntax|Description|Example
---|--|--|--
-|label|`label = Memory Free`<br>`label = Axibase`|Caption displayed below the number.Multiple lines and HTML markup are supported.<br>If the label is not defined, entity and metric names are displayed below the value.<br>To hide the label and display only the series value, add the `label =` setting with an empty value.<br>Labels can be set as a link to an external page using HTML.<br>Use the browser history buttons to go back to the previous page if you opened a URL on the same page.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/11/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/5ab66ecf/13/)|
-|Icon|`icon = public/img/svg/linear/users.svg`<br>`icon = alerts_color_01``icon = alerts-color-01`|Add an `svg` icon.Built-in icons can be referenced by name.<br>View built-in [Icon Reference Sheet](../pie-chart/resources/atsd-embedded-icons.pdf).<br>Substitute underscores (`_`) in built-in icon names with dashes(`-`):<br>`icon = alerts_color_07`<br>`icon = alerts-color-07`. Place custom icons in the `/opt/atsd/atsd/conf/portal/svg` directory and refer to them with the `/portal/resource/svg/image` `.svg` path.<br>Custom icons in Axibase Server must be store in `./AxibaseServer/config/workspace/svg` and referenced with `/workspace/svg/image` `.svg` path.|[![](./images/button.png)](https://apps.axibase.com/chartlab/f95d6995)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/f95d6995/6/)|
-|Icon Position|`icon-position = bottom`|Position of the icon relative to the series value.<br>Possible settings: `left`, `right`, `bottom`, `top`|[![](./images/button.png)](https://apps.axibase.com/chartlab/f95d6995/2/)|
-|Icon Color|`icon-color = orange`|Color of the icon.|[![](./images/button.png)](https://apps.axibase.com/chartlab/f95d6995/3/)|
-|Icon Alert Style|`icon-alert-style = fill: red;`|Alert styles applied to the icon when the `alert-expression` is satisfied.|[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/21/)|
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+
+Name|Description|&nbsp;
+:--|:--|:--
+<a name="circle"></a>[`circle`](#circle)|Display series values inside a circle.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `circle = true`|[↗](https://apps.axibase.com/chartlab/0df9d810)
+<a name="min-font-size"></a>[`min-font-size`](#min-font-size)|Minimum font size for labels, in pixels.<br>**Example**: `min-font-size = 20`|[↗](https://apps.axibase.com/chartlab/48d4862e)
+<a name="max-font-size"></a>[`max-font-size`](#max-font-size)|Maximum font size for labels, in pixels.<br>**Example**: `max-font-size = 60`|[↗](https://apps.axibase.com/chartlab/dac1b3f1)
+<a name="on-series-click"></a>[`on-series-click`](#on-series-click)|Behavior upon series label click.<br>See example configuration for possible values.<br>**Example**: `on-series-click = callDialog({ type:'page', url: 'https://axibase.com' })`|[↗](https://apps.axibase.com/chartlab/0108c090)
+<a name="icon-size"></a>[`icon-size`](#icon-size)|Resize icon to fill all available space.<br>If `icon-size` is not set, icon is scaled proportionally to font height.<br>Control font size with [`min-font-size`](#min-font-size) and [`max-font-size`](#max-font-size).<br>Possible value: `auto`.<br>**Example**: `icon-size = auto` |[↗](https://apps.axibase.com/chartlab/a4d3f316)
+
+### Series Settings
+
+* The settings apply to the `[series]` section.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name|Description|&nbsp;
+:--|:--|:--
+<a name="icon"></a>[`icon`](#icon)|Display `.svg` icon in the **Text Widget**.<br>Path to custom icons must be defined.<br>Default ATSD icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without directory path.<br>See the [Icon Reference Sheet](../pie-chart/resources/atsd-embedded-icons.pdf) for built-in icons.<br>Underscore ( `_` ) can be replaced with dash (`-`).<br>Custom icon must be placed in `/atsd-hostname/config/workspace/svg` and referenced with the path `/workspace/svg/image-name.svg`.<br>**Example**: `icon = public/img/svg/linear/user.svg`|[↗](https://apps.axibase.com/chartlab/e8c70b2e)
+<a name="icon-position"></a>[`icon-position`](#icon-position)|Icon position relative to series value.<br>Possible values: `left`, `right`, `top`, `bottom`.<br>Default value: `top`.<br>**Example**: `icon-position = bottom`|[↗](https://apps.axibase.com/chartlab/a81127d4)|
+<a name="icon-color"></a>[`icon-color`](#icon-color)|Icon color.<br>Possible values: [color name](https://en.wikipedia.org/wiki/Web_colors).<br>**Example**: `icon-color = orange`|[↗](https://apps.axibase.com/chartlab/a7edfac4)|
+<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|CSS style applied to icon when [`alert-expression`](../shared/README.md#alert-expression) is `true`.<br>**Example**: `icon-alert-style = fill: red;`|[↗](https://apps.axibase.com/chartlab/91e76758)|
 
 ## Examples
 
 ### Multiple Series
 
-![](./images/text-widget-3.png)
+![](./images/multiple-series.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/4/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/573460c7)
 
 ### Clock and Series
 
-![](./images/text-clock-widget.png)
+![](./images/clock-and-series.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/14/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b20f631f)
 
-### Alert
+### Advanced Configuration Example
 
-![](./images/text-widget-1.png)
+![](./images/advanced-configuration-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7e91b333/2/)
-
-### Conditional Icons
-
-![](./images/text-widget-5.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/958bc64b/2/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/61fd6d23)
 
 ### Icon Alert
 
-![](./images/text-widget-6.png)
+![](./images/icon-alert.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/56623934/3/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/1bfb6339)
