@@ -48,9 +48,7 @@ If the period does not contain any detailed values, they are excluded from the r
 
 See the Excel spreadsheet for testing and calculation.
 
-![](./images/avg_calculations.png)
-
-[![](./images/button-download.png)](./resources/aggregators.xlsx)
+[![](./images/avg_calculations.png)](./resources/aggregators.xlsx)
 
 `wtavg()`: Weighted time average.
 
