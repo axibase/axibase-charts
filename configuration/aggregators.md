@@ -42,7 +42,7 @@ If the period does not contain any detailed values, they are excluded from the r
 
 ![](./images/interpolation-examples.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/d8c03f11/3/#fullscreen)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/d8c03f11/3/#fullscreen)
 
 ## `AVG`, `WAVG`, and `WTAVG` Example
 
@@ -110,24 +110,24 @@ threshold_percent      = 88.9
 
 **Box Chart With `percentile`**:
 
-![](./images/box-chart-percentile.png)
+![](./images/aggregators-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/09315b88/7/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/09315b88/7/)
 
 **Histogram With `percentile`**:
 
-![](./images/histogram-percentile.png)
+![](./images/aggregators-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/09315b88/6/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/09315b88/6/)
 
 **Time Chart With `delta`**:
 
-![](./images/time-chart-delta.png)
+![](./images/aggregators-3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/09315b88/5/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/09315b88/5/)
 
 Time Chart With `count` and `delta` Aggregators:
 
-![](./images/time-chart-compare.png)
+![](./images/aggregators-5.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/54e57188)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/54e57188)

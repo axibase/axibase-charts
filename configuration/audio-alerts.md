@@ -23,7 +23,7 @@ Use Audio Alerts in any widget that supports `alert-expression` settings.
 
 ![](./images/audio-alert-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/10662e8d#fullscreen)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/10662e8d#fullscreen)
 
 ### Example Audio Files
 
@@ -50,10 +50,10 @@ Safari | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x:
 
 Name | Syntax | Description | Example
 --|--|--|--
-Audio On Load | `audio-onload` | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Default value, `false`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
+Audio On Load | `audio-onload` | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Default value, `false`.| [![](../images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
 
 ## `[series]` Settings
 
 Name | Syntax | Description | Example |
 --|--|--|--
-Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa. | [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)
+Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa. | [![](../images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)

@@ -25,7 +25,7 @@ If all widgets in a portal are created for the same server, set the `entity` set
     entity = nurswgvml007
 ```
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/3230deb6/2/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/3230deb6/2/)
 
 In this example, the same metric is inherited by all series in the widget because the metric is defined at the `[widget]` level however the second series overrides the inherited value with the `metric = mpstat.cpu_busy%` setting.
 
@@ -43,10 +43,10 @@ If a setting needs to be set to whitespace or empty string, specify the value of
 statistic = ""
 ```
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/061b5af1)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/061b5af1)
 
 ## Portal Example
 
 ![](./images/inheritance-portal.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/f137e7d8)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/f137e7d8)

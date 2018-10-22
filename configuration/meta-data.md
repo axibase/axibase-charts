@@ -42,7 +42,7 @@ Use these fields in widget settings for several common use cases:
 
 ![](./images/meta-data1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/100f5b65/2/#)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/100f5b65/2/#)
 
 ### Convenience Functions
 
@@ -89,4 +89,4 @@ Access these functions in the following settings:
 
 ![](./images/convenience-functions.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/199f98ec)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/199f98ec)
