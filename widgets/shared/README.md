@@ -1,171 +1,247 @@
-# Shared Widget Syntax
-
-![](./images/shared-widget-title.png)
+# Shared Settings
 
 ## Overview
 
-Shared Widget syntax is common syntax supported by all other widgets.
+The **Shared Settings** are common settings supported by all widgets.
 
 ## Widget Settings
 
-Inherited settings from the `[configuration]` level: `start-time`, `end-time`, `timespan`, `update-interval`, `timezone`, `batch-update`, `batch-size`, `dialog-maximize`, `url`, `path`, `url-parameters`. Overwrite these settings at the `[widget]` level.
+* The settings apply to the `[widget]` section.
 
-Setting | Syntax | Description | Example
---|--|--|--
-Type | `type = chart`<br>`type = bar`<br>`type = treemap`| Define widget type.<br>Available widgets: `chart`, `gauge`, `bar`, `histogram`, `box`, `calendar`, `treemap`, `pie`, `table`, `console`, `property`, `text`, `page`, `graph`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/3/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/4/)<br>
-Tooltip | `tooltip = Widget Tooltip` | Display widget description on title mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/5/)
-Left Units | `left-units = 1` | Set absolute offset from the left, in units. | [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/5/)
-Top Units | `top-units = 1` | Set absolute offset from the top, in units. | [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/7/)
-Timespan | `timespan = 6 hour` | Define data load interval.<br>Set to `1 hour` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/8/)
-Time Span Ahead | `ahead-time-span = 80%` | Show an amount of time ahead of the last series value.<br>Define in percent. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/26/)
-Colors | `colors = green` | Redefine default palette.<br>Table, Console, Property, Text, and Page widgets do not support this setting.<br>Default palette is defined by the array `window.defaultColors`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/9/)
-Legend Position | `legend-position = left` | Modify legend locations for widgets which contain a legend.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>By default, legend position is `hidden` in Time Chart.<br>Legend position is set to `top` on Dialog Chart.<br>Combine values to define corners: `legend-position = bottomright`| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/10/)
-Scale | `scale = 1.5`<br>`scale-x = 0.7` | Scale a widget or axis.<br>Not supported in all browsers.| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/11/)
-Left Axis Range | `max-range = 40`<br>`min-range = 10`| Define minimum and maximum range displayed on the left axis.<br>Actual range can differ based on loaded data samples.| [![](./images/button.png)](https://apps.axibase.com/chartlab/d80980a8/6/)
-Right Axis Range | `min-range-right = 250000`<br>`max-range-right = 500000` | Define minimum and maximum range displayed on the right axis.<br>Actual range can differ based on loaded data samples.| [![](./images/button.png)](https://apps.axibase.com/chartlab/d80980a8/7/)
-Force Left Axis Range | `min-range-force = 0`<br>`max-range-force = 100` | Apply a forced range to the left axis, regardless of loaded data. | [![](./images/button.png)](https://apps.axibase.com/chartlab/d80980a8/8/)
-Force Right Axis Range | `min-range-right-force = 0`<br>`max-range-right-force = 100` | Apply a forced range to the right axis, regardless of loaded data. | [![](./images/button.png)](https://apps.axibase.com/chartlab/d80980a8/9/)
-Rotate Ticks | `rotate-ticks = 45`<br>`rotate-ticks = true` | Rotate `x` axis labels.<br>Set in degrees.<br>`true` rotates by `90` degrees.<br>Default value is `90`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/8fe65e1b/29/)
-Center Ticks | `centralize-ticks = true` | Position time and date markers between instead of under ticks.<br>Boolean expression, `false` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/8eddbb26)
-Center Columns| `centralize-columns = true` | Position columns between ticks instead of directly above ticks.<br>Boolean expression, `false` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/8eddbb26/2/)
-Label Axes | `axis-title = CPU Utilization in %`<br>`axis-title-right = Free Memory in KB`| Label left and right axes.| [![](./images/button.png)](https://apps.axibase.com/chartlab/f6d07f8f)
-Style | `style = padding: 50`| Apply styles to widget container. | [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/15/)
-Header Style| `header-style = background-color: steelblue`<br>`header-style = background: red`<br>`header-style = return 'background: white;'; header-style = display: none`| Customize widget header style.<br>Group diverse portals visually.<br>`background-color`: Replace color, retain pattern.<br> `background`: Replace both color and pattern.<br>`display: none`: Hide header.<br>`header-style = return 'background: white;';`: Remove all styles.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b4c45b71/2/)
-Markers | `markers = false` | Hide series marker values.<br>Boolean expression, `true` by default. | [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/12/)
-Format| `format = kilobytes` | Display series with the appropriate unit of measurement.<br>See [Format Settings](../../syntax/format-settings.md) for complete syntax.| [![](./images/button.png)](https://apps.axibase.com/chartlab/02b81553)
-Format Labels| `label-format = tagName`<br>`label-format = statistics - period` | Label series using text and placeholders.<br>See [Label Formating](../../syntax/label-formatting.md).| [![](./images/button.png)](https://apps.axibase.com/chartlab/6237dd1a/2/)
-Date Format | `day-format = %y/%m/%d`<br>`day-format = %Y/%m/%d`<br>`day-format = %Y %m/%d`| Format `x` axis timestamp.| [![](./images/button.png)](https://apps.axibase.com/chartlab/40dafe6b/2/)
-Cache | `cache = true` | Retrieve the most recent value from the HBase **Last Insert** table.<br>This setting is useful for widget which only display one value: Gauge, Bar, Text, Treemap, etc.| [![](./images/button.png)](https://apps.axibase.com/chartlab/adfe0fe2/32/)
-Limit | `limit = 1000` | Limit the number of returned samples for the loaded series.<br>Limit is not applied to alert queries in the Console widget.|[![](./images/button.png)](https://apps.axibase.com/chartlab/13549b9c/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/2604d710)
-On Load Audio | `audio-alert = (alert > 1) ? 'path/to/audio/file'` | Play an audio alert on initial widget data load.<br>See [Audio Alerts](../../configuration/audio-alerts.md) for more information| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
-Display Panels | `display-panels = true` | Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/efa832ea/2/)
-Expand Panels | `expand-panels = all`| Display control panels in the top left or right corners in Time and Bar charts.<br>Possible values: `true`, `false`, `hover`, `all`.<br>Default is `hover`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/808e5846/18/)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="type"></a>[`type`](#type) |Widget visualization type: [`chart`](../time-chart/README.md), [`gauge`](../gauge-chart/README.md), [`bar`](../bar-chart/README.md), [`histogram`](../histogram/README.md), [`box`](../box-chart/README.md), [`calendar`](../calendar-chart/README.md), [`treemap`](../treemap/README.md), [`pie`](../pie-chart/README.md), [`console`](../alert-console/README.md), [`property`](../property-table/README.md), [`text`](../text-widget/README.md), [`page`](../page-widget/README.md), [`graph`](../graph/README.md).<br>**Example**: `type = chart`| [↗](https://apps.axibase.com/chartlab/12d8cdf5)
+<a name="title"></a>[`title`](#title) | Title displayed above chart.<br>HTML Markup is supported.<br>**Example**: `title = CPU Usage Statistics` | [↗](https://apps.axibase.com/chartlab/c91c3205)
+<a name="tooltip"></a>[`tooltip`](#tooltip)| Widget description displayed on title mouseover.<br>**Example**: `tooltip = CPU Usage` | [↗](https://apps.axibase.com/chartlab/9c41753e)
+<a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>**Example**: `header-style = color: red`| [↗](https://apps.axibase.com/chartlab/6fa47d56)
+<a name="colors"></a>[`colors`](#colors)| Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue`, `orange`, `forestgreen`, `blueviolet`, `maroon`, `yellowgreen`, `magenta`, `chocolate`, `deepskyblue`, `gray`.<br>Additional series are assigned colors at random.<br>**Example**: `colors = green, #cccccc`| [↗](https://apps.axibase.com/chartlab/a2977750)
+
+> See also [Layout Settings](../../configuration/README.md) that determine widget dimensions and grid placement.
+
+### Data Loading
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="timespan"></a>[`timespan`](#timespan) | Data interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `end-time` setting, `end-time` is `now`.<br>Format: `count time_unit`.<br>Default value: `1 hour`.<br>**Example**: `timespan = 6 hour`| [↗](https://apps.axibase.com/chartlab/a49c40a5)
+<a name="start-time"></a>[`start-time`](#start-time)| Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `start-time` is specified, either `end-time` **or** `timespan` is also required.<br>**Example**: `start-time = current_hour`| [↗](https://apps.axibase.com/chartlab/8d40e80d)
+<a name="end-time"></a>[`end-time`](#end-time)| End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `end-time` is specified, either `start-time` **or** `timespan` is also required.<br>**Example**: `endtime = 2018-07-05 13:00:00`| [↗](https://apps.axibase.com/chartlab/f784e730)
+<a name="timezone"></a>[`timezone`](#timezone)| Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone.<br>**Example**: `timezone = UTC`| [↗](https://apps.axibase.com/chartlab/01bcbf1c)
+<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `multiple-series = true`| [↗](https://apps.axibase.com/chartlab/7a9e4495)
+<a name="series-limit"></a>[`series-limit`](#series-limit)| Maximum number of series retrieved from the database.<br>Default value: `1000`.<br>**Example**: `series-limit = 10`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
+<a name="limit"></a>[`limit`](#limit) | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/ace8b96d)
+<a name="cache"></a>[`cache`](#cache) | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `cache = true`| [↗](https://apps.axibase.com/chartlab/6cb1473e)
+<a name="add-meta"></a>[`add-meta`](#add-meta)| Include metric and entity metadata in the response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `add-meta = true`| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
+
+* Supported formats for `start-time` and `end-time` settings:
+  * [Calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week`.
+  * [ISO format](https://axibase.com/docs/atsd/shared/date-format.html) in UTC time zone: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2017-07-16T20:00:00Z`.
+  * Simple format: `yyyy-MM-dd[ HH:mm:ss[.S]]` in client (browser) time zone, for example: `2017-07-16`, `2017-07-16 20:00:00`.
+
+> See also [Control](https://axibase.com/docs/atsd/api/data/series/query.html#control-fields) fields in REST API.
+
+### Data Update
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="update-interval"></a>[`update-interval`](#update-interval) | Interval for loading incremental data specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `1 minute`.<br>**Example**: `update-interval = 5 minute` | [↗](https://apps.axibase.com/chartlab/724a08aa)
+<a name="refresh-interval"></a>[`refresh-interval`](#refresh-interval)| Interval for including the series into the update request to load incremental data.<br>While the setting has no effect on the update frequency, set with `update-interval`, it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `refresh-interval = 5 minute` | [↗](https://apps.axibase.com/chartlab/634effc0/2/)
+<a name="retry-refresh-interval"></a>[`retry-refresh-interval`](#retry-refresh-interval) | Interval for including **empty** series into the update request to load incremental data. Empty series contain no data.<br>The setting has no effect on the update frequency, set with `update-interval`, however it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `retry-refresh-interval = 5 minute` | [↗](https://apps.axibase.com/chartlab/d7e21c29)
+<a name="error-refresh-interval"></a>[`error-refresh-interval`](#error-refresh-interval)| Interval for including **failed** series into the update request to load incremental data. Failed series are series for which a request to load data from server produced an error.<br>The setting has no effect on the update frequency, set with `update-interval`, however it controls which series are included in the request.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `error-refresh-interval = 30 minute`| [↗](https://apps.axibase.com/chartlab/48e8b5cc)
+<a name="batch-update"></a>[`batch-update`](#batch-update)| Send data queries to the server in batches with size specified in `batch-size` setting.<br>Possible values: `false`, `true`.<br>If `true`, series for which the request has failed are requested separately from successfully updated series.<br>Default value: `false`.<br>**Example**: `batch-update = true`| [↗](https://apps.axibase.com/chartlab/669ac522)
+<a name="batch-size"></a>[`batch-size`](#batch-size)| Maximum number of series per server batch request.<br>If `0` is specified, the limit is not set and all series are requested in one query.<br>Valid when `batch-update = true`.<br>Default value: `8`.<br>**Example**: `batch-size = 1`| [↗](https://apps.axibase.com/chartlab/4dda9f75)
+
+> See also [Data API Endpoints](https://axibase.com/docs/atsd/api/data/#data-api-endpoints) in REST API.
+
+### Data Source
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="url"></a>[`url`](#url)| Server URL, if different from the origin host.<br>URL for data requests is built from `{url}{context-path}{method-path}{url-parameters}`.<br>**Example**: `url = https://atsd.example.org:8443`| [↗](https://apps.axibase.com/chartlab/9cd66119)
+<a name="context-path"></a>[`context-path`](#context-path)| Context path for data requests.<br>Default value: `/api/v1/`.<br>**Example**: `context-path = /api/v2/`|[↗](https://apps.axibase.com/chartlab/ccab4e32)
+<a name="method-path"></a>[`method-path`](#method-path)| [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`.<br>**Example**: `method-path = /series/query` | [↗](https://apps.axibase.com/chartlab/16e8cdad)
+<a name="url-parameters"></a>[`url-parameters`](#url-parameters) | Optional request parameters included in data requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional.<br>**Example**: `url-parameters = db=1`| [↗](https://apps.axibase.com/chartlab/877e0c6b)
+
+### Legend
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="legend-position"></a>[`legend-position`](#legend-position) | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.<br>**Example**: `legend-position = left`| [↗](https://apps.axibase.com/chartlab/dbffe43c)
+<a name="label-format"></a>[`label-format`](#label-format)| Series label pattern consisting of literal text and [placeholders](../../syntax/label-formatting.md).<br>**Example**: `label-format = entity`| [↗](https://apps.axibase.com/chartlab/49f500c1)
+
+### Axis
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="axis-title"></a>[`axis-title`](#axis-title) | Vertical text displayed along the left axis.<br>**Example**: `axis-title = CPU Utilization in %`| [↗](https://apps.axibase.com/chartlab/8f7647ff)
+<a name="axis-title-right"></a>[`axis-title-right`](#axis-title-right) | Vertical text displayed along the right axis.<br>**Example**: `axis-title-right = Free Memory`| [↗](https://apps.axibase.com/chartlab/8f7647ff)
+<a name="day-format"></a>[`day-format`](#day-format)| Time axis format.<br>**Example**: `day-format = %Y/%m/%d`| [↗](https://apps.axibase.com/chartlab/717b0f73)
+<a name="min-range"></a>[`min-range`](#min-range) | Left axis minimum range.<br>If loaded data exceeds `min-range` value, axis range is adjusted to show loaded data.<br>**Example**: `min-range = 0`| [↗](https://apps.axibase.com/chartlab/d9eeeda5)
+<a name="max-range"></a>[`max-range`](#max-range) | Left axis maximum range.<br>If loaded data exceeds `max-range` value, axis range is adjusted to show loaded data.<br>**Example**: `max-range = 100`| [↗](https://apps.axibase.com/chartlab/74052e3e)
+<a name="min-range-right"></a>[`min-range-right`](#min-range-right)| Right axis minimum range.<br>If loaded data exceeds `min-range-right` value, right axis range is adjusted to show loaded data.<br>**Example**: `min-range-right = 0`| [↗](https://apps.axibase.com/chartlab/a5d7f10b)
+<a name="max-range-right"></a>[`max-range-right`](#max-range-right) | Right axis maximum range.<br>If loaded data exceeds `max-range-right` value, right axis range is adjusted to show loaded data.<br>**Example**: `max-range-right = 100`| [↗](https://apps.axibase.com/chartlab/5f1445c6)
+<a name="max-range-force"></a>[`max-range-force`](#max-range-force) | Left axis forced minimum and maximum range.<br>If loaded data exceeds `max-range-force`, axis range is **not** adjusted to show loaded data.<br>**Example**: `max-range-force = 100`| [↗](https://apps.axibase.com/chartlab/fa0b58a7)
+<a name="min-range-force"></a>[`min-range-force`](#min-range-force)| Left axis forced minimum and maximum range.<br>If loaded data exceeds `min-range-force`, axis range is **not** adjusted to show loaded data.<br>**Example**: `min-range-force = 0`| [↗](https://apps.axibase.com/chartlab/fa0b58a7)
+<a name="min-range-right-force"></a>[`min-range-right-force`](#min-range-right-force)| Right axis forced minimum range.<br>If loaded data exceeds `min-range-right-force`, right axis range is **not** adjusted to show loaded data.<br>**Example**: `min-range-right-force = 0`| [↗](https://apps.axibase.com/chartlab/ac40afc3)
+<a name="max-range-right-force"></a>[`max-range-right-force`](#max-range-right-force)| Right axis forced maximum range.<br>If loaded data exceeds `max-range-right-force`, right axis range is **not** adjusted to show loaded data.<br>**Example**: `max-range-right-force = 100`| [↗](https://apps.axibase.com/chartlab/ac40afc3)
 
 ## Series Settings
 
-`[widget]` settings include one or more `[series]` settings. For more information about associating `[series]` settings with data stored in ATSD, see [Selecting Series](../../syntax/selecting-series.md).
+* The settings apply to the `[series]` section.
+
+### Series Selection
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="metric"></a>[`metric`](#metric)| Metric name.<br>When requesting data from a relational database specify both `table` and `attribute` as an alternative.<br>**Example**: `metric = cpu_busy`| [↗](https://apps.axibase.com/chartlab/f901f339)
+<a name="table"></a>[`table`](#table) | Table in the relational database from which to retrieve numeric values.<br>Alternative to `metric` setting.<br>Both `table` and `attribute` must be defined.<br>**Example**: `table = KLZ_CPU`| [↗](https://apps.axibase.com/chartlab/35fde2bf)
+<a name="attribute"></a>[`attribute`](#attribute)| Column name in a relational database table. The column must be of numeric data type.<br>**Example**: `attribute = Current_Average` | [↗](https://apps.axibase.com/chartlab/35fde2bf)
+<a name="data-type"></a>[`data-type`](#data-type)| Series data type.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.<br>**Example**: `data-type = forecast`| [↗](https://apps.axibase.com/chartlab/2942e708)
+<a name="forecast-name"></a>[`forecast-name`](#forecast-name)| [Forecast name](https://axibase.com/docs/atsd/api/data/series/query.html#forecast-filter).<br>If no forecast name is defined, [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.<br>**Example**: `forecast-name = hw5`| [↗](https://apps.axibase.com/chartlab/533918cc)
+
+### Entity Filter
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="entity"></a>[`entity`](#entity) | Entity name.<br>Supports `?` and `*` [wildcards](../../syntax/wildcards.md).<br>**Example**: `entity = nurswgvml007`| [↗](https://apps.axibase.com/chartlab/d65bdce1)
+<a name="entities"></a>[`entities`](#entities)| Select multiple entities with one setting.<br>If both `entity` and `entities` are specified, `entity` takes precedence.<br>Supports `?` and `*` [wildcards](../../syntax/wildcards.md).<br>**Example**: `entities = nurswgvml007, nurswgvml008`| [↗](https://apps.axibase.com/chartlab/fc94835a)
+<a name="entity-group"></a>[`entity-group`](#entity-group)| [Entity group](https://axibase.com/docs/atsd/configuration/entity_groups.html) name.<br>**Example**: `entity-group = nmon-sub-group` | [↗](https://apps.axibase.com/chartlab/f67397d7)
+<a name="entity-expression"></a>[`entity-expression`](#entity-expression)| Server-side [entity filter](https://axibase.com/docs/atsd/api/data/filter-entity.html) to select series for matching entities by name, tags, and fields.<br>Refer to [Entity Filter](https://axibase.com/docs/atsd/api/data/series/query.html#entity-filter) REST API documentation for more information.<br>**Example**: `entity-expression = tags.app LIKE '*a*'`| [↗](https://apps.axibase.com/chartlab/9b48aaaf)
+
+### Tag Filter
+
+To select series with specific tags, add a `[tags]` section or define a condition using the `tag-expression` setting.
 
 ```ls
 [series]
-  entity = nurswgvml006
-  metric = disk_used_percent
-  statistic = avg
-  period = 15 minute
+  metric = disk_used
+  entity = nurswgvml007
   [tags]
-    mount_point = /run/shm
+    mount_point = /tmp
+    fstype = tmpfs
 ```
 
-### Data Settings
-
-Setting | Syntax | Description | Example
---|--|--|--
-Metric | `metric = cpu_busy` | Define the Metric | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5)
-Table and Attribute | `table = klz_disk`<br>`attribute = disk_used`| Use as an alternative to `metric` setting.<br>If both `table` and `attribute` are defined, `metric = table,attribute`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0c8f522e)
-Entity | `entity = nurswgvml007`<br>`entity = nurswgvml00*`| Define the Entity.<br>Supports `?` and `*` [wildcards](../../syntax/wildcards.md).| [![](./images/button.png)](https://apps.axibase.com/chartlab/7e1cf18f/2/)
-Entities| `entities = nurswgvml007, nurswgvml008`| Define multiple entities with one setting.<br>If both `entity` and `entities` are specified, the former takes precedence.<br>Support `?` and `*` [wildcards](../../syntax/wildcards.md)| [![](./images/button.png)](https://apps.axibase.com/chartlab/2bc197f4)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/e1d30997/2/)
-[Entity Group](https://axibase.com/docs/atsd/api/data/#entity-group) | `entity-group = nmon-sub-group` | Define an Entity Group. | [![](./images/button.png)](https://apps.axibase.com/chartlab/56e62e1e/4/)
-Entity Expression | `entity-expression = tags.location = 'SVL'` | Apply server-side filter to all series based on entity names, tags, and fields.| [![](./images/button.png)](https://apps.axibase.com/chartlab/56e62e1e/4/)
-Tag Expression| `tag-expression = tags.file_system NOT LIKE '/m*'`| Apply server-side filtering based on [series tags](https://axibase.com/docs/atsd/api/meta/metric/series-tags.html).| [![](./images/button.png)](https://apps.axibase.com/chartlab/906238e2/4/)
-Statistics | `statistic = avg`<br>`statistic = percentile_95`| Apply aggregation statistical functions.<br>See [Aggregators](../../configuration/aggregators.md) for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/ed94c71b)
-Period | `period = 15 minute`| Define period for [aggregator](https://axibase.com/docs/atsd/api/data/series/aggregate.html#aggregate-processor) functions which require one.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/3/)
-Align | `align = END_TIME` | Determine a uniform start time for all periods.<br>Possible values: `START_TIME`, `END_TIME`, `CALENDAR`(default), `FIRST_VALUE_TIME`. See [Aggregate Processor](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) for more information.
-Interpolation | `interpolate = LINEAR` | Interpolate missing aggregation periods. | [![](./images/button.png)](https://apps.axibase.com/chartlab/d8c03f11/3/)
-Interpolation Extend| `interpolate-extend = true` | Interpolate leading and trailing periods with `NEXT` or `PREVIOUS` values, respectively.| [![](./images/button.png)](https://apps.axibase.com/chartlab/d8c03f11/5/)
-Interpolation Function | `interpolate-function = linear` | Define interpolation function for entire series, instead of only missing values. | [![](./images/button.png)](https://apps.axibase.com/chartlab/6221d836)
-Interpolation Period | `interpolate-period = 1 minute` | Define the period for interpolated values. | [![](./images/button.png)](https://apps.axibase.com/chartlab/6221d836)
-Interpolation Boundary | `interpolate-boundary = inner` | Define [interpolation behavior](https://axibase.com/docs/atsd/api/data/series/interpolate.html#boundary) for leading and trailing values. | [![](./images/button.png)](https://apps.axibase.com/chartlab/af2064b6)
-Interpolation Fill | `interpolate-fill = true` | Interpolate values outside of the selection interval.<br>Possible values: `true`, `false`, number of values to fill. | [![](./images/button.png)](https://apps.axibase.com/chartlab/88ad3789)
-Rate | `rate = 15 second` | Compute the difference between consecutive sample per unit of time, or [rate period](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>Compute the underlying rate of change when a metric measures a continuously incrementing counter. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/25/)
-Rate Counter | `rate-counter = true`| Compute the difference between consecutive samples per unit of time.<br>Boolean expression.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0a163b33)
-Replace Value | `replace-value = value < 50 ? null : value`| Modify or filter series values.<br>The example expression filters all values less than `50` from the series.<br>Aggregators are not supported.| [![](./images/button.png)](https://apps.axibase.com/chartlab/6a8cc3e3/3/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/3/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/1e4dccf0/2/)
-Data Type | `data-type = forecast` | Define current series data type.<br>Possible values: `historical`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/f80b8e53)
-Forecast Name | `forecast-name = hw5` | Identify forecast name.<br>Create multiple forecasts for the same series.<br>If no forecast name is set, default forecast is loaded.| [![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/3/)
-Style Stroke `dasharray` | `style = stroke-dasharray: none;`| Remove dashes from forecast line on Chart, display forecast line as solid. | [![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/4/)
-Alias | `alias = total`<br>`alias = free` | Create a unique series designation to pass data to other series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
-[Alert Expression](../../syntax/alert-expression.md)| `alert-expression = value < 95` | Apply separate alert rules to several series with one `alert-style` in `[widget]` settings. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
-Alert Style | `alert-style = fill: red; stroke: red`| Apply separate alert styles to several series with one `alert-expression` in `[widget]` settings.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b3892525)
-Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.oog' : '/portal/resource/klaxon.oog'`| Play an audio file when `alert-expression` evaluates to `true`.<br>Store audio files in the `opt/atsd/atsd/conf/portal` directory of your ATSD installation.<br>Set the following path in the `audio-alert` setting: `/portal/resource/alarm.oog`.<br>Files in this directory must always be references with the `/resource/` before the file name.<br>Audio is only played on `true` to `false` changes or vise versa.<br>Audio is played once, on initial alert occurrence.<br>Supported audio alert formats: `.mp3`, `.oog`, `.wav`.<br>See [Audio Alerts](../../configuration/audio-alerts.md) for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)
-Group Keys| `group-keys = type`<br>`group-keys = entity, type`| Count messages by period with a comma-separated list of keys including `entity`, `type`, `source`, and custom tags.<br>Supported in server aggregation mode only: `server-aggregate = true`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/bf166165#)
-Group Statistic | `group-statistic = sum` | Assign a group statistic function to the series.<br>See [Aggregators](../../configuration/aggregators.md) for more information.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b61b7f82)
-Group Period | `group period = 1 month` | Assign a group period to a series for computing [group](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) statistics.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/b4b72b79)
-Group First | `group-first = false` | Control the sequence of aggregation and grouping. If set to `true`, grouping is performed before aggregation.| [![](./images/button.png)](https://apps.axibase.com/chartlab/732de421)
-Group Interpolation | `group-interpolate = LINEAR` | Interpolate grouped values. | [![](./images/button.png)](https://apps.axibase.com/chartlab/f0a36dac)
-Extended Group Interpolation | `group-interpolate-extend = true` | Fill missing leading and trailing periods with `NEXT` and `PREVIOUS` values.| [![](./images/button.png)](https://apps.axibase.com/chartlab/f0a36dac)
-Series Limit | `series-limit = 10` | Define the maximum number of series retrieved from the database, to prevent the client or server from processing excessive series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/af34dc29)
-Exact Match | `exact-match = true` | Ignore series with tags, other than those specified in the series configuration. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dada4561/2/)
-Merge Fields | `merge-fields = mount_point`<br>`merge-fields = entity`| Combine series into series grouped based on field. Applies only in `multiple-series` mode. Series which use [wildcard](../../syntax/wildcards.md), `entities`, `entityGroup` settings or comma-separated tag values are treated as multiple series by default.<br>Possible values:<br>`entity`: All series with the same entity are combined.<br>`{tag-name}`: All series with the same value of tag `{tag-name}` are combined. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3d45a84c)
-Downsample | `downsample = true` | Enable [downsampling](https://axibase.com/docs/atsd/api/data/series/downsample.html#downsampling) for the current chart configuration. | [![](./images/button.png)](https://apps.axibase.com/chartlab/af356224/2/)
-Downsample Gap | `downsample-gap = 10 minute` | Control the occurrence of repeated values by defining the [gap](https://axibase.com/docs/atsd/api/data/series/downsample.html#parameters) using time interval.<br>A larger gap value decreases the occurrence of repeated values.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>.| [![](./images/button.png)](https://apps.axibase.com/chartlab/b24e5c95)
-Downsample Ratio | `downsample-ratio = 1.1` | Define downsample [ratio](https://axibase.com/docs/atsd/api/data/series/downsample.html#ratio-check)| [![](./images/button.png)](https://apps.axibase.com/chartlab/63769ef5)
-Downsample Algorithm | `downsample-algorithm = interpolate` | Define [downsample algorithm](https://axibase.com/docs/atsd/api/data/series/downsample.html#algorithm) used for calculation.<br>Possible values: `detail` and `interpolate`.<br>Default value: `detail`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0d5f90f2)
-Downsample Difference | `downsample-difference = 4` |Define deviation between consecutive values which the database considers equivalent.<br>Use this setting to include minor deviations in downsampling. | [![](./images/button.png)](https://apps.axibase.com/chartlab/02f63201)
-[Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) Function | `smooth = AVG` | Weighted [averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Supported functions: `AVG`, `EMA`, `WAVG`, `WTAVG` | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4) |
-Smoothing Factor | `smooth-factor = 0.5` | Weighting parameter used by `EMA` function. If specified, must be `>0 and <1`. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-Smoothing Range | `smooth-range = 60000` | Weighting parameter used by `EMA` function. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-Smoothing Count | `smooth-count = 50` | Number of samples in the window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-Smoothing Interval | `smooth-interval = 15 minute` | Window duration interval. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-Smoothing Minimum Count | `smooth-minimum-count = 10` | Minimum number of samples in the window. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-Smoothing Incomplete Value | `smooth-incomplete-value = NaN` | Sample value returned if the window is not full. | [![](./images/button.png)](https://apps.axibase.com/chartlab/3734bd35/4)|
-
-
-### Tag Settings
-
-`[tags]` syntax examples:
+To match multiple values for the same tag, separate the values with a comma. Escape commas if necessary using backslash.
 
 ```ls
 [tags]
-  mount_point = /tmp
-  fstype = tmpfs
+  tag_name = tag_value1, tag\,value
 ```
 
-If there are several values for the same tag, separate the values with a comma:
+To match multiple tag values, use `?` and `*` wildcards:
 
 ```ls
 [tags]
-  tag_name = tag_value1, tag_value2
+  tag_name = *val*
 ```
 
-If the tag name contains an equals sign `=` or the tag value contains a comma`,`, escape them with a backslash `\`:
-
-```ls
-[tags]
-  tag\=name = tag\,value
-```
-
-The tag name and value are `tag=name` and `tag=value`, respectively.
-
-If the tag name contains reserved names such as setting names, surround the tag name with quotes to avoid collisions:
+If the tag name contains an equals sign `=`, a comma`,`, or reserved names such as setting names, enclose the tag name in double quotes to avoid collisions:
 
 ```ls
 [tags]
   "type" = sensor
+  "tag\=name" = tag\,value
 ```
 
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="tag-expression"></a>[`tag-expression`](#tag-expression)| Server-side [tag filter](https://axibase.com/docs/atsd/api/data/series/query.html#tag-expression) to select series for matching tags.<br>**Example**: `tag-expression = tags.make LIKE 'AU*'`| [↗](https://apps.axibase.com/chartlab/ae493a65)
+<a name="exact-match"></a>[`exact-match`](#exact-match)| Ignore series with tags other than those [specified](https://axibase.com/docs/atsd/api/data/series/query.html#tag-filter) in the `[tags]` section.<br>Default value: `false`.<br>**Example**: `exact-match = true`| [↗](https://apps.axibase.com/chartlab/79cd34ec)
 
-### Style Settings
+### Series Style
 
-Setting | Syntax | Description | Example
---|--|--|--
-Style | `style = stroke-width: 4;` | Apply a CSS style to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/16/)
-Color | `color = orange` | Assign a color to the series. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/17/)
-Label | `label = CPU Busy - nurswgvml007` | Assign a label to the series. Shown in the series legend/ | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/18/)
-Tooltip | `tooltip = NURSWGVML007` | Define tooltips which are displayed on series mouseover. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/19/)
-Axis | `axis = right` | Assign series axis.<br>`left` by default.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/20/)
-Format | `format = kilobytes`| Display appropriate series units in legend and on series pointers. See [Label Formatting](../../syntax/label-formatting.md) for more information. | [![](./images/button.png)](https://apps.axibase.com/chartlab/bf5b45e9)
-Display | `display = value > top(3)`<br>`display = tags.mount_point = '/'`<br>`display = false` | Define a rule to display series.<br> Filter series based on metric values for widgets containing many series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/23fd6313/2/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3ebf1cca)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3f080fe4/2/)
-Enable Series | `enabled = false` | Hide series in the widget legend based on expression or boolean statement.<br>See Expression Examples| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/23/)
-Refresh Interval | `refresh-interval = 120` | Define the period in seconds that ATSD waits before refreshing data with new samples. <br>Possible values: `auto`, number. | [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/24/)
-Refresh Retry Interval | `retry-refresh-interval = 5 minute`| Define the wait period after ATSD receives an empty sample to retry data refresh. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/2ce8eed4)
-Refresh Error Interval | `error-refresh-interval = 30 minute`| Define the wait period after ATSD handles a server processing error before refreshing data. <br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/dad50363)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="color"></a>[`color`](#color)| Color applied to series shape.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.<br>**Example**: `color = blue`| [↗](https://apps.axibase.com/chartlab/3d6cab08)
+<a name="label"></a>[`label`](#label)| Series label displayed in the legend. Overrides `label-format`.<br>**Example**: `label = CPU Busy - nurswgvml007`| [↗](https://apps.axibase.com/chartlab/bca3cf3e)
+<a name="style"></a>[`style`](#style)| CSS style applied to the series shape.<br>**Example**: `style = stroke-width: 4`<br>`style = stroke-dasharray: 5 1 2`| [↗](https://apps.axibase.com/chartlab/15b5420b)
+<a name="tooltip"></a>[`tooltip`](#tooltip)| Tooltips displayed on mouseover.<br>**Example**: `tooltip = NURSWGVML007`| [↗](https://apps.axibase.com/chartlab/a46ea93e)
+<a name="axis"></a>[`axis`](#axis)| Series axis placement.<br>Possible values: `left`, `right`.<br>Default value: `left`.<br>**Example**: `axis = right`| [↗](https://apps.axibase.com/chartlab/8a66a428)
+<a name="format"></a>[`format`](#format) | Format series values with a [measurement unit](../../syntax/format-settings.md).<br>**Example**: `format = kilobytes`| [↗](https://apps.axibase.com/chartlab/938f5c6c)
+<a name="display"></a>[`display`](#display)| Hide series based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>**Example**: `display = value > top(3)`<br>`display = false`| [↗](https://apps.axibase.com/chartlab/22235081)
+<a name="enabled"></a>[`enabled`](#enabled) | Toggle series visibility based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>Series legend remains visible when `false`.<br>**Example**: `enabled = false`<br>`enabled = max('1 day') > 10`| [↗](https://apps.axibase.com/chartlab/c576ab5d)
+<a name="alert-expression"></a>[`alert-expression`](#alert-expression)| Boolean expression to apply conditional CSS style to series shapes.<br>The CSS style must be specified in the `alert-style` setting.<br>The `value` field refers to the series value.<br>**Example**: `alert-expression = value < 95`| [↗](https://apps.axibase.com/chartlab/28e4a7f0)
+<a name="alert-style"></a>[`alert-style`](#alert-style) | CSS style applied to the series shape if `alert-expression` returns `true`.<br>**Example**: `alert-style = fill: red; stroke: red`| [↗](https://apps.axibase.com/chartlab/28e4a7f0)
+<a name="audio-alert"></a>[`audio-alert`](#audio-alert) | Boolean expression to apply conditional CSS style to series shapes.<br>**Example**: `audio-alert = /portal/resource/alarm.ogg`| [↗](https://apps.axibase.com/chartlab/d3943e68)
+
+### Transformation
+
+#### Rate
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="rate"></a>[`rate`](#rate)| Compute the difference between consecutive samples per unit of time, or [rate period](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>If `rate = 0 time unit`, the difference between consecutive samples is computed.<br>Format: `count time_unit`.<br>**Example**: `rate = 15 second`| [↗](https://apps.axibase.com/chartlab/84c208d4)
+<a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
+
+> See also [Rate](https://axibase.com/docs/atsd/api/data/series/rate.html) transformation in REST API.
+
+#### Aggregation
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="statistics"></a>[`statistics`](#statistics) | Aggregation statistic function.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `statistics = avg`| [↗](https://apps.axibase.com/chartlab/de76132b)
+<a name="period"></a>[`period`](#period) | [Aggregator](https://axibase.com/docs/atsd/api/data/series/aggregate.html#aggregate-processor) period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit`.<br>**Example**: `period = 15 minute`| [↗](https://apps.axibase.com/chartlab/0e1efe88)
+<a name="align"></a>[`align`](#align) | [Alignment](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) of the period start or end time.<br>Possible values: `CALENDAR`, `START_TIME`, `END_TIME`, `FIRST_VALUE_TIME`.<br>Default value: `CALENDAR`.<br>**Example**: `align = END_TIME`| [↗](https://apps.axibase.com/chartlab/017975c4)
+<a name="interpolate"></a>[`interpolate`](#interpolate) | Interpolate missing aggregation periods.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`.<br>**Example**: `interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/7af6f848)
+<a name="interpolate-extend"></a>[`interpolate-extend`](#interpolate-extend)| Interpolate leading and trailing periods with `NEXT` or `PREVIOUS` value.<br>**Example**: `interpolate-extend = true`| [↗](https://apps.axibase.com/chartlab/4a3b8f7a)
+
+> See also [Aggregation](https://axibase.com/docs/atsd/api/data/series/aggregate.html) transformation in REST API.
+
+#### Interpolation
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="interpolate-function"></a>[`interpolate-function`](#interpolate-function)| Interpolation function applied to detailed samples.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`.<br>**Example**: `interpolate-function = linear`| [↗](https://apps.axibase.com/chartlab/6221d836)
+<a name="interpolate-period"></a>[`interpolate-period`](#interpolate-period)| Interpolation period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `interpolate-period = 1 minute`| [↗](https://apps.axibase.com/chartlab/6221d836)
+<a name="interpolate-boundary"></a>[`interpolate-boundary`](#interpolate-boundary)| [Interpolation](https://axibase.com/docs/atsd/api/data/series/interpolate.html#boundary) for leading and trailing values.<br>Possible values: `inner`- Data outside of the selection interval is not loaded by the database. `outer`- One value before and one value after the selection interval is loaded by the database to interpolate leading and trailing values.<br>Default value: `inner`.<br>**Example**: `interpolate-boundary = outer`| [↗](https://apps.axibase.com/chartlab/5713cdf9)
+<a name="interpolation-fill"></a>[`interpolation-fill`](#interpolation-fill)| Interpolate values outside of the selection interval.<br>Possible values: `false`, `true`, `count` of values to fill.<br>Default value: `false`.<br>**Example**: `interpolate-fill = true`| [↗](https://apps.axibase.com/chartlab/9361ea19)
+
+> See also [Interpolation](https://axibase.com/docs/atsd/api/data/series/interpolate.html) transformation in REST API.
+
+#### Grouping
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="merge-fields"></a>[`merge-fields`](#merge-fields) |Group series based on merge field.<br>Only applies in `multiple-series` mode.<br>By default, series which use [wildcard](../../syntax/wildcards.md), `entities`, `entityGroup` settings or comma-separated tag values are treated as multiple series.<br>Possible values: `entity` - Combine all series with the same entity. `tag-name` - Combine all series with tag defined by `tag-name`.<br>**Example**: `merge-fields = mount_point` | [↗](https://apps.axibase.com/chartlab/65f07c02)
+<a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/d2b23084)
+<a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (`15 minute`).<br>**Example**: `group period = 1 month`| [↗](https://apps.axibase.com/chartlab/2ee1bace)
+<a name="group-first"></a>[`group-first`](#group-first) | The sequence of aggregation and grouping.<br>If set to `true`, grouping is performed before aggregation.<br>**Example**: `group-first = false`| [↗](https://apps.axibase.com/chartlab/732de421)
+<a name="group-interpolate"></a>[`group-interpolate`](#group-interpolate)| Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.<br>**Example**: `group-interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
+<a name="group-interpolate-extend"></a>[`group-interpolate-extend`](#group-interpolate-extend)| Fill missing leading and trailing periods with `NEXT` or `PREVIOUS` values.<br>**Example**: `group-interpolate-extend = true`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
+
+> See also [Grouping](https://axibase.com/docs/atsd/api/data/series/group.html) transformation in REST API.
+
+#### Downsampling
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="downsample"></a>[`downsample`](#downsample)| Enable [downsampling](https://axibase.com/docs/atsd/api/data/series/downsample.html#downsampling).<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `downsample = true`| [↗](https://apps.axibase.com/chartlab/ac7866e6)
+<a name="downsample-gap"></a>[`downsample-gap`](#downsample-gap)| Frequency of repeated values defined as [`downsample-gap`](https://axibase.com/docs/atsd/api/data/series/downsample.html#parameters) in [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>A larger gap value decreases the occurrence of repeated values.<br>Possible values: `count time_unit`.<br>Default value: `10 minute`.<br>**Example**: `downsample-gap = 10 minute`| [↗](https://apps.axibase.com/chartlab/194e1b66)
+<a name="downsample-ratio"></a>[`downsample-ratio`](#downsample-ratio)| Downsample [ratio](https://axibase.com/docs/atsd/api/data/series/downsample.html#ratio-check).<br>**Example**: `downsample-ratio = 1.1`| [↗](https://apps.axibase.com/chartlab/62853a21)
+<a name="downsample-algorithm"></a>[`downsample-algorithm`](#downsample-algorithm)| [Downsample algorithm](https://axibase.com/docs/atsd/api/data/series/downsample.html#algorithm) used in calculation.<br>Possible values: `DETAIL`, `INTERPOLATE`.<br>Default value: `DETAIL`.<br>**Example**: `downsample-algorithm = interpolate`| [↗](https://apps.axibase.com/chartlab/0955c2ee)
+<a name="downsample-difference"></a>[`downsample-difference`](#downsample-difference)|Deviation between consecutive values which ATSD considers equivalent.<br>Consolidate samples with minor deviations when downsampling.<br>**Example**: `downsample-difference = 4`| [↗](https://apps.axibase.com/chartlab/6764238a)
+
+> See also [Downsampling](https://axibase.com/docs/atsd/api/data/series/downsample.html) transformation in REST API.
+
+#### Smoothing
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="smooth"></a>[`smooth`](#smooth)| [Averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Possible values: `AVG`, `EMA`, `WAVG`, `WTAVG`.<br>**Example**: `smooth = AVG`| [↗](https://apps.axibase.com/chartlab/77d3a87b)
+<a name="smooth-factor"></a>[`smooth-factor`](#smooth-factor)| [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter. Possible values: Between `0` and `1`.<br>**Example**: `smooth-factor = 0.5`| [↗](https://apps.axibase.com/chartlab/7ee5133e)
+<a name="smooth-range"></a>[`smooth-range`](#smooth-range) | Alternative [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter.<br>**Example**: `smooth-range = 60000`| [↗](https://apps.axibase.com/chartlab/d26e18b3)
+<a name="smooth-count"></a>[`smooth-count`](#smooth-count)| Window size.<br>A larger window performs greater smoothing.<br>**Example**: `smooth-count = 50`| [↗](https://apps.axibase.com/chartlab/9af9e77b)
+<a name="smooth-interval"></a>[`smooth-interval`](#smooth-interval) | Window duration interval, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `smooth-interval = 15 minute`| [↗](https://apps.axibase.com/chartlab/e3bc966e)
+<a name="smooth-minimum-count"></a>[`smooth-minimum-count`](#smooth-minimum-count)| [Minimum number](https://axibase.com/docs/atsd/api/data/series/smooth.html#fields) of samples in a window required to apply the smoothing function.<br>Default value: `1`.<br>**Example**: `smooth-minimum-count = 10`| [↗](https://apps.axibase.com/chartlab/eeeeba28)
+<a name="smooth-incomplete-value"></a>[`smooth-incomplete-value`](#smooth-incomplete-value) | Sample value returned when downsampling window is not full.<br>**Example**: `smooth-incomplete-value = NaN`| [↗](https://apps.axibase.com/chartlab/6666ab6c)
+
+> See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
 
 ### Derived Value Settings
 
-Specify the `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression returns a number or `null`.
+Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression must return a number or `null`, series with `null` values are hidden.
 
-Setting | Syntax | Description | Example
---|--|--|--
-Value | `value = max('s1')`<br>`value = min('s1', '10 minute')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Define series value.<br>Retrieve the value of the underlying series identified by alias.| [![](./images/button.png)](https://apps.axibase.com/chartlab/2b2e7023/4/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/6/)
-[Aggregators](../../configuration/aggregators.md) | `value = avg('s1')`<br>`value = (1 - value('free') / value('total')) * 100`<br>`value = Math.max(0, value('alias'))`| Apply an aggregate statistic to the underlying series grouped by period.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/9/)
-Percentile | `value = (1 - percentile(99,'free','5 minute') / percentile(99,'total','5 minute')) * 100`| Apply percentile statistics to the underlying series.<br>Percentile range from `0` to `100`, `alias` and `period`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/10/)
-Forecast| `value = (1 - forecast('free') / forecast('total')) * 100`| Return a forecast for the underlying series.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)
-Confidence Intervals | `value = (1 - lower_confidence(90, 'free') / forecast('total')) * 100`<br>`value = (1 - upper_confidence(90, 'free') / forecast('total')) * 100`| Retrieve upper and lower limits of the confidence interval for the underlying series.<br>Arguments: Level-specified integer from `0` to `100`, and `alias`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/14/)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="alias"></a>[`alias`](#alias)| Unique series name to pass data to other series.<br>**Example**: `alias = s1`| [↗](https://apps.axibase.com/chartlab/a18e5720)
+<a name="replace-value"></a>[`replace-value`](#replace-value) | Modify or filter series values.<br>Possible values: `value`, `previousValue`.<br>**Example**: `replace-value = value*2`| [↗](https://apps.axibase.com/chartlab/5ff83724)
+<a name="value"></a>[`value`](#value) | Series value.<br>Retrieve the value of the underlying series identified by alias.<br>Supported fields: `value`, `previous`, `detail`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`, [aggregator functions](../../configuration/aggregators.md).<br>**Example**: `value = max('s1')`| [↗](https://apps.axibase.com/chartlab/25a47d0d)
