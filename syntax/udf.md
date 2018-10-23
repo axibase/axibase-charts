@@ -1,4 +1,4 @@
-# User Defined Functions
+# User-Defined Functions
 
 ## Overview
 
