@@ -13,9 +13,9 @@ Multiple timespans of the same series can be combined in one widget using the `t
   time-offset = 1 week
 ```
 
-![](./images/time-offset.png)
+![](./images/time-offset-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/e7e3938d)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/e7e3938d)
 
 ## Additional Examples
 
@@ -32,9 +32,9 @@ See [ATSD Use Cases](https://axibase.com/use-cases/) for other uses for the `tim
         endfor
     ```
 
-    ![](./images/time-offset1.png)
+    ![](./images/time-offset-2.png)
 
-    [![](./images/button.png)](https://apps.axibase.com/chartlab/002d531e#)
+    [![](../images/button.png)](https://apps.axibase.com/chartlab/002d531e#)
 
 1. [Tax Day 2018: Americans Reverse the Late-Filing Trend](https://axibase.com/use-cases/research/irs-tax-filings/)
 
@@ -47,6 +47,6 @@ See [ATSD Use Cases](https://axibase.com/use-cases/) for other uses for the `tim
       time-offset = @{ofs} year
     ```
 
-    ![](./images/time-offset2.png)
+    ![](./images/time-offset-3.png)
 
-    [![](./images/button.png)](https://apps.axibase.com/chartlab/fd986f58)
+    [![](../images/button.png)](https://apps.axibase.com/chartlab/fd986f58)

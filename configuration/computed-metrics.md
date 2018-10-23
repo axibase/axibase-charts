@@ -6,7 +6,7 @@ Use the `replace-value` setting to replace the input value when no references to
 
 ![](./images/replace-value1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/2f607d1b/12/#)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/2f607d1b/12/#)
 
 In the example above, the second chart uses `log10` values to compare samples of different magnitude.
 
@@ -16,7 +16,7 @@ replace-value = Math.log10(value)
 
 ![](./images/computed-metrics2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/e0e0be77)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/e0e0be77)
 
 In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. To reference other series, such underlying series must be assigned unique identifiers with the alias setting.
 
@@ -45,10 +45,10 @@ If one of the series is lagging behind, its value at later points is extrapolate
 
 ![](./images/extrapolate.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6d3f044c/2/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/6d3f044c/2/)
 
 Disable extrapolation by setting computed values to `null` for timestamps after the minimum last time of the underlying metrics.
 
 ![](./images/extrapolate2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6d3f044c)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/6d3f044c)

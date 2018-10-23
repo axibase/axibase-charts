@@ -14,12 +14,12 @@ Enter forecast syntax in the **Editor** window of any Charts visualization.
 
 |Name|Example|Description|Example|
 |---|---|---|---|
-|Data Type|`data-type = forecast`|Data type for the current series.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/f80b8e53)|
-|Forecast Name|`forecast-name = hw5`|Unique forecast identifier.<br>Useful when creating multiple forecasts for the same series.<br>If no forecast name is set, the default forecast is loaded.|[![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/3/)|
-|style|`style = stroke-dasharray: none;`|Render forecast as a solid line instead of dashed line.|[![](./images/button.png)](https://apps.axibase.com/chartlab/92b7e471/4/)|
-|value|`value = (1 - forecast('free') / forecast('total')) * 100`|Returns forecast for the underlying series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)|
-|load-future-data|`load-future-data = true`|Load future series values.<br>Usually used to view imported forecasts generated with 3rd party tools, such as R Language.<br>Allowed values: `true`, `false`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/5e8363c0/2/)|
-|forecast-style|`forecast-style = stroke: magenta;`|CSS styles applied to forecasts in `column` and `column-stack` modes.|[![](./images/button.png)](https://apps.axibase.com/chartlab/37c39d18/3/)|
+|Data Type|`data-type = forecast`|Data type for the current series.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.|[![](../images/button.png)](https://apps.axibase.com/chartlab/f80b8e53)|
+|Forecast Name|`forecast-name = hw5`|Unique forecast identifier.<br>Useful when creating multiple forecasts for the same series.<br>If no forecast name is set, the default forecast is loaded.|[![](../images/button.png)](https://apps.axibase.com/chartlab/92b7e471/3/)|
+|style|`style = stroke-dasharray: none;`|Render forecast as a solid line instead of dashed line.|[![](../images/button.png)](https://apps.axibase.com/chartlab/92b7e471/4/)|
+|value|`value = (1 - forecast('free') / forecast('total')) * 100`|Returns forecast for the underlying series.|[![](../images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)|
+|load-future-data|`load-future-data = true`|Load future series values.<br>Usually used to view imported forecasts generated with 3rd party tools, such as R Language.<br>Allowed values: `true`, `false`.|[![](../images/button.png)](https://apps.axibase.com/chartlab/5e8363c0/2/)|
+|forecast-style|`forecast-style = stroke: magenta;`|CSS styles applied to forecasts in `column` and `column-stack` modes.|[![](../images/button.png)](https://apps.axibase.com/chartlab/37c39d18/3/)|
 
 ## Quick Start
 
@@ -57,9 +57,9 @@ The `[series]` level configuration for the [Time Chart Widget](../widgets/time-c
   metric = cpu_busy
 ```
 
-![](./images/forecasting-1.png)
+![](./images/forecasting-3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/9f17e65a)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/9f17e65a)
 
 Open the ATSD web interface and navigate to **Data > Forecasts**.
 
@@ -131,6 +131,6 @@ In **ChartLab** use [forecast syntax](#syntax) to visualize computed forecasts.
 
 ![](./images/forecasting-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/87b548f3)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/87b548f3)
 
 > Open the **ChartLab** visualization to see a live forecast for the `cpu_busy` metric on Axibase servers.
