@@ -24,44 +24,45 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="display-panels"></a>[`display-panels`](#display-panels) |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`.|  [↗](https://apps.axibase.com/chartlab/fbb223ef)
-<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`. |  [↗](https://apps.axibase.com/chartlab/c6ef962a)
-<a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`. |  [↗](https://apps.axibase.com/chartlab/eaf88286)
-<a name="context-height"></a>[`context-height`](#context-height)| Height of the [Context Chart](#time-chart-controls).<br>Default value: `0`.<br>**Example**: `context-height = 50`.| [↗](https://apps.axibase.com/chartlab/67d1027d)
-<a name="markers"></a>[`markers`](#markers)| Show series value markers.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Examples**: `markers = false`.| [↗](https://apps.axibase.com/chartlab/263a3ee8)
-<a name="last-marker"></a>[`last-marker`](#last-marker)| Show last series value marker.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `last-marker = false`. | [↗](https://apps.axibase.com/chartlab/5a54b7ce)
-<a name="horizontal-grid"></a>[`horizontal-grid`](#horizontal-grid) | Show horizontal grid.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `horizontal-grid = false`.| [↗](https://apps.axibase.com/chartlab/a28cbb11)
-<a name="vertical-grid"></a>[`vertical-grid`](#vertical-grid)| Show vertical grid.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `vertical-grid = false`.| [↗](https://apps.axibase.com/chartlab/50895463)
-<a name="pointer-position"></a>[`pointer-position`](#pointer-position)| Location of final value pointer.<br>Possible values: `left`, `right`, `none`.<br>Default value: `right`.<br>**Example**: `pointer-position = left`.| [↗](https://apps.axibase.com/chartlab/33aa5216)
-<a name="step-line"></a>[`step-line`](#step-line)| Display step line.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `step-line = true`.| [↗](https://apps.axibase.com/chartlab/024cbe4f)
-<a name="auto-period"></a>[`auto-period`](#auto-period)| Assign series aggregation period to the value of four time intervals.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `auto-period = false`.| [↗](https://apps.axibase.com/chartlab/ff922a73)
-<a name="disconnect-interval"></a>[`disconnect-interval`](#disconnect-interval)| Maximum time gap between samples specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>If the gap between samples exceeds the specified interval, data points are not connected.<br>Format:  `count time_unit`.<br>**Example**: `disconnect-interval = 10 minute`. | [↗](https://apps.axibase.com/chartlab/2edca4d7)
-<a name="disconnect-count"></a>[`disconnect-count`](#disconnect-count)| Maximum distance between samples specified as the number of periods.<br>If the gap between samples exceeds the defined value, data points are not connected.<br>If `disconnect-count = 1`, the interval is equal to the interval between samples.<br>**Example**: `disconnect-count = 50`.| [↗](https://apps.axibase.com/chartlab/2792adc4)
-<a name="disconnect-value"></a>[`disconnect-value`](#disconnect-value)| Value applied to disconnected areas.<br>**Example**: `disconnect-value = 0`.| [↗](https://apps.axibase.com/chartlab/32f6fef5)
-<a name="moving-average"></a>[`moving-average`](#moving-average)| Moving average based on a sliding window which ends at the current time.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `moving-average = true`.| [↗](https://apps.axibase.com/chartlab/10124798)
-<a name="negative-style"></a>[`negative-style`](#negative-style)| CSS style applied to negative values in `column` or `column-stack` mode.<br>**Example**: `negative-style = fill: red`.| [↗](https://apps.axibase.com/chartlab/8dc77d01)
-<a name="current-period-style"></a>[`current-period-style`](#current-period-style)| CSS styles applied to current period values in `column` and `column-stack` mode.<br>**Example**: `current-period-style = fill-opacity: 0; stroke-width: 2; stroke-dasharray: 5, 2, 1, 2`.| [↗](https://apps.axibase.com/chartlab/64ea74d4)
-<a name="forecast-style"></a>[`forecast-style`](#forecast-style)| CSS style applied to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.<br>**Example**: `forecast-style = stroke: magenta; opacity: 0.25`.| [↗](https://apps.axibase.com/chartlab/b3e87541)
+<a name="display-panels"></a>[`display-panels`](#display-panels) |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`|[↗](https://apps.axibase.com/chartlab/09deba8f)
+<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`|  [↗](https://apps.axibase.com/chartlab/f5319f9d)
+<a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`|[↗](https://apps.axibase.com/chartlab/537bf3e3)
+<a name="context-height"></a>[`context-height`](#context-height)| Height of the [**Context Chart**](#time-chart-controls), which adjusts displayed timespan.<br>Default value: `0` in the main window, `70` in the dialog window.<br>**Example**: `context-height = 50`| [↗](https://apps.axibase.com/chartlab/4215daf6)
+<a name="legend-value"></a>[`legend-value`](#legend-value) | Display last value for each series in the legend.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `legend-value = false` | [↗](https://apps.axibase.com/chartlab/b8399385)
+<a name="markers"></a>[`markers`](#markers)| Show series value markers.<br>Toggle `markers` with the **Markers** option on the left axis mouseover menu. <br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Examples**: `markers = false`| [↗](https://apps.axibase.com/chartlab/23e60670)
+<a name="last-marker"></a>[`last-marker`](#last-marker)| Show last series value marker.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `last-marker = false`| [↗](https://apps.axibase.com/chartlab/9e3a9398)
+<a name="horizontal-grid"></a>[`horizontal-grid`](#horizontal-grid) | Show horizontal grid.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `horizontal-grid = false`| [↗](https://apps.axibase.com/chartlab/35a05b80)
+<a name="vertical-grid"></a>[`vertical-grid`](#vertical-grid)| Show vertical grid.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `vertical-grid = false`| [↗](https://apps.axibase.com/chartlab/48ce910e)
+<a name="pointer-position"></a>[`pointer-position`](#pointer-position)| Location of final value pointer relative to series.<br>Possible values: `left`, `right`, `none`.<br>Default value: `right`.<br>**Example**: `pointer-position = left`| [↗](https://apps.axibase.com/chartlab/2b05393c)
+<a name="step-line"></a>[`step-line`](#step-line)| Display step line instead of one which is linearly interpolated.<br>Toggle `step-line` with the **Step Line** option on the left axis mouseover menu.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `step-line = true`| [↗](https://apps.axibase.com/chartlab/51292e7e)
+<a name="auto-period"></a>[`auto-period`](#auto-period)| Assign aggregation period for series based on the chosen time interval.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `auto-period = false`| [↗](https://apps.axibase.com/chartlab/8f622b5e)
+<a name="disconnect-interval"></a>[`disconnect-interval`](#disconnect-interval)| Maximum time gap between samples specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>If the gap between samples exceeds the specified interval, data points are not connected.<br>Format:  `count time_unit`.<br>**Example**: `disconnect-interval = 10 minute`| [↗](https://apps.axibase.com/chartlab/64f5c2dd)
+<a name="disconnect-count"></a>[`disconnect-count`](#disconnect-count)| Average distance between time values in the series.<br>If the gap between samples exceeds the defined value, data points are not connected.<br>If `disconnect-count = 1`, the interval is equal to the mean interval between samples.<br>**Example**: `disconnect-count = 50`| [↗](https://apps.axibase.com/chartlab/273dc016)
+<a name="disconnect-value"></a>[`disconnect-value`](#disconnect-value)| Works together with `disconnect-interval` or `disconnect-count` setting.<br>Fills data gaps with a specific value.<br>Use when ATSD does not collect `null` values or values below a threshold.<br>Toggle display of `disconnect-value` with the **Connect Values** option on left axis mouseover menu.<br>**Example**: `disconnect-value = 0`| [↗](https://apps.axibase.com/chartlab/a4e2f917)
+<a name="moving-average"></a>[`moving-average`](#moving-average)| When `moving-average` is enabled, the most recent aggregation period is based on sliding window ending with current time.<br>When `moving-average` is disabled, all aggregate periods are set to start and end at regular times as established by calendar.<br>Only supported together with `server-aggregate = false` setting.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `moving-average = true`| [↗](https://apps.axibase.com/chartlab/4296e02b)
+<a name="negative-style"></a>[`negative-style`](#negative-style)| CSS style applied to negative values in `column` or `column-stack` mode.<br>**Example**: `negative-style = fill: red`| [↗](https://apps.axibase.com/chartlab/03326e26)
+<a name="current-period-style"></a>[`current-period-style`](#current-period-style)| CSS styles applied to current period values in `column` and `column-stack` mode.<br>**Example**: `current-period-style = fill-opacity: 0; stroke-width: 2; stroke-dasharray: 5, 2, 1, 2`| [↗](https://apps.axibase.com/chartlab/148d5d72)
+<a name="forecast-style"></a>[`forecast-style`](#forecast-style)| CSS style applied to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.<br>**Example**: `forecast-style = stroke: magenta; opacity: 0.25`| [↗](https://apps.axibase.com/chartlab/35aa293f)
 
 ### Value Axis Settings
 
 Name |Description | &nbsp;
 :--|:--|:--
-<a name="auto-scale"></a>[`auto-scale`](#auto-scale)| Scale the value axis based on series values.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `auto-scale = true`.| [↗](https://apps.axibase.com/chartlab/4256fd76)
-<a name="ticks"></a>[`ticks`](#ticks)| Tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`.| [↗](https://apps.axibase.com/chartlab/08a8bf45)
-<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`.| [↗](https://apps.axibase.com/chartlab/3972fb62)
+<a name="auto-scale"></a>[`auto-scale`](#auto-scale)| Scale the visible portion of the value axis based on series values.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `auto-scale = true`| [↗](https://apps.axibase.com/chartlab/20de18e9)
+<a name="ticks"></a>[`ticks`](#ticks)| Tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/5e968be4)
+<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d)
 
 ### Time Axis Settings
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="ahead-time-span"></a>[`ahead-time-span`](#ahead-time-span)| Visualized time ahead of final series value.<br>Possible values: Percent value in `0.10` notation or `10%` notation.<br>**Example**: `ahead-time-span = 80%`.| [↗](https://apps.axibase.com/chartlab/c559d591)
-<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical), or `true` (horizontal).<br>Default value: `90` (vertical).<br>**Example**: `rotate-ticks = 0`.| [↗](https://apps.axibase.com/chartlab/5b2621a8)
-<a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks)| Center time and date markers over ticks.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `centralize-ticks = true`.| [↗](https://apps.axibase.com/chartlab/e100936c)
-<a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 20`.| [↗](https://apps.axibase.com/chartlab/addb441e)
-<a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 10 week`.| [↗](https://apps.axibase.com/chartlab/23e8049e)
-<a name="display-date"></a>[`display-date`](#display-date)| Display the time period captured by the **Time Chart**.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `display-date = true`.| [↗](https://apps.axibase.com/chartlab/37738a05)
-<a name="retain-time-span"></a>[`retain-time-span`](#retain-time-span)| Preserve widget `timespan` as new data is added.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `retain-time-span = false`.| [↗](https://apps.axibase.com/chartlab/48eed908)
+<a name="ahead-time-span"></a>[`ahead-time-span`](#ahead-time-span)| Visualized time ahead of final series value.<br>Possible values: Percent value in `0.10` notation or `10%` notation.<br>**Example**: `ahead-time-span = 80%`| [↗](https://apps.axibase.com/chartlab/92c46bac)
+<a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical), or `true` (horizontal).<br>Default value: `90` (vertical).<br>**Example**: `rotate-ticks = 0`| [↗](https://apps.axibase.com/chartlab/7a38cfdd)
+<a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks)| Center time and date markers over ticks.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `centralize-ticks = true`| [↗](https://apps.axibase.com/chartlab/4872db9d)
+<a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 20`| [↗](https://apps.axibase.com/chartlab/0e31a579)
+<a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html), can be applied to both `[widget]` and `[series]` settings.<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 10 week`| [↗](https://apps.axibase.com/chartlab/80152e9f)
+<a name="display-date"></a>[`display-date`](#display-date)| Display **Time Chart** time period below the time axis.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `display-date = true`| [↗](https://apps.axibase.com/chartlab/2abd9e1f)
+<a name="retain-time-span"></a>[`retain-time-span`](#retain-time-span)| Preserves the length of the specified time interval during widget update.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `retain-time-span = false`| [↗](https://apps.axibase.com/chartlab/b86df9d4)
 
 ## Series Settings
 
@@ -70,10 +71,10 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="mode"></a>[`mode`](#mode) | Chart mode.<br>Possible values: `line` - Connect series data points with a line. `stack` - Visually stack series. `column` - Display series as columns. `range` - Display range of series values. `column-stack` - Visually stack series in column-form.<br>Default value: `line`.<br>**Example**: `mode = column`. | [↗](https://apps.axibase.com/chartlab/267a5534)
-<a name="fill-value"></a>[`fill-value`](#fill-value) | Interpolate a series with irregularly spaced values.<br>Detailed values are filled using [`linear` interpolation](https://axibase.com/docs/atsd/api/data/series/aggregate.html#interpolation-functions).<br>Aggregated periods are filled with `previous` values.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `fill-value = true`.| [↗](https://apps.axibase.com/chartlab/033b40d5)
-<a name="load-future-data"></a>[`load-future-data`](#load-future-data)| Load future series values.<br>Import forecasts generated by third-party tools such as [R Language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `load-future-data = true`.| [↗](https://apps.axibase.com/chartlab/cf472245)
-<a name="series-type"></a>[`series-type`](#series-type)| Grouping parameter for `stack` mode.<br>Series of the same type are grouped.<br>**Example**: `series-type = s1`.| [↗](https://apps.axibase.com/chartlab/2ad5b8ae)
+<a name="mode"></a>[`mode`](#mode) | Chart mode, can be applied to both `[widget]` and `[series]` settings.<br>Possible values:<br>`line` - Connect series data points with a line.<br>`stack` - Visually stack series.<br>`column` - Display series as columns.<br>`range` - Display range of series values.<br>`column-stack` - Visually stack series in column-form.<br>Default value: `line`.<br>**Example**: `mode = column`| [↗](https://apps.axibase.com/chartlab/8998bddf)
+<a name="fill-value"></a>[`fill-value`](#fill-value) | Interpolate a series with irregularly spaced values.<br>When `fill-value = true`, detailed values are filled using [`linear` interpolation](https://axibase.com/docs/atsd/api/data/series/aggregate.html#interpolation-functions) and aggregated periods are filled with `previous` values.<br>When `fill-value = false`, missing samples are filled with `0` or `null`.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `fill-value = true`| [↗](https://apps.axibase.com/chartlab/9cd3a1b4)
+<a name="load-future-data"></a>[`load-future-data`](#load-future-data)| Load future series values.<br>Import forecasts generated by third-party tools such as [R Language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `load-future-data = true`| [↗](https://apps.axibase.com/chartlab/268cc442)
+<a name="series-type"></a>[`series-type`](#series-type)| Grouping parameter for use in `stack` mode.<br>Series of the same type are stacked (their values are summed).<br>Set a unique value for each series to achieve fill effect without series stacking.<br>**Example**: `series-type = s1`| [↗](https://apps.axibase.com/chartlab/d9804193)
 
 ## Threshold Settings
 
@@ -89,9 +90,9 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="threshold-label"></a>[`label`](#threshold-label)| Threshold legend label.<br>**Example**: `label = threshold`.| [↗](https://apps.axibase.com/chartlab/6669e7a4)
-<a name="threshold-color"></a>[`color`](#threshold-color) | Threshold color.<br>**Example**: `color = red`.| [↗](https://apps.axibase.com/chartlab/bf478ab6)
-<a name="threshold-value"></a>[`value`](#threshold-value)|Threshold value.<br>**Example**: `value = 75`. | [↗](https://apps.axibase.com/chartlab/8bcd5a38)
+<a name="threshold-label"></a>[`label`](#threshold-label)| Threshold legend label.<br>**Example**: `label = threshold`| [↗](https://apps.axibase.com/chartlab/5c1dace0)
+<a name="threshold-color"></a>[`color`](#threshold-color) | Threshold color.<br>**Example**: `color = red`| [↗](https://apps.axibase.com/chartlab/9ac19488)
+<a name="threshold-value"></a>[`value`](#threshold-value)|Threshold value, set in JavaScript when the [`alert-expression`](../shared/README.md#alert-expression#widget-settings) for series uses the same format.<br>**Example**: `value = value('raw') * 2`| [↗](https://apps.axibase.com/chartlab/26e6d5d6)
 
 ## **Time Chart** Controls
 
@@ -115,10 +116,10 @@ Name | Description | &nbsp;
 1. **Aggregation Period**: Define the aggregation period for the series.
 1. **Left Axis**: Scale the left axis manually by dragging. Double click to reset values to default.
 1. **Right Axis**: Scale the right axis manually by dragging. Double click to reset values to default.
-1. **Scale Options**: Auto-scale the value of axes in the **Time Chart**. Display the series in step-line format. Toggle value markers for the series.
+1. **Scale Options**: Auto-scale the value of axes in the **Time Chart**. Display the series in `step-line` format. Toggle value markers for the series.
 1. **Load All Data**: Double click **Time Chart** surface to show all loaded data.
 1. **Time Axis**: Scale the time axis manually by dragging. Double click to reset values to default.
-1. **Context Chart**: Select a manual timespan by dragging context chart endpoints.
+1. **Context Chart**: Select a manual `timespan` by dragging context chart endpoints.
 
 ### Modifying **Time Chart** Controls
 
@@ -140,19 +141,19 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/time-offset-settings.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/ebd90c87)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b60e02ac)
 
 ### Dual Axis
 
 ![](./images/dual-axis-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/2deaef48)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/919df823)
 
 ### Stack Average
 
 ![](./images/stack-average-settings.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/2b8d550c)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/df90ee29)
 
 ### Fill Area
 
@@ -164,13 +165,13 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/alert-expression-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/b3892525)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/188db949)
 
 ### Percentile
 
 ![](./images/percentile-statistics.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/fbf744aa)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/252829fb)
 
 ### Forecast
 
@@ -182,25 +183,25 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/interval-and-value.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/7101d5b9)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/9b216ba8)
 
 ### `[threshold]` Settings
 
 ![](./images/threshold-settings-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/ec3cabf2)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/85881eef)
 
 ### `value` Settings Example
 
 ![](./images/value-settings-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e11254b7)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/f632a825)
 
 ### `value` Statistic Example
 
 ![](./images/value-statistic-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/ada21b87)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/056e6681)
 
 ### Message Overlay
 
@@ -216,4 +217,4 @@ Overlay multiple intervals on the time axis with interval formatting.
 
 ![](./images/interval-format-settings.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/8a35d47d)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/01de08ad)
