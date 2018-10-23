@@ -2,16 +2,16 @@
 
 The following control structures are supported by Charts applications:
 
-* [`list`](#list--endlist)
-* [`var`](#var--endvar)
-* [`for`](#for--endfor)
-* [`if`](#if--elseif--else--endif)
-* [`csv`](#csv--endcsv)
-* [`script`](#script--endscript)
+* [`list`](#list)
+* [`var`](#var)
+* [`for`](#for)
+* [`if`](#if)
+* [`csv`](#csv)
+* [`script`](#script)
 
 ---
 
-## `list` / `endlist`
+## `list`
 
 Assign a list of comma-separated elements, optionally located on multiple lines, to a named array an iterate through the array with a `for` loop.
 
@@ -27,7 +27,7 @@ If the elements fit on one line, `endlist` is **not** required.
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var--endvar). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
+The `list` command is similar to [`var`](#var). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
 
 ```ls
 var servers = ['awsswgvml001', 'nurswgvml003']
@@ -36,7 +36,7 @@ list servers = awsswgvml001, nurswgvml003
 
 ---
 
-## `var` / `endvar`
+## `var`
 
 `var` assigns an array, object, or function to a variable whose value and fields can be invoked with a placeholder.
 
@@ -64,9 +64,9 @@ endfor
 
 ---
 
-## `for` / `endfor`
+## `for`
 
-Iterates over a list created with the [`list`](#list--endlist) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
+Iterates over a list created with the [`list`](#list) command, an array declared with `var` or specified inline, or variable properties. To access the current element use the `@{elementname}` placeholder syntax, or in simple cases, `@elementname`.
 
 > Multiple `for` or `endfor` loops can be nested.
 
@@ -228,7 +228,7 @@ endfor
 
 ---
 
-## `if` / `elseif` / `else` / `endif`
+## `if`
 
 Evaluates an expression and prints settings if the expression is `true`. If the expression returns `false`, content located within the branch is excluded from widget configuration.
 
@@ -252,7 +252,7 @@ endfor
 
 ---
 
-## `csv` / `endcsv`
+## `csv`
 
 Create comma-separated value lists in the **Editor** window.
 
@@ -270,7 +270,7 @@ csv metrics =
 endcsv
 ```
 
-Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for--endfor) statements.
+Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for) statements.
 
 ```ls
 for option in metrics
@@ -611,7 +611,7 @@ endfor
 
 ---
 
-## `script` / `endscript`
+## `script`
 
 Include inline JavaScript functions using `script` syntax.
 

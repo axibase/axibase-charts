@@ -4,7 +4,7 @@ Use a combination of inheritance and [control structures](../syntax/control-stru
 
 ![](./images/summary-portals.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/3230deb6/1)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/3230deb6/1)
 
 ```ls
 list servers = awsswgvml001, nurswgvml003, nurswgvml009
@@ -19,9 +19,9 @@ list servers = awsswgvml001, nurswgvml003, nurswgvml009
 
 When the list includes elements with multiple fields, such as hostname, IP address, location, or function, use the `var` array instead of `list` to print out field values as tooltips or properties.
 
-![](./images/summary-portals1.png)
+![](./images/summary-portals-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/3230deb6/3/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/3230deb6/3/)
 
 This example displays how a `var` array incorporates server properties displayed in legend tooltip on mouseover.
 
@@ -72,4 +72,4 @@ The Table widget is the most compact method of displaying many metrics together.
 
 ![](./images/summary-portals2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/bb65c060)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/bb65c060)

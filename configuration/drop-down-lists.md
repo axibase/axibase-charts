@@ -73,9 +73,9 @@ the list of displayed options is specified in options field */
   entity = nurswgvml007
 ```
 
-![](./images/drop-down-1.png)
+![](./images/drop-down-5.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/566e6428)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/566e6428)
 
 ### Change Property Type
 
@@ -91,7 +91,7 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6d918310/7/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/7/)
 
 ### Change `Metric`, `Entity`, or Both
 
@@ -106,7 +106,7 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/e7a978d6)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/e7a978d6)
 
 ### Replace Series
 
@@ -118,4 +118,4 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-4.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/343ec3ea)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/343ec3ea)

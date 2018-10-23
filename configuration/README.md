@@ -26,7 +26,7 @@ The list of selected properties is identified with the `type` field, whereas `$e
 
 ![](./images/configuration.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aeec99b1/2)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/aeec99b1/2)
 
 When the list of columns is not known in advance or there are too many, use `expand-tags` to display all tags returned for the given type.
 
@@ -45,10 +45,10 @@ transpose = true
 
 ![](./images/configuration1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6d918310/1)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/1)
 
 Configure the widget to display a drop-down list with `type` or `entity` options.
 
 ![](./images/configuration3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6d918310/5/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/5/)

@@ -1,99 +1,92 @@
 # Treemap Widget
 
-![](./images/treemap_widget.png)
-
 ## Overview
 
-Treemap displays each series as a rectangle, sized according to the `size` setting and colored according to the magnitude of deviation of the series value from the threshold.
-
-## Syntax
-
-Treemaps support [Shared Widget](../shared/README.md) syntax.
-
-### `[widget]` Settings
-
-Setting |Syntax |Description |Example
---|--|--|--
-|Display Totals |`display-total = false` |Displays the sum of rectangle sizes such as `size` setting for series<br>`true` by default. |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/3/) |
-|Size Name |`size-name = sum` |Title for for `display-total`. <br>Displayed after `Total`.<br>For example: `Total sum`. |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/5/) |
-|Size Format |`format-size = kilobytes` |Format size setting values.<br>For example: `format-size = bytes` |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/13/) |
-|Font Size |`font-size = 42` |Font size settings as a whole number<br>For example: `10` or `12`. |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/6/) |
-|Color Range |`color-range = blue`<br>`color-range = black`<br>`color-range = red`<br>`color-range = green, yellow, red` |Determine the color range of the widget.<br>By default: `color-range = red`.<br>Other built-in `color-range` scales: `blue`, `black`. |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/14/) |
-|Gradient Count |`gradient-count = 2`<br>`gradient-count = 3, 1, 1` |Number of gradients in each range. |[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/16/) |
-|Total Size |`total-size = 70` |Maximum size of all rectangles combined |[![](./images/button.png)](https://apps.axibase.com/chartlab/3233ff48) |
-|Palette Ticks |`palette-ticks = true` |Display labels on the legend.<br>Possible values: `true`, `false`.<br>Default value: `false` |[![](./images/button.png)](https://apps.axibase.com/chartlab/0ce65ec2) |
-|Rotate Palette Ticks |`rotate-palette-ticks = true` |Rotate legend labels.<br>Possible values: `true`, `false`.<br>`true`: Vertical.<br>`false`: Horizontal.<br>Default value: `true` |[![](./images/button.png)](https://apps.axibase.com/chartlab/0ce65ec2/2/) |
-|Merge Range |`range-merge = true` |If threshold is not defined, different set of ranges is computed for each series based on observed `min` and `max` values within the loaded time-span.<br> `range-merge` computes a single set of ranges for all series in the widget by using `min` and `max` for all loaded series.<br>Default value: `false`. |[![](./images/button.png)](https://apps.axibase.com/chartlab/db66c7fa) |
-|Mode |`mode = row` |Layout mode controls how rectangles are positioned.<br>Available options: `default`, `row`: Align rectangles as rows, `column`: Align rectangles as columns, `auto`: Switch between row and column modes depending on widget size. |[![](./images/button.png)](https://apps.axibase.com/chartlab/fc68bae4/7/) |
-
-### `[series]` Settings
-
-Setting |Syntax |Description |Example
---|--|--|--
-|Size|`size = 3`<br>`size = value('007')`<br>`size = value('scala')`<br>`size = value`|The relative size of the series rectangle.<br>`1` by default.<br>Set to a series value by referring to `alias`.<br>Set to the current value of the series using `value`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/7/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/8f36fc06)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3289964c/10/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3233ff48)|
-|Thresholds|`thresholds = 0, 25, 50, 75, 100`<br>`thresholds = bottom(1),delta('total') / value('total'), top(1)`|Defines the threshold values.<br>By default the mean value all metrics for the whole time-span is chosen as the threshold.<br>Set to the rate of change (`delta`) of series contained in the widget by referring to `alias`.|[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/18/)<br>[![](./images/button.png)](https://apps.axibase.com/chartlab/3289964c/10/)|
-|Color|`color = avg('30 minute') < 90 ? 'green' : 'red'`|Rectangle color.<br>Optionally use JavaScript code.<br>Same as `alert-expression` settings or value for series.|[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/9/)|
-
-### `[other]` Settings
-
-`[other]` creates an additional rectangle not associated with any series used to display remaining value or spare capacity.
-
-Setting | Syntax | Description
---|--|--
-Size|`size = 1` | Relative size.<br>`1` by default.
-Label | `label = Other`| Display name.<br>`Other` by default.
-Color | `color = grey`| Rectangle color.
-
-### `[properties]` Settings
-
-For `[other]` and `[series]` tags in Treemap widget, define `[properties]` level settings, which specify any values divided by an equal sign. If a value contains `=` or `\`, escape the characters, for example `\=` or `\\`, respectively.
-
-This setting displays a table in the tooltip that appears upon series rectangle mouseover.
+The **Treemap Widget** displays each series as a colored rectangle according to the magnitude of series value deviation from the threshold.
 
 ```ls
-/* Define upper series tooltip */
+[widget]
+  type = treemap
+  entity = nurswgvml0*
+  colors = green, yellow, red
+  thresholds = 0, 10, 25, 50
+
+  [series]
+    metric = cpu_busy
+```
+
+![](./images/treemap-example-1.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6b9810d7)
+
+## Widget Settings
+
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="mode"></a>[`mode`](#mode)|Widget layout mode.<br>Possible values:<br>`row` - Align rectangles as rows.<br>`column` - Align rectangles as columns.<br>`auto` - Switch between row and column modes depending on widget size.<br>**Example**: `mode = row`|[↗](https://apps.axibase.com/chartlab/700f826e)
+<a name="display-total"></a>[`display-total`](#display-total)|Display the sum of rectangle sizes in widget header.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `display-total = false`|[↗](https://apps.axibase.com/chartlab/a6226b0b)
+<a name="size-name"></a>[`size-name`](#size-name)|Title when `display-total = true`.<br>Specified `size-name` value is displayed after default title `Total`.<br>**Example**: `size-name = Value`|[↗](https://apps.axibase.com/chartlab/dd8c3ef3)
+<a name="format-size"></a>[`format-size`](#format-size)|`Total` value format.<br>Refer to [Format Settings](../../syntax/format-settings.md) for possible values.<br>**Example**: `format-size = kilobytes`|[↗](https://apps.axibase.com/chartlab/f57883b3) |
+<a name="font-size"></a>[`font-size`](#font-size)|Widget font size.<br>All text, except [widget header](../shared/README.md#header-style) is affected.<br>Default value: `10`.<br>**Example**: `font-size = 15` |[↗](https://apps.axibase.com/chartlab/51280d1e)
+<a name="color-range"></a>[`color-range`](#color-range)|Color palette applied to threshold areas.<br>Possible values: `red`, `blue`, `black`.<br>**Example**: `color-range = red`|[↗](https://apps.axibase.com/chartlab/a4394617)
+<a name="colors"></a>[`colors`](#colors)| Comma separated list of color [names](https://en.wikipedia.org/wiki/Web_colors) or hex codes, assigned to threshold areas.<br>The number must be `1` fewer than the number of thresholds.<br>**Example**: `colors = green, yellow, red`| [↗](https://apps.axibase.com/chartlab/fcc28103)
+<a name="thresholds"></a>[`thresholds`](#thresholds)| Threshold values.<br>The number of specified `colors` must be `1` fewer than the number of thresholds.<br>**Example**: `thresholds = 0, 25, 50, 75, 100`| [↗](https://apps.axibase.com/chartlab/87efaf08)
+<a name="gradient-count"></a>[`gradient-count`](#gradient-count)|Number of gradients within each threshold rectangle.<br>**Example**: `gradient-count = 3`|[↗](https://apps.axibase.com/chartlab/c1ee249b)
+<a name="total-size"></a>[`total-size`](#total-size)|Maximum size of all rectangles combined.<br>If `total-size` is greater than combined size of all rectangles, additional space is filled `white`.<br>**Example**: `total-size = 5`|[↗](https://apps.axibase.com/chartlab/41d113c0)
+<a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks) | Show legend labels.<br>[`thresholds`](#thresholds) setting must be specified.<br>Possible values: `false`, `true`.<br>Default Value: `false`.<br>**Example**:  `palette-ticks = true` | [↗](https://apps.axibase.com/chartlab/036b39f2)
+<a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks)| Rotate legend labels.<br>Possible values: `false` (horizontal), `true` (vertical).<br>Default value: `false`.<br>**Example**: `rotate-palette-ticks = true`| [↗](https://apps.axibase.com/chartlab/ff0885ac)
+<a name="range-merge"></a>[`range-merge`](#range-merge)| If [`thresholds`](#thresholds) is not defined, a different set of ranges is computed for each series based on observed `min` and `max` values within the loaded `timespan`.<br>`range-merge` computes a single set of ranges for all series in the widget with `min` and `max` for all loaded series.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `range-merge = true` | [↗](https://apps.axibase.com/chartlab/036900cb)
+
+## Series Settings
+
+* The settings apply to the `[series]` section.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/242da90e)
+
+### Other Settings
+
+* The settings apply to the `[other]` section.
+* Specifying the `[other]` section creates an additional rectangle not associated with any series which displays a value or spare capacity.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/8d7286fe)
+<a name="label"></a>[`label`](#label) | Rectangle label.<br>**Example**: `label = Total Capacity`|[↗](https://apps.axibase.com/chartlab/7f4d239c)
+<a name="color"></a>[`color`](#color) | `[other]` section color.<br>Default value: `grey`.<br>**Example**: `color = black`|[↗](https://apps.axibase.com/chartlab/60b058e8)
+
+### Properties Settings
+
+* The settings apply to the `[properties]` section.
+* In `[series]` or `[other]` section, define properties displayed on mouseover.
+* If a value contains `=` or `\`, escape the characters, for example `\=` or `\\`, respectively.
+
+```ls
 [properties]
   Data Center = Cuperito
   Site = California
   Function = SAP DB
-  
-/* Define lower series tooltip */
-[properties]
-  Data Center = San Francisco
-  Site = California
-  Function = HBase DB
 ```
 
-![](./images/properties-settings.png)
+![](./images/series-tooltip.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/10/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b686fb79)
 
 ## Examples
 
-### Manual Thresholds and Size
-
-```ls
-width-units = 1
-height-units = 1
-thresholds = 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
-```
-
-![](./images/treemap_widget.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cdb8bc6c)
-
-### Default Threshold
-
-![](./images/treemap-widget-1.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f)
-
 ### Manual Thresholds
 
-```ls
-thresholds = 0, 25, 50, 75, 100
-```
+![](./images/manual-thresholds.png)
 
-![](./images/treemap-widget-2.png)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/014e0cbe)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aeeffb8f/2/)
+### Advanced Configuration Example
+
+![](./images/thresholds-sizes.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3bedad3f)

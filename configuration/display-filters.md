@@ -14,9 +14,9 @@ These expressions can compare `last value` or statistics with a pre-defined thre
 display = value >= top(3)
 ```
 
-![](./images/display-filters.png)
+![](./images/display-filters-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/377091ff)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/377091ff)
 
 ### Single Day Maximum Exceeds Five
 
@@ -25,9 +25,9 @@ display = value >= top(3)
 enabled = max('1 day') > 5
 ```
 
-![](./images/display-filters1.png)
+![](./images/display-filters-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/628bc794/1)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/628bc794/1)
 
 ### Negation Syntax
 
@@ -46,7 +46,7 @@ tags.mount_point.indexOf('/m') < 0
 
 ![](./images/display-filters3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7518a91f/6/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/7518a91f/6/)
 
 ### Display by Tag
 
@@ -59,4 +59,4 @@ display = tags.level == 'DEBUG'
 
 ![](./images/display-filters4.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/04f1ed7c/2/#)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/04f1ed7c/2/#)
