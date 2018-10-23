@@ -1,71 +1,72 @@
 # Calendar Chart
 
-![](./images/calendar-chart-3.png)
-
 ## Overview
 
-The Calendar Chart displays deviation of aggregated series values for each calendar period from the specified threshold. Series values within each period are [aggregated](../../configuration/aggregators.md) with a statistical function, `avg` by default, and the aggregated period value is then assigned a certain color which reflects the magnitude of the deviation.
+The **Calendar Chart** displays the deviation of aggregated series values for a calendar period from a specified threshold. Series values within each period are aggregated by [statistical function](../../configuration/aggregators.md) and assigned a color which reflects the magnitude of deviation.
 
-## Syntax
+```ls
+[widget]
+  type = calendar
+  metric = cpu_busy
+  thresholds = 0, 10, 20
+  color-range = red
 
-Calendar Charts support [Shared Widget](../shared/README.md) syntax.
+  [series]
+    entity = nurswgvml0*
+```
 
-### `[widget]` Settings
+![](./images/calendar-example-1.png)
 
-Setting |Syntax |Description |Example
---|--|--|--
-Period Summary | `summarize-period = 1 hour`<br>`summarize-period = 15 minute` | Period by which loaded time series data is split.<br>Possible values: `auto`, <code>count [time_unit](https://axibase.com/docs/atsd/api/data/series/time-unit.html)</code>. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/14/)
-Statistic Summary | `summarize-statistic = percentile_75`<br>`summarize-statistic = avg` | Statistical function applied to values within each period.<br>Possible values: `avg`, `max`, `min`, `sum`, `count`, `percentile_99`, `percentile_95`, `percentile_90`, `percentile_75`, `percentile_50` (median).<br>Median is an alias for `percentile_50`.<br>Default value: `avg`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/23/)
-Color Range | `color-range = green orange`<br>`color-range = green yellow red`| Customize calendar colors. More than two colors can be set.|[![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/15/)
-Gradient Count | `gradient-count = 3` | Specify the number of gradient colors between each color in Color Range. | [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/16/)
-Palette Ticks | `palette-ticks = true` | Display legend labels.<br>Possible values: `true`, `false`<br>Default Value: `false` | [![](./images/button.png)](https://apps.axibase.com/chartlab/0f9e807b/3/)
-Rotate Palette Ticks | `rotate-palette-ticks = true` | Rotate legend labels.<br>Possible values: `true`, `false`.<br>`true`: Vertical.<br>`false`: Horizontal.<br>Default value: `false`.| [![](./images/button.png)](https://apps.axibase.com/chartlab/0f9e807b/2/)
-Range Merge | `range-merge = true` | If threshold is not defined, different set of ranges is computed for each series based on observed min and max values within the loaded timespan.<br> `range-merge` computes a single set of ranges for all series in the widget by using `min` and `max` for all loaded series.<br>Default value:`false`. | [![](./images/button.png)](https://apps.axibase.com/chartlab/0f9e807b/4/)
-Sort | `sort = name DESC` | Sort series values by `name`, either ascending `ASC` or descending `DESC`. Customize `name` with `label-format` or `label` settings.
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/1d891aa7)
 
-### `[series]` Settings
+## Widget Settings
 
-Inherited settings from [Shared Widget Syntax](../shared/README.md): `entity`, `metric`, `type`, `interval`, `style`, `color`, `label`, `tooltip`, `format`, `refresh-interval`, `retry-refresh-interval`, `error-refresh-interval`.
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
-Setting |Syntax |Description |Example
---|--|--|--
-Thresholds | `thresholds = 0, 25, 50, 75, 100` | Define threshold value.<br>Default threshold for arithmetic mean of all metric values for the entire time-span.| [![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/21/)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="summarize-period"></a>[`summarize-period`](#summarize-period)| Period specified in [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html) to split loaded time series into calendar segments.<br>Format: `count time_unit`.<br>Default value: `5 minute`.<br>**Example**: `summarize-period = 1 hour`| [↗](https://apps.axibase.com/chartlab/6a3f5153)
+<a name="summarize-statistic"></a>[`summarize-statistic`](#summarize-statistic) | Statistical function applied to values within each period.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>Default value: `avg`.<br>**Example**: `summarize-statistic = percentile_75`| [↗](https://apps.axibase.com/chartlab/548fa0ae)
+|<a name="color-range"></a>[`color-range`](#color-range)|Color palette assigned to threshold ranges.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors).<br>Built-in ranges: `red`, `blue`, `black`.<br>**Example**: `color-range = black`|[↗](https://apps.axibase.com/chartlab/7517e646)|
+<a name="gradient-count"></a>[`gradient-count`](#gradient-count)| Number of gradients per threshold range.<br>Default value: `3`.<br>**Example**: `gradient-count = 2`| [↗](https://apps.axibase.com/chartlab/a789a6cc)
+<a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks)| Display legend labels.<br>Possible values: `false`, `true`.<br>Default Value: `false`.<br>**Example**: `palette-ticks = true`| [↗](https://apps.axibase.com/chartlab/01a10bbf)
+<a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks)| Rotate legend labels.<br>Possible values: `false` (horizontal), `true` (vertical).<br>Default value: `false`.<br>**Example**: `rotate-palette-ticks = true`| [↗](https://apps.axibase.com/chartlab/0d232c4f)
+<a name="range-merge"></a>[`range-merge`](#range-merge)| Compute a single range for all series with minimum and maximum from all loaded series.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `range-merge = true`| [↗](https://apps.axibase.com/chartlab/56a3859a)
+<a name="sort"></a>[`sort`](#sort)| Sort entities by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>**Example**: `sort = name DESC`| [↗](https://apps.axibase.com/chartlab/fc8bd510)
+
+### Series Settings
+
+* The settings apply to the `[series]` section.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="thresholds"></a>[`thresholds`](#thresholds)| Threshold values.<br>The number of specified [`colors`](#colors) must be `1` fewer than the number of thresholds.<br>**Example**: `thresholds = 0, 50, 90, 100`| [↗](https://apps.axibase.com/chartlab/47688faa)
+<a name="colors"></a>[`colors`](#colors)| Comma separated list of color [names](https://en.wikipedia.org/wiki/Web_colors) or hex codes, assigned to threshold ranges.<br>The number must be `1` fewer than the number of thresholds.<br>**Example**: `colors = green, yellow, red`| [↗](https://apps.axibase.com/chartlab/5b7cc24e)
 
 ## Examples
 
-### Custom Colors
+### Custom Color Range
 
-```ls
-colors = green, yellow, red
-thresholds = 0, 50, 75, 100
-```
+![](./images/custom-color-range.png)
 
-![](./images/calendar-threshold.png)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3d52aae0)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/0a936368/2/)
+### Legend Position
 
-### Left Legend
+![](./images/legend-position-image.png)
 
-```ls
-legend-position = left
-```
-
-![](./images/calendar-chart-4.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/13/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/f354914c)
 
 ### No Threshold
 
-![](./images/calendar-chart-1.png)
+![](./images/no-threshold.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7d6224b8)
 
 ### Threshold
 
-```ls
-thresholds = 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
-```
+![](./images/threshold-image.png)
 
-![](./images/calendar-chart-2.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/fb935e05/2/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/5f49b168)

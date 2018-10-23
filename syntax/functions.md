@@ -544,7 +544,7 @@ country = @{countries.escape()}
 ["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
 ```
 
-#### Apply `.escape()` to the array created in a [`var`](./control-structures.md#var--endvar) expression
+#### Apply `.escape()` to the array created in a [`var`](./control-structures.md#var) expression
 
 ![](./images/list-escape-2.png)
 
