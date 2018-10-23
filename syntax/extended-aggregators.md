@@ -18,7 +18,7 @@ statistic = min_value_time
 
 ![](./images/min-max-value-time.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/37cbde3d/8/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/37cbde3d/8/)
 
 > Example includes `min_value_time` and `max_value_time` aggregators.
 
@@ -40,6 +40,6 @@ statistic = counter
 
 ![](./images/counter-delta.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/021e9dca)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/021e9dca)
 
 > Example includes `counter` and `delta` aggregators.

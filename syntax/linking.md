@@ -12,7 +12,7 @@ on-series-click = var seriesConfig = $.extend({}, c.config.originalConfig.series
 
 ![](./images/on-series-click.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/d8ab98b3/19/#)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d8ab98b3/19/#)
 
 The `on-series-click` setting does not affect behavior of the widget on the header click handler. The syntax below demonstrates how to update headers when using linking features.
 
@@ -26,4 +26,4 @@ on-series-click = $('.detailWidget').find('.widgetTitle').tex (keepAfterLast(ser
 
 ![](./images/on-series-click2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aecf6da9#)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/aecf6da9#)

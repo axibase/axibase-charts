@@ -29,4 +29,4 @@ Alert expressions provide a way to modify widget graphical properties such as co
 
 ![](./images/alert-expressions1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/993a72b2#)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/993a72b2#)

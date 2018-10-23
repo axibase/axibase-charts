@@ -57,13 +57,13 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 ![](./images/econometric-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/d220468d/19)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d220468d/19)
 
 **Sun Altitude Function**:
 
 ![](./images/sun-altitude.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8e2917e2/8/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/8e2917e2/8/)
 
 ### Load Functions from Local Server
 
@@ -98,7 +98,7 @@ value = fred.MonthlyChange('raw')
 
 ![](./images/econometric-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/d220468d/19)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d220468d/19)
 
 ## Examples
 
@@ -243,7 +243,7 @@ Save the portal. View the portal to check results.
 
 ![](./images/udf-tutorial.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/3b6819a6)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/3b6819a6)
 
 ## Utility Functions
 
@@ -253,7 +253,7 @@ Get the value of the series identified by `alias`, for the `timestamp` calculate
 
 ![](./images/getvaluewithoffset-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/db746e15)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/db746e15)
 
 **Syntax**:
 
@@ -273,7 +273,7 @@ If there is no sample recorded for the specified `datetime`, the value is linear
 
 ![](./images/getvaluefordate-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/378550c2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/378550c2)
 
 **Syntax**:
 
@@ -292,7 +292,7 @@ Get the maximum value of the series, identified by `alias`, for the loaded times
 
 ![](./images/getmaximumvalue-example.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/2595a144/6/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/2595a144/6/)
 
 **Syntax**:
 

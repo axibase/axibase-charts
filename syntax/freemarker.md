@@ -1,14 +1,14 @@
-# Freemarker Collection
+# FreeMarker Collection
 
-The following document provides examples on how to convert Freemarker lists and arrays to native Chart [collections](control-structures.md).
+The following document provides examples on how to convert FreeMarker lists and arrays to native Chart [collections](control-structures.md).
 
 ## Introduction
 
-Freemarker is a Java templating engine supported in Axibase Charts for the purpose of removing duplicate code in widget configurations. Freemarker is now deprecated in Axibase Charts and is gradually replaced with native client-side collections and functions which do not require a Java server.
+FreeMarker is a Java templating engine supported in Axibase Charts for the purpose of removing duplicate code in widget configurations. FreeMarker is now deprecated in Axibase Charts and is gradually replaced with native client-side collections and functions which do not require a Java server.
 
-[Freemarker](https://freemarker.apache.org/docs/dgui_quickstart_template.html) code snippets can be included in Chart configurations using `<#` and `>` tags and `${name}` placeholders.
+[FreeMarker](https://freemarker.apache.org/docs/dgui_quickstart_template.html) code snippets can be included in Chart configurations using `<#` and `>` tags and `${name}` placeholders.
 
-When the portal is requested by the client, the server searches the document for Freemarker code fragments, evaluates each fragment and replaces each fragment with the actual value.
+When the portal is requested by the client, the server searches the document for FreeMarker code fragments, evaluates each fragment and replaces each fragment with the actual value.
 
 Example:
 
@@ -30,7 +30,7 @@ The above text is converted to:
 
 ## List
 
-* Freemarker
+* FreeMarker
 
 ```ls
 <#assign servers = [
@@ -59,13 +59,13 @@ for srv in servers
 endfor
 ```
 
-Note that placeholders are accessed in Charts using `@{name}` syntax (`@` symbol) as opposed to `${name}` in Freemarker.
+Note that placeholders are accessed in Charts using `@{name}` syntax (`@` symbol) as opposed to `${name}` in FreeMarker.
 
 > The closing `endlist` keyword is required only if the list elements are defined on multiple lines.
 
 ## Array
 
-* Freemarker
+* FreeMarker
 
 ```ls
 <#assign servers = [
