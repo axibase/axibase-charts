@@ -1,23 +1,33 @@
 # Page Widget
 
-![](../images/page-widget.png)
+## Overview
 
-## Syntax
+The **Page Widget** displays the contents of an external page in a **ChartLab** portal.
 
-### `[widget]` Settings
+```ls
+[widget]
+  type = page
+  url = https://apps.axibase.com/embedded/
+```
 
-Setting | Syntax | Description
---|--|--
-Alert Disable | `disable-alert = true` | Cancel alerts raised by the loaded page.<br>Default value: `false`.
-Fit `svg` | `fig-svg = true` | Zooms and positions a user-loaded `svg` file in the center of the widget.<br>Default value: `false`.
-Zoom `svg` | `zoom-svg = 1.2` | Zoom the user-loaded `svg` file.<br>Possible values: `0` to any positive integer.
-Unscale | `unscale = .event, .location` | `CSS Selector` to determine unscaled elements in a user-loaded `svg` file.<br>Default value: `.event`
-Scale | `scale = 0.8` | Scales the width and height of the target page.<br>Value is the factor by which the page scales.
+![](./images/page-widget-title.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/60d336ab)
+
+## Widget Settings
+
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="disable-alert"></a>[`disable-alert`](#disable-alert) | Cancel alerts raised by the loaded page.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `disable-alert = true` | [↗](https://apps.axibase.com/chartlab/6614f160)
+<a name="scale"></a>[`scale`](#scale)| Scale the width and height of the target page.<br>Value is the factor by which the page scales.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`| [↗](https://apps.axibase.com/chartlab/e7c910e2)
 
 ## Examples
 
 ### Chart and Page Widgets
 
-![](./images/page-widget.png)
+![](./images/chart-and-page-widget.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/265f06eb)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/3d0640c8)
