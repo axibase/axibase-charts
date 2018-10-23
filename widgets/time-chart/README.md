@@ -92,7 +92,7 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="threshold-label"></a>[`label`](#threshold-label)| Threshold legend label.<br>**Example**: `label = threshold`| [↗](https://apps.axibase.com/chartlab/5c1dace0)
 <a name="threshold-color"></a>[`color`](#threshold-color) | Threshold color.<br>**Example**: `color = red`| [↗](https://apps.axibase.com/chartlab/9ac19488)
-<a name="threshold-value"></a>[`value`](#threshold-value)|Threshold value, set in JavaScript when the [`alert-expression`](../shared/README.md#alert-expression#widget-settings) for series uses the same format.<br>**Example**: `value = value('raw') * 2`| [↗](https://apps.axibase.com/chartlab/26e6d5d6)
+<a name="threshold-value"></a>[`value`](#threshold-value)|Threshold value, set in JavaScript when the [`alert-expression`](../shared/README.md#alert-expression) for series uses the same format.<br>**Example**: `value = value('raw') * 2`| [↗](https://apps.axibase.com/chartlab/26e6d5d6)
 
 ## **Time Chart** Controls
 
