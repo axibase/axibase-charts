@@ -41,7 +41,7 @@ Name | Description | &nbsp;
 <a name="link-widths"></a>[`link-widths`](#link-widths)|Width to indicate the thresholds of the time series tied to the edges and separated by commas or spaces.<br>**Example**: `link-widths = 5`|[↗](https://apps.axibase.com/chartlab/5440ef8a)
 <a name="node-thresholds"></a>[`node-thresholds`](#node-thresholds)|Threshold for time series tied to vertices.<br>Supports JavaScript, `percentile` functions, or can be set as an array.<br>**Example**: `node-thresholds = percentile(10), percentile(50), percentile(95)`|[↗](https://apps.axibase.com/chartlab/ef4bb318)
 <a name="node-colors"></a>[`node-colors`](#node-colors)| Color to indicate the threshold of time series that are bound to vertices and separated by commas.<br>**Example**: `node-colors = red, yellow, green`|[↗](https://apps.axibase.com/chartlab/fe1ab0cb)
-<a name="node-radiuses"></a>[`node-radiuses`](#node-radiuses)|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.<br>**Example**: ``|[↗]()
+<a name="node-radiuses"></a>[`node-radiuses`](#node-radiuses)|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.<br>**Example**: ``|↗
 <a name="node-radius"></a>[`node-radius`](#node-radius)|Radius of the vertex in pixels.<br>Not valid in `hierarchy` mode.<br>**Example**: `node-radius = 10`|[↗](https://apps.axibase.com/chartlab/d93d35a7)
 <a name="padding"></a>[`padding`](#padding)|Offset from the edge of the container in pixels.<br>**Example**: `padding = 50`|[↗](https://apps.axibase.com/chartlab/4dd7594d)
 <a name="disconnected-node-display"></a>[`disconnected-node-display`](#disconnected-node-display)|Show vertices without edge.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `disconnected-node-display = false`|[↗](https://apps.axibase.com/chartlab/5446e321)
@@ -129,7 +129,7 @@ Link series to edges or vertices by indicating the `alias` in the series paramet
 
 ## Alert Expression
 
-In the event of an [`alert-expression`](../shared/README.md#alert-expression) response on the time series of the vertex or edge to which the time series is tied. [`alert-style`](../../shared/README.md#alert-style) setting value can be either string or script. If `alert-style` is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
+In the event of an [`alert-expression`](../shared/README.md#alert-expression) response on the time series of the vertex or edge to which the time series is tied. [`alert-style`](../shared/README.md#alert-style) setting value can be either string or script. If `alert-style` is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
 
 ### Example Syntax
 
