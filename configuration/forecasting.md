@@ -8,18 +8,19 @@ ATSD supports algorithm-based [Data Forecasting](https://axibase.com/docs/atsd/f
 
 Data Forecasting uses historical data to predict future sample values. After the creation of a new forecast, use Charts settings to display forecast data alone or alongside historical samples.
 
-## Syntax
+## Series Settings
 
-Enter forecast syntax in the **Editor** window of any Charts visualization.
+* The settings apply to the `[series]` section.
+* Enter forecast settings in the **Editor** window of any Charts visualization.
 
-|Name|Example|Description|Example|
-|---|---|---|---|
-|Data Type|`data-type = forecast`|Data type for the current series.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.|[![](../images/button.png)](https://apps.axibase.com/chartlab/f80b8e53)|
-|Forecast Name|`forecast-name = hw5`|Unique forecast identifier.<br>Useful when creating multiple forecasts for the same series.<br>If no forecast name is set, the default forecast is loaded.|[![](../images/button.png)](https://apps.axibase.com/chartlab/92b7e471/3/)|
-|style|`style = stroke-dasharray: none;`|Render forecast as a solid line instead of dashed line.|[![](../images/button.png)](https://apps.axibase.com/chartlab/92b7e471/4/)|
-|value|`value = (1 - forecast('free') / forecast('total')) * 100`|Returns forecast for the underlying series.|[![](../images/button.png)](https://apps.axibase.com/chartlab/da03b8a5/11/)|
-|load-future-data|`load-future-data = true`|Load future series values.<br>Usually used to view imported forecasts generated with 3rd party tools, such as R Language.<br>Allowed values: `true`, `false`.|[![](../images/button.png)](https://apps.axibase.com/chartlab/5e8363c0/2/)|
-|forecast-style|`forecast-style = stroke: magenta;`|CSS styles applied to forecasts in `column` and `column-stack` modes.|[![](../images/button.png)](https://apps.axibase.com/chartlab/37c39d18/3/)|
+Name | Description | &nbsp;
+--|--|--
+<a name="data-type"></a>[`data-type`](#data-type)|Data type for the current series.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.<br>**Example**: `data-type = forecast`|[↗](https://apps.axibase.com/chartlab/cb49fd2f)|
+<a name="forecast-name"></a>[`forecast-name`](#forecast-name)|Unique forecast identifier.<br>Use when creating multiple forecasts for the same series.<br>If no forecast name is set, the default forecast is loaded.<br>**Example**: `forecast-name = hw5`|[↗](https://apps.axibase.com/chartlab/8ec8d153)|
+<a name="style"></a>[`style`](#style)|Render forecast as a solid line instead of dashed line.<br>**Example**: `style = stroke-dasharray: none;`|[↗](https://apps.axibase.com/chartlab/73f57d65)|
+<a name="value"></a>[`value`](#value)|Returns forecast for the underlying series.<br>**Example**: `value = (1 - forecast('free') / forecast('total')) * 100`|[↗](https://apps.axibase.com/chartlab/b6a0aa28)|
+<a name="load-future-data"></a>[`load-future-data`](#load-future-data)|Load future series values.<br>Import forecasts generated with 3rd party tools, such as [R Language](https://github.com/axibase/atsd-api-r/blob/master/README.md#atsd-r-package).<br>Possible values: `false`, `true`.<br>Default value: `false`. <br>**Example**: `load-future-values = true`|[↗](https://apps.axibase.com/chartlab/268cc442)|
+<a name="forecast-style"></a>[`forecast-style`](#forecast-style)|CSS styles applied to forecasts in `column` and `column-stack` modes.<br>**Example**: `forecast-style = stroke: magenta;`|[↗](https://apps.axibase.com/chartlab/35aa293f)|
 
 ## Quick Start
 
@@ -130,7 +131,3 @@ In **ChartLab** use [forecast syntax](#syntax) to visualize computed forecasts.
 ```
 
 ![](./images/forecasting-2.png)
-
-[![](../images/button.png)](https://apps.axibase.com/chartlab/87b548f3)
-
-> Open the **ChartLab** visualization to see a live forecast for the `cpu_busy` metric on Axibase servers.

@@ -2,7 +2,7 @@
 
 Create computed metrics in any portal using existing metrics. Manipulate underlying series or join multiple series to perform ratio or roll-up  calculations, such as percentage or average values respectively.
 
-Use the `replace-value` setting to replace the input value when no references to other series are required.
+Use the [`replace-value`](../widgets/shared/README.md#replace-value) setting to replace the input value when no references to other series are required.
 
 ![](./images/replace-value1.png)
 
@@ -18,7 +18,7 @@ replace-value = Math.log10(value)
 
 [![](../images/button.png)](https://apps.axibase.com/chartlab/e0e0be77)
 
-In this example, the underlying series are hidden and another visible series is created which displays the ratio of two hidden series multiplied to a percentage value. To reference other series, such underlying series must be assigned unique identifiers with the alias setting.
+In this example, the underlying series are hidden and a new visible series is created which displays the ratio of two hidden series multiplied to a percentage value. To reference other series, such underlying series must be assigned unique identifiers with the [`alias`](../widgets/shared/README.md#alias) setting.
 
 ```ls
 [series]

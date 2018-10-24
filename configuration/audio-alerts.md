@@ -17,7 +17,7 @@ Play different audio based on expression, such as one track for `alert-ON` and a
 
 > Internet Explorer 11 does not support `ogg` format.
 
-Use Audio Alerts in any widget that supports `alert-expression` settings.
+Use **Audio Alerts** in any widget that supports the [`alert-expression`](../widgets/shared/README.md#alert-expression) setting.
 
 ### **ChartLab** Example
 
@@ -46,14 +46,18 @@ Chrome | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Firefox | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Safari | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x:
 
-## `[widget]` Settings
+## Widget Settings
 
-Name | Syntax | Description | Example
---|--|--|--
-Audio On Load | `audio-onload` | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Default value, `false`.| [![](../images/button.png)](https://apps.axibase.com/chartlab/59a834f3/5/)
+* The settings apply to the `[widget]` section.
 
-## `[series]` Settings
+Name | Description | &nbsp;
+--|--|--
+<a name="audio-onload"></a>[`audio-onload`](#audio-onload) | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `audio-onload = true`| [↗](https://apps.axibase.com/chartlab/e46cff68)
 
-Name | Syntax | Description | Example |
---|--|--|--
-Audio Alert | `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa. | [![](../images/button.png)](https://apps.axibase.com/chartlab/59a834f3/2/)
+## Series Settings
+
+* The settings apply to the `[series]` section.
+
+Name | Description | &nbsp;
+--|--|--
+<a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa.<br>**Example**: `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | [↗](https://apps.axibase.com/chartlab/86d105c2)
