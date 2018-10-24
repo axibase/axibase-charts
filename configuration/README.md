@@ -1,54 +1,28 @@
 # Configuration
 
-The Property widget displays `entity tags` and `properties` in tabular format.
+## Overview
 
-The list of selected properties is identified with the `type` field, whereas `$entity_tags` is reserved for `entity tags`.
+Configuration settings specify the overall layout of a widget or group of widgets.
 
-```ls
-[widget]
-  type = property
-  title = Entity Tags
-  column-entity = Server
-  column-time = null
-  [column]
-    key = app
-    label = Application
-  [column]
-    key = ip
-    label = IP Address
-  [column]
-    key = loc_area
-    label = Location
-  [property]
-    type = $entity_tags
-    entity = nurswgvml007
-```
+## Configuration Settings
 
-![](./images/configuration.png)
+* The settings apply to the `[configuration]` section of **all** [widgets](../widgets/README.md).
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/aeec99b1/2)
+### General Settings
 
-When the list of columns is not known in advance or there are too many, use `expand-tags` to display all tags returned for the given type.
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="dialog-maximize"></a>[`dialog-maximize`](#dialog-maximize)|  Expand dialog window to the entire page.<br>Open dialog window by clicking the widget header.<br>Possible values: `false`, `true`.<br>Default: `true`.<br>**Example**: `dialog-maximize = true`|  [↗](https://apps.axibase.com/chartlab/3b936aa0)
+<a name="scale"></a>[`scale`](#scale)| Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`| [↗](https://apps.axibase.com/chartlab/2d8b7baf)
 
-```ls
-[widget]
-type = property
-title = Entity Tags
-column-time = null
-expand-tags = true
-transpose = true
+### Layout Settings
 
-  [property]
-  type = $entity-tags
-  entity = nurswgvml007
-```
-
-![](./images/configuration1.png)
-
-[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/1)
-
-Configure the widget to display a drop-down list with `type` or `entity` options.
-
-![](./images/configuration3.png)
-
-[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/5/)
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="height-units"></a>[`height-units`](#height-units) | When specified in the `[configuration]` section, `height-units` determines the number of rows in the portal.<br>When specified in the `[widget]` or `[group]` section `height-units` determines the number of rows the widget occupies.<br>Default value: `4`.<br>**Example**: `height-units = 2`|[↗](https://apps.axibase.com/chartlab/63f747f0)
+<a name="width-units"></a>[`width-units`](#width-units)| When specified in the `[configuration]` section, `width-units` determines the number of columns in the portal.<br>When specified in the `[widget]` or `[group]` section `width-units` determines the number of columns the widget occupies.<br>Default value: `6`.<br>**Example**: `width-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7)
+<a name="offset-left"></a>[`offset-left`](#offset-left)| Offset from the left page border, in pixels.<br>Default value: `0`.<br>**Example**: `offset-left = 50`| [↗](https://apps.axibase.com/chartlab/66ed9482)
+<a name="offset-right"></a>[`offset-right`](#offset-right) | Offset from the right page border, in pixels.<br>Default value: `0`.<br>**Example**: `offset-right = 50`| [↗](https://apps.axibase.com/chartlab/05ab6fe4)
+<a name="offset-top"></a>[`offset-top`](#offset-top)| Offset from the top page border, in pixels.<br>Default value: `0`.<br>**Example**: `offset-top = 50`| [↗](https://apps.axibase.com/chartlab/0270fd12)
+<a name="offset-bottom"></a>[`offset-bottom`](#offset-bottom)| Offset from the bottom page border, in pixels.<br>Default value: `0`.<br>**Example**:  `offset-bottom = 50`| [↗](https://apps.axibase.com/chartlab/a671b469)
+<a name="widgets-per-row"></a>[`widgets-per-row`](#widgets-per-row)  | Maximum number of widgets per `[group]` row.<br> Additional widgets are placed in a new row.<br>**Example**: `widgets-per-row = 2`|  [↗](https://apps.axibase.com/chartlab/528ea252) |
