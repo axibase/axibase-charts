@@ -45,7 +45,7 @@ label-format = tags
 
 ![](./images/tags-drop-down.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/9026327a)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9026327a)
 
 ## Selecting Specific Series
 
@@ -66,7 +66,7 @@ entity = nurswgvml006
 
 ![](./images/selecting-series.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/3)
 
 ## Selecting Multiple Series With Tags
 
@@ -115,7 +115,7 @@ The resulting series is merged from 3 underlying different series and provides a
 
 ![](./images/bad-graph.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/59e15fe3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/59e15fe3)
 
 To control how multiple matched series are processed, use the `multiple-series` setting.
 
@@ -172,7 +172,7 @@ The default value of the `multiple-series` setting is `true` in the following ca
 
 ![](./images/select-tags.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/f4312ee7)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f4312ee7)
 
 ## Merging Series
 
@@ -186,7 +186,7 @@ Examples:
 
 ![](./images/multiple-series-off.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/15/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/15/)
 
 ## Selecting Series for Multiple Entities
 
@@ -228,7 +228,7 @@ entity-group = nur-collectors
 
 ![](./images/select-entity.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/71841703)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/71841703)
 
 ## Retrieving Series From the Database
 
@@ -262,7 +262,7 @@ endfor
 
 ![](./images/get-tags-series.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/14/)
 
 ## Controlling Displayed Series
 
@@ -288,6 +288,6 @@ display = value == top(1) || value == bottom(1)
 
 ![](./images/series-display-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cdfb34c5/13/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/13/)
 
 In addition, the `limit = int` setting reduces the number of samples displayed for each series. The `limit = int` setting aids in faster query execution when loading data for high-frequency series from the server, in particular during the design and validation stages.

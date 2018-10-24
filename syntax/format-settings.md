@@ -51,7 +51,7 @@ Operation | Syntax
 
 ![](./images/format-settings.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/aebb480d)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/aebb480d)
 
 ## Percent Formatting
 
@@ -63,14 +63,14 @@ format = percent
 
 ![](./images/percent-formatting.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/9225124b/2/#fullscreen)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9225124b/2/#fullscreen)
 
 Decimal Values | Fractional Values
 --|--
 Formatted as a percentage of `100` | Multiplied by `100` and converted into percentage |
 `format = percent(1)` formats `10.23243232` as `10.2%`. | `format = fraction(2)` formats `0.23243232` as `23.24%`
 ![](./images/format-decimal.png) | ![](./images/format-fraction.png)
-[![](./images/button.png)](https://apps.axibase.com/chartlab/64a714fa) | [![](./images/button.png)](https://apps.axibase.com/chartlab/7a677440)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/64a714fa) | [![](./images/new-button.png)](https://apps.axibase.com/chartlab/7a677440)
 
 ## `fixed`
 
@@ -106,7 +106,7 @@ Syntax | Description
 `format = new Date(value)` | Print time in current locale.
 `format = (new Date(value)).toISOString` | Print current locale time in ISO format.
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/f96bf0ae)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f96bf0ae)
 
 ## Interval Format
 
@@ -137,19 +137,19 @@ interval-format = %H:%M
 
 ![](./images/interval-format-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/0ff7e136)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/0ff7e136)
 
 #### Bar Chart
 
 ![](./images/interval-format-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/293c46cf/2/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/2/)
 
 #### Time Chart
 
 ![](./images/interval-format-3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/293c46cf/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/)
 
 ## Day Format
 
@@ -186,7 +186,7 @@ day-format = %Y %m/%d
 
 ![](./images/day-format-1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/d0bfcdf8)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d0bfcdf8)
 
 ```ls
 day-format = %m %a
@@ -197,7 +197,7 @@ day-format = %W\n%a
 
 ![](./images/day-format-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/607961b1)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/607961b1)
 
 ## Hour Format
 
@@ -224,4 +224,4 @@ hour-format = %H:%M
 
 ![](./images/hour-format.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/34b0c0b2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/34b0c0b2)

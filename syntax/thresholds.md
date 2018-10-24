@@ -15,7 +15,7 @@ Series violates the threshold when a value exceeds the maximum threshold.
 
 ![](./images/max-threshold.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/9d4c6263)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9d4c6263)
 
 ## `min-threshold`
 
@@ -30,7 +30,7 @@ Series violates the threshold when a value is below the minimum threshold.
 
 ![](./images/min-threshold.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/cb698253)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cb698253)
 
 ## `threshold_percent`
 
@@ -47,7 +47,7 @@ Percentage of time within the period when series values do not exceed the thresh
 
 ![](./images/threshold_percent.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/a975165f)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a975165f)
 
 ## `threshold_count`
 
@@ -64,7 +64,7 @@ Number of sequences within the period when the series values exceeded the thresh
 
 ![](./images/threshold_count.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/a975165f)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a975165f)
 
 ## `threshold_duration`
 
@@ -81,4 +81,4 @@ Total duration of intervals within the period when series values exceeded the th
 
 ![](./images/threshold_duration.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/b73f5d71)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b73f5d71)

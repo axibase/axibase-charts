@@ -27,7 +27,7 @@ The `value` setting is specified by the `series` section.
   value = 2 * value("s-1")
 ```
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/ae6323aa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa)
 
 The expression specified in the `value` setting is invoked for each `time:value` sample in the original series. The expression must return a numeric value or null of the value cannot be calculated.
 

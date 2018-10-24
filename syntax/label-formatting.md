@@ -59,7 +59,7 @@ label-format = javascript:keepAfterLast(tags.logger, '.')
 
 ![](./images/label-formatting4.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/675c5467)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/675c5467)
 
 Use nested functions to apply multiple format settings.
 
@@ -73,7 +73,7 @@ label-format = javascript:capitalize(replace(metric, '_', ' '))
 
 ![](./images/label-formatting-6.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/7518a91f/2/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/7518a91f/2/)
 
 ## Metadata
 
@@ -90,7 +90,7 @@ label-format = javascript: (meta.entity.label ? meta.entity.label : entity) + ":
 
 ![](./images/label-formatting5.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/68ff7368/3/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/68ff7368/3/)
 
 ## Examples
 
@@ -109,7 +109,7 @@ label-format = entity
 
 ![](./images/label-formatting1.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/6ce33406)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6ce33406)
 
 ### `tags.tagName`
 
@@ -126,7 +126,7 @@ label-format = tags.mount_point
 
 ![](./images/label-formatting2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/8909d7f4)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/8909d7f4)
 
 ### `entity : tagValue`
 
@@ -141,4 +141,4 @@ label-format = entity: tagValue
 
 ![](./images/label-formatting3.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/5e5667fa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5e5667fa)

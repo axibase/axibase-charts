@@ -25,7 +25,7 @@ When the list includes elements with multiple fields, such as hostname, IP addre
 
 This example displays how a `var` array incorporates server properties displayed in legend tooltip on mouseover.
 
-As an alternative to specifying list elements manually, lists can be retrieved from the server using Freemarker expressions.
+As an alternative to specifying list elements manually, lists can be retrieved from the server using FreeMarker expressions.
 
 `getResourcesForGroup(group_id, [list of product codes])`:
 

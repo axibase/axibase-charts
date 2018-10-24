@@ -66,7 +66,7 @@ Sends synchronous `GET` request to
 
 ![](./images/gettags.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa)
 
 **Syntax**:
 
@@ -90,7 +90,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 ![](./images/gettags-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/2)
 
 **Syntax**:
 
@@ -154,7 +154,7 @@ Sends synchronous `GET` requests to the
 
 ![](./images/getseries.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
 
 **Syntax**:
 
@@ -245,7 +245,7 @@ Sends synchronous `GET` requests to the
 
 ![](./images/getmetric.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/4)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/4)
 
 **Syntax**:
 
@@ -319,7 +319,7 @@ Sends synchronous `GET` requests to the
 
 ![](./images/getentity.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
 
 **Syntax**:
 
@@ -377,7 +377,7 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 ![](./images/range-examples.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/6/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/6/)
 
 **Syntax**:
 
@@ -520,7 +520,7 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 ![](./images/list-escape.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/06ec0eaa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/06ec0eaa)
 
 **Syntax**:
 
@@ -548,7 +548,7 @@ country = @{countries.escape()}
 
 ![](./images/list-escape-2.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/12/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/12/)
 
 **Syntax**:
 
@@ -568,7 +568,7 @@ country = @{countries.escape()}
 
 ![](./images/escape-csv.values.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/7/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/7/)
 
 **Syntax**:
 
@@ -715,7 +715,7 @@ value = movavg('raw', 30)
 
 ![](./images/movavg_without_minCount.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
 
 ### Calculate `movavg` regardless of the number of points present
 
@@ -729,7 +729,7 @@ value = movavg('raw', 30, 0)
 
 ![](./images/movavg_with_minCount.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
 
 ---
 
@@ -763,7 +763,7 @@ Use in `value-expression` settings.
 
 ### Fraction of `maxValue`
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/23/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/23/)
 
 **Syntax**:
 
@@ -818,7 +818,7 @@ size = entityTag('cpu_count')
 
 ![](./images/entityTag.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/24/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/24/)
 
 ---
 
@@ -864,7 +864,7 @@ alert-expression = value() > metricTag('threshold_value')
 
 ![](./images/metricTag.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/25/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/25/)
 
 ---
 
@@ -912,7 +912,7 @@ The content of the resulting drop-down list is shown below:
 
 ![](./images/callback-function.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/15/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/15/)
 
 To fill the drop-down list with values of `mount_point` tag of the series, whose entity name begins with the fragment `nur` use the function as shown below.
 
@@ -1006,7 +1006,7 @@ Sends asynchronous `GET` request to
 
 ![](./images/request-metric-series-option.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/4f937185)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/4f937185)
 
 To fill the drop-down list with options with the value of the `iucr` tag and the text from the `description` tag, use the following syntax:
 
@@ -1069,7 +1069,7 @@ Sends asynchronous `GET` request to
 
 ![](./images/tag-description-text.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/19/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/19/)
 
 To fill the drop-down list with options defined by the value of the `iucr` tag and text from the `description` tag, use the following syntax:
 
@@ -1135,7 +1135,7 @@ Sends asynchronous `POST` request to
 
 ![](./images/request-properties-option.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/20/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/20/)
 
 To fill drop-down list with values from `entity` and text from tag `app`, use the following syntax:
 
@@ -1155,7 +1155,7 @@ The content of the resulting drop-down list is shown here:
 
 ![](./images/text-field-path.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
 
 `textFieldPath` are the period-separated paths to a field in a series descriptor object, or an array of such paths. If it is an array then all elements other than the first are used as text. If `textFieldPath` is not specified or search on all paths failed the value is used as text.
 
@@ -1204,7 +1204,7 @@ Below is the content of the drop-down list:
 
 ![](./images/tag-description-option-text.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/26/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/26/)
 
 To populate the drop-down list with the names of metrics, collected for the entity, and texts which are changed values of the `description` tag, use the following syntax:
 
@@ -1269,7 +1269,7 @@ Sends asynchronous `GET` requests to
 
 ![](./images/request-series-value.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
 
 The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
@@ -1323,7 +1323,7 @@ Sends asynchronous `GET` requests to
 
 ![](./images/request-metric-value.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/16/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/16/)
 
 To populate the drop-down list with names of metrics collected for the entity use the following syntax:
 
@@ -1382,7 +1382,7 @@ Sends asynchronous `POST` requests to
 
 ![](./images/request-property-value.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/17/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/17/)
 
 To populate the drop-down list with the `id` of `network` properties use the following syntax:
 

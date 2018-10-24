@@ -84,7 +84,7 @@ list servers = nurswgvml010, nurswgvml007
 endfor
 ```
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/554e7ab3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/554e7ab3)
 
 **Iterating Over an Inline Array**:
 
@@ -95,7 +95,7 @@ for server in ['nurswgvml010', 'nurswgvml007']
 endfor
 ```
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/081a08ee)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/081a08ee)
 
 ---
 
@@ -248,7 +248,7 @@ endfor
 
 ![](./images/if-elseif.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/2350236d)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/2350236d)
 
 ---
 
@@ -323,7 +323,7 @@ Use in the `preprocessor` stage.
 
 ![](./images/csv-inline.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/df616dfa/8/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/8/)
 
 Using a table written in a CSV-like format: There are two columns, `name` (name of the country) and `value2006` (value in the year 2006). The return value is the difference between the current year value and the 2006 value. The following CSV is used:
 
@@ -428,7 +428,7 @@ Use in the `preprocessor` stage.
 
 ![](./images/csv-mode.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/b00d77c0)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b00d77c0)
 
 The returned value in this example is the difference between the current year value and the 2006 value.
 
@@ -526,7 +526,7 @@ Use in the `preprocessor` scope in `var`, `if`, `if else`, `for .. in`, `@{}` ex
 
 ![](./images/escape-csv.values.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/e7ce2234)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e7ce2234)
 
 The target behavior is to retrieve a list of escaped country names.
 
@@ -627,7 +627,7 @@ endscript
 
 ![](./images/script-endscript.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/f7449e4a#fullscreen)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f7449e4a#fullscreen)
 
 ---
 
