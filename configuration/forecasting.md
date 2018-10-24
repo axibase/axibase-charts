@@ -8,10 +8,10 @@ ATSD supports algorithm-based [Data Forecasting](https://axibase.com/docs/atsd/f
 
 Data Forecasting uses historical data to predict future sample values. After the creation of a new forecast, use Charts settings to display forecast data alone or alongside historical samples.
 
-## Series Settings
+## Forecast Series Settings
 
 * The settings apply to the `[series]` section.
-* Enter forecast settings in the **Editor** window of any Charts visualization.
+* Enter forecast series settings in the **Editor** window of any Charts visualization.
 
 Name | Description | &nbsp;
 --|--|--
@@ -120,7 +120,7 @@ ATSD notifies if a forecast is successfully calculated.
 
 ## Visualization
 
-In **ChartLab** use [forecast syntax](#syntax) to visualize computed forecasts.
+In **ChartLab** use [forecast series settings](#forecast-series-settings) to visualize computed forecasts.
 
 ```ls
 [series]
