@@ -1,213 +1,135 @@
 # Graph Widget
 
-![](./images/graph-widget.png)
-
 ## Overview
 
-The graph widget displays the topology and relationships of servers, virtual machines, and managers alongside corresponding status.
-
-## Syntax
-
-### `[widget]` Settings
-
-Setting |Description
---|--
-|`mode`|Determines the overall look of the widget, possible values: `hierarchy` or `non-hierarchy`.<br>`non-hierarchy` by default.|
-|`layout`|Form of the widget in `non-hierarchy` mode, possible values: `circle` or `rectangle`.<br>`circle` by default.|
-|`depth`|Depth of the displayed vertex hierarchy from `1` to the maximum depth of the vertex hierarchy plus `1`<br>Final level corresponds to edges<br>Maximum depth of the hierarchy is default.|
-|`tension`|The degree curvature of edges.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Varies from `0` to `1`, `0` corresponds to straight edges.<br>`0.9` by default.|
-|`bundled`|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>`true` by default.|
-|`effects`|Animation when changing the geometry of the graph.<br> `false` by default.|
-|`duration`|The duration of a transaction when changing the geometry of the graph in milliseconds.<br>`1000` by default.|
-|`min-ring-width`|The minimum allowed width of the vertex ring.<br> The value is from `0` to a maximum permissible value of the ring width.<br>`0.3` by default.|
-|`max-ring-width`|The maximum allowed width of the vertex ring from the current minimal value of the ring width.<br> `0.5` by default.|
-|`arrows`|Arrows on the directed edges<br>`false` by default.|
-|`node-connect`|Connect vertices on the perimeter<br>`true` by default.|
-|`data`|Information about the last time series value next to the image of the corresponding vertex.<br>`false` by default.|
-|`node-collapse`|Collapse vertex sectors when clicked.<br>`true` by default.|
-|`node-alert-style`|Style of vertices, in the event of an `alert-expression` being triggered tied to the time series.|
-|`link-alert-style`|Style of edges in the event of an `alert-expression` being triggered and tied to the time series.|
-|`link-thresholds`|Threshold for time series attached to the edges.<br>Supports both JavaScript and `percentile` functions.|
-|`link-colors`|Color to indicate the threshold of time series.<br>Attached to the edges and separated by commas.|
-|`link-widths`|Width to indicate the thresholds of the time series tied to the edges and separated by commas or spaces.|
-|`node-thresholds`|Threshold for time series tied to vertices.<br>Supports JavaScript, `percentile` functions, or can be set as an array.|
-|`node-colors`|Color to indicate the threshold of time series that are bound to vertices and separated by commas.|
-|`node-radiuses`|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.|
-|`node-radius`|Radius of the vertex in pixels.<br>Not valid in `hierarchy` mode.|
-|`padding`|Offset from the edge of the container in pixels.|
-|`link-animate`|Animation of directed vertices.<br> `false` by default.|
-|`disconnected-node-display`|Show vertices without edge.<br>Values: `true` or `false`<br>`true` by default.|
-|`node-labels`|Display vertex labels.<br>Possible values: `true` or `false`.|
-|`link-labels`|Display edge labels.<br>Possible values: `true` or `false`.|
-|`link-data`|Series last value next to the `link-label`.|
-|`link-color-range`|Color scheme for `link-threshold`.|
-|`link-label-zoom-threshold`|Parameter value is a value of scale when labels appear based on edge threshold.<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.|
-|`node-label-zoom-threshold`|Parameter value is a value of scale when labels appear based on vertex threshold<br>`value < 1`: Labels disappear on zoom out.<br>`value > 1`: Labels appear on zoom in.|
-|`auto-padding`|Add padding if labels overflow container.<br>Possible values: `true` or `false`.<br>`true` by default.|
-|`link-width-order`|Sort links according to their width<br> Possible values: `top`, `bottom` or `undefined`<br>`undefined` by default.|
-
-### `[node]` Settings
-
-|Setting |Description |
-|--- |--- |
-|`id`|Unique name of the vertex. **Required**|
-|`parent`|ID of parent vertex.|
-|`series`|`alias` of time series associated with vertex.|
-|`alert-style`|Vertex style upon breach of `alert-expression` condition.|
-|`tooltip`|Add custom string to tooltip.|
-|`label`|Text on label.<br>`element-id` by default. |
-
-Use `[properties]` to specify any values divided by an equal sign. If a value contains `=` or `\` escape them with a backslash: `\=` or `\\`.
-
-![](./images/properties-example.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/23c37d69)
-
-### `[link]` Settings
-
-|Setting |Description |
-|--- |--- |
-|`id` |Unique edge name. |
-|`nodes` |Vertices connected by an edge.<br> ID of vertices, separated by a comma or hyphen for undirected edges, `-}` or `{-` for directed edges.<br> If vertex ID contains a hyphen, it must be shielded using `""` double quotes. |
-|`series` |`alias` of time series associated with the edge. |
-|`alert-style` |Edge style upon breach of `alert-expression` condition. |
-|`tooltip` |Add custom string to tooltip. |
-|`label` |Text on label.<br>`element-id` by default. |
-
-Use `[properties]` to specify any values divided by an equal sign. If a value contains `=` or `\` escape them with a backslash: `\=` or `\\`.
-
-![](./images/properties-example.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/23c37d69)
-
-### `[series]` Settings
-
-Use `[series]` settings to associate time series with the graph.
-
-|Setting |Description |
-|--- |--- |
-|`nodes`|List of vertices associated with this series.<br>When the vertex id contains a hyphen, it must be shielded with `""` double quotes.|
-|`links`|List of edges associated with this series is defined by an ID or edge ID of the corresponding vertices with a hyphen.<br> When edge ID contains a hyphen, it must be shielded with `""` double quotes.|
-|`link-alerts-style`|Edge style to which a time series is bound in the event of an `alert-expression` being triggered.|
-|`node-alert-style`|Vertex style to which a time series is bound in the event of an `alert-expression` being triggered.|
-
-It is possible to create an expanded mouseover tooltip containing contextual information. Use `[series]` level settings. Use `[properties]` to specify any values divided by an equal sign. If a value contains `=` or `\` escape them with a backslash: `\=` or `\\`. Information is displayed in a table within the tooltip. Use the `>` context setting displayed in the tooltip before the `[properties]` tooltip table. Within the `>` context setting, create a table using standard HTML parameters: `>` table class, `tbody`, `tr`, `td`.
-
-## Controls
-
-Adjust graph appearance using the controls located in the top corners of the widget:
-
-![](./images/graph-widget-controls.png)
-
-|Setting |Description |
-|--- |--- |
-|`data`|Show or hide information about the last value of a time series next to the corresponding image of the vertices.<br>By default, the information is hidden.|
-|`depth`|Set the depth of the displayed vertex hierarchy.<br>Allows a value of `1` to a maximum height of the vertex tree plus `1`, the final level corresponds to the edges.<br>By default, the depth is equal to the height of the vertex tree displayed.|
-|`width`|Maximum and minimum allowed width of the vertex ring is the percent from the radius of the circle.<br>By default, minimum `30%`, maximum `50%`.|
-|`tension`|The degree of edge curvature.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Varies from `0` to `1` where `0` corresponds to direct edges.<br>Default value is `0.9`.|
-|`bundle`|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>Used by default.|
-|`effects`|Animation when changing the geometry of the graph.<br>Used by default.|
-|`node-collapse`|Collapse sector peaks when clicked.<br>`true` by default.|
-|`link-animate`|Animation of directed edges.<br>`false` by default.|
-
-## Structure
-
-The structure of the graph is defined by the description of its vertices and edges. Use `[node]` level settings to describe each vertex, and define the hierarchy of vertices with the `parent` parameter, which sets the predecessor. Use `[link]` settings to describe the edges. Adjacent edges, with vertices, are determined by `[node]` settings.
-
-Link series to edges or vertices by indicating the `alias` in the series parameter of `[link]` or `[node]` settings. Alternatively, list the loaded edges or vertices in the links or nodes of the `[series]` settings.
-
-### Example Configuration
+The **Graph Widget** displays the topology and relationships of servers, virtual machines, and managers alongside corresponding statuses.
 
 ```ls
 [widget]
-height-units = 4
-width-units = 4
-type = graph
-title = Channel_Graph
-alert-expression = value > 100000
-alert-style = stroke: red
-bundle = false
-circle = false
-tension = 0
+  type = graph
+  link-data = true
+  timespan = 1 year
+  metric = uk-air.total_pax_this_period
 
-[node]
-id = queue_1
-
-[node]
-id = queue_2
-
-[node]
-id = queue_3
-
-[link]
-id = channel_1
-nodes = queue_1-queue_2
-series = ch1
-
-[link]
-id = channel_2
-nodes = queue_2->queue_3
-
-[link]
-id = channel_3
-nodes = queue_1<-queue_3
-
-[series]
-entity = gr01
-metric = message_count
-links = channel_2
-
-[tag]
-name = channel_name
-value = channel2
-
-[series]
-alias = ch1
-entity = gr01
-metric = message_count
-
-[tag]
-name = channel_name
-value = channel1
+  [node]
+    id = HEATHROW
+  [node]
+    id = GLASGOW
+  [node]
+    id = MANCHESTER
 ```
 
-![](./images/graph-widget-2.png)
+![](./images/graph-widget-title.png)
 
-[![](./images/button.png)](https://apps.axibase.com/chartlab/3bb35314)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/00e6e2b6)
 
-## Hierarchial Mode
+## Widget Settings
 
-Activate hierarchial mode using the `mode` setting:
+* The settings apply to the `[widget]` section.
+* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="mode"></a>[`mode`](#mode)|Determines the overall look of the widget.<br>Possible values: `hierarchy`, `non-hierarchy`.<br>Default value: `non-hierarchy`.<br>**Example**: `mode = hierarchy`| [↗](https://apps.axibase.com/chartlab/5d36563f)
+<a name="layout"></a>[`layout`](#layout)| Widget layout in `non-hierarchy` mode.<br>Possible values: `circle`, `rectangle`.<br>Default value: `circle`.<br>**Example**: `layout = rectangle`|[↗](https://apps.axibase.com/chartlab/22757262)
+<a name="tension"></a>[`tension`](#tension)|Edge degree curvature.<br>Corresponds to the parameter `C` in the formula for the cardinal spline.<br>Possible values: `0` (straight line) to `1`.<br>Default value: `0.9`.<br>**Example**: `tension = 0.33`| [↗](https://apps.axibase.com/chartlab/9014f8fa)
+<a name="duration"></a>[`duration`](#duration)|The duration of a animation during graph geometry change, in milliseconds.<br>Default value: `1000`.<br>**Example**: `duration = 1500`|[↗](https://apps.axibase.com/chartlab/9f9642b3)
+<a name="arrows"></a>[`arrows`](#arrows)| Arrows on directed edges<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `arrows = true`|[↗](https://apps.axibase.com/chartlab/6aadc44d)
+<a name="node-connect"></a>[`node-connect`](#node-connect)|Connect vertices on the perimeter<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `node-connect = false`|[↗](https://apps.axibase.com/chartlab/013991de)
+<a name="link-thresholds"></a>[`link-thresholds`](#link-thresholds)|Threshold for time series attached to the edges.<br>Supports both JavaScript and `percentile` functions.<br>**Example**: `link-thresholds = percentile(50), percentile(75), percentile(95)`|[↗](https://apps.axibase.com/chartlab/0db82ce6)
+<a name="link-colors"></a>[`link-colors`](#link-colors)| Color to indicate the threshold of time series.<br>Attached to the edges and separated by commas.<br>**Example**: `link-colors = red, yellow, green`|[↗](https://apps.axibase.com/chartlab/37ca684a)
+<a name="link-widths"></a>[`link-widths`](#link-widths)|Width to indicate the thresholds of the time series tied to the edges and separated by commas or spaces.<br>**Example**: `link-widths = 5`|[↗](https://apps.axibase.com/chartlab/5440ef8a)
+<a name="node-thresholds"></a>[`node-thresholds`](#node-thresholds)|Threshold for time series tied to vertices.<br>Supports JavaScript, `percentile` functions, or can be set as an array.<br>**Example**: `node-thresholds = percentile(10), percentile(50), percentile(95)`|[↗](https://apps.axibase.com/chartlab/ef4bb318)
+<a name="node-colors"></a>[`node-colors`](#node-colors)| Color to indicate the threshold of time series that are bound to vertices and separated by commas.<br>**Example**: `node-colors = red, yellow, green`|[↗](https://apps.axibase.com/chartlab/fe1ab0cb)
+<a name="node-radiuses"></a>[`node-radiuses`](#node-radiuses)|Radii of the lighting for the display of the time series thresholds linked to the vertices and separated by commas or spaces.<br>**Example**: ``|↗
+<a name="node-radius"></a>[`node-radius`](#node-radius)|Radius of the vertex in pixels.<br>Not valid in `hierarchy` mode.<br>**Example**: `node-radius = 10`|[↗](https://apps.axibase.com/chartlab/d93d35a7)
+<a name="padding"></a>[`padding`](#padding)|Offset from the edge of the container in pixels.<br>**Example**: `padding = 50`|[↗](https://apps.axibase.com/chartlab/4dd7594d)
+<a name="disconnected-node-display"></a>[`disconnected-node-display`](#disconnected-node-display)|Show vertices without edge.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `disconnected-node-display = false`|[↗](https://apps.axibase.com/chartlab/5446e321)
+<a name="node-labels"></a>[`node-labels`](#node-labels)|Display vertex labels.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `node-labels = false`|[↗](https://apps.axibase.com/chartlab/544d0dca)
+<a name="link-labels"></a>[`link-labels`](#link-labels)|Display edge labels.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `link-labels = true`|[↗](https://apps.axibase.com/chartlab/0d07fa1d)
+<a name="link-data"></a>[`link-data`](#link-data)|Series last value next to the `link-label`.<br>**Example**: `link-data = true`|[↗](https://apps.axibase.com/chartlab/425fd03b)
+<a name="link-color-range"></a>[`link-color-range`](#link-color-range)|Color scheme for `link-threshold`.<br>Possible settings: `red`, `blue`, `black`. <br>**Example**: `link-color-range = red`|[↗](https://apps.axibase.com/chartlab/341dbf95)
+<a name="link-label-zoom-threshold"></a>[`link-label-zoom-threshold`](#link-label-zoom-threshold)|Parameter value is a value of scale when labels appear based on edge threshold.<br>`value > 1`: Labels appear on zoom in.<br>**Example**: `link-label-zoom-threshold = 2`|[↗](https://apps.axibase.com/chartlab/6a523bda)
+<a name="node-label-zoom-threshold"></a>[`node-label-zoom-threshold`](#node-label-zoom-threshold)|Parameter value is a value of scale when labels appear based on vertex threshold.<br>`value > 1`: Labels appear on zoom in.<br>**Example**: `node-label-zoom-threshold = 2`|[↗](https://apps.axibase.com/chartlab/60ebf1e7)
+<a name="auto-padding"></a>[`auto-padding`](#auto-padding)|Add padding if labels overflow container.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `auto-padding = false`|[↗](https://apps.axibase.com/chartlab/c1fa0bc2)
+<a name="link-width-order"></a>[`link-width-order`](#link-width-order)|Sort links according to their width.<br> Possible values: `top`, `bottom`, `undefined`.<br>Default value: `undefined`.<br>**Example**: `link-width-order = top`|[↗](https://apps.axibase.com/chartlab/ad3a2781)
+
+### Controls
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="node-data"></a>[`node-data`](#node-data)|Show or hide time series last value information next to the corresponding image of the vertices.<br>Possible values: `false`, `true`.<br>**Example**: `data = true`|[↗](https://apps.axibase.com/chartlab/d972a5e3)
+<a name="depth"></a>[`depth`](#depth)|Set the depth of the displayed vertex hierarchy.<br>Specify a value from `1` to a maximum height of the vertex tree plus `1`, the last level corresponds to the edges.<br>Possible values: Number.<br>Default value: Equal to the height of the displayed vertex tree.<br>**Example**: `depth = 3`|[↗](https://apps.axibase.com/chartlab/682a03bd)
+<a name="bundle"></a>[`bundle`](#bundle)|Hierarchical contraction of edges ([Danny Holten](https://www.researchgate.net/publication/6715561_Hierarchical_Edge_Bundles_Visualization_of_Adjacency_Relations_in_Hierarchical_Data) algorithm).<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `bundle = false`| [↗](https://apps.axibase.com/chartlab/aabc20b6)
+<a name="effects"></a>[`effects`](#effects)|Animation when changing the geometry of the graph.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `effects = true`|[↗](https://apps.axibase.com/chartlab/ee78f08e)
+<a name="node-collapse"></a>[`node-collapse`](#node-collapse)|Collapse sector peaks when clicked.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `node-collapse = true`|[↗](https://apps.axibase.com/chartlab/e393e0b7)
+<a name="link-animate"></a>[`link-animate`](#link-animate)|Animation of directed edges.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `link-animate = true`|[↗](https://apps.axibase.com/chartlab/12c5b90f)
+
+## Node Settings
+
+* The settings apply to the `[node]` section.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="id"></a>[`id`](#id)|**Required** Unique name of the vertex.<br>**Example**: `id = HEATHROW`|[↗](https://apps.axibase.com/chartlab/0a96b61c)
+<a name="parent"></a>[`parent`](#parent)|ID of parent vertex.<br>**Example**: `parent = HEATHROW`|[↗](https://apps.axibase.com/chartlab/48b10426)
+
+### Link Settings
+
+* The settings apply to the `[link]` section.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="id"></a>[`id`](#id) |Unique edge name.<br>**Example**: `id = HEATHROW - GLASGOW` |[↗](https://apps.axibase.com/chartlab/bae6c276)
+<a name="nodes"></a>[`nodes`](#nodes) |Vertices connected by an edge.<br> ID of vertices, separated by a comma or hyphen for undirected edges, `-}` or `{-` for directed edges.<br> If vertex ID contains a hyphen, it must be shielded using `""` double quotes.<br>**Example**: `nodes = HEATHROW-MANCHESTER` |[↗](https://apps.axibase.com/chartlab/67ffe142)
+<a name="series"></a>[`series`](#series)| `alias` of time series associated with the edge.<br>**Example**: `series = s1`|[↗](https://apps.axibase.com/chartlab/81319892)
+<a name="tooltip"></a>[`tooltip`](#tooltip)|Link tooltip.<br>**Example**: `tooltip = Passenger Information`|[↗](https://apps.axibase.com/chartlab/e6c001e9)
+<a name="label"></a>[`label`](#label) |Label text.<br>Default value: `element-id`.<br>**Example**: `label = Airport Usage`|[↗](https://apps.axibase.com/chartlab/6712e2bd)
+
+### Series Settings
+
+* The settings apply to the `[series]` section.
+* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="links"></a>[`links`](#links)|List of edges associated with this series is defined by an ID or edge ID of the corresponding vertices with a hyphen.<br> When edge ID contains a hyphen, it must be shielded with `""` double quotes.<br>**Example**: `links = HEATHROW - MANCHESTER`|[↗](https://apps.axibase.com/chartlab/46cda821)
+<a name="node-alert-style"></a>[`node-alert-style`](#node-alert-style) | Style of vertices when [`alert-expression`](../shared/README.md#alert-expression) is `true`.<br>**Example**: `node-alert-style = fill: red`|[↗](https://apps.axibase.com/chartlab/1dc8957c)
+<a name="link-alert-style"></a>[`link-alert-style`](#link-alert-style)|Style of edges when [`alert-expression`](../shared/README.md#alert-expression) is `true`.<br>**Example**: `link-alert-style = stroke: red`|[↗](https://apps.axibase.com/chartlab/e955ff68)
+
+### Properties Settings
+
+* The settings apply to the `[property]` section.
+* In `[node]` or `[series]` section, define properties displayed on mouseover.
+* If a value contains `=` or `\` escape them with a backslash: `\=` or `\\`, respectively.
+* Use the `>` context setting displayed in the tooltip before the `[properties]` tooltip table.
+  * Within the `>` context setting, create a table using standard HTML parameters: `>` table class, `tbody`, `tr`, `td`.
 
 ```ls
-mode = hierarchial
+[properties]
+  name = QM-2
+  code = 003
 ```
+
+![](./images/properties-example-5.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/c38cf147)
+
+## Examples
+
+### Structure
+
+The structure of the graph is defined by the description of its vertices and edges. Use [`[node]`](#node-settings) settings to describe each vertex, and define the hierarchy of vertices with the [`parent`](#parent) setting, which sets the predecessor. Use [`[link]`](#link-settings) settings to describe the edges. Adjacent edges, with vertices, are determined by `[node]` settings.
+
+Link series to edges or vertices by indicating the `alias` in the series parameter of `[link]` or `[node]` settings. Alternatively, list the loaded edges or vertices in the links or nodes of the [`[series]`](#series-settings) settings.
+
+![](./images/configuration-example.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/46b84848)
 
 ## Alert Expression
 
-In the event of an [`alert-expression`](../../syntax/alert-expression.md) response on the time series of the vertex or edge to which the time series is tied. Value of alert-style can be either string or script. If alert-style is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
-
-```ls
-/* widget level settings */
-[widget]
-alert-style = color: red
-link-alert-style = color: red
-node-alert-style = color: red
-
-/* link level settings */
-[link]
-alert-style = color: red
-
-/* node level settings */
-[node]
-alert-style = color: red
-
-/* series level settings */
-[series]
-alert-style = color: red
-link-alert-style = color: red
-node-alert-style = color: red
-```
+In the event of an [`alert-expression`](../shared/README.md#alert-expression) response on the time series of the vertex or edge to which the time series is tied. [`alert-style`](../shared/README.md#alert-style) setting value can be either string or script. If `alert-style` is script, the variable alert is available, and it is equal to the value that the alert returns. The following styles are applied (in a specified order) in the parameters below:
 
 ### Example Syntax
 
@@ -219,175 +141,20 @@ link-alert-style = if (alert > 99) return 'stroke-width:3px';
 node-alert-style = if (alert > 99) return 'fill:red';
 ```
 
-### Configuration Example
+### Configuration Example 2
 
-```ls
-[widget]
-type = graph
-title = Channel_Graph
-alert-expression = value > 100000
-node-alert-style = fill: red
-link-alert-style = stroke: red
-bundle = false
-mode = hierarchy
+![](./images/alert-expression-example-1.png)
 
-[node]
-id = manager_1
-
-[node]
-id = manager_2
-alert-style = fill: yellow
-
-[node]
-id = manager_3
-
-[node]
-id = alpha.queue
-parent = manager_1
-
-[node]
-id = beta.queue
-parent = manager_1
-
-[node]
-id = lambda.queue
-parent = manager_2
-
-[node]
-id = foo.queue
-parent = manager_3
-
-[link]
-nodes = alpha.queue - foo.queue
-
-[link]
-nodes = lambda.queue -> foo.queue
-
-[link]
-nodes = beta.queue <- alpha.queue
-
-[series]
-entity = gr02
-metric = message_count
-links = lambda.queue - foo.queue
-nodes = lambda.queue, manager_2
-
-[tag]
-name = channel_name
-value = THE.BEST.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - foo.queue
-
-[tag]
-name = channel_name
-value = ALPHA.FOO.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - beta.queue
-nodes = beta.queue
-
-[tag]
-name = channel_name
-value = ALPHA.BETA.CH
-```
-
-![](./images/graph-widget-3.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/0d5d6c04)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/4184f86f)
 
 ## Thresholds
 
-Set thresholds for time series which are tied to vertices or edges using the `link-threshold` or `node-threshold` parameters under `[widget]` level settings.
+Set thresholds for time series which are tied to vertices or edges using [`link-thresholds`](#link-thresholds) or [`node-thresholds`](#node-thresholds) parameters in [`[widget]`](#widget-settings) settings.
 
-Color and width parameters are applied to the edge and vertices based on `link-widths` and `link-colors`, additionally `node-radiuses` and `node-colors` under the `[widget]` tag.
+Color and width parameters are applied to the edge and vertices based on [`link-widths`](#link-widths) and [`link-colors`](#link-colors), additionally [`node-radiuses`](#node-radiuses) and [`node-colors`](#node-colors) in [`[widget]`](#widget-settings) settings.
 
-`alert-expression` styles are superimposed over the threshold styles.
+[`alert-expression`](../shared/README.md#alert-expression) styles are superimposed over threshold styles.
 
-```ls
-[widget]
-mode = hierarchy
-type = graph
-title = Channel_Graph
-bundle = false
-data = true
-depth = 3
-max-ring-width = .3
-link-thresholds = 1000
-link-thresholds = Math.max(percentile(25), 50000)
-link-thresholds = percentile(90)
-link-widths = 1, 1, 2, 3
-link-colors = blue, green, orange, red
+![](./images/thresholds-example-1.png)
 
-[node]
-id = manager_1
-
-[node]
-id = manager_2
-alert-style = fill: yellow
-
-[node]
-id = manager_3
-
-[node]
-id = alpha.queue
-parent = manager_1
-
-[node]
-id = beta.queue
-parent = manager_1
-
-[node]
-id = lambda.queue
-parent = manager_2
-
-[node]
-id = foo.queue
-parent = manager_3
-
-[link]
-nodes = alpha.queue - foo.queue
-
-[link]
-nodes = lambda.queue -> foo.queue
-
-[link]
-nodes = beta.queue <- alpha.queue
-
-[series]
-entity = gr02
-metric = message_count
-links = lambda.queue - foo.queue
-
-[tag]
-name = channel_name
-value = THE.BEST.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - foo.queue
-
-[tag]
-name = channel_name
-value = ALPHA.FOO.CH
-
-[series]
-entity = gr02
-metric = message_count
-links = alpha.queue - beta.queue
-
-nodes = beta.queue
-
-[tag]
-name = channel_name
-value = ALPHA.BETA.CH
-```
-
-![](./images/graph-widget-4.png)
-
-[![](./images/button.png)](https://apps.axibase.com/chartlab/ba729a82)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/09d4bf2b)
