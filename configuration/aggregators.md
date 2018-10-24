@@ -2,6 +2,8 @@
 
 Charts Syntax supports aggregation functions for inline computation that does not modify underlying data.
 
+<!-- markdownlint-disable MD101 -->
+
 | Syntax | Description
 |--- |--- |
 | <a name="count"></a>[`count`](#count) | **Number** of samples during the period. |
@@ -23,6 +25,8 @@ Charts Syntax supports aggregation functions for inline computation that does no
 <a name="threshold-count"></a>[`threshold_count`](#threshold-count) | Number of **threshold violations** during the period.<br>A violation is a sequence of one or more successive data points exceeding the specified threshold.<br>**Example**: The following values are collected every `5` minutes.<br>`1, 2, 5, 7, 1, 1`. <br>If the threshold is set to `4`, then one sequence (`5`,`7`) exceeds the threshold. |
 <a name="threshold-duration"></a>[`threshold_duration`](#threshold-duration) | **Total duration** of threshold violations during the period in **milliseconds**.<br>A violation is a sequence of one or more successive data points exceeding the specified threshold.<br>**Example**: The following values are collected every `5` minutes.<br>`1, 2, 5, 7, 1, 1`.<br>If the threshold is set to `4`, then one sequence (`5`,`7`) exceeds the threshold and its total duration based on linear interpolation is `550` seconds.<br>If the threshold is `5`, then duration is `850` seconds.<br>For periods at the beginning of the timespan, at the end of the timespan or after a missing period, the value at the beginning of the period is set to the first value, and the value at the end of the period is set to last value. |
 <a name="threshold-percent"></a>[`threshold-percent`](#threshold-percent) | **Percent** of time during which the value remained below threshold (no violation).<br>Formula: `threshold_percent = 100 - threshold_duration / period_duration * 100` |
+
+<!-- markdownlint-enable MD101 -->
 
 ## Interpolation Functions
 
