@@ -52,15 +52,15 @@ Sends synchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `metric` | string | :heavy_check_mark: |  `metric` path parameter. |
-| `tagName` | string | :heavy_check_mark: |  Tag values retrieved from series descriptors. |
-| `entity` | string | :x: |`entity` query parameter. |
-| `minInsertDate` |  string | :x: |[`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
-| `maxInsertDate` |  string | :x: |[`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
-| `url` |  string | :x: |Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object |:x: | Object with parameter names as keys and values as values, transformed to query parameters string. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `metric` | string | **[Required]** `metric` path parameter. |
+| `tagName` | string | **[Required]** Tag values retrieved from series descriptors. |
+| `entity` | string |`entity` query parameter. |
+| `minInsertDate` |  string |[`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
+| `maxInsertDate` |  string |[`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
+| `url` |  string |Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | Object with parameter names as keys and values as values, transformed to query parameters string. |
 
 ### Retrieve values for `mount_point` tag in a series for metric `disk_used` and entity `nurswgvml007` received today
 
@@ -141,14 +141,14 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `metric` | string | :heavy_check_mark: |  `metric` path parameter. |
-| `entity` | string | :x: | `entity` query parameter. |
-| `minInsertDate` | string | :x: | [`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
-| `maxInsertDate` | string | :x: | [`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
-| `url` | string | :x: | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | :x: | Object with parameter names as keys and values as values, transformed to query parameters string. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `metric` | string | **[Required]**  `metric` path parameter. |
+| `entity` | string | `entity` query parameter. |
+| `minInsertDate` | string | [`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
+| `maxInsertDate` | string | [`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
+| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | Object with parameter names as keys and values as values, transformed to query parameters string. |
 
 ### Return series for metric `disk_used` and entity `nurswgvml006`
 
@@ -233,13 +233,13 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `entity` | string |:heavy_check_mark: |  `entity` path parameter. |
-| `expression` | string | :x: | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` |  string | :x: | `tags` request parameter. |
-| `url` | string | :x: | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | :x: | Object with parameter names as keys and its values as values, which is transformed to query parameters string. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `entity` | string |**[Required]**  `entity` path parameter. |
+| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
+| `tags` |  string | `tags` request parameter. |
+| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | Object with parameter names as keys and its values as values, which is transformed to query parameters string. |
 
 ### Return metrics for entity `nurswgvml006` which contains substrings `cpu` and `user`
 
@@ -307,13 +307,13 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `group` | string |:heavy_check_mark: |  `group` path parameter. |
-| `expression` | string | :x: | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` | string | :x: | `tags` request parameter. |
-| `url` | string | :x: | Protocol, host and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | :x: | Object with parameter names as keys and its values as values, transformed to query parameters string. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `group` | string |**[Required]**  `group` path parameter. |
+| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
+| `tags` | string | `tags` request parameter. |
+| `url` | string | Protocol, host and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | Object with parameter names as keys and its values as values, transformed to query parameters string. |
 
 ### Retrieve all entities from entity group `docker-hosts` whose names begin with substring `nur`
 
@@ -366,12 +366,12 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `start` | number | :heavy_check_mark: |  First number in list. |
-| `end` | number | :heavy_check_mark: |  Last number in list. |
-| `step` | number | :x: | Offset between adjacent numbers. |
-| `format` | string | :x: | [Format setting](./format-settings.md). |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `start` | number | **[Required]**  First number in list. |
+| `end` | number | **[Required]**  Last number in list. |
+| `step` | number | Offset between adjacent numbers. |
+| `format` | string | [Format setting](./format-settings.md). |
 
 ### Return sequential numbers from `1` to `10`
 
@@ -619,10 +619,10 @@ Use in [`value`](./value_functions.md) settings.
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `alias` | string | :heavy_check_mark: |  Alias of the series, from which the previous value is retrieved. |
-| `offset` | number | :x: | Index of previous point relative to the current point.<br>Default value: `1`. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias` | string | **[Required]**  Alias of the series, from which the previous value is retrieved. |
+| `offset` | number | Index of previous point relative to the current point.<br>Default value: `1`. |
 
 ### Return a series shifted by one point
 
@@ -697,11 +697,11 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `alias` | string | :heavy_check_mark: |  Alias of the series, to which `movavg` is applied. |
-| `count` | number | :heavy_check_mark: |  Number of points for which `movavg` is calculated. |
-| `minCount` | number | :x: | Minimum number of points, for which `movavg` is calculated, default is `count`. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias` | string | **[Required]**  Alias of the series, to which `movavg` is applied. |
+| `count` | number | **[Required]**  Number of points for which `movavg` is calculated. |
+| `minCount` | number | Minimum number of points, for which `movavg` is calculated, default is `count`. |
 
 ### Calculate `movavg` when a defined amount of points are available for calculation
 
@@ -757,9 +757,9 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `alias` | string | :heavy-check-mark: | Alias of the series, from which metadata is returned. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias` | string | **[Required]** Alias of the series, from which metadata is returned. |
 
 ### Fraction of `maxValue`
 
@@ -801,10 +801,10 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `alias` | string | :heavy_check_mark: |  Alias of the series, from which metadata is returned.|
-| `tagName` | string | :heavy_check_mark: |  Name of tag which is retrieved from `meta.entity.tags`. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias` | string | **[Required]**  Alias of the series, from which metadata is returned.|
+| `tagName` | string | **[Required]**  Name of tag which is retrieved from `meta.entity.tags`. |
 
 ### Set size to `cpu_count` entity tag
 
@@ -846,10 +846,10 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `alias`| string | :heavy_check_mark: |  Alias of the series, from which metadata is returned. |
-| `tagName` | string | :heavy_check_mark: |  Name of tag which is retrieved from `meta.metric.tags`. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias`| string | **[Required]**  Alias of the series, from which metadata is returned. |
+| `tagName` | string | **[Required]**  Name of tag which is retrieved from `meta.metric.tags`. |
 
 ### Set threshold to `threshold_value` metric tag
 
@@ -993,8 +993,8 @@ Sends asynchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
+| Name | Type | Description |
+|:------|:------|:-------------|
 | `valueFieldPath` | string | Dot-separated path to the field, whose value is used as option value. |
 | `textFieldPath` | string or Array | Dot-separated path (or array of such paths) to the field, whose value is used as option text. |
 | `callback` | function | Function to process series descriptors, returns array of options. |
@@ -1056,14 +1056,14 @@ Sends asynchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `valueFieldPath` | string | :x: | Dot-separated path to the field, whose value is used as option value. |
-| `textFieldPath` | string or Array | :x: | Dot-separated path, or array of paths, to the field whose value is used as option text. |
-| `callback` | function | :x: | Function to process series descriptors.<br>Returns array of options. |
-| `entity` | string | :x: | Entity, for which metrics descriptors are loaded.<br>If not specified, `entity` from `[widget]` is used. |
-| `unique` | boolean | :x: | Applied to raw series descriptors. |
-| `queryParameters` | string/object | :x: | String or key-value object representing request parameters. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `valueFieldPath` | string | Dot-separated path to the field, whose value is used as option value. |
+| `textFieldPath` | string or Array | Dot-separated path, or array of paths, to the field whose value is used as option text. |
+| `callback` | function | Function to process series descriptors.<br>Returns array of options. |
+| `entity` | string | Entity, for which metrics descriptors are loaded.<br>If not specified, `entity` from `[widget]` is used. |
+| `unique` | boolean | Applied to raw series descriptors. |
+| `queryParameters` | string/object | String or key-value object representing request parameters. |
 
 **Examples**:
 
@@ -1121,15 +1121,15 @@ Sends asynchronous `POST` request to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `valueFieldPath` | string | :x: | Dot-separated path to the field, whose value is used as `option` value. |
-| `textFieldPath` | string or Array | :x: | Dot-separated path (or array of such paths) to the field, whose value is used as `option` text. |
-| `callback` | function | :x: | Function to process series descriptors, returns array of options. |
-| `entity` | string or Array | :x: | entity or entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` section  is used. |
-| `propertyType` | string | :x: | Type of loaded properties, default is `$entity_tags`. |
-| `unique` | boolean | :x: | Applied to raw series descriptors. |
-| `postBody` | object | :x: | Body of [Data API properties query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `valueFieldPath` | string | Dot-separated path to the field, whose value is used as `option` value. |
+| `textFieldPath` | string or Array | Dot-separated path (or array of such paths) to the field, whose value is used as `option` text. |
+| `callback` | function | Function to process series descriptors, returns array of options. |
+| `entity` | string or Array | entity or entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` section  is used. |
+| `propertyType` | string | Type of loaded properties, default is `$entity_tags`. |
+| `unique` | boolean | Applied to raw series descriptors. |
+| `postBody` | object | Body of [Data API properties query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
 
 **Examples**:
 
@@ -1259,13 +1259,13 @@ Sends asynchronous `GET` requests to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
-| `callback`  | function | :x: | Function to process series descriptors or retrieved values. |
-| `metric` | string | :x: | Metrics, for which series are loaded.<br>If not specified, `metric` from the `[widget]` section  is used. |
-| `unique` | boolean | :x: | Specify if retrieved values are unique and sorted<br>Default value: `true`. |
-| `queryParameters` | string/object | :x: | String or key-value object representing request parameters. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
+| `callback`  | function | Function to process series descriptors or retrieved values. |
+| `metric` | string | Metrics, for which series are loaded.<br>If not specified, `metric` from the `[widget]` section  is used. |
+| `unique` | boolean | Specify if retrieved values are unique and sorted<br>Default value: `true`. |
+| `queryParameters` | string/object | String or key-value object representing request parameters. |
 
 ![](./images/functions-22.png)
 
@@ -1313,13 +1313,13 @@ Sends asynchronous `GET` requests to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
-| `callback` | function | :x: | Function to process series descriptors or retrieved values. |
-| `entity` | string | :x: | Entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` section  is used. |
-| unique | boolean | :x: | Specify whether retrieved values be unique and sorted, default is `true`. |
-| `queryParameters` | string/object | :x: | string or key-value object representing request parameters. |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
+| `callback` | function | Function to process series descriptors or retrieved values. |
+| `entity` | string | Entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` section  is used. |
+| unique | boolean | Specify whether retrieved values be unique and sorted, default is `true`. |
+| `queryParameters` | string/object | string or key-value object representing request parameters. |
 
 ![](./images/functions-23.png)
 
@@ -1371,14 +1371,14 @@ Sends asynchronous `POST` requests to
 
 **Arguments**:
 
-| Name | Type | Required| Description |
-|:------|:------|:---------:|:-------------|
-| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
-| `callback` | function | :x: | Function to process series descriptors or retrieved values. |
-| `entity` | string, array | :x: | Entity or entities, for which properties descriptors are loaded.<br>If not specified, `entities` or `entity` from the `[widget]` section  is used. |
-| `propertyType` | string | :x: | Type of loaded properties.<br>Default setting: `$entity_tags`. |
-| `unique` | boolean | :x: | Specifies whether retrieved values are unique and sorted.<br>Default value: `true`. |
-| `postBody` | object | :x: | Body of [Data API Properties Query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
+| `callback` | function | Function to process series descriptors or retrieved values. |
+| `entity` | string, array | Entity or entities, for which properties descriptors are loaded.<br>If not specified, `entities` or `entity` from the `[widget]` section  is used. |
+| `propertyType` | string | Type of loaded properties.<br>Default setting: `$entity_tags`. |
+| `unique` | boolean | Specifies whether retrieved values are unique and sorted.<br>Default value: `true`. |
+| `postBody` | object | Body of [Data API Properties Query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
 
 ![](./images/functions-24.png)
 
