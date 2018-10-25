@@ -14,6 +14,7 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="dialog-maximize"></a>[`dialog-maximize`](#dialog-maximize)|  Expand dialog window to the entire page.<br>Open dialog window by clicking the widget header.<br>Possible values: `false`, `true`.<br>Default: `true`.<br>**Example**: `dialog-maximize = true`|  [↗](https://apps.axibase.com/chartlab/3b936aa0)
 <a name="scale"></a>[`scale`](#scale)| Chart scale.<br>Value must exceed `0.0`.<br>Default value: `1.0`.<br>**Example**: `scale = 0.8`| [↗](https://apps.axibase.com/chartlab/2d8b7baf)
+<a name="import"></a>[`import`](#import) | Import a [user-defined function](../syntax/udf.md#function-libraries) library.<br>Specify library name for use within application before the equal sign.<br>**Example**: `import fred = fred.js` | [↗](https://apps.axibase.com/chartlab/19c955c0)
 
 ### Layout Settings
 

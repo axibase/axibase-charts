@@ -1133,7 +1133,7 @@ Sends asynchronous `POST` request to
 
 **Examples**:
 
-![](./images/function-18.png)
+![](./images/functions-18.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/ec413f7c)
 

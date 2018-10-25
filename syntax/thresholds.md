@@ -13,9 +13,9 @@ Series violates the threshold when a value exceeds the maximum threshold.
   alert-style = color: red
 ```
 
-![](./images/thresholds-1.png)
+![](./images/thresholds-10.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6ca7a734)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/51db2895)
 
 ## `min-threshold`
 
@@ -28,9 +28,9 @@ Series violates the threshold when a value is below the minimum threshold.
   alert-style = color: green
 ```
 
-![](./images/thresholds-3.png)
+![](./images/thresholds-11.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ebde46a2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/93b7aeed)
 
 ## `threshold_percent`
 
@@ -40,14 +40,13 @@ Percentage of time within the period when series values do not exceed the thresh
 [series]
   statistic = threshold_percent
   max-threshold = 10
-  period = 1 minute
   alert-expression = value > 100
   alert-style = color: red
 ```
 
-![](./images/thresholds-5.png)
+![](./images/thresholds-8.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cba89fc5)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/93f7242d)
 
 ## `threshold_count`
 
@@ -56,15 +55,14 @@ Number of sequences within the period when the series values exceeded the thresh
 ```ls
 [series]
   statistic = threshold_count
-  max-threshold = 40
-  period = 1 hour
-  alert-expression = value > 10
-  alert-style = color: red
+  max-threshold = 5
+  alert-expression = value > 2
+  alert-style = color: orange
 ```
 
-![](./images/threshold_count.png)
+![](./images/thresholds-9.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a975165f)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/2f79b846)
 
 ## `threshold_duration`
 
@@ -74,11 +72,10 @@ Total duration of intervals within the period when series values exceeded the th
 [series]
   statistic = threshold_duration
   min-threshold = 10
-  period = 5 minute
-  alert-expression = value > 180000
+  alert-expression = value > 140000
   alert-style = color: green
 ```
 
-![](./images/threshold_duration.png)
+![](./images/thresholds-7.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b73f5d71)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e21205a6)

@@ -44,8 +44,8 @@ Invoke built-in string functions to format series fields.
 <a name="replace"></a>[`replace`](#replace) | Replace **all** occurrences of the given string in the original string with another string.|
 <a name="capFirst"></a>[`capFirst`](#capFirst)| **Capitalize** first word. |
 <a name="capitalize"></a>[`capitalize`](#capitalize)| **Capitalize** all words.  |
-<a name="lowerCase"></a>[`lowerCase`](#lowercase)| Convert to **lower** case.   |
-<a name="upperCase"></a>[`upperCase`](#uppercase)| Convert to **upper** case.   |
+<a name="lowercase"></a>[`lowerCase`](#lowercase)| Convert to **lower** case.   |
+<a name="uppercase"></a>[`upperCase`](#uppercase)| Convert to **upper** case.   |
 <a name="removebeginning"></a>[`removeBeginning`](#removebeginning)| **Removes** the given substring from the **beginning** of the string.|
 <a name="removeending"></a>[`removeEnding`](#removeending)| **Removes** the given substring from the **end** of the string.  |
 
