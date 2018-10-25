@@ -45,7 +45,7 @@ label-format = tags
 
 ![](./images/tags-drop-down.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9026327a)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e445fa38)
 
 ## Selecting Specific Series
 
@@ -64,9 +64,9 @@ entity = nurswgvml006
   fstype = ext4
 ```
 
-![](./images/selecting-series.png)
+![](./images/selecting-series-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/fec9c4b4)
 
 ## Selecting Multiple Series With Tags
 
@@ -262,7 +262,7 @@ endfor
 
 ![](./images/get-tags-series.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/27f33b44)
 
 ## Controlling Displayed Series
 
@@ -286,8 +286,8 @@ display = value == top(1) || value == bottom(1)
     fstype = ext4
 ```
 
-![](./images/series-display-1.png)
+![](./images/selecting-series-4.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/13/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/33982c15)
 
 In addition, the `limit = int` setting reduces the number of samples displayed for each series. The `limit = int` setting aids in faster query execution when loading data for high-frequency series from the server, in particular during the design and validation stages.

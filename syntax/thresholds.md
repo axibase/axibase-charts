@@ -13,9 +13,9 @@ Series violates the threshold when a value exceeds the maximum threshold.
   alert-style = color: red
 ```
 
-![](./images/max-threshold.png)
+![](./images/thresholds-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9d4c6263)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6ca7a734)
 
 ## `min-threshold`
 
@@ -28,9 +28,9 @@ Series violates the threshold when a value is below the minimum threshold.
   alert-style = color: green
 ```
 
-![](./images/min-threshold.png)
+![](./images/thresholds-3.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cb698253)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ebde46a2)
 
 ## `threshold_percent`
 
@@ -45,9 +45,9 @@ Percentage of time within the period when series values do not exceed the thresh
   alert-style = color: red
 ```
 
-![](./images/threshold_percent.png)
+![](./images/thresholds-5.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a975165f)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cba89fc5)
 
 ## `threshold_count`
 

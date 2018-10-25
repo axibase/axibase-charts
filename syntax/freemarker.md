@@ -4,16 +4,16 @@ The following document provides examples on how to convert FreeMarker lists and 
 
 ## Introduction
 
-FreeMarker is a Java templating engine supported in Axibase Charts for the purpose of removing duplicate code in widget configurations. FreeMarker is now deprecated in Axibase Charts and is gradually replaced with native client-side collections and functions which do not require a Java server.
+FreeMarker is a Java templating engine supported in Charts applications to remove duplicate code in widget configurations. **FreeMarker is now deprecated in Axibase Charts** and is gradually being replaced with native client-side collections and functions which do not require a Java server.
 
 [FreeMarker](https://freemarker.apache.org/docs/dgui_quickstart_template.html) code snippets can be included in Chart configurations using `<#` and `>` tags and `${name}` placeholders.
 
-When the portal is requested by the client, the server searches the document for FreeMarker code fragments, evaluates each fragment and replaces each fragment with the actual value.
+When a portal is requested by the client, the server searches the document for FreeMarker code fragments, evaluates each fragment and replaces each fragment with the actual value.
 
-Example:
+**Example**:
 
 ```ls
-<#assign server = "ABC">
+<#assign server = "Server-198">
 [widget]
   title = ${server}
 ```
@@ -22,11 +22,11 @@ The above text is converted to:
 
 ```ls
 [widget]
-  title = ABC
+  title = Server-198
 ```
 
 * New variables are defined using the `assign` keyword.
-* Variable can be printed out by referencing its name in curly brackets, for example `${user}`.
+* Print variables by referencing the name in curly brackets, for example `${user}`.
 
 ## List
 
@@ -59,9 +59,7 @@ for srv in servers
 endfor
 ```
 
-Note that placeholders are accessed in Charts using `@{name}` syntax (`@` symbol) as opposed to `${name}` in FreeMarker.
-
-> The closing `endlist` keyword is required only if the list elements are defined on multiple lines.
+> Note that placeholders are accessed in Charts using `@{name}` syntax (`@` symbol) as opposed to `${name}` in FreeMarker.
 
 ## Array
 

@@ -4,21 +4,21 @@ This document enumerates built-in utility functions which can be included in the
 
 | Function | Description |
 |------|-------------|
-| [`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags. |
-| [`getSeries()`](#getseries) | Returns an array of series collected for the defined metric. |
-| [`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity. |
-| [`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity group. |
-| [`range()`](#range) | Returns a regularly spaced, customizable array of numbers. |
-| [`list.escape()`](#listescape) | Escapes commas in every element of an array. |
-| [`previous()`](#previous) | Retrieves the value of the previous point in a sequence. |
-| [`movavg()`](#movavg) | Computes the moving average from a specified number of previous points. |
-| [`meta()`](#meta) | Retrieves the metadata object for a series. |
-| [`entityTag()`](#entitytag) | Returns the value of the entity tag from the metadata object for the series. |
-| [`metricTag()`](#metrictag) | Returns the value of the metric tag from the metadata object for the series. |
-| [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the defined series field. |
-| [`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the defined metric field. |
-| [`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the defined entity tag or property. |
-| [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field. |
+[`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags.
+[`getSeries()`](#getseries) | Returns an array of series collected for the defined metric.
+[`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity.
+[`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity group.
+[`range()`](#range) | Returns a regularly spaced, customizable array of numbers.
+[`list.escape()`](#listescape) | Escapes commas in every element of an array.
+[`previous()`](#previous) | Retrieves the value of the previous point in a sequence.
+[`movavg()`](#movavg) | Computes the moving average from a specified number of previous points.
+[`meta()`](#meta) | Retrieves the metadata object for a series. |
+[`entityTag()`](#entitytag) | Returns the value of the entity tag from the metadata object for the series.
+[`metricTag()`](#metrictag) | Returns the value of the metric tag from the metadata object for the series.
+[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the defined series field.
+[`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the defined metric field.
+[`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the defined entity tag or property.
+[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field.
 
 ---
 
@@ -52,21 +52,21 @@ Sends synchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `metric` | string | **[Required]** `metric` path parameter. |
-| `tagName` | string | **[Required]** Tag values retrieved from series descriptors. |
-| `entity` | string | `entity` query parameter. |
-| `minInsertDate` |  string | [`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
-| `maxInsertDate` |  string | [`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
-| `url` |  string | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and values as values, transformed to query parameters string. |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `metric` | string | :heavy_check_mark: |  `metric` path parameter. |
+| `tagName` | string | :heavy_check_mark: |  Tag values retrieved from series descriptors. |
+| `entity` | string | :x: |`entity` query parameter. |
+| `minInsertDate` |  string | :x: |[`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
+| `maxInsertDate` |  string | :x: |[`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
+| `url` |  string | :x: |Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object |:x: | Object with parameter names as keys and values as values, transformed to query parameters string. |
 
 ### Retrieve values for `mount_point` tag in a series for metric `disk_used` and entity `nurswgvml007` received today
 
-![](./images/gettags.png)
+![](./images/functions-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/efd22059)
 
 **Syntax**:
 
@@ -88,9 +88,9 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml006", "current_
 
 ### Retrieve values for `mount_point` tag in a series for metric `disk_used` and entity `nurswgvml007` and send server-specific query parameter `cache` and ignore other parameters
 
-![](./images/gettags-2.png)
+![](./images/functions-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/1eb42f5b)
 
 **Syntax**:
 
@@ -141,20 +141,20 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `metric` | string | **[Required]** `metric` path parameter. |
-| `entity` | string | `entity` query parameter. |
-| `minInsertDate` | string | [`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
-| `maxInsertDate` | string | [`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
-| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and values as values, transformed to query parameters string. |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `metric` | string | :heavy_check_mark: |  `metric` path parameter. |
+| `entity` | string | :x: | `entity` query parameter. |
+| `minInsertDate` | string | :x: | [`minInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter.|
+| `maxInsertDate` | string | :x: | [`maxInsertDate`](https://axibase.com/docs/atsd/shared/calendar.html) query parameter. |
+| `url` | string | :x: | Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | :x: | Object with parameter names as keys and values as values, transformed to query parameters string. |
 
 ### Return series for metric `disk_used` and entity `nurswgvml006`
 
-![](./images/getseries.png)
+![](./images/functions-3.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/3)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e4441b48)
 
 **Syntax**:
 
@@ -233,19 +233,19 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `entity` | string |**[Required]** `entity` path parameter. |
-| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` |  string | `tags` request parameter. |
-| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and its values as values, which is transformed to query parameters string |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `entity` | string |:heavy_check_mark: |  `entity` path parameter. |
+| `expression` | string | :x: | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
+| `tags` |  string | :x: | `tags` request parameter. |
+| `url` | string | :x: | Protocol, host, and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | :x: | Object with parameter names as keys and its values as values, which is transformed to query parameters string. |
 
 ### Return metrics for entity `nurswgvml006` which contains substrings `cpu` and `user`
 
-![](./images/getmetric.png)
+![](./images/functions-4.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/4)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e006c0e8)
 
 **Syntax**:
 
@@ -307,17 +307,17 @@ Sends synchronous `GET` requests to the
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `group` | string |**[Required]** `group` path parameter. |
-| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` | string | `tags` request parameter. |
-| `url` | string | Protocol, host and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and its values as values, transformed to query parameters string. |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `group` | string |:heavy_check_mark: |  `group` path parameter. |
+| `expression` | string | :x: | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
+| `tags` | string | :x: | `tags` request parameter. |
+| `url` | string | :x: | Protocol, host and path to which `/api/v1` path is appended. |
+| `queryParameters` | object | :x: | Object with parameter names as keys and its values as values, transformed to query parameters string. |
 
 ### Retrieve all entities from entity group `docker-hosts` whose names begin with substring `nur`
 
-![](./images/getentity.png)
+![](./images/functions-5.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
 
@@ -366,18 +366,18 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `start` | number | **[Required]** First number in list. |
-| `end` | number | **[Required]** Last number in list. |
-| `step` | number | Offset between adjacent numbers |
-| `format` | string | [Format setting](./format-settings.md) |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `start` | number | :heavy_check_mark: |  First number in list. |
+| `end` | number | :heavy_check_mark: |  Last number in list. |
+| `step` | number | :x: | Offset between adjacent numbers. |
+| `format` | string | :x: | [Format setting](./format-settings.md). |
 
 ### Return sequential numbers from `1` to `10`
 
-![](./images/range-examples.png)
+![](./images/functions-6.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/6/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/55a5fd09)
 
 **Syntax**:
 
@@ -518,9 +518,9 @@ Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{
 
 #### Apply `.escape()` to array generated from `list`
 
-![](./images/list-escape.png)
+![](./images/functions-7.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/06ec0eaa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c25ce4a7)
 
 **Syntax**:
 
@@ -546,9 +546,9 @@ country = @{countries.escape()}
 
 #### Apply `.escape()` to the array created in a [`var`](./control-structures.md#var) expression
 
-![](./images/list-escape-2.png)
+![](./images/functions-8.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/12/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/04435f95)
 
 **Syntax**:
 
@@ -566,9 +566,9 @@ country = @{countries.escape()}
 
 #### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures.md#csvvalues)
 
-![](./images/escape-csv.values.png)
+![](./images/functions-9.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/7/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c7799073)
 
 **Syntax**:
 
@@ -619,10 +619,10 @@ Use in [`value`](./value_functions.md) settings.
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `alias` | string | **[Required]** Alias of the series, from which the previous value is retrieved |
-| `offset` | number | Index of previous point relative to the current point, default is `1` |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `alias` | string | :heavy_check_mark: |  Alias of the series, from which the previous value is retrieved. |
+| `offset` | number | :x: | Index of previous point relative to the current point.<br>Default value: `1`. |
 
 ### Return a series shifted by one point
 
@@ -697,11 +697,11 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `alias` | string | **[Required]** Alias of the series, to which `movavg` is applied |
-| `count` | number | **[Required]** Number of points for which `movavg` is calculated |
-| `minCount` | number | Minimum number of points, for which `movavg` is calculated, default is `count` |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `alias` | string | :heavy_check_mark: |  Alias of the series, to which `movavg` is applied. |
+| `count` | number | :heavy_check_mark: |  Number of points for which `movavg` is calculated. |
+| `minCount` | number | :x: | Minimum number of points, for which `movavg` is calculated, default is `count`. |
 
 ### Calculate `movavg` when a defined amount of points are available for calculation
 
@@ -713,9 +713,9 @@ value = movavg('raw', 30)
 
 **Result**:
 
-![](./images/movavg_without_minCount.png)
+![](./images/functions-10.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a1ad388a)
 
 ### Calculate `movavg` regardless of the number of points present
 
@@ -727,9 +727,9 @@ value = movavg('raw', 30, 0)
 
 **Result**:
 
-![](./images/movavg_with_minCount.png)
+![](./images/functions-11.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/22/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b5457f1c)
 
 ---
 
@@ -757,13 +757,11 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `alias` | string | **[Regardless]** Alias of the series, from which metadata is returned |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `alias` | string | :heavy-check-mark: | Alias of the series, from which metadata is returned. |
 
 ### Fraction of `maxValue`
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/23/)
 
 **Syntax**:
 
@@ -773,7 +771,9 @@ value = value('raw') / meta('raw').metric.maxValue
 
 **Result**:
 
-![](./images/meta_maxValue.png)
+![](./images/functions-12.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e9b05112)
 
 ---
 
@@ -801,10 +801,10 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `alias` | string | **[Required]** Alias of the series, from which metadata is returned |
-| `tagName` | string | **[Required]** Name of tag which is retrieved from `meta.entity.tags` |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `alias` | string | :heavy_check_mark: |  Alias of the series, from which metadata is returned.|
+| `tagName` | string | :heavy_check_mark: |  Name of tag which is retrieved from `meta.entity.tags`. |
 
 ### Set size to `cpu_count` entity tag
 
@@ -816,9 +816,9 @@ size = entityTag('cpu_count')
 
 **Result**:
 
-![](./images/entityTag.png)
+![](./images/functions-13.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/24/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/799f915f)
 
 ---
 
@@ -846,10 +846,10 @@ Use in `value-expression` settings.
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `alias`| string | **[Required]** Alias of the series, from which metadata is returned |
-| `tagName` | string | **[Required]** Name of tag which is retrieved from `meta.metric.tags` |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `alias`| string | :heavy_check_mark: |  Alias of the series, from which metadata is returned. |
+| `tagName` | string | :heavy_check_mark: |  Name of tag which is retrieved from `meta.metric.tags`. |
 
 ### Set threshold to `threshold_value` metric tag
 
@@ -862,9 +862,9 @@ alert-expression = value() > metricTag('threshold_value')
 
 **Result**:
 
-![](./images/metricTag.png)
+![](./images/functions-14.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/25/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/4d044933)
 
 ---
 
@@ -910,9 +910,9 @@ The content of the resulting drop-down list is shown below:
 * Use `callback` for manual processing of series descriptors or additional processing of retrieved field values.
   * If `fieldPath` is specified, the string values of some field are passed as the argument for the callback, otherwise the series descriptor array is used as the argument.
 
-![](./images/callback-function.png)
+![](./images/functions-15.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/15/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5bcbc24d)
 
 To fill the drop-down list with values of `mount_point` tag of the series, whose entity name begins with the fragment `nur` use the function as shown below.
 
@@ -993,20 +993,20 @@ Sends asynchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
 | `valueFieldPath` | string | Dot-separated path to the field, whose value is used as option value. |
 | `textFieldPath` | string or Array | Dot-separated path (or array of such paths) to the field, whose value is used as option text. |
 | `callback` | function | Function to process series descriptors, returns array of options. |
-| `metric` | string | Metric, for which series are loaded. If not specified, `metric` from the `[widget]` is used |
+| `metric` | string | Metric, for which series are loaded. If not specified, `metric` from the `[widget]` section  is used. |
 | `unique` | boolean | Applied to raw series descriptors. |
-| `queryParameters` | string/object | String or key-value object representing request parameters |
+| `queryParameters` | string/object | String or key-value object representing request parameters. |
 
 **Examples**:
 
-![](./images/request-metric-series-option.png)
+![](./images/functions-16.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/4f937185)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/1b6335dc)
 
 To fill the drop-down list with options with the value of the `iucr` tag and the text from the `description` tag, use the following syntax:
 
@@ -1056,20 +1056,20 @@ Sends asynchronous `GET` request to
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `valueFieldPath` | string | Dot-separated path to the field, whose value is used as option value. |
-| `textFieldPath` | string or Array | Dot-separated path, or array of paths, to the field whose value is used as option text. |
-| `callback` | function | Function to process series descriptors.<br>Returns array of options. |
-| `entity` | string | Entity, for which metrics descriptors are loaded.<br>If not specified, `entity` from `[widget]` is used. |
-| `unique` | boolean | Applied to raw series descriptors. |
-| `queryParameters` | string/object | String or key-value object representing request parameters. |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `valueFieldPath` | string | :x: | Dot-separated path to the field, whose value is used as option value. |
+| `textFieldPath` | string or Array | :x: | Dot-separated path, or array of paths, to the field whose value is used as option text. |
+| `callback` | function | :x: | Function to process series descriptors.<br>Returns array of options. |
+| `entity` | string | :x: | Entity, for which metrics descriptors are loaded.<br>If not specified, `entity` from `[widget]` is used. |
+| `unique` | boolean | :x: | Applied to raw series descriptors. |
+| `queryParameters` | string/object | :x: | String or key-value object representing request parameters. |
 
 **Examples**:
 
-![](./images/tag-description-text.png)
+![](./images/functions-17.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/19/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c2fb333f)
 
 To fill the drop-down list with options defined by the value of the `iucr` tag and text from the `description` tag, use the following syntax:
 
@@ -1121,21 +1121,21 @@ Sends asynchronous `POST` request to
 
 **Arguments**:
 
-| Name | Necessity | Type | Description |
-|------|-----------|------|-------------|
-| `valueFieldPath` | string | Dot-separated path to the field, whose value is used as `option` value. |
-| `textFieldPath` | string or Array | Dot-separated path (or array of such paths) to the field, whose value is used as `option` text. |
-| `callback` | function | Function to process series descriptors, returns array of options. |
-| `entity` | string or Array | entity or entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` is used. |
-| `propertyType` | string | string | Type of loaded properties, default is `$entity_tags` |
-| `unique` | boolean | Applied to raw series descriptors. |
-| `postBody` | object | Body of [Data API properties query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `valueFieldPath` | string | :x: | Dot-separated path to the field, whose value is used as `option` value. |
+| `textFieldPath` | string or Array | :x: | Dot-separated path (or array of such paths) to the field, whose value is used as `option` text. |
+| `callback` | function | :x: | Function to process series descriptors, returns array of options. |
+| `entity` | string or Array | :x: | entity or entities, for which properties descriptors are loaded. If not specified, `entities` or `entity` from the `[widget]` section  is used. |
+| `propertyType` | string | :x: | Type of loaded properties, default is `$entity_tags`. |
+| `unique` | boolean | :x: | Applied to raw series descriptors. |
+| `postBody` | object | :x: | Body of [Data API properties query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
 
 **Examples**:
 
-![](./images/request-properties-option.png)
+![](./images/function-18.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/20/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ec413f7c)
 
 To fill drop-down list with values from `entity` and text from tag `app`, use the following syntax:
 
@@ -1153,9 +1153,9 @@ The content of the resulting drop-down list is shown here:
 
 ### `TextFieldPath _(optional, type: string/Array<string>)_`
 
-![](./images/text-field-path.png)
+![](./images/functions-20.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5b41b689)
 
 `textFieldPath` are the period-separated paths to a field in a series descriptor object, or an array of such paths. If it is an array then all elements other than the first are used as text. If `textFieldPath` is not specified or search on all paths failed the value is used as text.
 
@@ -1202,9 +1202,9 @@ Below is the content of the drop-down list:
 ]
 ```
 
-![](./images/tag-description-option-text.png)
+![](./images/functions-21.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/26/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/22ac9c17)
 
 To populate the drop-down list with the names of metrics, collected for the entity, and texts which are changed values of the `description` tag, use the following syntax:
 
@@ -1259,17 +1259,17 @@ Sends asynchronous `GET` requests to
 
 **Arguments**:
 
-| Name  | Type | Description |
-|------|------|-------------|
-| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
-| `callback`  | function | Function to process series descriptors or retrieved values. |
-| `metric` | string | Metrics, for which series are loaded.<br>If not specified, `metric` from the `[widget]` is used |
-| `unique` | boolean | Specify if retrieved values are unique and sorted<br>Default setting: `true` |
-| `queryParameters` | string/object | String or key-value object representing request parameters |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
+| `callback`  | function | :x: | Function to process series descriptors or retrieved values. |
+| `metric` | string | :x: | Metrics, for which series are loaded.<br>If not specified, `metric` from the `[widget]` section  is used. |
+| `unique` | boolean | :x: | Specify if retrieved values are unique and sorted<br>Default value: `true`. |
+| `queryParameters` | string/object | :x: | String or key-value object representing request parameters. |
 
-![](./images/request-series-value.png)
+![](./images/functions-22.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/14/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/7fab7dd2)
 
 The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retrieves the `mount_point` field.
 
@@ -1313,17 +1313,17 @@ Sends asynchronous `GET` requests to
 
 **Arguments**:
 
-| Name | Necessity | Type | Description |
-|------|-----------|------|-------------|
-| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
-| `callback` | function | Function to process series descriptors or retrieved values. |
-| `entity` | string | Entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` is used. |
-| unique | boolean | Specify whether retrieved values be unique and sorted, default is `true`. |
-| `queryParameters` | string/object | string or key-value object representing request parameters. |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
+| `callback` | function | :x: | Function to process series descriptors or retrieved values. |
+| `entity` | string | :x: | Entity, for which metric descriptors are loaded. If not specified, `entity` from the `[widget]` section  is used. |
+| unique | boolean | :x: | Specify whether retrieved values be unique and sorted, default is `true`. |
+| `queryParameters` | string/object | :x: | string or key-value object representing request parameters. |
 
-![](./images/request-metric-value.png)
+![](./images/functions-23.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/16/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/001613f8)
 
 To populate the drop-down list with names of metrics collected for the entity use the following syntax:
 
@@ -1371,18 +1371,18 @@ Sends asynchronous `POST` requests to
 
 **Arguments**:
 
-| Name | Type | Description |
-|------|------|-------------|
-| `fieldPath` | string | Dot-separated path to the field, whose value is retrieved. |
-| `callback` | function | Function to process series descriptors or retrieved values. |
-| `entity` | string, array | Entity or entities, for which properties descriptors are loaded.<br>If not specified, `entities` or `entity` from the `[widget]` is used. |
-| `propertyType` | string | Type of loaded properties.<br>Default setting: `$entity_tags`. |
-| `unique` | boolean | Specifies whether retrieved values are unique and sorted.<br>Default value: `true`. |
-| `postBody` | object | Body of [Data API Properties Query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
+| Name | Type | Required| Description |
+|:------|:------|:---------:|:-------------|
+| `fieldPath` | string | :x: | Dot-separated path to the field, whose value is retrieved. |
+| `callback` | function | :x: | Function to process series descriptors or retrieved values. |
+| `entity` | string, array | :x: | Entity or entities, for which properties descriptors are loaded.<br>If not specified, `entities` or `entity` from the `[widget]` section  is used. |
+| `propertyType` | string | :x: | Type of loaded properties.<br>Default setting: `$entity_tags`. |
+| `unique` | boolean | :x: | Specifies whether retrieved values are unique and sorted.<br>Default value: `true`. |
+| `postBody` | object | :x: | Body of [Data API Properties Query](https://axibase.com/docs/atsd/api/data/properties/query.html). |
 
-![](./images/request-property-value.png)
+![](./images/functions-24.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/17/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5a8eb13b)
 
 To populate the drop-down list with the `id` of `network` properties use the following syntax:
 
