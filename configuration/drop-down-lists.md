@@ -4,25 +4,23 @@ Drop-down lists provides a way to display interactive options inside a widget he
 
 Configure the list to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
 
-![](./images/drop-down-header.png)
+![](./images/drop-down-list-title-1.png)
 
 Add multiple drop-down lists for any widget.
 
-## `[dropdown]` Configuration
+## Drop-down List Configuration
 
-* `onchange`: If specified, field is evaluated instead of default `onchange` behavior. Either `onchange`, or `change-field` is required for any drop-down list.
-* `change-field`: Widget setting changed upon drop-down list selection. To update the widget subsection setting, use `{section-name}.{setting-name}` syntax. For example, `series.entity` or `keys.mq_manager_name`.
-* `format`: Format applied to the option value if no text setting is specified.
-* `style`: CSS to apply to the selected element.
-* `options`: Comma-separated list of option values.
+* The settings apply to the `[dropdown]` section.
 
-## `[option]` Configuration
+Name | Description | &nbsp;
+--|--|--
+<a name="on-change"></a>[`on-change`](#on-change) | If specified, field is evaluated instead of default `onchange` behavior.<br>Either `onchange`, or `change-field` is **required** for any drop-down list.<br>**Example**: `on-change = widget.post.queries[0].type = this.value; widget.reload();` | [↗](https://apps.axibase.com/chartlab/f0b0039d)
+<a name="change-field"></a>[`change-field`](#change-field) | Widget setting changed upon drop-down list selection.<br>To update the widget subsection setting, use `{section-name}.{setting-name}` syntax.<br>**Example**: `change-field = series.metric` | [↗](https://apps.axibase.com/chartlab/b128e746)
+<a name="format"></a>[`format`](#format) | Format applied to the option value if no text setting is specified.<br>**Example**: `format = 'format = 'Server ' + value.toString().toUpperCase()` | [↗](https://apps.axibase.com/chartlab/e50eea0f)
+<a name="style"></a>[`style`](#style) | CSS to apply to the selected element.<br>**Example**: `style = color: dodgerblue` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
+<a name="options"></a>[`options`](#options) | Comma-separated list of option values.<br>Refer to [Options Syntax](#options-syntax) for possible values.<br>**Example**: `options = configuration, jfs, system, network` | [↗](https://apps.axibase.com/chartlab/e9e5c5e0)
 
-Each option has `value` and `text` attributes. If `text` is specified, the text is displayed, otherwise the formatted value is used.
-
-* If only `text` is specified, `value = text`
-
-* Populate the list of options with the `options =` setting or as a list of `[option]` fields.
+### Options Syntax
 
 Comma-separated list:
 
@@ -54,6 +52,18 @@ options = @{taglist.escape()}
   text = Option 3
 ```
 
+## Option Configuration
+
+* The settings apply to the `[option]` section
+
+Name | Description | &nbsp;
+--|--|--
+<a name="value"></a>[`value`](#value) | Drop-down list option value.<br>**Example**: `value = cpu_busy` | [↗](https://apps.axibase.com/chartlab/a995466b)
+<a name="text"></a>[`text`](#text) | Drop-down list option text.<br>**Example**: `text = CPU Busy`| [↗](https://apps.axibase.com/chartlab/a995466b)
+
+* If only `text` is specified, `value = text`
+* Populate the list of options with the [`options`](#options) setting or as a list of `[option]` fields.
+
 ## Examples
 
 ### Change Widget Type
@@ -75,7 +85,7 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-5.png)
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/566e6428)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/d84eedd0)
 
 ### Change Property Type
 
@@ -91,7 +101,7 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-2.png)
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/6d918310/7/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/d84eedd0)
 
 ### Change `Metric`, `Entity`, or Both
 
@@ -106,7 +116,7 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-3.png)
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/e7a978d6)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/382f4302)
 
 ### Replace Series
 
@@ -118,4 +128,4 @@ the list of displayed options is specified in options field */
 
 ![](./images/drop-down-4.png)
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/343ec3ea)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/3179db2b)

@@ -21,7 +21,7 @@ When the list includes elements with multiple fields, such as hostname, IP addre
 
 ![](./images/summary-portals-1.png)
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/3230deb6/3/)
+[![](../images/button.png)](https://apps.axibase.com/chartlab/b657e69d)
 
 This example displays how a `var` array incorporates server properties displayed in legend tooltip on mouseover.
 
