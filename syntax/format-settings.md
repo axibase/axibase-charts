@@ -13,12 +13,11 @@ format = million watt
 format = thousands
 ```
 
-Value | Syntax | Description
---|--|--
-`binary` | `format = binary('kilo', 3) + 'B'` | Formatting values with size units. Used for bytes.<br>For example, `1024`.
-`decimal`| `format = numeric(1)`<br>`format = numeric`| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify the optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>Example: `format = numeric(1)` rounds to the first decimal. Thus, `4.29` becomes `4.3`.
-`fixed`| `format = fixed(3)` | Format numbers with the specified number of digits.<br>Example: `format = fixed(1)` rounds `1225` to `1000`.
-`currency` | `format = '$' + currency('million')`| Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>For example: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="decimal-numeric"></a>[`decimal`/`numeric`](#decimal-numeric)| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>`format = numeric(1)` rounds to the first decimal, thus `4.29` becomes `4.3`.<br>**Example**: `format = numeric(1)`| [↗](https://apps.axibase.com/chartlab/160d5c94)
+<a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of digits.<br>**Example**: `format = fixed(1)`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
+<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>For example: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).<br>**Example**: `format = '$' + currency`| [↗](https://apps.axibase.com/chartlab/a36fc97a)
 
 ### Optional Parameters
 
@@ -63,14 +62,13 @@ format = percent
 
 ![](./images/percent-formatting.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9225124b/2/#fullscreen)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6775b839#fullscreen)
 
 Decimal Values | Fractional Values
 --|--
 Formatted as a percentage of `100` | Multiplied by `100` and converted into percentage |
 `format = percent(1)` formats `10.23243232` as `10.2%`. | `format = fraction(2)` formats `0.23243232` as `23.24%`
-![](./images/format-decimal.png) | ![](./images/format-fraction.png)
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/64a714fa) | [![](./images/new-button.png)](https://apps.axibase.com/chartlab/7a677440)
+[![](./images/format-decimal.png)](https://apps.axibase.com/chartlab/64a714fa) | [![](./images/format-fraction.png)](https://apps.axibase.com/chartlab/7a677440)
 
 ## `fixed`
 
@@ -102,15 +100,17 @@ Control how time is displayed.
 
 Syntax | Description
 ---|---
-`format = iso` | ISO format.
+`format = iso` | [ISO format](https://axibase.com/docs/atsd/shared/date-format.html).
 `format = new Date(value)` | Print time in current locale.
 `format = (new Date(value)).toISOString` | Print current locale time in ISO format.
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f96bf0ae)
+![](./images/time-format-example-1.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d1bb8335)
 
 ## Interval Format
 
-Format series values which represent millisecond duration using `intervalFormat` function or `interval-format` setting.
+Format series values which represent millisecond duration using the `intervalFormat` function or the `interval-format` setting.
 
 ```ls
 /* invoke intervalFormat function */
@@ -131,21 +131,21 @@ interval-format = %H:%M
 * `%S` and `%s`: Second
 * `%L` and `%l`: Millisecond
 
-### Examples
+## Examples
 
-#### Table
+### [Table](../widgets/property-table/README.md)
 
-![](./images/interval-format-1.png)
+![](./images/interval-format-table.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/0ff7e136)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f3137fe9)
 
-#### Bar Chart
+### [Bar Chart](../widgets/bar-chart/README.md)
 
 ![](./images/interval-format-2.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/2/)
 
-#### Time Chart
+### [Time Chart](../widgets/time-chart/README.md)
 
 ![](./images/interval-format-3.png)
 
@@ -224,4 +224,4 @@ hour-format = %H:%M
 
 ![](./images/hour-format.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/34b0c0b2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6bd3c4a6)

@@ -10,9 +10,9 @@ Trigger multiple `on-series-click` actions to update multiple widgets simultaneo
 on-series-click = var seriesConfig = $.extend({}, c.config.originalConfig.series[0], {entity: series.entity, tags: series.tags});
 ```
 
-![](./images/on-series-click.png)
+![](./images/linking-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d8ab98b3/19/#)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c59de2f9)
 
 The `on-series-click` setting does not affect behavior of the widget on the header click handler. The syntax below demonstrates how to update headers when using linking features.
 
@@ -24,6 +24,6 @@ on-series-click = consoleWidget.post = $.extend(true, {}, consoleWidget.post, { 
 on-series-click = $('.detailWidget').find('.widgetTitle').tex (keepAfterLast(series.tags.command, '.') + ': ' + series.entity)  
 ```
 
-![](./images/on-series-click2.png)
+![](./images/linking-3.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/aecf6da9#)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/bfc216ab)

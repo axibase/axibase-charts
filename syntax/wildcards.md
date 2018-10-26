@@ -12,16 +12,18 @@ Specify the `*` wildcard as either `tag` value or `entity` name.
       mount_point = *
 ```
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/04b35d08/2/)
+![](./images/wildcard-1.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b3751e61)
 
 Reference wildcard series from derived series using an `alias`.
 
-![](./images/wildcard-derived.png)
+![](./images/wildcard-2.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/bf23243d)
 
 Wildcard series are supported in all widgets including Bar Charts which provide a multiple-column setting to place derived series with the same entity and tags into separate columns.
 
-![](./images/wildcard-bar-chart.png)
+![](./images/wildcard-3.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d3cc8533)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a89030db)

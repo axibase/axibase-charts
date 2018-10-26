@@ -37,17 +37,17 @@ Invoke built-in string functions to format series fields.
 
 | Function | Description |
 |---|---|
-| `keepAfter` | Removes part of the string before the first occurrence of the given substring. |
-| `keepAfterLast` | Removes part of the string before the last occurrence of the given substring.|
-| `keepBefore`| Removes part of the string that starts with the first occurrence of the given substring. |
-| `keepBeforeLast`| Removes part of the string that starts with the last occurrence of the given substring.|
-| `replace` | Replace all occurrences of the given string in the original string with another string.|
-| `capFirst`| Capitalize first word. |
-| `capitalize`| Capitalize all words.  |
-| `lowerCase`   | Convert to lower case.   |
-| `upperCase`   | Convert to upper case.   |
-| `removeBeginning` | Removes the given substring from the beginning of the string.|
-| `removeEnding`| Removes the given substring from the end of the string.  |
+<a name="keepafter"></a>[`keepAfter`](#keepafter) | Removes part of the string **before** the **first** occurrence of the given substring. |
+<a name="keepafterlast"></a>[`keepAfterLast`](#keepafterlast) | Removes part of the string **before** the **last** occurrence of the given substring.|
+<a name="keepbefore"></a>[`keepbefore`](#keepbefore)| Removes part of the string that starts with the **first** occurrence of the given substring. |
+<a name="keepbeforelast"></a>[`keepBeforeLast`](#keepbeforelast)| Removes part of the string that starts with the **last** occurrence of the given substring.|
+<a name="replace"></a>[`replace`](#replace) | Replace **all** occurrences of the given string in the original string with another string.|
+<a name="capFirst"></a>[`capFirst`](#capFirst)| **Capitalize** first word. |
+<a name="capitalize"></a>[`capitalize`](#capitalize)| **Capitalize** all words.  |
+<a name="lowercase"></a>[`lowerCase`](#lowercase)| Convert to **lower** case.   |
+<a name="uppercase"></a>[`upperCase`](#uppercase)| Convert to **upper** case.   |
+<a name="removebeginning"></a>[`removeBeginning`](#removebeginning)| **Removes** the given substring from the **beginning** of the string.|
+<a name="removeending"></a>[`removeEnding`](#removeending)| **Removes** the given substring from the **end** of the string.  |
 
 ```ls
 label-format = javascript:keepAfterLast(tags.logger, '.')
@@ -57,9 +57,9 @@ label-format = javascript:keepAfterLast(tags.logger, '.')
     logger = com.axibase.app.web.AuthenticationFilter
 ```
 
-![](./images/label-formatting4.png)
+![](./images/string-functions-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/675c5467)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/7316d5db)
 
 Use nested functions to apply multiple format settings.
 
@@ -71,9 +71,9 @@ label-format = javascript:capitalize(replace(metric, '_', ' '))
     #swap_space_used -> Swap Space Used
 ```
 
-![](./images/label-formatting-6.png)
+![](./images/string-functions-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/7518a91f/2/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/be788657)
 
 ## Metadata
 
@@ -88,9 +88,9 @@ add-meta = true
 label-format = javascript: (meta.entity.label ? meta.entity.label : entity) + ": " + (meta.metric.label ? meta.metric.label : metric) + (tags+"" != 'null' ? ": " + tags : "") + (statistics && statistics != 'detail' ? ": " + statistics : "") + (period ? " - " + period : "") + (dataType ? ": " + dataType : "") + (rate ? ": ∇ " + rate : "")
 ```
 
-![](./images/label-formatting5.png)
+![](./images/metadata-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/68ff7368/3/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5d4c12e8)
 
 ## Examples
 
@@ -107,9 +107,9 @@ label-format = entity
   metric = cpu_busy
 ```
 
-![](./images/label-formatting1.png)
+![](./images/examples-entity-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6ce33406)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/2f806647)
 
 ### `tags.tagName`
 
@@ -124,9 +124,9 @@ label-format = tags.mount_point
     file_system = *  
 ```
 
-![](./images/label-formatting2.png)
+![](./images/tagname-example-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/8909d7f4)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/9b128f40)
 
 ### `entity : tagValue`
 
@@ -139,6 +139,6 @@ label-format = entity: tagValue
   entity = nurswgvml006
 ```
 
-![](./images/label-formatting3.png)
+![](./images/tag-value-example-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5e5667fa)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/324f89a4)

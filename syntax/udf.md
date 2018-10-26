@@ -8,7 +8,7 @@ This document describes how to define custom time series functions and apply the
 
 Use window functions to perform scalar calculations which do not require access to a series object.
 
-Define a custom JavaScript function in the `window` object using [`script` / `endscript`](./control-structures.md) syntax in the **Editor** window.
+Define a custom JavaScript function in the `window` object using [`script` / `endscript`](./control-structures.md#script) syntax in the **Editor** window.
 
 ```ls
 script
@@ -21,7 +21,7 @@ script
 endscript
 ```
 
-Use custom window function in any setting that supports referencing functions by name, for example, in `value` or `format` setting.
+Use custom window function in any setting that supports referencing functions by name, for example, in [`value`](../widgets/shared/README.md#value) or [`format`](../widgets/shared/README.md#format) setting.
 
 ```ls
 value = return checkRange(value);
@@ -29,7 +29,7 @@ value = return checkRange(value);
 
 ## Function Libraries
 
-Load custom JavaScript functions into a configuration with the `import` setting followed by the package name and URL of the JavaScript file containing function definitions.
+Load custom JavaScript functions into a configuration with the [`import`](../configuration/README.md) setting followed by the package name and URL of the JavaScript file containing function definitions.
 
 ```ls
 import example_package = https://example.org/package.js
@@ -55,15 +55,15 @@ import fred = https://raw.githubusercontent.com/axibase/charts/master/resources/
 
 **Econometric Function**:
 
-![](./images/econometric-example.png)
+![](./images/udf-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d220468d/19)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/358a6d2e)
 
 **Sun Altitude Function**:
 
-![](./images/sun-altitude.png)
+![](./images/udf-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/8e2917e2/8/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ebf4f1be)
 
 ### Load Functions from Local Server
 
@@ -96,13 +96,13 @@ Reference the imported function in a `value` expression by specifying the packag
 value = fred.MonthlyChange('raw')
 ```
 
-![](./images/econometric-example.png)
+![](./images/udf-3.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d220468d/19)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/84eecd44)
 
 ## Examples
 
-The following functions are implemented in the [fred.js](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) configuration file.
+The following functions are implemented in the [`fred.js`](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) configuration file.
 
 | **Function Name** | **Arguments** |
 |-------------|----------------------|
@@ -183,13 +183,13 @@ See additional configurations in [`examples.js`](../resources/examples.js).
 
 **ChartLab** examples:
 
-* [`getValueRange`](https://apps.axibase.com/chartlab/2595a144/1/)
-* [`getDifferenceFromAverage`](https://apps.axibase.com/chartlab/2595a144/2/)
+* [`getValueRange`](https://apps.axibase.com/chartlab/04447cd1)
+* [`getDifferenceFromAverage`](https://apps.axibase.com/chartlab/3a791d8b)
 * [`getWeight`](https://apps.axibase.com/chartlab/2595a144/3/)
 
 ## Example
 
-This section illustrates how to develop and deploy a basic user-defined function. For the purpose of this exercise, create a function that multiplies original sample values by a specified constant value.
+This section explains how to develop and deploy a basic user-defined function. For the purpose of this exercise, create a function that multiplies original sample values by a specified constant value.
 
 ### Step 1. Create JavaScript File
 
@@ -241,9 +241,9 @@ Enter the following configuration text. Replace `cpu_busy` and `nurswgvml007` wi
 
 Save the portal. View the portal to check results.
 
-![](./images/udf-tutorial.png)
+![](./images/udf-4.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/3b6819a6)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/11267e58)
 
 ## Utility Functions
 
@@ -251,7 +251,7 @@ Save the portal. View the portal to check results.
 
 Get the value of the series identified by `alias`, for the `timestamp` calculated as `current_time - offset`, where  `current_time` is the time of currently processed sample. If there is no sample with such `timestamp`, the value is linearly interpolated from neighboring samples.
 
-![](./images/getvaluewithoffset-example.png)
+![](./images/udf-5.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/db746e15)
 
@@ -271,9 +271,9 @@ getValueWithOffset(alias, offset)
 Get the value of the series, identified by `alias`, for the specified `datetime`.
 If there is no sample recorded for the specified `datetime`, the value is linearly interpolated from the neighboring samples.
 
-![](./images/getvaluefordate-example.png)
+![](./images/udf-6.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/378550c2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/fcced7f2)
 
 **Syntax**:
 
@@ -290,9 +290,9 @@ getValueForDate(alias, datetime)
 
 Get the maximum value of the series, identified by `alias`, for the loaded timespan.
 
-![](./images/getmaximumvalue-example.png)
+![](./images/udf-7.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/2595a144/6/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d188ee70/)
 
 **Syntax**:
 

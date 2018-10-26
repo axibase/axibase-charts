@@ -2,9 +2,9 @@
 
 ## Overview
 
-This document describes functions, which can be referenced in the `value` setting to calculate values of a derived series.
+This document describes functions, which can be referenced in the [`value`](../widgets/shared/README.md#value) setting to calculate values of a derived series.
 
-The `value` setting is specified by the `series` section.
+The `value` setting is specified by the `[series]` section.
 
 ```ls
 # Define the original series, which values used in creating a derived (computed) series.
@@ -26,6 +26,8 @@ The `value` setting is specified by the `series` section.
   # Specify an expression called for each `time:value` sample in the original series
   value = 2 * value("s-1")
 ```
+
+![](./images/value-function-1.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa)
 
