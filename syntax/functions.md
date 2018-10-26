@@ -33,7 +33,7 @@ This document enumerates built-in utility functions which can be included in the
 
 **Syntax**:
 
-```ls
+```javascript
 getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
@@ -122,7 +122,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 
 **Syntax**:
 
-```ls
+```javascript
 getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
@@ -215,7 +215,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 
 **Syntax**:
 
-```ls
+```javascript
 getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
 
@@ -278,7 +278,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 
 **Syntax**:
 
-```ls
+```javascript
 getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
 
@@ -352,7 +352,7 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 
 **Syntax**:
 
-```ls
+```javascript
 range(start, end, [step], [format])
 ```
 
@@ -533,7 +533,7 @@ list countries =
   Tonga,
   Honduras,
   Congo\, Dem. Rep. of the (Kinshasa)
-    endlist
+endlist
 
 country = @{countries.escape()}
 ```
@@ -605,7 +605,7 @@ country = @{countries.values('name').escape()}
 
 **Syntax**:
 
-```ls
+```javascript
 previous(alias, [offset])
 ```
 
@@ -683,7 +683,7 @@ value = 1 - previous('raw', 2) / value('raw')
 
 **Syntax**:
 
-```ls
+```javascript
 movavg(alias, count, [minCount])
 ```
 
@@ -743,7 +743,7 @@ value = movavg('raw', 30, 0)
 
 **Syntax**:
 
-```ls
+```javascript
 meta(alias)
 ```
 
@@ -787,7 +787,7 @@ value = value('raw') / meta('raw').metric.maxValue
 
 **Syntax**:
 
-```ls
+```javascript
 entityTag(alias, tagName)
 ```
 
@@ -832,7 +832,7 @@ size = entityTag('cpu_count')
 
 **Syntax**:
 
-```ls
+```javascript
 metricTag(alias, tagName)
 ```
 
@@ -1240,7 +1240,7 @@ The contents of the resulting drop-down list are shown here:
 
 **Syntax**:
 
-```ls
+```javascript
 requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParameters]]]]])
 ```
 
@@ -1295,7 +1295,7 @@ The `fieldPath` `"tags.mount_point"` reads `tags`in each descriptor then retriev
 
 **Syntax**:
 
-```ls
+```javascript
 requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryParameters]]]]])
 ```
 
@@ -1353,7 +1353,7 @@ The content of the resulting drop-down list is shown below:
 
 **Syntax**:
 
-```ls
+```javascript
 requestPropertiesValues([valueFieldPath, [textFieldPath, [callback, [entity, [propertyType, [unique, [postBody]]]]]]])
 ```
 
