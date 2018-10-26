@@ -59,8 +59,7 @@ Available functions:
 * [`getSeries()`](./functions.md#getseries)
 * [`getMetrics()`](./functions.md#getmetrics)
 * [`getEntities()`](./functions.md#getentities)
-* [`range()`](./functions.md#range) |
-
+* [`range()`](./functions.md#range)
 
 The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getentities) function.
 
