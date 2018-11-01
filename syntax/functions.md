@@ -4,6 +4,7 @@ This document enumerates built-in utility functions which can be included in the
 
 | Function | Description |
 |------|-------------|
+[`config()`](#config) | Retrieves the value of configuration components.
 [`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags.
 [`getSeries()`](#getseries) | Returns an array of series collected for the defined metric.
 [`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity.
@@ -21,6 +22,40 @@ This document enumerates built-in utility functions which can be included in the
 [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field.
 
 ---
+
+## `config()`
+
+**Description**:
+
+* Returns the value of portal configuration components.
+
+**Syntax**:
+
+```ls
+series-value = config().object
+```
+
+**Scope of Usage**:
+
+Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
+
+**API Request**:
+
+Not applicable.
+
+**Returned Value**:
+
+`Array<object>`: Received configuration components.
+
+**Arguments**:
+
+| Name | Type | Description |
+|:------|:------|:-------------|
+`object` | Object | Name of the configuration component object. Refer to the [complete list](./config-objects.md) of objects which can be invoked for possible values.
+
+![](./images/config-function-1.png)
+
+[![](./images/new-button.png)](https://trends.axibase.com/ebe8c9d6)
 
 ## `getTags()`
 
