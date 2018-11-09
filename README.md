@@ -1,3 +1,7 @@
+---
+sidebar: false
+---
+
 # Axibase Charts
 
 ![](./images/charts-title-photo.png)

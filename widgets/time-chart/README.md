@@ -94,7 +94,7 @@ Name | Description | &nbsp;
 <a name="threshold-color"></a>[`color`](#threshold-color) | Threshold color.<br>**Example**: `color = red`| [↗](https://apps.axibase.com/chartlab/9ac19488)
 <a name="threshold-value"></a>[`value`](#threshold-value)|Threshold value, set in JavaScript when the [`alert-expression`](../shared/README.md#alert-expression) for series uses the same format.<br>**Example**: `value = value('raw') * 2`| [↗](https://apps.axibase.com/chartlab/26e6d5d6)
 
-## **Time Chart** Controls
+## Time Chart Controls
 
 * Modify selection interval and aggregation period on the fly.
 * Add custom selection intervals and aggregation periods directly on the **Time Chart**.
@@ -121,7 +121,7 @@ Name | Description | &nbsp;
 1. **Time Axis**: Scale the time axis manually by dragging. Double click to reset values to default.
 1. **Context Chart**: Select a manual `timespan` by dragging context chart endpoints.
 
-### Modifying **Time Chart** Controls
+### Modifying Time Chart Controls
 
 Add selection intervals and aggregation periods directly in **Time Chart** controls by double clicking the whitespace between the interval or period where the new interval is to be added. An interval or period roughly half way between the two values is added on each double click.
 
