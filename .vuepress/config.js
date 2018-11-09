@@ -58,8 +58,8 @@ const topNavMenu = [
     { text: 'Overview', link: '/', highlighted: true },
     { text: 'Widgets', items: widgetLinks },
     { text: 'Syntax', items: syntaxLinks },
-    { text: 'Portals', link: 'https://axibase.com/docs/atsd/portals/' },
     { text: 'Resources', items: [
+        { text: 'ATSD Portals', link: 'https://axibase.com/docs/atsd/portals/' },
         { text: 'ATSD API', link: 'https://axibase.com/docs/atsd/api/data/' },
         { text: 'Series Query', link: 'https://axibase.com/docs/atsd/api/data/series/query.html' },
         { text: 'External Frameworks', link: '/external/' },
