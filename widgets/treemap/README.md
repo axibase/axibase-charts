@@ -47,7 +47,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/242da90e)
+<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`</li><li>`size = value`</li></ul>|[↗](https://apps.axibase.com/chartlab/242da90e)
 
 ### Other Settings
 
@@ -56,7 +56,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`<li>`size = value`</ul>|[↗](https://apps.axibase.com/chartlab/8d7286fe)
+<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`</li><li>`size = value`</li></ul>|[↗](https://apps.axibase.com/chartlab/8d7286fe)
 <a name="label"></a>[`label`](#label) | Rectangle label.<br>**Example**: `label = Total Capacity`|[↗](https://apps.axibase.com/chartlab/7f4d239c)
 <a name="color"></a>[`color`](#color) | `[other]` section color.<br>Default value: `grey`.<br>**Example**: `color = black`|[↗](https://apps.axibase.com/chartlab/60b058e8)
 

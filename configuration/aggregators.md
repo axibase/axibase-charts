@@ -108,7 +108,7 @@ threshold_duration     = 3600000
 threshold_percent      = 88.9
 ```
 
-## **ChartLab** Examples
+## ChartLab Examples
 
 **Box Chart With `percentile`**:
 

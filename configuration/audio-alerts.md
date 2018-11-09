@@ -19,7 +19,7 @@ Play different audio based on expression, such as one track for `alert-ON` and a
 
 Use **Audio Alerts** in any widget that supports the [`alert-expression`](../widgets/shared/README.md#alert-expression) setting.
 
-### **ChartLab** Example
+### ChartLab Example
 
 ![](./images/audio-alert-example.png)
 
