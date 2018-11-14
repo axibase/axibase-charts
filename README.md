@@ -8,7 +8,7 @@ sidebar: false
 
 Charts implement a simple, yet powerful, syntax which is closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative settings.
 
-![](./images/charts-title-photo.png)
+![](./images/charts-3.png)
 
 ## Interactive Analytics
 
