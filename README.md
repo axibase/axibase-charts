@@ -2,28 +2,24 @@
 sidebar: false
 ---
 
-# Axibase Charts
-
-![](./images/charts-title-photo.png)
-
-## Overview
+# Introduction
 
 **Axibase Charts** is a graphics library for visualizing time series data with [widgets](./widgets/README.md).
 
 Charts implement a simple, yet powerful, syntax which is closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative settings.
 
-### Interactive Analytics
+![](./images/charts-3.png)
+
+## Interactive Analytics
 
 * Create [derived series](https://apps.axibase.com/chartlab/62e6c18f/3/).
 * Join [multiple metrics](https://apps.axibase.com/chartlab/e0e0be77).
 * Re-compute aggregates [on the fly](https://apps.axibase.com/chartlab/57b0a961/3/).
 
-### Historical and Streaming Data
+## Historical and Streaming Data
 
 * Streaming parsing of compressed historical data.
 * [Incremental](https://apps.axibase.com/chartlab/cc79ed62) real-time data loading.
-
----
 
 ## Tools
 
