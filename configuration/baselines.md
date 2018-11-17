@@ -1,6 +1,6 @@
 # Baselines
 
-Combine multiple timespans of the same series within one widget using the [`time-offset`](../widgets/time-chart/README.md#time-offset) setting. Compare, for example, current data versus data from some time ago.
+Combine multiple timespans of the same series within one widget using the [`time-offset`](../widgets/shared/README.md#time-offset) setting to compare current data versus data from some time ago.
 
 ```ls
 [series]
