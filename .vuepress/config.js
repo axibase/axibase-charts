@@ -59,6 +59,8 @@ const topNavMenu = [
     { text: 'Widgets', items: widgetLinks },
     { text: 'Syntax', items: syntaxLinks },
     { text: 'Resources', items: [
+        { text: 'VSCode Plugin', link: 'https://marketplace.visualstudio.com/items?itemName=Axibase.axibasecharts-syntax' },
+        { text: 'Sample Apps', link: 'https://apps.axibase.com/' },
         { text: 'ATSD Portals', link: 'https://axibase.com/docs/atsd/portals/' },
         { text: 'ATSD API', link: 'https://axibase.com/docs/atsd/api/data/' },
         { text: 'Series Query', link: 'https://axibase.com/docs/atsd/api/data/series/query.html' },
