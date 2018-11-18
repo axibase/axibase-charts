@@ -13,7 +13,7 @@ The following control structures are supported by Charts applications:
 
 ## `list`
 
-Assign a list of comma-separated elements, optionally located on multiple lines, to a named array an iterate through the array with a `for` loop.
+Create a named list of comma-separated elements to iterate through the list with a `for` loop.
 
 ```ls
 list servers = awsswgvml001, nurswgvml003,
@@ -21,26 +21,28 @@ list servers = awsswgvml001, nurswgvml003,
 endlist
 ```
 
+The elements may be located on multiple lines.
+
 If the elements fit on one line, `endlist` is **not** required.
 
 ```ls
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` command is similar to [`var`](#var). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
+The `list` assignment is similar to [`var`](#var). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
 
 ```ls
-var servers = ['awsswgvml001', 'nurswgvml003']
 list servers = awsswgvml001, nurswgvml003
+var servers = ['awsswgvml001', 'nurswgvml003']
 ```
 
 ---
 
 ## `var`
 
-`var` assigns an array, object, or function to a variable whose value and fields can be invoked with a placeholder.
+`var` assigns an array, object, or function to a variable whose value and fields can be accessed with a placeholder.
 
-If the `var` assignment occupies one line, closing with `endvar` is **not** required.
+If the `var` assignment occupies one line, closing with `endvar` is not required.
 
 ```ls
 var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
