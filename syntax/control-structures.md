@@ -21,15 +21,15 @@ list servers = awsswgvml001, nurswgvml003,
 endlist
 ```
 
-The elements may be located on multiple lines.
+The elements can be located on multiple lines in which case the list must be closed with the `endlist` keyword.
 
-If the elements fit on one line, `endlist` is **not** required.
+If the elements fit on one line, `endlist` is not required.
 
 ```ls
 list servers = awsswgvml001, nurswgvml003
 ```
 
-The `list` assignment is similar to [`var`](#var). When using the `list` command, there is no need to enclose the elements of the list in square brackets.
+The `list` assignment is similar to [`var`](#var). However the `var` assignment requires the elements to be quoted and enclosed in square brackets.
 
 ```ls
 list servers = awsswgvml001, nurswgvml003
