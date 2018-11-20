@@ -22,7 +22,7 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 <!-- markdownlint-disable MD102 -->
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 * The **Pie Chart** includes unique behavior upon clicking a sector of the chart:
   * Single click: Opens a dialog window with a [**Time Chart**](../time-chart/README.md) for the series.
   * Double click: Controlled by `selector-mode`, `on-series-double-click`, and `expand` setting. Default behavior is `expand` upon double click.
@@ -53,7 +53,7 @@ Name | Description | &nbsp;
 ## Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+* [Common](../shared/README.md#series-settings) `[series]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

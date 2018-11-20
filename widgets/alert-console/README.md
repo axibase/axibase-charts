@@ -18,8 +18,8 @@ The **Alert Console** displays a continuously updated list of open [alerts](http
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
-* [Shared Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

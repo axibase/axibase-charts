@@ -1,8 +1,8 @@
-# Shared Settings
+# Common Settings
 
 ## Overview
 
-The **Shared Settings** are common settings supported by all widgets.
+The **Common Settings** are shared settings supported by all widgets.
 
 ## Widget Settings
 
@@ -171,8 +171,8 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="rate"></a>[`rate`](#rate)| Compute the difference between consecutive samples per unit of time, or [rate period](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>If `rate = 0 time unit`, the difference between consecutive samples is computed.<br>Format: `count time_unit`.<br>**Example**: `rate = 15 second`| [↗](https://apps.axibase.com/chartlab/84c208d4)
-<a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
+<a name="rate"></a>[`rate`](#rate)| Compute the difference between consecutive samples per [period of time](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>If the period duration is zero, for example `rate = 0`, the rate function calculates the difference between consecutive samples, without adjusting it by the time difference between the samples.<br>Format: `count time_unit`.<br>**Example**: `rate = 15 second`| [↗](https://apps.axibase.com/chartlab/84c208d4)
+<a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>Default value: `true`<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
 
 > See also [Rate](https://axibase.com/docs/atsd/api/data/series/rate.html) transformation in REST API.
 

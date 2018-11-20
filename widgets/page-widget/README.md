@@ -17,7 +17,7 @@ The **Page Widget** displays the contents of an external page in a **ChartLab** 
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

@@ -26,7 +26,7 @@ The **Graph Widget** displays the topology and relationships of servers, virtual
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--
@@ -89,7 +89,7 @@ Name | Description | &nbsp;
 ### Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+* [Common](../shared/README.md#series-settings) `[series]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

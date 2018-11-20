@@ -24,7 +24,7 @@ The **Bar Chart** displays last series values as horizontal or vertical bars.
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

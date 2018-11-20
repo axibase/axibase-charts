@@ -22,7 +22,7 @@ The **Treemap Widget** displays each series as a colored rectangle according to 
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--
@@ -43,7 +43,7 @@ Name | Description | &nbsp;
 ## Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+* [Common](../shared/README.md#series-settings) `[series]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

@@ -20,7 +20,7 @@ The **Box Chart** displays a distribution of observed values over a user-defined
 ### Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name |Description |&nbsp;
 :--|:--|:--
@@ -30,7 +30,7 @@ Name |Description |&nbsp;
 ### Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md) `[series]` settings are inherited.
+* [Common](../shared/README.md) `[series]` settings are inherited.
 
 Name |Description |&nbsp;
 :--|:--|:--

@@ -28,8 +28,8 @@ The **Property Table** displays properties collected by an entity in tabular for
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
-* [Shared Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
 * By default, the **Property Table** contains `entity` and `time` columns.
 
 Name | Description | &nbsp;
@@ -41,7 +41,7 @@ Name | Description | &nbsp;
 ## Column Settings
 
 * The settings apply to the `[column]` section.
-* [Shared Table](../shared-table/README.md#column-settings) `[column]` settings are inherited.
+* [Common Table](../shared-table/README.md#column-settings) `[column]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--

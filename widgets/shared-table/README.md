@@ -1,8 +1,8 @@
-# Shared Table Settings
+# Common Table Settings
 
 ## Overview
 
-The **Shared Table Settings** are inherited by [Table](../streaming-table/README.md), [Property](../property-table/README.md), and [Console](../alert-console/README.md) widgets.
+The **Common Table Settings** are inherited by [Table](../streaming-table/README.md), [Property](../property-table/README.md), and [Console](../alert-console/README.md) widgets.
 
 ## Widget Settings
 

@@ -22,7 +22,7 @@ The **Calendar Chart** displays the deviation of aggregated series values for a 
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
-* [Shared](../shared/README.md#widget-settings) `[widget]` settings are inherited.
+* [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--
@@ -38,7 +38,7 @@ Name | Description | &nbsp;
 ### Series Settings
 
 * The settings apply to the `[series]` section.
-* [Shared](../shared/README.md#series-settings) `[series]` settings are inherited.
+* [Common](../shared/README.md#series-settings) `[series]` settings are inherited.
 
 Name | Description | &nbsp;
 :--|:--|:--
