@@ -111,3 +111,31 @@ for item in servers
     label = @{item[1]}
 endfor
 ```
+
+## [`hasMetric()`](https://github.com/axibase/atsd/blob/master/portals/freemarker.md#freemarker-expressions-summary-table)
+
+* FreeMarker
+
+```ls
+<#assign collectdEnabled = hasMetric( "${entity}","collectd.cpu")>
+```
+
+* Native [`getMetrics()`](./functions.md#getmetrics)
+
+```ls
+var collectdEnabled = getMetrics("${entity}","name='collectd.cpu'").length > 0
+```
+
+## [`getTags()`](https://github.com/axibase/atsd/blob/master/portals/freemarker.md#freemarker-expressions-summary-table)
+
+* FreeMarker
+
+```ls
+<#assign file_systems = getTags("volume_usage", "${entity}", "name", 4) >
+```
+
+* Native [`getTags()`](./functions.md#gettags)
+
+```ls
+var file_systems = getTags("volume_usage", "name", "${entity}", "now - 4 * hour")
+```
