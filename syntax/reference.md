@@ -308,7 +308,6 @@ All **ChartLab** settings are enumerated here, with links to the applicable docu
 * <a name="total-value"></a>[`total-value`](../widgets/pie-chart/README.md#total-value)
 * <a name="transpose"></a>[`transpose`](../widgets/shared-table/README.md#transpose)
 * <a name="type"></a>[`type`](../widgets/shared/README.md#type)
-* <a name="unscale"></a>[`unscale`]()
 * <a name="update-interval"></a>[`update-interval`](../widgets/shared/README.md#update-interval)
 * <a name="url"></a>[`url`](../widgets/shared/README.md#url)
 * <a name="url-parameters"></a>[`url-parameters`](../widgets/shared/README.md#url-parameters)
