@@ -41,6 +41,7 @@ const syntaxLinks = [
     { text: 'Label Formatting', link: '/syntax/label-formatting.md' },
     { text: 'Linking', link: '/syntax/linking.md' },
     { text: 'Meta Data', link: '/configuration/meta-data.md' },
+    { text: 'Settings Reference Index', link: `/syntax/reference.md` },
     { text: 'Summary Portals', link: '/configuration/summary-portals.md' },
     { text: 'Thresholds and SLA', link: '/syntax/thresholds.md' },
     { text: 'User-Defined Functions', link: '/syntax/udf.md' },
