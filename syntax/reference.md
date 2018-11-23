@@ -1,6 +1,4 @@
-# Settings Reference Index
-
-All **ChartLab** settings are enumerated here, with links to the applicable documentation.
+# Settings Reference
 
 <!-- markdownlint-disable MD102 -->
 
