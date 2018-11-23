@@ -2,6 +2,8 @@
 
 All **ChartLab** settings are enumerated here, with links to the applicable documentation.
 
+<!-- markdownlint-disable MD102 -->
+
 * <a name="add-meta"></a>[`add-meta`](../widgets/shared/README.md#add-meta)
 * <a name="ahead-time-span"></a>[`ahead-time-span`](../widgets/time-chart/README.md#ahead-time-span)
 * <a name="alert-expression"></a>[`alert-expression`](../widgets/shared/README.md#alert-expression)
@@ -70,10 +72,10 @@ All **ChartLab** settings are enumerated here, with links to the applicable docu
 * <a name="display-in-legend"></a>[`display-in-legend`]()
 * <a name="display-labels"></a>[`display-labels`]()
 * <a name="display-other"></a>[`display-other`]()
-* <a name="display-panels"></a>[`display-panels`]()
-* <a name="display-tags"></a>[`display-tags`]()
-* <a name="display-ticks"></a>[`display-ticks`]()
-* <a name="display-tip"></a>[`display-tip`]()
+* <a name="display-panels"></a>[`display-panels`](../widgets/time-chart/README.md#display-panels)
+* <a name="display-tags"></a>[`display-tags`](https://axibase.com/docs/charts/widgets/shared-table/#display-tags)
+* <a name="display-ticks"></a>[`display-ticks`](https://axibase.com/docs/charts/widgets/gauge-chart/#display-ticks)
+* <a name="display-tip"></a>[`display-tip`](https://axibase.com/docs/charts/widgets/gauge-chart/#display-tip)
 * <a name="display-total"></a>[`display-total`]()
 * <a name="display-values"></a>[`display-values`]()
 * <a name="downsample"></a>[`downsample`](../widgets/shared/README.md#downsample)
@@ -316,3 +318,5 @@ All **ChartLab** settings are enumerated here, with links to the applicable docu
 * <a name="width"></a>[`width`]()
 * <a name="width-units"></a>[`width-units`](../configuration/README.md#width-units)
 * <a name="zoom-svg"></a>[`zoom-svg`]()
+
+<!-- markdownlint-enable MD102 -->
