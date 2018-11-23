@@ -29,6 +29,7 @@ const widgetsSideBar = widgetLinks
     .map(({text, link}) => [link.slice(9), text]);
 
 const syntaxLinks = [
+    { text: 'Settings Reference', link: `/syntax/reference.md` },
     { text: 'Alert Expressions', link: '/syntax/alert-expression.md' },
     { text: 'Baselines', link: '/configuration/baselines.md' },
     { text: 'Computed Metrics', link: '/configuration/computed-metrics.md' },
