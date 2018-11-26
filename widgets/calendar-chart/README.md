@@ -59,7 +59,7 @@ Name | Description | &nbsp;
 
 ![](./images/legend-position-image.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/f354914c)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/56116e61)
 
 ### No Threshold
 
