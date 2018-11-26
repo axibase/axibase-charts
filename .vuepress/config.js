@@ -16,7 +16,7 @@ const widgetLinks = [
     { text: 'Text Widget', link: '/widgets/text-widget/' },
     { text: 'Series Table', link: '/widgets/streaming-table/' },
     { text: 'Property Table', link: '/widgets/property-table/' },
-    { text: 'Alert Table', link: '/widgets/alert-console/' },
+    { text: 'Alert Table', link: '/widgets/alert-table/' },
     { text: 'Graph', link: '/widgets/graph/' },
     { text: 'Page Widget', link: '/widgets/page-widget/' },
     { },

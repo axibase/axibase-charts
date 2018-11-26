@@ -87,9 +87,9 @@ Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
 [![](./images/treemap-widget.png)](./widgets/treemap/README.md) | [![](./images/pie-chart.png)](./widgets/pie-chart/README.md) | [![](./images/graph.png)](./widgets/graph/README.md)
 
-Text Widget | Page Widget | Alert Console
+Text Widget | Page Widget | Alert Table
 :--:|:--:|:--:
-[![](./images/text-widget.png)](./widgets/text-widget/README.md) | [![](./images/page-widget.png)](./widgets/page-widget/README.md) | [![](./images/alert-console.png)](./widgets/alert-console/README.md)
+[![](./images/text-widget.png)](./widgets/text-widget/README.md) | [![](./images/page-widget.png)](./widgets/page-widget/README.md) | [![](./images/alert-table.png)](./widgets/alert-table/README.md)
 
 Streaming Table | Property Table
 :--:|:--:
