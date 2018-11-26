@@ -176,7 +176,7 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/data-type-forecast.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e2880896)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/4d5ef924)
 
 ### `disconnect-interval` and `disconnect-value`
 
