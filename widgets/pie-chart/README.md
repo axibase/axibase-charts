@@ -45,8 +45,8 @@ Name | Description | &nbsp;
 <a name="icon"></a>[`icon`](#icon)|Display `.svg` icon in **Pie Chart** ring.<br>Path to custom icons must be set.<br>Recommended icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without directory path.<br>See the [Icon Reference Sheet](resources/atsd-embedded-icons.pdf) for built-in icons.<br>Underscores in built-in icon names can be substituted with dashes.<br>**Example**: `icon = public/img/svg/linear/user.svg`|[↗](https://apps.axibase.com/chartlab/e4f2226b)
 <a name="icon-alert-expression"></a>[`icon-alert-expression`](#icon-alert-expression)|Boolean expression to apply conditional CSS style to series icons.<br>CSS style must be specified in the `icon-alert-style` setting.<br>The `value` field refers to the series value.<br>**Example**: `icon-alert-expression = value('s1') > value('s2')`|[↗](https://apps.axibase.com/chartlab/adc3d02e)
 <a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|CSS style applied to the series shape if `icon-alert-expression` returns `true`.<br>**Example**: `icon-alert-style = return alert > 12000 ? 'fill: red' : 'fill:green';`|[↗](https://apps.axibase.com/chartlab/adc3d02e)
-<a name="caption"></a>[`caption`](#caption)|Icon caption.<br>Caption is updated upon series double click.<br>**Example**: `caption = Administrative Users`|[↗](https://apps.axibase.com/chartlab/21185ede)
-<a name="caption-style"></a>[`caption-style`](#caption-style)|Caption CSS style.<br>Caption style is updated upon series double click.<br>**Example**: `caption-style = font-size: 64px; font-weight: bold; fill: steelblue;`|[↗](https://apps.axibase.com/chartlab/bfa00c41)
+<a name="caption"></a>[`caption`](#caption)|Icon caption.<br>Caption is updated upon series double click.<br>**Example**: `caption = Administrative Users`|[↗](https://apps.axibase.com/chartlab/21185ede/4/)
+<a name="caption-style"></a>[`caption-style`](#caption-style)|Caption CSS style.<br>Caption style is updated upon series double click.<br>**Example**: `caption-style = font-size: 64px; font-weight: bold; fill: steelblue;`|[↗](https://apps.axibase.com/chartlab/bfa00c41/2/)
 <a name="min-font-size"></a>[`min-font-size`](#min-font-size)|Minimum caption font size.<br>Font size does not scale below specified size.<br>**Example**: `min-font-size = 24`|[↗](https://apps.axibase.com/chartlab/7fed991e)
 <a name="max-font-size"></a>[`max-font-size`](#max-font-size)|Maximum caption font size.<br>Font size does not scale above specified size.<br>**Example**: `max-font-size = 8`|[↗](https://apps.axibase.com/chartlab/7fed991e)
 
@@ -76,9 +76,9 @@ Name | Description | &nbsp;
 
 ### Ring Icons and Captions
 
-![](./images/ring-icons-and-captions.png)
+![](./images/ring-icons-and-captions-2.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/e31d60be)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/e31d60be/2/)
 
 ### Series Labels Expression
 
