@@ -1,8 +1,8 @@
-# Streaming Table
+# Series Table
 
 ## Overview
 
-The **Streaming Table** displays a table of values stored in ATSD.
+The **Series Table** displays last series values.
 
 ```ls
 [widget]
@@ -41,11 +41,17 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/b09687f9)
 
-### Color Grid
+### Severity Grid
 
 ![](./images/color-grid-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/0d60397e)
+
+### Multiple Intervals
+
+![](./images/multiple-intervals.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b371626f/2/)
 
 ### Alert
 
@@ -77,7 +83,7 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/c9e3624d)
 
-### Configure Columns
+### Metadata Columns
 
 ![](./images/configure-columns.png)
 
