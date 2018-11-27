@@ -12,10 +12,10 @@ Treemap Widget | Pie Chart | Graph Widget
 :--:|:--:|:--:
 [![](./images/treemap-widget.png)](./treemap/README.md) | [![](./images/pie-chart.png)](./pie-chart/README.md) | [![](./images/graph.png)](./graph/README.md)
 
-Text Widget | Page Widget | Alert Console
+Text Widget | Page Widget | Alert Table
 :--:|:--:|:--:
-[![](./images/text-widget.png)](./text-widget/README.md) | [![](./images/page-widget.png)](./page-widget/README.md) | [![](./images/alert-console.png)](./alert-console/README.md)
+[![](./images/text-widget.png)](./text-widget/README.md) | [![](./images/page-widget.png)](./page-widget/README.md) | [![](./images/alert-console.png)](./alert-table/README.md)
 
-Streaming Table | Property Table
+Series Table | Property Table
 :--:|:--:
-[![](./images/streaming-table.png)](./streaming-table/README.md) | [![](./images/property-widget.png)](./property-table/README.md)
+[![](./images/streaming-table.png)](./series-table/README.md) | [![](./images/property-widget.png)](./property-table/README.md)
