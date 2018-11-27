@@ -91,6 +91,6 @@ Text Widget | Page Widget | Alert Table
 :--:|:--:|:--:
 [![](./images/text-widget.png)](./widgets/text-widget/README.md) | [![](./images/page-widget.png)](./widgets/page-widget/README.md) | [![](./images/alert-console.png)](./widgets/alert-table/README.md)
 
-Streaming Table | Property Table
+Series Table | Property Table
 :--:|:--:
-[![](./images/streaming-table.png)](./widgets/streaming-table/README.md) | [![](./images/property-widget.png)](./widgets/property-table/README.md)
+[![](./images/streaming-table.png)](./widgets/series-table/README.md) | [![](./images/property-widget.png)](./widgets/property-table/README.md)

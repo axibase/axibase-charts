@@ -14,7 +14,7 @@ const widgetLinks = [
     { text: 'Histogram', link: '/widgets/histogram/' },
     { text: 'Treemap', link: '/widgets/treemap/' },
     { text: 'Text Widget', link: '/widgets/text-widget/' },
-    { text: 'Series Table', link: '/widgets/streaming-table/' },
+    { text: 'Series Table', link: '/widgets/series-table/' },
     { text: 'Property Table', link: '/widgets/property-table/' },
     { text: 'Alert Table', link: '/widgets/alert-table/' },
     { text: 'Graph', link: '/widgets/graph/' },
