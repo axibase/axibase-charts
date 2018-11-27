@@ -2,9 +2,9 @@
 
 ## Overview
 
-This document describes functions, which can be referenced in the [`value`](../widgets/shared/README.md#value) setting to calculate values of a derived series.
+This document describes fields and functions, which can be referenced in the [`value`](../widgets/shared/README.md#value) setting to create derived series.
 
-The `value` setting is specified by the `[series]` section.
+The `value` setting is specified in the `[series]` section.
 
 ```ls
 # Define the original series, which values used in creating a derived (computed) series.
@@ -31,14 +31,29 @@ The `value` setting is specified by the `[series]` section.
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa)
 
-The expression specified in the `value` setting is invoked for each `time:value` sample in the original series. The expression must return a numeric value or null of the value cannot be calculated.
+The `value` expression is invoked **for each** `time:value` sample in the original series. The expression must return a numeric value or `null` if the value cannot be calculated. `null` values are not displayed on the chart.
 
-## Lookup Functions
+```ls
+[series]
+  metric = cpu_busy
+  entity = nurswgvml007
+  alias = s1
+[series]
+  # Show only values that are greater than previous
+  value = value("s-1") > previous("s-1") ? 10 + value("s-1") : null
+  label = s2
+```
 
-| Function | Arguments | Description |
+![](./images/value-function-2.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa/2/)
+
+## Fields
+
+| Field | Arguments | Description |
 |----------|-----------|-------------|
 | `value` | `alias` | Value of the series at the current timestamp. |
-| `previous` | `alias`, count | Value of series `count` samples ago. |
+| `previous` | `alias`, `count` | Value of series `count` samples ago.<br>If `count` is `1` or not set, the function returns the previous value. |
 | `time` |  | Timestamp in Unix milliseconds for which the expression is invoked. |
 
 ## Statistical Functions
@@ -82,10 +97,10 @@ Define a custom JavaScript function in the `window` object using the `script` / 
 ```ls
 script
   window.checkRange = function (val) {
-     if (val < 0) {
-       return 0;
+     if (val > 100) {
+       return null;
      }
-     return false;
+     return val;
   };
 endscript
 ```

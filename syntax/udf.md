@@ -13,10 +13,10 @@ Define a custom JavaScript function in the `window` object using [`script` / `en
 ```ls
 script
   window.checkRange = function (val) {
-     if (val < 0) {
-       return 0;
+     if (val > 100) {
+       return null;
      }
-     return false;
+     return val;
   };
 endscript
 ```
