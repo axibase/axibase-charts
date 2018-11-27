@@ -1,8 +1,8 @@
-# Alert Console
+# Alert Table
 
 ## Overview
 
-The **Alert Console** displays a continuously updated list of open [alerts](https://axibase.com/docs/atsd/rule-engine/#open-alerts) or [messages](https://axibase.com/docs/atsd/schema.html#messages) in tabular format.
+The **Alert Table** displays a continuously updated list of open [alerts](https://axibase.com/docs/atsd/rule-engine/#open-alerts) or [messages](https://axibase.com/docs/atsd/schema.html#messages) in tabular format.
 
 ```ls
 [widget]
