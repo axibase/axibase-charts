@@ -43,9 +43,9 @@ Name | Description | &nbsp;
 
 ### Severity Grid
 
-![](./images/severity-style.png)
+![](./images/st-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/f4cda01c)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6489829c/8/)
 
 ### Multiple Intervals
 
@@ -58,6 +58,12 @@ Name | Description | &nbsp;
 ![](./images/alert-example-1.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/4d03229c)
+
+### Toggle Rows
+
+![](./images/toggle-rows-2.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ae3ece3f)
 
 ### Calculated Columns
 
