@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Common Table Settings** are inherited by [Table](../streaming-table/README.md), [Property](../property-table/README.md), and [Console](../alert-table/README.md) widgets.
+The **Common Table Settings** are inherited by [Table](../series-table/README.md), [Property](../property-table/README.md), and [Console](../alert-table/README.md) widgets.
 
 ## Widget Settings
 
