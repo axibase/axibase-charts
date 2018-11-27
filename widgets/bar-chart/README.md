@@ -62,3 +62,9 @@ Name | Description | &nbsp;
 ![](./images/horizontal-alert-1.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/a4b572ef)
+
+### Sorted Bars with Derived Average Column
+
+![](./images/bc-1.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7d83dede)
