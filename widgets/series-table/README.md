@@ -43,9 +43,9 @@ Name | Description | &nbsp;
 
 ### Color Grid
 
-![](./images/color-grid-2.png)
+![](./images/st-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/0d60397e)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6489829c/8/)
 
 ### Multiple Intervals
 
