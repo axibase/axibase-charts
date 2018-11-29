@@ -60,4 +60,4 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 --|--|--
-<a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa.<br>**Example**: `audio-alert = (alert > 0.5) ? '/portal/resource/alarm.ogg' : '/portal/resource/klaxon.ogg'` | [↗](https://apps.axibase.com/chartlab/86d105c2)
+<a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa.<br>**Example**: `audio-alert = klaxon.ogg` | [↗](https://apps.axibase.com/chartlab/86d105c2)

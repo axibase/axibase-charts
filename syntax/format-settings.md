@@ -17,7 +17,7 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="decimal-numeric"></a>[`decimal`/`numeric`](#decimal-numeric)| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>`format = numeric(1)` rounds to the first decimal, thus `4.29` becomes `4.3`.<br>**Example**: `format = numeric(1)`| [↗](https://apps.axibase.com/chartlab/160d5c94)
 <a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of digits.<br>**Example**: `format = fixed(1)`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
-<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>For example: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).<br>**Example**: `format = '$' + currency`| [↗](https://apps.axibase.com/chartlab/a36fc97a)
+<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>**Example**: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).<br>**Example**: `format = '$' + currency`| [↗](https://apps.axibase.com/chartlab/a36fc97a)
 
 ### Optional Parameters
 
@@ -157,8 +157,8 @@ Modify the date format of the `x` axis for year, month, week, and day.
 
 ### Syntax
 
-* `%a`: Three-letter abbreviated day name, for example: `Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`.
-* `%aa`: Two-letter abbreviated day name, for example: `Su`, `Mo`, `Tu`, `We`, `Th`, `Fr`, `Sa`.
+* `%a`: Three-letter abbreviated day name: `Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`.
+* `%aa`: Two-letter abbreviated day name: `Su`, `Mo`, `Tu`, `We`, `Th`, `Fr`, `Sa`.
 * `%A`: Full day name.
 * `%b`: Abbreviated month name.
 * `%B`: Full month name.

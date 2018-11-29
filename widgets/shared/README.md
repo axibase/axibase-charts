@@ -159,8 +159,8 @@ Name | Description | &nbsp;
 <a name="tooltip"></a>[`tooltip`](#tooltip)| Tooltips displayed on mouseover.<br>**Example**: `tooltip = NURSWGVML007`| [↗](https://apps.axibase.com/chartlab/a46ea93e)
 <a name="axis"></a>[`axis`](#axis)| Series axis placement.<br>Possible values: `left`, `right`.<br>Default value: `left`.<br>**Example**: `axis = right`| [↗](https://apps.axibase.com/chartlab/8a66a428)
 <a name="format"></a>[`format`](#format) | Format series values with a [measurement unit](../../syntax/format-settings.md).<br>**Example**: `format = kilobytes`| [↗](https://apps.axibase.com/chartlab/938f5c6c)
-<a name="display"></a>[`display`](#display)| Hide series based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>**Example**: `display = value > top(3)`<br>`display = false`| [↗](https://apps.axibase.com/chartlab/22235081)
-<a name="enabled"></a>[`enabled`](#enabled) | Toggle series visibility based on boolean value or [expression](https://axibase.com/docs/atsd/administration/metric-persistence-filter.html#expression-syntax).<br>Series legend remains visible when `false`.<br>**Example**: `enabled = false`<br>`enabled = max('1 day') > 10`| [↗](https://apps.axibase.com/chartlab/c576ab5d)
+<a name="display"></a>[`display`](#display)| Hide series based on boolean value or a JavaScript [expression](../../syntax/value_functions.md) returning boolean value.<br>Supported fields: `value`, `previous`, `time`, [statistical functions](../../configuration/aggregators.md).<br>**Example**: `display = value >= top(3)`<br>`display = false`<br>`display = time < new Date().getTime() - 3600000*24*1`| [↗](https://apps.axibase.com/chartlab/22235081)
+<a name="enabled"></a>[`enabled`](#enabled) | Toggle series visibility. Same as the [`display`](#display) setting except that the disabled series legend remains visible.| [↗](https://apps.axibase.com/chartlab/c576ab5d)
 <a name="alert-expression"></a>[`alert-expression`](#alert-expression)| Boolean expression to apply conditional CSS style to series shapes.<br>The CSS style must be specified in the `alert-style` setting.<br>The `value` field refers to the series value.<br>**Example**: `alert-expression = value < 95`| [↗](https://apps.axibase.com/chartlab/28e4a7f0)
 <a name="alert-style"></a>[`alert-style`](#alert-style) | CSS style applied to the series shape if `alert-expression` returns `true`.<br>**Example**: `alert-style = fill: red; stroke: red`| [↗](https://apps.axibase.com/chartlab/28e4a7f0)
 <a name="audio-alert"></a>[`audio-alert`](#audio-alert) | Boolean expression to apply conditional CSS style to series shapes.<br>**Example**: `audio-alert = /portal/resource/alarm.ogg`| [↗](https://apps.axibase.com/chartlab/d3943e68)
@@ -240,10 +240,12 @@ Name | Description | &nbsp;
 
 ### Derived Value Settings
 
-Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax. The expression must return a number or `null`, series with `null` values are hidden.
+Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax.
+
+The expression must return a number or `null`. Samples with `null` values are hidden.
 
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="alias"></a>[`alias`](#alias)| Unique series name to pass data to other series.<br>**Example**: `alias = s1`| [↗](https://apps.axibase.com/chartlab/a18e5720)
-<a name="replace-value"></a>[`replace-value`](#replace-value) | Modify or filter series values.<br>Possible values: `value`, `previousValue`.<br>**Example**: `replace-value = value*2`| [↗](https://apps.axibase.com/chartlab/5ff83724)
-<a name="value"></a>[`value`](#value) | Series value.<br>Retrieve the value of the underlying series identified by alias.<br>Supported fields: `value`, `previous`, `detail`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`, [aggregator functions](../../configuration/aggregators.md).<br>Refer to [Value Functions](../../syntax/value_functions.md) for more information.<br>**Example**: `value = max('s1')`| [↗](https://apps.axibase.com/chartlab/25a47d0d)
+<a name="value"></a>[`value`](#value) | JavaScript arithmetic [expression](../../syntax/value_functions.md) to calculate derived values at each timestamp from the underlying series identified by alias.<br>Supported fields: `value`, `previous`, `time`, [aggregator functions](../../configuration/aggregators.md).<br>**Example**: `value = max('s1')`| [↗](https://apps.axibase.com/chartlab/25a47d0d)
+<a name="replace-value"></a>[`replace-value`](#replace-value) |JavaScript arithmetic expression to modify values in the current series.<br>Supported fields: `value`, `time`, `previousValue`, `previousTime`.<br>**Example**: `replace-value = value*2`| [↗](https://apps.axibase.com/chartlab/5ff83724)<br>[↗](https://apps.axibase.com/chartlab/5ff83724/2/)

@@ -14,11 +14,11 @@ Add multiple drop-down lists for any widget.
 
 Name | Description | &nbsp;
 --|--|--
-<a name="on-change"></a>[`on-change`](#on-change) | If specified, field is evaluated instead of default `onchange` behavior.<br>Either `onchange`, or `change-field` is **required** for any drop-down list.<br>**Example**: `on-change = widget.post.queries[0].type = this.value; widget.reload();` | [↗](https://apps.axibase.com/chartlab/f0b0039d)
+<a name="on-change"></a>[`on-change`](#on-change) | If specified, field is evaluated instead of default `onchange` behavior.<br>Either `onchange`, or `change-field` is **required** for any drop-down list.<br>**Example**: `on-change = widget.reload();` | [↗](https://apps.axibase.com/chartlab/f0b0039d)
 <a name="change-field"></a>[`change-field`](#change-field) | Widget setting changed upon drop-down list selection.<br>To update the widget subsection setting, use `{section-name}.{setting-name}` syntax.<br>**Example**: `change-field = series.metric` | [↗](https://apps.axibase.com/chartlab/b128e746)
-<a name="format"></a>[`format`](#format) | Format applied to the option value if no text setting is specified.<br>**Example**: `format = 'format = 'Server ' + value.toString().toUpperCase()` | [↗](https://apps.axibase.com/chartlab/e50eea0f)
-<a name="style"></a>[`style`](#style) | CSS to apply to the selected element.<br>**Example**: `style = color: dodgerblue` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
-<a name="options"></a>[`options`](#options) | Comma-separated list of option values.<br>Refer to [Options Syntax](#options-syntax) for possible values.<br>**Example**: `options = configuration, jfs, system, network` | [↗](https://apps.axibase.com/chartlab/e9e5c5e0)
+<a name="format"></a>[`format`](#format) | Format applied to the option value if no text setting is specified.<br>**Example**: `format = 'value.toUpperCase()` | [↗](https://apps.axibase.com/chartlab/e50eea0f)
+<a name="style"></a>[`style`](#style) | CSS to apply to the selected element.<br>**Example**: `style = color: orange` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
+<a name="options"></a>[`options`](#options) | Comma-separated list of option values.<br>Refer to [Options Syntax](#options-syntax) for possible values.<br>**Example**: `options = jfs, system, network` | [↗](https://apps.axibase.com/chartlab/e9e5c5e0)
 
 ### Options Syntax
 

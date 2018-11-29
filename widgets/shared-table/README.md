@@ -25,7 +25,7 @@ Name | Description | &nbsp;
 <a name="auto-height"></a>[`auto-height`](#auto-height)| Assign row height based on vertical space allocated to the widget and number of rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `auto-height = true`| [↗](https://apps.axibase.com/chartlab/8cef1677)
 <a name="font-scale"></a>[`font-scale`](#font-scale)| Ratio of font height to row height when `auto-height = true`.<br>Minimum row height is `10px`, maximum row height is `64px`.<br>Default: `0.5`.<br>**Example**: `font-scale = 0.7`| [↗](https://apps.axibase.com/chartlab/ed4d8748)
 <a name="table-header-style"></a>[`table-header-style`](#table-header-style)| Table header CSS style.<br>Hide table header with `table-header-style = display: none`.<br>**Example**: `table-header-style = font: 24 px`| [↗](https://apps.axibase.com/chartlab/1a277cd8)
-<a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>Hide widget header with `header-style = display: none`.<br>**Example**: `header-style = display: background-color: steelblue`| [↗](https://apps.axibase.com/chartlab/343efa22)
+<a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>Hide widget header with `header-style = display: none`.<br>**Example**: `background-color: steelblue`| [↗](https://apps.axibase.com/chartlab/343efa22)
 
 ### Column Settings
 
@@ -43,10 +43,10 @@ Name | Description | &nbsp;
 <a name="style"></a>[`style`](#style)|Prevent scrolling in columns containing long text strings.<br>Scroll bar appear when the column shrinks below the specified width.<br>Can be set in percent or pixels.<br>If `transpose = true`, then set `style = max-width:` in pixels.<br>**Example**: `style = max-width: 50%`|[↗](https://apps.axibase.com/chartlab/681f535a/11/)
 <a name="row-alert-style"></a>[`row-alert-style`](#row-alert-style)|Styles assigned to the whole row.<br>Can be specified as JavaScript code.<br>**Example**: `row-alert-style = background-color: orange`|[↗](https://apps.axibase.com/chartlab/95bd95be/12/)
 <a name="display"></a>[`display`](#display)| Hide a column.<br>Default value is `true`.<br>**Example**: `display = false`| [↗](https://apps.axibase.com/chartlab/95bd95be/13/)
-<a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>Supports `method` filter, which allows you to filter the rows in the table to the value of this cell.<br>**Examples**:<ul><li>`onclick = var s = series({ metric: 'nmon.process.%cpu', disconnectInterval: '90 second' })`</li><li>`onclick = dialog({ series: [s], disconnectValue: 0 })`</li><li>`onclick = filter()`</li></ul>|[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
+<a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>Supports `method` filter, which allows you to filter the rows in the table to the value of this cell.<br>**Examples**:<ul><li>`onclick = filter()`</li></ul>|[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>Can be specified as JavaScript code.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-<a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate the value of a series.<br>Default value: none.<br>**Example**: `series-value = series-value = replace(replace(meta().metric.label, 'Experimental', ''), 'Consumer Price Index', 'CPI')` | [↗](https://trends.axibase.com/2d7e442b )
+<a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate the value of a series.<br>Default value: none.<br>**Example**: `series-value = meta().metric.label` | [↗](https://trends.axibase.com/2d7e442b )
 <a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Default value: key or tag value.<br>**Example**: `value = row.openTime`|[↗](https://apps.axibase.com/chartlab/95bd95be/7/)
 
 ### Column Order

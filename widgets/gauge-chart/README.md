@@ -36,7 +36,7 @@ Name | Description | &nbsp;
 |<a name="gradient-count"></a>[`gradient-count`](#gradient-count)|Number of gradient sub-sectors within each threshold sector.<br>**Example**: `gradient-count = 3`|[↗](https://apps.axibase.com/chartlab/8014162f/3/)|
 |<a name="gradient-intensity"></a>[`gradient-intensity`](#gradient-intensity)|Gradient contrast.<br>Possible values: `[-100%,100%] / [-100%,100%]`.<br>**Example**: `gradient-intensity = -20% / 50%`|[↗](https://apps.axibase.com/chartlab/8014162f/2/)|
 |<a name="caption"></a>[`caption`](#caption)|Text displayed on top of the gauge.<br>HTML markup is supported.<br>**Example**: `caption = Operating System`|[↗](https://apps.axibase.com/chartlab/8c28ca09)|
-|<a name="caption-style"></a>[`caption-style`](#caption-style)|Caption CSS style.<br>**Example**: `caption-style = font-size: 64px; color: silver;`|[↗](https://apps.axibase.com/chartlab/32435859)|
+|<a name="caption-style"></a>[`caption-style`](#caption-style)|Caption CSS style.<br>**Example**: `caption-style = font-size: 64px`|[↗](https://apps.axibase.com/chartlab/32435859)|
 |<a name="ticks"></a>[`ticks`](#ticks)|Number of major ticks placed on the circle arc.<br>Default value: `5`.<br>**Example**: `ticks = 2`|[↗](https://apps.axibase.com/chartlab/2030dce2/2/)|
 |<a name="minor-ticks"></a>[`minor-ticks`](#minor-ticks)|Ratio of minor ticks per major tick. Supported only in `default` mode.<br>Default value: `0`.<br>**Example**: `minor-ticks = 4`|[↗](https://apps.axibase.com/chartlab/2030dce2/4/)|
 |<a name="display-ticks"></a>[`display-ticks`](#display-ticks)|Show numeric values on major ticks.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `display-ticks = true`|[↗](https://apps.axibase.com/chartlab/d27397ab/2/)|
