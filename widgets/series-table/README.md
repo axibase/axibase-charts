@@ -41,7 +41,7 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/b09687f9)
 
-### Severity Grid
+### Color Grid
 
 ![](./images/color-grid-2.png)
 
@@ -73,9 +73,9 @@ Name | Description | &nbsp;
 
 ### Multiple Metrics
 
-![](./images/multiple-metrics.png)
+![](./images/st-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/b3835e7f)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ca71ab6d)
 
 ### Multiple Tags
 
@@ -88,3 +88,9 @@ Name | Description | &nbsp;
 ![](./images/configure-columns.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/f804ddc9)
+
+## Config Columns
+
+![](./images/st-2.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/fb8bdf13/4/)
