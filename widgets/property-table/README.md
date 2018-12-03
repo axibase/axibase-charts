@@ -71,6 +71,12 @@ Name | Description | &nbsp;
 
 ## Examples
 
+### Entity Tags
+
+![](./images/pt-1.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/013e6026/2/)
+
 ### Entity Tags for Entity Group
 
 ![](./images/entity-tags-for-entity-groups.png)
