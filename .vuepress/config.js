@@ -31,6 +31,7 @@ const widgetsSideBar = widgetLinks
 const syntaxLinks = [
     { text: 'Settings Reference', link: `/syntax/reference.md` },
     { text: 'Alert Expressions', link: '/syntax/alert-expression.md' },
+    { text: 'Audio Alerts', link: '/configuration/audio-alerts.md' },
     { text: 'Baselines', link: '/configuration/baselines.md' },
     { text: 'Computed Metrics', link: '/configuration/computed-metrics.md' },
     { text: 'Control Structures', link: '/syntax/control-structures.md' },

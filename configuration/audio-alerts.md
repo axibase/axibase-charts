@@ -2,32 +2,52 @@
 
 ## Overview
 
-When an [`alert-expression`](../syntax/alert-expression.md) evaluates to `true`, play an audio file in your browser. Either set the full URK path to the audio file, or store the  audio file locally on your ATSD installation.
+The `audio-alert` setting plays an audio file in the user's browser when an [`alert-expression`](../syntax/alert-expression.md) evaluates to `true`.
 
-> Store audio files in the `/opt/atsd/atsd/conf/portal` directory of your ATSD installation.
+```ls
+alert-expression = value > 70
+audio-alert = siren.mp3
+```
 
-* The following path to audio files stored on the ATSD file system must be set in the `audio-alert` setting: `/portal/resource/alarm.ogg`
-  * Note that files located in the specified directory must always be referenced with the addition of `/resource/` before audio file name.
+Audio is played each time when the result of the `alert-expression` expression changes from `false` to `true` or from `true` to `false`.
 
-Audio is played only on `alert-expression` status change, such as `false` evaluating to `true` or `true` evaluating to `false`.
+## Browser Settings
 
-Play different audio based on expression, such as one track for `alert-ON` and another track on `alert-OFF`.
+* Firefox: `media.autoplay.enabled` set to `true`.
+* Chrome: `chrome://flags/#autoplay-policy`set to `No user gesture is required`.
 
-* Supported formats: `mp3`, `ogg`, `wav`.
+## Supported Audio Codecs
 
-> Internet Explorer 11 does not support `ogg` format.
+| Browser           | `mp3` | `wav` | `ogg` |
+|-------------------|-----|-----|-----|
+| Chrome            | Yes | Yes | Yes |
+| Firefox           | Yes | Yes | Yes |
+| Safari            | Yes | Yes | No  |
+| Internet Explorer | Yes | No  | No  |
 
-Use **Audio Alerts** in any widget that supports the [`alert-expression`](../widgets/shared/README.md#alert-expression) setting.
+## Test
 
-### ChartLab Example
+To test if your browser supports auto-playback, open this [example](https://apps.axibase.com/chartlab/7509393e).
 
-![](./images/audio-alert-example.png)
+## Scope
 
-[![](../images/button.png)](https://apps.axibase.com/chartlab/10662e8d#fullscreen)
+* `audio-alert` setting is supported in widgets that support the [`alert-expression`](../widgets/shared/README.md#alert-expression) setting.
 
-### Example Audio Files
+## File Path
 
-Download the following example audio files and save them in the appropriate directory to use them locally.
+The path to the audio file can be specified as an absolute or relative path.
+
+Relative path must start with `/portal/resource/` and the file must be present in the `/opt/atsd/atsd/conf/portal` directory on the target ATSD server.
+
+Mapping example:
+
+```txt
+/portal/resource/alarm.ogg -> /opt/atsd/atsd/conf/portal/alarm.ogg
+```
+
+## Sample Sounds
+
+Download the following sample `mp3` files to the `/opt/atsd/atsd/conf/portal` directory on the ATSD server.
 
 * [`alarm.mp3`](https://apps.axibase.com/chartlab/portal/alarm.mp3)
 * [`bell.mp3`](https://apps.axibase.com/chartlab/portal/bell.mp3)
@@ -37,14 +57,34 @@ Download the following example audio files and save them in the appropriate dire
 * [`siren.mp3`](https://apps.axibase.com/chartlab/portal/siren.mp3)
 * [`up.mp3`](https://apps.axibase.com/chartlab/portal/up.mp3)
 
-## Browser Compatibility
+Refer to files as `/portal/resource/name-to-file.mp3`.
 
-Browser | `.mp3` | `.wav` | `.ogg`
---|--|--|--
-Internet Explorer | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x:
-Chrome | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Firefox | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Safari | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x:
+```ls
+alert-expression = value > 50
+audio-alert = /portal/resource/alarm.mp3
+```
+
+## Alert Expressions
+
+### Alert on `false -> true`
+
+```ls
+alert-expression = value > 70
+audio-alert = /portal/resource/siren.mp3
+```
+
+### Alert on `false -> true` and `true -> false`
+
+```ls
+# set alert-expression to 'value' so that it is always true
+# choose which file to play using a ternary expression in audio-alert
+alert-expression = value
+audio-alert = (alert > 0.5) ? 'error.mp3': 'normal.mp3'
+```
+
+### ChartLab Example
+
+[![](../images/button.png)](https://apps.axibase.com/chartlab/86d105c2/2/)
 
 ## Widget Settings
 
@@ -52,12 +92,5 @@ Safari | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x:
 
 Name | Description | &nbsp;
 --|--|--
-<a name="audio-onload"></a>[`audio-onload`](#audio-onload) | Play audio alert on initial widget load if `audio-alert` setting contains path to audio file and `audio-onload = true`.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `audio-onload = true`| [↗](https://apps.axibase.com/chartlab/e46cff68)
-
-## Series Settings
-
-* The settings apply to the `[series]` section.
-
-Name | Description | &nbsp;
---|--|--
-<a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Define the audio file to play when `alert-expression` evaluates to `true`<br>Audio is only played on `alert-expression` status change such as `true` to `false` or vise versa.<br>**Example**: `audio-alert = klaxon.ogg` | [↗](https://apps.axibase.com/chartlab/86d105c2)
+<a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Path to audio file played when `alert-expression` evaluates to `true`.<br>**Example**: `audio-alert = /portal/resource/alarm.mp3` | [↗](https://apps.axibase.com/chartlab/86d105c2/2/)
+<a name="audio-onload"></a>[`audio-onload`](#audio-onload) | Play audio on initial widget load if `alert-expression` is `true`.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `audio-onload = true`| [↗](https://apps.axibase.com/chartlab/7509393e)
