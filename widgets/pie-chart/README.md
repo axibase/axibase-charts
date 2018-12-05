@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Pie Chart** illustrates numerical proportions between series and total values.
+The **Pie Chart** illustrates numerical proportions between the last series values and their total value.
 
 ```ls
 [widget]
@@ -15,7 +15,14 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 
 ![](./images/pie-title-1.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/beb22419)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/beb22419/2/)
+
+## Interactive Behavior
+
+The **Pie Chart** implements interactive on-click behavior.
+
+* Single click: Opens a dialog window with a [**Time Chart**](../time-chart/README.md) for the series.
+* Double click: Configured with `selector-mode`, `on-series-double-click`, and `expand` settings. The default behavior is to expand the sector.
 
 ## Widget Settings
 
@@ -23,9 +30,6 @@ The **Pie Chart** illustrates numerical proportions between series and total val
 
 * The settings apply to the `[widget]` section.
 * [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
-* The **Pie Chart** includes unique behavior upon clicking a sector of the chart:
-  * Single click: Opens a dialog window with a [**Time Chart**](../time-chart/README.md) for the series.
-  * Double click: Controlled by `selector-mode`, `on-series-double-click`, and `expand` setting. Default behavior is `expand` upon double click.
 
 Name | Description | &nbsp;
 :--|:--|:--

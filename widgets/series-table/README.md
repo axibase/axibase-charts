@@ -27,9 +27,18 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series)| Hide series for which no data exists or data whose validity is expired.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `hide-empty-series = false`| [↗](https://apps.axibase.com/chartlab/cfc5c1bd)
 
+## Series Settings
+
+* The settings apply to the `[series]` section.
+* [Common](../shared/README.md#series-settings) `[series]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
+
 ## Examples
 
-### `min` and `max` Value Time
+### Minimum and Maximum Value Time
 
 ![](./images/min-max-2.png)
 
@@ -53,7 +62,7 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/b371626f/2/)
 
-### Alert
+### Alert Styles
 
 ![](./images/alert-example-1.png)
 
@@ -89,7 +98,7 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/f804ddc9)
 
-## Config Columns
+## Configuration Columns
 
 ![](./images/st-2.png)
 
