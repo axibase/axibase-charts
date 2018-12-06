@@ -10,6 +10,7 @@ The **Common Table Settings** are inherited by [Table](../series-table/README.md
 
 Name | Description | &nbsp;
 :--|:--|:--
+<a name="expand-tags"></a>[`expand-tags`](#expand-tags)| Automatically create columns for all tags in the received records.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `expand-tags = true`| [↗](https://apps.axibase.com/chartlab/220498ff/4/)
 <a name="columns"></a>[`columns`](#columns)| Add multiple columns by key.<br>**Example**: `columns = command`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/2/)
 <a name="sort"></a>[`sort`](#sort)| Sort table rows by column value using descending (`DESC`) or ascending (`ASC`) order.<br>All columns in the `property` and `console` widgets are sorted as text.<br>**Example**: `sort = memfree DESC`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/3/)
 <a name="transpose"></a>[`transpose`](#transpose)| Transpose table rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `transpose = true`| [↗](https://apps.axibase.com/chartlab/fe7940e7)

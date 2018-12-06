@@ -5,16 +5,10 @@
 The **Property Table** displays properties collected by an entity in tabular format.
 
 ```ls
-[configuration]
-  height-units = 2
-  width-units = 1
-
-[group]
 [widget]
   type = property
   expand-tags = true
   timespan = all
-  transpose = true
 
   [property]
     type = configuration
@@ -30,7 +24,6 @@ The **Property Table** displays properties collected by an entity in tabular for
 * The settings apply to the `[widget]` section.
 * [Common](../shared/README.md#widget-settings) `[widget]` settings are inherited.
 * [Common Table](../shared-table/README.md#widget-settings) `[widget]` settings are inherited.
-* By default, the **Property Table** contains `entity` and `time` columns.
 
 Name | Description | &nbsp;
 :--|:--|:--
