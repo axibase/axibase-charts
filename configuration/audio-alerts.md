@@ -31,7 +31,8 @@ To test if your browser supports auto-playback, open this [example](https://apps
 
 ## Scope
 
-* `audio-alert` setting is supported in widgets that support the [`alert-expression`](../widgets/shared/README.md#alert-expression) setting.
+* `audio-alert` setting is supported in widgets that load series data.
+* `audio-alert` setting is **not** supported by the Alert Table, Property Table, Page, and Map widgets. For an alternative, refer to this [example](https://apps.axibase.com/chartlab/e69d9589) which plays audio upon alert in the Alert Table.
 
 ## File Path
 
@@ -82,10 +83,6 @@ alert-expression = value
 audio-alert = (alert > 0.5) ? 'error.mp3': 'normal.mp3'
 ```
 
-### ChartLab Example
-
-[![](../images/button.png)](https://apps.axibase.com/chartlab/86d105c2/2/)
-
 ## Widget Settings
 
 * The settings apply to the `[widget]` section.
@@ -94,3 +91,13 @@ Name | Description | &nbsp;
 --|--|--
 <a name="audio-alert"></a>[`audio-alert`](#audio-alert)| Path to audio file played when `alert-expression` evaluates to `true`.<br>**Example**: `audio-alert = /portal/resource/alarm.mp3` | [↗](https://apps.axibase.com/chartlab/86d105c2/2/)
 <a name="audio-onload"></a>[`audio-onload`](#audio-onload) | Play audio on initial widget load if `alert-expression` is `true`.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `audio-onload = true`| [↗](https://apps.axibase.com/chartlab/7509393e)
+
+## Examples
+
+### Play Audio on Threshold
+
+[![](../images/button.png)](https://apps.axibase.com/chartlab/86d105c2/2/)
+
+### Play Audio on Alert
+
+[![](../images/button.png)](https://apps.axibase.com/chartlab/e69d9589)
