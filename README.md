@@ -52,27 +52,6 @@ The [plugin](https://marketplace.visualstudio.com/items?itemName=Axibase.axibase
 
 ---
 
-## Syntax and Configuration
-
-* [Control Structures](./syntax/control-structures.md)
-* [Label Formatting](./syntax/label-formatting.md)
-* [Alert Expressions](./syntax/alert-expression.md)
-* [Baselines](./configuration/baselines.md)
-* [Thresholds and SLA](./syntax/thresholds.md)
-* [Extended Aggregators](./syntax/extended-aggregators.md)
-* [Linking](./syntax/linking.md)
-* [Wildcards](./syntax/wildcards.md)
-* [Functions](./syntax/functions.md)  
-* [User-Defined Functions](./syntax/udf.md)
-* [Drop-down Lists](./configuration/drop-down-lists.md)
-* [Inheritance](./configuration/inheritance.md)
-* [Display Filters](./configuration/display-filters.md)
-* [Computed Metrics](./configuration/computed-metrics.md)
-* [Summary Portals](./configuration/summary-portals.md)
-* [Meta Data](./configuration/meta-data.md)
-
----
-
 ## Widgets
 
 Time Chart | Gauge Chart | Bar Chart
