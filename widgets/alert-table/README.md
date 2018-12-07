@@ -43,7 +43,7 @@ Name | Description | &nbsp;
 
 Date interval filters such as [`timespan`](../shared/README.md#timespan) are applied to the `openDate` field in alerts and to the `date` field in messages.
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/d9a3d42b/4/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/d9a3d42b/5/)
 
 ### Style
 
