@@ -3,7 +3,7 @@
 <!-- markdownlint-disable MD102 -->
 
 * <a name="add-meta"></a>[`add-meta`](../widgets/shared/README.md#add-meta)
-* <a name="ahead-time-span"></a>[`ahead-time-span`](../widgets/time-chart/README.md#ahead-time-span)
+* <a name="ahead-timespan"></a>[`ahead-timespan`](../widgets/time-chart/README.md#ahead-timespan)
 * <a name="alert-expression"></a>[`alert-expression`](../widgets/shared/README.md#alert-expression)
 * <a name="alert-row-style"></a>[`alert-row-style`](../widgets/shared-table/README.md#row-alert-style)
 * <a name="alert-style"></a>[`alert-style`](../widgets/shared/README.md#alert-style)
@@ -201,7 +201,7 @@
 * <a name="refresh-interval"></a>[`refresh-interval`](../widgets/shared/README.md#refresh-interval)
 * <a name="replace-value"></a>[`replace-value`](../widgets/shared/README.md#replace-value)
 * <a name="responsive"></a>[`responsive`](../widgets/shared-table/README.md#responsive)
-* <a name="retain-time-span"></a>[`retain-time-span`](../widgets/time-chart/README.md#retain-time-span)
+* <a name="retain-timespan"></a>[`retain-timespan`](../widgets/time-chart/README.md#retain-timespan)
 * <a name="retry-refresh-interval"></a>[`retry-refresh-interval`](../widgets/shared/README.md#retry-refresh-interval)
 * <a name="right-axis"></a>[`right-axis`](../widgets/histogram/README.md#right-axis)
 * <a name="ring-width"></a>[`ring-width`](../widgets/gauge-chart/README.md#ring-width)

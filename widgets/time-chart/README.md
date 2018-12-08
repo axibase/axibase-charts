@@ -56,8 +56,8 @@ Name |Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="ahead-timespan"></a>[`ahead-time-span`](#ahead-time-span)|Future interval displayed on the time axis, measured as percentage of `timespan`<br>Possible values: `0 - 100%`.<br>Applies if `end-time` is _not_ set.<br>**Example**: `ahead-timespan = 80%`| [↗](https://apps.axibase.com/chartlab/92c46bac)
-<a name="retain-timespan"></a>[`retain-time-span`](#retain-time-span)| Maintains a constant time interval during incremental widget update.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `retain-timespan = false`| [↗](https://apps.axibase.com/chartlab/b86df9d4)
+<a name="ahead-timespan"></a>[`ahead-timespan`](#ahead-timespan)|Future interval displayed on the time axis, measured as percentage of `timespan`<br>Possible values: `0 - 100%`.<br>Applies if `end-time` is _not_ set.<br>**Example**: `ahead-timespan = 80%`| [↗](https://apps.axibase.com/chartlab/92c46bac)
+<a name="retain-timespan"></a>[`retain-timespan`](#retain-timespan)| Maintains a constant time interval during incremental widget update.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `retain-timespan = false`| [↗](https://apps.axibase.com/chartlab/b86df9d4)
 <a name="rotate-ticks"></a>[`rotate-ticks`](#rotate-ticks)| Rotate labels on the time axis by `n` degrees.<br>Possible values: between `0` (horizontal) and `90` (vertical), or `true` (horizontal).<br>Default value: `90` (vertical).<br>**Example**: `rotate-ticks = 0`| [↗](https://apps.axibase.com/chartlab/7a38cfdd)
 <a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks)| Center time and date markers over ticks.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `centralize-ticks = true`| [↗](https://apps.axibase.com/chartlab/4872db9d)
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 20`| [↗](https://apps.axibase.com/chartlab/0e31a579)
