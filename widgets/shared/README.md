@@ -17,7 +17,16 @@ Name | Description | &nbsp;
 <a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>**Example**: `header-style = color: red`| [↗](https://apps.axibase.com/chartlab/6fa47d56)
 <a name="colors"></a>[`colors`](#colors)| Comma separated list of colors applied to series shapes: lines, rectangles, or circles, depending on the widget type.<br>Possible values: [color names](https://en.wikipedia.org/wiki/Web_colors) or hex codes.<br>Default values: `steelblue`, `orange`, `forestgreen`, `blueviolet`, `maroon`, `yellowgreen`, `magenta`, `chocolate`, `deepskyblue`, `gray`.<br>Additional series are assigned colors at random.<br>**Example**: `colors = green, #cccccc`.<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors), [`web colors`](https://en.wikipedia.org/wiki/Web_colors). | [↗](https://apps.axibase.com/chartlab/a2977750)
 
-> See also [Layout Settings](../../configuration/README.md) that determine widget dimensions and grid placement.
+### Position and Size
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="width-units"></a>[`width-units`](#width-units)| Number of columns the widget occupies.<br>Default value: `1`.<br>**Example**: `width-units = 0.5`|[↗](https://apps.axibase.com/chartlab/1b677aa7/2/)
+<a name="height-units"></a>[`height-units`](#height-units) | Number of rows the widget occupies.<br>Default value: `1`.<br>**Example**: `height-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/2/)
+<a name="top-units"></a>[`top-units`](#top-units) | Widget offset, in _units_, from the top page border.<br>Default value is equal to the ordinal number of its `[group]` section.<br>**Example**: `top-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/3/)
+<a name="left-units"></a>[`left-units`](#left-units) | Widget offset, in _units_, from the left page border.<br>Default value is equal to the ordinal number of the widget within the `[group]`.<br>**Example**: `left-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/4/)
+
+> See also [Layout Settings](../../configuration/README.md) that determine the total number of columns and rows in a grid placement.
 
 ### Data Loading
 
@@ -28,7 +37,7 @@ Name | Description | &nbsp;
 <a name="end-time"></a>[`end-time`](#end-time)| End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `end-time` is specified, either `start-time` **or** `timespan` is also required.<br>**Example**: `endtime = 2018-07-05 13:00:00`| [↗](https://apps.axibase.com/chartlab/f784e730)
 <a name="timezone"></a>[`timezone`](#timezone)| Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone.<br>**Example**: `timezone = UTC`| [↗](https://apps.axibase.com/chartlab/01bcbf1c)
 <a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 3 month`| [↗](https://apps.axibase.com/chartlab/80152e9f)
-<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `multiple-series = true`| [↗](https://apps.axibase.com/chartlab/7a9e4495)
+<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `false` (`true` for wildcard requests).<br>**Example**: `multiple-series = true`| [↗](https://apps.axibase.com/chartlab/7a9e4495/2/)
 <a name="series-limit"></a>[`series-limit`](#series-limit)| Maximum number of series retrieved from the database.<br>Default value: `1000`.<br>**Example**: `series-limit = 10`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/ace8b96d)
 <a name="cache"></a>[`cache`](#cache) | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `cache = true`| [↗](https://apps.axibase.com/chartlab/6cb1473e)
