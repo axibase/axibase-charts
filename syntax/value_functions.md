@@ -40,7 +40,7 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
   alias = s1
 [series]
   # Show only values that are greater than previous
-  value = value("s-1") > previous("s-1") ? 10 + value("s-1") : null
+  value = value('s-1') > previous('s-1') ? 10 + value('s-1') : null
   label = s2
 ```
 
@@ -58,7 +58,7 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 
 ## Statistical Functions
 
-The default `interval` is calculated based on the widget timespan.
+The default `interval` is calculated based on the [widget timespan](https://apps.axibase.com/chartlab/a7583b72/4/.
 
 | Function | Arguments | Description |
 |----------|-----------|-------------|
