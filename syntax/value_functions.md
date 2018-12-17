@@ -58,21 +58,23 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 
 ## Statistical Functions
 
+The default `interval` is calculated based on the widget timespan.
+
 | Function | Arguments | Description |
 |----------|-----------|-------------|
-| `max` | `alias`, `period` | Maximum in the current `period`. |
-| `min` | `alias`, `period` | Minimum in the current `period`. |
-| `avg` | `alias`, `period` | Average in the current `period`. |
-| `sum` | `alias`, `period` | Sum of values in the current `period`. |
-| `delta` | `alias`, `period` | Difference between last values of the current and previous periods. |
-| `counter` | `alias`, `period`  | Sum of positive differences between subsequent values in the current period. |
-| `count` | `alias`, `period` | Number of samples in the current `period`. |
-| `last` | `alias`, `period` | Value of the last sample. in the current period. |
-| `first` | `alias`, `period` | Value of the first sample in the current period. |
-| `min_value_time` | `alias`, `period` | Timestamp of the maximum value in the current period. |
-| `max_value_time` | `alias`, `period` | Timestamp of the minimum value in the current period. |
-| `median` | `alias`, `period` | Same as `percentile(50)`. |
-| `percentile` | `n`, `alias`, `period` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `(0, 100]`.<br>Default `n` is `50` (median).  |
+| `max` | `alias`, `interval` | Maximum in the specified interval. |
+| `min` | `alias`, `interval` | Minimum in the specified interval. |
+| `avg` | `alias`, `interval` | Average in the specified interval. |
+| `sum` | `alias`, `interval` | Sum of values in the specified interval. |
+| `delta` | `alias`, `interval` | Difference between last value in the specified interval and last value before the interval. |
+| `counter` | `alias`, `interval`  | Sum of positive differences between subsequent values in the specified interval. |
+| `count` | `alias`, `interval` | Number of samples in the specified interval. |
+| `last` | `alias`, `interval` | Value of the last sample. in the specified interval. |
+| `first` | `alias`, `interval` | Value of the first sample in the specified interval. |
+| `min_value_time` | `alias`, `interval` | Timestamp of the maximum value in the specified interval. |
+| `max_value_time` | `alias`, `interval` | Timestamp of the minimum value in the specified interval. |
+| `median` | `alias`, `interval` | Same as `percentile(50)`. |
+| `percentile` | `n`, `alias`, `interval` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `(0, 100]`.<br>Default `n` is `50` (median).  |
 | `movavg` | `alias`, `count`, `minCount` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds this parameter. |
 
 ## Ranking Functions
