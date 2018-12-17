@@ -38,6 +38,7 @@ const syntaxLinks = [
     { text: 'Display Filters', link: '/configuration/display-filters.md' },
     { text: 'Drop-down Lists', link: '/configuration/drop-down-lists.md' },
     { text: 'Extended Aggregators', link: '/syntax/extended-aggregators.md' },
+    { text: 'Value Functions', link: '/syntax/value_functions.md' },    
     { text: 'Functions', link: '/syntax/functions.md' },  
     { text: 'Inheritance', link: '/configuration/inheritance.md' },
     { text: 'Label Formatting', link: '/syntax/label-formatting.md' },

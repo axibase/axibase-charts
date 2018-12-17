@@ -2,7 +2,7 @@
 
 Both the [`display`](../widgets/shared/README.md#display) and [`enabled`](../widgets/shared/README.md#enabled) settings support expressions in addition to boolean values, and are used to show or hide series based on conditions. `display` hides series from view **and** from the legend, and `enabled` hides series from view **but** shows them in the legend in disabled state.
 
-These expressions can compare `last value` or statistics with a pre-defined threshold or relative rank based on `last value`.
+These expressions can compare the series last value or statistics with a threshold or multi-series percentile [rank](../syntax/value_functions.md?rank-functions).
 
 ## Examples
 

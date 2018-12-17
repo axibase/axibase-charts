@@ -276,7 +276,7 @@ series-limit = 10
     fstype = ext4
 ```
 
-For more flexible visibility control on the client, use the display and enabled settings.
+For more flexible visibility control, use [rank](../syntax/value_functions.md?rank-functions) functions and [display filters](../configuration/display-filters.md).
 
 ```ls
 entity = *
