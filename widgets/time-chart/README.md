@@ -170,7 +170,7 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 ![](./images/percentile-statistics.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/252829fb)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/252829fb/2/)
 
 ### Forecast
 
