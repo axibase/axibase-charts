@@ -2,6 +2,25 @@
 
 <!-- markdownlint-disable MD102 -->
 
+## Sections
+
+* <a name="[configuration]"></a>[`[configuration]`](../configuration/README.md#configuration-settings)
+* <a name="[widget]"></a>[`[widget]`](../widgets/shared/README.md#widget-settings)
+* <a name="[series]"></a>[`[series]`](../widgets/shared/README.md#series-settings)
+* <a name="[tags]"></a>[`[tags]`](../widgets/shared/README.md#tag-filter)
+* <a name="[column]-bar"></a>[`[column]`](../widgets/bar-chart/README.md#column-settings) (bar)
+* <a name="[column]-table"></a>[`[column]`](../widgets/shared-table/README.md#column-settings) (shared table)
+* <a name="[link]-graph"></a>[`[link]`](../widgets/graph/README.md#link-settings) (graph)
+* <a name="[node]-graph"></a>[`[node]`](../widgets/graph/README.md#node-settings) (graph)
+* <a name="[other]-pie"></a>[`[other]`](../widgets/pie-chart/README.md#other-settings) (pie)
+* <a name="[other]-treemap"></a>[`[other]`](../widgets/treemap/README.md#other-settings) (treemap)
+* <a name="[properties]-treemap"></a>[`[properties]`](../widgets/treemap/README.md#properties-settings) (treemap)
+* <a name="[properties]-graph"></a>[`[properties]`](../widgets/graph/README.md#properties-settings) (graph)
+* <a name="[property]-property"></a>[`[property]`](../widgets/property-table/README.md#property-settings) (property)
+* <a name="[threshold]-time"></a>[`[threshold]`](../widgets/time-chart/README.md#threshold-settings) (time chart)
+
+## Settings
+
 * <a name="add-meta"></a>[`add-meta`](../widgets/shared/README.md#add-meta)
 * <a name="ahead-timespan"></a>[`ahead-timespan`](../widgets/time-chart/README.md#ahead-timespan)
 * <a name="alert-expression"></a>[`alert-expression`](../widgets/shared/README.md#alert-expression)

@@ -60,11 +60,9 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 
 | Function | Arguments | Description |
 |----------|-----------|-------------|
-| `movavg` | `alias`, `count`, `minCount` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds this parameter. |
-| `percentile` | `percentage`, `alias`, `period` | `percentage`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`percentage` is a decimal number between `(0, 100]`.<br>Default `percentage=50`.  |
-| `max`<br>`maximum` | `alias`, `period` | Maximum in the current `period`. |
-| `min`<br>`minimum` | `alias`, `period` | Minimum in the current `period`. |
-| `avg`<br>`average` | `alias`, `period` | Average in the current `period`. |
+| `max` | `alias`, `period` | Maximum in the current `period`. |
+| `min` | `alias`, `period` | Minimum in the current `period`. |
+| `avg` | `alias`, `period` | Average in the current `period`. |
 | `sum` | `alias`, `period` | Sum of values in the current `period`. |
 | `delta` | `alias`, `period` | Difference between last values of the current and previous periods. |
 | `counter` | `alias`, `period`  | Sum of positive differences between subsequent values in the current period. |
@@ -74,13 +72,15 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 | `min_value_time` | `alias`, `period` | Timestamp of the maximum value in the current period. |
 | `max_value_time` | `alias`, `period` | Timestamp of the minimum value in the current period. |
 | `median` | `alias`, `period` | Same as `percentile(50)`. |
+| `percentile` | `n`, `alias`, `period` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `(0, 100]`.<br>Default `n` is `50` (median).  |
+| `movavg` | `alias`, `count`, `minCount` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds this parameter. |
 
 ## Ranking Functions
 
 | Function | Arguments | Description |
 |----------|-----------|-------------|
-| `bottom` | `rank`, `getValue` | Sort current values in increasing order and return the position index<br>`1` = smallest. |
-| `top` | `rank`, `getValue` | Sort current values in decreasing order and return the position index<br>`1` = largest. |
+| `top` | `rank` | Returns the value of the top-N element (specified with `rank`) in the sorted array of last values of all series loaded by the widget.<br>`top(1)` returns the _largest_ value.<br>`rank` must be a positive integer.<br>View [example](https://apps.axibase.com/chartlab/81443acd). |
+| `bottom` | `rank` | Returns the value of the bottom-N element (specified with `rank`) in the sorted array of last values of all series loaded by the widget.<br>`bottom(1)` returns the _smallest_ value.<br>`rank` must be a positive integer.<br>View [example](https://apps.axibase.com/chartlab/81443acd/2/).|
 
 ## Metadata Functions
 
