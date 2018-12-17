@@ -61,7 +61,7 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 | Function | Arguments | Description |
 |----------|-----------|-------------|
 | `movavg` | `alias`, `count`, `minCount` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds this parameter. |
-| `percentile` | `percentage`, `alias`, `period` |  Value, which is greater than the `percentage` of samples in the current `period`.  |
+| `percentile` | `percentage`, `alias`, `period` | `percentage`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`percentage` is a decimal number between `(0, 100]`.<br>Default `percentage=50`.  |
 | `max`<br>`maximum` | `alias`, `period` | Maximum in the current `period`. |
 | `min`<br>`minimum` | `alias`, `period` | Minimum in the current `period`. |
 | `avg`<br>`average` | `alias`, `period` | Average in the current `period`. |
