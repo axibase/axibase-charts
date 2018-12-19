@@ -60,7 +60,8 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 
 ## Statistical Functions
 
-* The `interval` argument is optional. If the interval argument is not specified, it is calculated based on the [`timespan`](https://apps.axibase.com/chartlab/a7583b72/4/) setting.
+* The `alias` argument is required. The `interval` argument is optional.
+* If the interval argument is not specified, it depends on the [`timespan`](https://apps.axibase.com/chartlab/a7583b72/4/) setting.
 * If the timespan exceeds `interval`, series values are split into calendar-aligned periods and the function is applied to each period separately.
 
 | Function | Arguments | Description |
@@ -77,7 +78,7 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 | `min_value_time` | `alias`, `[interval]` | Timestamp of the maximum value in the specified interval. |
 | `max_value_time` | `alias`, `[interval]` | Timestamp of the minimum value in the specified interval. |
 | `median` | `alias`, `[interval]` | Same as `percentile(50)`. |
-| `percentile` | `n`, `alias`, `[interval]` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `(0, 100]`.<br>Default `n` is `50` which equals `median(alias)`.  |
+| `percentile` | `n`, `alias`, `[interval]` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `percentile(75, 's1')` or `percentile(99.5, 's1')`.<br>`n` is a decimal number between `(0, 100]`. |
 | `movavg` | `alias`, `count`, `[minCount]` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds `minCount`. |
 | `previous` | `alias`, `[offset]` | Value of the previous sample, with optional `offset` index which defaults to `1`. |
 
