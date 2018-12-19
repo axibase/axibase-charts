@@ -1,6 +1,6 @@
 # Configuration Objects
 
-Use the following configuration objects with the [`config()` function](./functions.md#config) to return configuration components for use in Charts applications.
+List of fields accessible with the `config()` function.
 
 ## Series Objects
 

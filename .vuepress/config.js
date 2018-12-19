@@ -38,16 +38,19 @@ const syntaxLinks = [
     { text: 'Display Filters', link: '/configuration/display-filters.md' },
     { text: 'Drop-down Lists', link: '/configuration/drop-down-lists.md' },
     { text: 'Extended Aggregators', link: '/syntax/extended-aggregators.md' },
-    { text: 'Value Functions', link: '/syntax/value_functions.md' },    
-    { text: 'Functions', link: '/syntax/functions.md' },  
     { text: 'Inheritance', link: '/configuration/inheritance.md' },
     { text: 'Label Formatting', link: '/syntax/label-formatting.md' },
     { text: 'Linking', link: '/syntax/linking.md' },
     { text: 'Meta Data', link: '/configuration/meta-data.md' },
     { text: 'Summary Portals', link: '/configuration/summary-portals.md' },
     { text: 'Thresholds and SLA', link: '/syntax/thresholds.md' },
-    { text: 'User-Defined Functions', link: '/syntax/udf.md' },
     { text: 'Wildcards', link: '/syntax/wildcards.md' },
+    { },
+    { text: 'Value Functions', link: '/syntax/value-functions.md' },
+    { text: 'Replace Value Functions', link: '/syntax/replace-value-functions.md' },
+    { text: 'Rank Functions', link: '/syntax/ranking-functions.md' },
+    { text: 'API Functions', link: '/syntax/api-functions.md' },
+    { text: 'User-Defined Functions', link: '/syntax/udf.md' },   
 ]
 
 

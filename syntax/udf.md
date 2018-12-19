@@ -164,7 +164,7 @@ exports.devideBy = function (alias, num) {
 };
 ```
 
-Function body can reference any JavaScript function such as [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [built-in functions](value_functions.md) supported in the `value` setting, or [utility functions](#utility-functions) listed below.
+Function body can reference any JavaScript function such as [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [built-in value functions](value-functions.md), and [utility functions](#utility-functions) listed below.
 
 ```javascript
 exports.getValueRange = function (alias, period) {

@@ -8,6 +8,8 @@ The following control structures are supported by Charts applications:
 * [`if`](#if)
 * [`csv`](#csv)
 * [`script`](#script)
+* [`range`](#range)
+* [`list.escape()`](#listescape)
 
 ---
 
@@ -57,13 +59,13 @@ endfor
 Available functions:
 
 * [String Functions](./label-formatting.md#string-functions)
-* [`getTags()`](./functions.md#gettags)
-* [`getSeries()`](./functions.md#getseries)
-* [`getMetrics()`](./functions.md#getmetrics)
-* [`getEntities()`](./functions.md#getentities)
-* [`range()`](./functions.md#range)
+* [`getTags()`](./api-functions.md#gettags)
+* [`getSeries()`](./api-functions.md#getseries)
+* [`getMetrics()`](./api-functions.md#getmetrics)
+* [`getEntities()`](./api-functions.md#getentities)
+* [`range()`](#range)
 
-The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./functions.md#getentities) function.
+The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./api-functions.md#getentities) function.
 
 ```ls
 var hosts = getEntities('svl-hosts')
@@ -517,7 +519,7 @@ for row in rows
 * Arrays generated from `csv` use the `.values()` method.
 * This function returns a sorted array of unique values in the column defined by the parameter `column_name`.
 * The generated array contains the `.escape()` method which escapes commas in each element.
-* Escapes commas for values within a CSV file using [`list.escape()`](./functions.md#listescape) method.
+* Escapes commas for values within a CSV file using [`list.escape()`](#listescape) method.
 
 **Syntax**:
 
@@ -639,6 +641,253 @@ endscript
 ![](./images/script-endscript.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/f7449e4a#fullscreen)
+
+---
+
+## `range()`
+
+**Description**:
+
+* Generates a regularly spaced array of numbers from `start` to `end` with configurable `step`.
+  * If `step` is not specified, numbers are sequential.
+  * If `start` is greater than `end`, numbers are generated in descending order.
+  * If `format` is specified, each number is formatted and converted to a string.
+
+**Syntax**:
+
+```javascript
+range(start, end, [step], [format])
+```
+
+**Returned Value**:
+
+`Array<number/string>`: generates optionally formatted numbers.
+
+**Arguments**:
+
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `start` | number | **[Required]**  First number in list. |
+| `end` | number | **[Required]**  Last number in list. |
+| `step` | number | Offset between adjacent numbers. |
+| `format` | string | [Format setting](./format-settings.md). |
+
+### Return sequential numbers from `1` to `10`
+
+![](./images/functions-6.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/55a5fd09)
+
+**Syntax**:
+
+```javascript
+range(1,10)
+```
+
+**Result**:
+
+```javascript
+1,2,3,4,5,6,7,8,9,10
+```
+
+### Return numbers from `1` to `10` with double step
+
+**Syntax**:
+
+```javascript
+range(1,10,2)
+```
+
+**Result**:
+
+```javascript
+1,3,5,7,9
+```
+
+### Return numbers from `10` to `1` with a single step
+
+**Syntax**:
+
+```javascript
+range(10,1)
+```
+
+**Result**:
+
+```javascript
+10,9,8,7,6,5,4,3,2,1
+```
+
+### Return numbers from `10` to `1` with a double step
+
+**Syntax**:
+
+```javascript
+range(10,1,2)
+```
+
+**Result**:
+
+```javascript
+10,8,6,4,2
+```
+
+### Format sequential numbers `1` to `10` as a percent
+
+**Syntax**:
+
+```javascript
+range(1,10,'percent')
+```
+
+**Result**:
+
+```javascript
+1%,2%,3%,4%,5%,6%,7%,8%,9%,10%
+```
+
+### Return numbers from `1` to `10` with a double step and format as a percent
+
+**Syntax**:
+
+```javascript
+range(1,10,2,'percent')
+```
+
+**Result**:
+
+```javascript
+1%,3%,5%,7%,9%
+```
+
+### Format sequential numbers from `1` to `10` as minutes
+
+**Syntax**:
+
+```javascript
+range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
+```
+
+**Result**:
+
+```javascript
+00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
+```
+
+### Format sequential numbers from `1` to `12` with an additional fill character (`0`) for single digit values
+
+**Syntax**:
+
+```javascript
+range(1, 12, "d3.format('02d')(value)")
+```
+
+**Result**:
+
+```javascript
+01,02,03,04,05,06,07,08,09,10,11,12
+```
+
+---
+
+## `list.escape()`
+
+**Description**:
+
+* Escapes commas for each value in an array of strings.
+* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csvvalues) method.
+
+**Syntax**:
+
+```ls
+list_name.escape()
+```
+
+**Returned Value**:
+
+`Array<string>`: An  array where commas are escaped for each element. If the argument is not a string the argument is returned unmodified.
+
+### Retrieve a list of escaped country names
+
+> Countries names are generated from the `list`, `var` and `csv.values()`
+
+#### Apply `.escape()` to array generated from `list`
+
+![](./images/functions-7.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c25ce4a7)
+
+**Syntax**:
+
+```txt
+list countries =
+  Brazil,
+  Croatia,
+  Micronesia\, Federated States of,
+  Georgia,
+  Tonga,
+  Honduras,
+  Congo\, Dem. Rep. of the (Kinshasa)
+endlist
+
+country = @{countries.escape()}
+```
+
+**Result**:
+
+```json
+["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
+```
+
+#### Apply `.escape()` to the array created in a [`var`](./control-structures.md#var) expression
+
+![](./images/functions-8.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/04435f95)
+
+**Syntax**:
+
+```ls
+var countries = getTags('state.visa-refusal-rate', 'country', 'travel.state.gov')
+
+country = @{countries.escape()}
+```
+
+**Result**:
+
+```json
+[... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
+```
+
+#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures.md#csvvalues)
+
+![](./images/functions-9.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c7799073)
+
+**Syntax**:
+
+```txt
+csv countries =
+  name, value2006
+  Brazil, 13.2
+  Croatia, 4.9
+  "Micronesia, Federated States of", 100
+  Georgia, 48.2
+  Tonga, 40.8
+  Honduras, 38
+  Liechtenstein, 5.9
+  "Congo, Dem. Rep. of the (Kinshasa)",44.2
+endcsv
+
+country = @{countries.values('name').escape()}
+```
+
+**Result**:
+
+```txt
+["Brazil","Congo\\, Dem. Rep. of the (Kinshasa)","Croatia","Georgia","Honduras","Liechtenstein","Micronesia\\, Federated States of","Tonga"]
+```
 
 ---
 

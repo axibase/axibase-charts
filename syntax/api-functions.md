@@ -1,61 +1,19 @@
-# Functions
+# API Functions
 
-This document enumerates built-in utility functions which can be included in the **Editor** window of Charts applications.
+This document enumerates functions that retrieve records, typically metric, entity, and series lists, from the [REST API](https://axibase.com/docs/atsd/api/data/#meta-api-endpoints) endpoints.
+
+The functions can be invoked at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
 
 | Function | Description |
 |------|-------------|
-[`config()`](#config) | Retrieves the value of configuration components.
 [`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags.
 [`getSeries()`](#getseries) | Returns an array of series collected for the defined metric.
 [`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity.
 [`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity group.
-[`range()`](#range) | Returns a regularly spaced, customizable array of numbers.
-[`list.escape()`](#listescape) | Escapes commas in every element of an array.
-[`previous()`](#previous) | Retrieves the value of the previous point in a sequence.
-[`movavg()`](#movavg) | Computes the moving average from a specified number of previous points.
-[`meta()`](#meta) | Retrieves the metadata object for a series. |
-[`entityTag()`](#entitytag) | Returns the value of the entity tag from the metadata object for the series.
-[`metricTag()`](#metrictag) | Returns the value of the metric tag from the metadata object for the series.
 [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the defined series field.
 [`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the defined metric field.
 [`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the defined entity tag or property.
 [`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field.
-
----
-
-## `config()`
-
-**Description**:
-
-* Returns the value of portal configuration components.
-
-**Syntax**:
-
-```ls
-series-value = config().object
-```
-
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**API Request**:
-
-Not applicable.
-
-**Returned Value**:
-
-`Array<object>`: Received configuration components.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-`object` | Object | Name of the configuration component object. Refer to the [complete list](./config-objects.md) of objects which can be invoked for possible values.
-
-![](./images/config-function-1.png)
-
-[![](./images/new-button.png)](https://trends.axibase.com/ebe8c9d6)
 
 ## `getTags()`
 
@@ -72,11 +30,7 @@ Not applicable.
 getTags(metric, tagName, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**API Request**:
+**API Endpoint**:
 
 Sends synchronous `GET` request to
 [`/api/v1/metrics/{metric}/series`](https://axibase.com/docs/atsd/api/meta/metric/series.html)
@@ -161,11 +115,7 @@ var mount_points = getTags("disk_used", "mount_point", "nurswgvml007", null, nul
 getSeries(metric, [entity, [minInsertDate, [maxInsertDate, [url, [queryParameters]]]]])
 ```
 
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**API Request**:
+**API Endpoint**:
 
 Sends synchronous `GET` requests to the
 [`/api/v1/metrics/{metric}/series`](https://axibase.com/docs/atsd/api/meta/metric/series.html)
@@ -254,11 +204,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
 ```
 
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**API Request**:
+**API Endpoint**:
 
 Sends synchronous `GET` requests to the
 [`/api/v1/entities/{entity}/metrics`](https://axibase.com/docs/atsd/api/meta/entity/metrics.html)
@@ -317,10 +263,6 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 getEntities(group, [expression, [tags, [url, [queryParameters]]]])
 ```
 
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
 To load multiple groups, retrieve members of each group separately and then concatenate the elements into one array.
 
 ```javascript
@@ -331,7 +273,7 @@ var agents = getEntities("group1").concat(getEntities("group2"))
 
 Elements in the concatenated array are sorted first by group, then by element name.
 
-**API Request**:
+**API Endpoint**:
 
 Sends synchronous `GET` requests to the
 [`/api/v1/entity-groups/{group}/entities`](https://axibase.com/docs/atsd/api/meta/expression.html)
@@ -373,535 +315,6 @@ var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
 ```json
 ["nurswghbs001"]
 ```
-
----
-
-## `range()`
-
-**Description**:
-
-* Generates a regularly spaced array of numbers from `start` to `end` with configurable `step`.
-  * If `step` is not specified, numbers are sequential.
-  * If `start` is greater than `end`, numbers are generated in descending order.
-  * If `format` is specified, each number is formatted and converted to a string.
-
-**Syntax**:
-
-```javascript
-range(start, end, [step], [format])
-```
-
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**Returned Value**:
-
-`Array<number/string>`: generates optionally formatted numbers.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `start` | number | **[Required]**  First number in list. |
-| `end` | number | **[Required]**  Last number in list. |
-| `step` | number | Offset between adjacent numbers. |
-| `format` | string | [Format setting](./format-settings.md). |
-
-### Return sequential numbers from `1` to `10`
-
-![](./images/functions-6.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/55a5fd09)
-
-**Syntax**:
-
-```javascript
-range(1,10)
-```
-
-**Result**:
-
-```javascript
-1,2,3,4,5,6,7,8,9,10
-```
-
-### Return numbers from `1` to `10` with double step
-
-**Syntax**:
-
-```javascript
-range(1,10,2)
-```
-
-**Result**:
-
-```javascript
-1,3,5,7,9
-```
-
-### Return numbers from `10` to `1` with a single step
-
-**Syntax**:
-
-```javascript
-range(10,1)
-```
-
-**Result**:
-
-```javascript
-10,9,8,7,6,5,4,3,2,1
-```
-
-### Return numbers from `10` to `1` with a double step
-
-**Syntax**:
-
-```javascript
-range(10,1,2)
-```
-
-**Result**:
-
-```javascript
-10,8,6,4,2
-```
-
-### Format sequential numbers `1` to `10` as a percent
-
-**Syntax**:
-
-```javascript
-range(1,10,'percent')
-```
-
-**Result**:
-
-```javascript
-1%,2%,3%,4%,5%,6%,7%,8%,9%,10%
-```
-
-### Return numbers from `1` to `10` with a double step and format as a percent
-
-**Syntax**:
-
-```javascript
-range(1,10,2,'percent')
-```
-
-**Result**:
-
-```javascript
-1%,3%,5%,7%,9%
-```
-
-### Format sequential numbers from `1` to `10` as minutes
-
-**Syntax**:
-
-```javascript
-range(1,10,1,'intervalFormat("%M:%S")(value*1000)')
-```
-
-**Result**:
-
-```javascript
-00:01,00:02,00:03,00:04,00:05,00:06,00:07,00:08,00:09,00:10
-```
-
-### Format sequential numbers from `1` to `12` with an additional fill character (`0`) for single digit values
-
-**Syntax**:
-
-```javascript
-range(1, 12, "d3.format('02d')(value)")
-```
-
-**Result**:
-
-```javascript
-01,02,03,04,05,06,07,08,09,10,11,12
-```
-
----
-
-## `list.escape()`
-
-**Description**:
-
-* Escapes commas for each value in an array of strings.
-* The `.escape()` method is available in arrays generated from the `list` keyword, `var` expression, and [`csv.values()`](./control-structures.md#csvvalues) method.
-
-**Syntax**:
-
-```ls
-list_name.escape()
-```
-
-**Scope of Usage**:
-
-Use at the `preprocessor` stage in a `var`, `if`, `if else`, `for .. in`, or `@{}` expression.
-
-**Returned Value**:
-
-`Array<string>`: An  array where commas are escaped for each element. If the argument is not a string the argument is returned unmodified.
-
-### Retrieve a list of escaped country names
-
-> Countries names are generated from the `list`, `var` and `csv.values()`
-
-#### Apply `.escape()` to array generated from `list`
-
-![](./images/functions-7.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c25ce4a7)
-
-**Syntax**:
-
-```txt
-list countries =
-  Brazil,
-  Croatia,
-  Micronesia\, Federated States of,
-  Georgia,
-  Tonga,
-  Honduras,
-  Congo\, Dem. Rep. of the (Kinshasa)
-endlist
-
-country = @{countries.escape()}
-```
-
-**Result**:
-
-```json
-["Brazil","Croatia","Micronesia\\, Federated States of","Georgia","Tonga","Honduras","Liechtenstein","Congo\\, Dem. Rep. of the (Kinshasa)"]
-```
-
-#### Apply `.escape()` to the array created in a [`var`](./control-structures.md#var) expression
-
-![](./images/functions-8.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/04435f95)
-
-**Syntax**:
-
-```ls
-var countries = getTags('state.visa-refusal-rate', 'country', 'travel.state.gov')
-
-country = @{countries.escape()}
-```
-
-**Result**:
-
-```json
-[... "Comoros","Congo\\, Dem. Rep. of the (Kinshasa)","Congo\\, Rep. of the (Brazzaville)","Costa Rica","Cote d'Ivoire" ...]
-```
-
-#### Apply `.escape()` to the array retrieved by [`csv.values()`](./control-structures.md#csvvalues)
-
-![](./images/functions-9.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/c7799073)
-
-**Syntax**:
-
-```txt
-csv countries =
-  name, value2006
-  Brazil, 13.2
-  Croatia, 4.9
-  "Micronesia, Federated States of", 100
-  Georgia, 48.2
-  Tonga, 40.8
-  Honduras, 38
-  Liechtenstein, 5.9
-  "Congo, Dem. Rep. of the (Kinshasa)",44.2
-endcsv
-
-country = @{countries.values('name').escape()}
-```
-
-**Result**:
-
-```txt
-["Brazil","Congo\\, Dem. Rep. of the (Kinshasa)","Croatia","Georgia","Honduras","Liechtenstein","Micronesia\\, Federated States of","Tonga"]
-```
-
----
-
-## `previous()`
-
-**Description**:
-
-* Retrieve the value of the previous point in the series, defined by the `alias` parameter.
-* Control the index position with the `offset` argument, relative to the current point.
-
-**Syntax**:
-
-```javascript
-previous(alias, [offset])
-```
-
-**Scope of Usage**:
-
-Use in [`value`](./value_functions.md) settings.
-
-**Returned Value**:
-
-`number`: value of the previous point.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `alias` | string | **[Required]**  Alias of the series, from which the previous value is retrieved. |
-| `offset` | number | Index of previous point relative to the current point.<br>Default value: `1`. |
-
-### Return a series shifted by one point
-
-**Syntax**:
-
-```ls
-value = previous('raw')
-```
-
-**Result**:
-
-![](./images/previous_one.png)
-
-### Return a series shifted two points
-
-**Syntax**:
-
-```ls
-value = previous('raw', 2)
-```
-
-**Result**:
-
-![](./images/previous_two.png)
-
-### Calculate the percentile difference of the last `(n)` and last `(n - 1)` points
-
-**Syntax**:
-
-```ls
-value = 1 - previous('raw') / value('raw')
-```
-
-**Result**:
-
-![](./images/previous_diff_one.png)
-
-### Calculate the percentage difference of the last `(n)` and last `(n - 1)` points
-
-**Syntax**:
-
-```ls
-value = 1 - previous('raw', 2) / value('raw')
-```
-
-**Result**:
-
-![](./images/previous_diff_two.png)
-
----
-
-## `movavg()`
-
-**Description**:
-
-* Calculate the moving average using `count` previous points in the series defined by `alias`.
-* The average is calculated if at least `minCount` previous points are available.
-
-**Syntax**:
-
-```javascript
-movavg(alias, count, [minCount])
-```
-
-**Scope of Usage**:
-
-Use in `value-expression` settings.
-
-**Returned Value**:
-
-`number`: calculated moving average.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `alias` | string | **[Required]**  Alias of the series, to which `movavg` is applied. |
-| `count` | number | **[Required]**  Number of points for which `movavg` is calculated. |
-| `minCount` | number | Minimum number of points, for which `movavg` is calculated, default is `count`. |
-
-### Calculate `movavg` when a defined amount of points are available for calculation
-
-**Syntax**:
-
-```ls
-value = movavg('raw', 30)
-```
-
-**Result**:
-
-![](./images/functions-10.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a1ad388a)
-
-### Calculate `movavg` regardless of the number of points present
-
-**Syntax**:
-
-```ls
-value = movavg('raw', 30, 0)
-```
-
-**Result**:
-
-![](./images/functions-11.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/b5457f1c)
-
----
-
-## `meta()`
-
-**Description**:
-
-* Return metadata loaded for a series defined by `alias`.
-* `add-meta` setting must be set to `true`.
-* Function must be used with `value(alias)` in one expression.
-
-**Syntax**:
-
-```javascript
-meta(alias)
-```
-
-**Scope of Usage**:
-
-Use in `value-expression` settings.
-
-**Returned Value**:
-
-`object`: metadata loaded to series.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `alias` | string | **[Required]** Alias of the series, from which metadata is returned. |
-
-### Fraction of `maxValue`
-
-**Syntax**:
-
-```ls
-value = value('raw') / meta('raw').metric.maxValue
-```
-
-**Result**:
-
-![](./images/functions-12.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e9b05112)
-
----
-
-## `entityTag()`
-
-**Description**:
-
-* Returns tag with `tagName` from entity metadata loaded for series with `alias`.
-* `add-meta` setting must be set to `true`.
-* Function must be used with `value(alias)` in one expression.
-
-**Syntax**:
-
-```javascript
-entityTag(alias, tagName)
-```
-
-**Scope of Usage**:
-
-Use in `value-expression` settings.
-
-**Returned Value**:
-
-`number`: Value of specified entity tag.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `alias` | string | **[Required]**  Alias of the series, from which metadata is returned.|
-| `tagName` | string | **[Required]**  Name of tag which is retrieved from `meta.entity.tags`. |
-
-### Set size to `cpu_count` entity tag
-
-**Syntax**:
-
-```ls
-size = entityTag('cpu_count')
-```
-
-**Result**:
-
-![](./images/functions-13.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/799f915f)
-
----
-
-## `metricTag()`
-
-**Description**:
-
-* Returns tag with `tagName` from metric metadata loaded for series with `alias`.
-* `add-meta` setting must be `true`.
-* Function must be used with `value(alias)` in one expression.
-
-**Syntax**:
-
-```javascript
-metricTag(alias, tagName)
-```
-
-**Scope of Usage**:
-
-Use in `value-expression` settings.
-
-**Returned Value**:
-
-`string`: value of specified metric tag.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `alias`| string | **[Required]**  Alias of the series, from which metadata is returned. |
-| `tagName` | string | **[Required]**  Name of tag which is retrieved from `meta.metric.tags`. |
-
-### Set threshold to `threshold_value` metric tag
-
-**Syntax**:
-
-```ls
-value = metricTag('raw', 'threshold_value')
-alert-expression = value() > metricTag('threshold_value')
-```
-
-**Result**:
-
-![](./images/functions-14.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/4d044933)
-
----
 
 ## Drop-down List Value Function Arguments
 
@@ -1017,7 +430,7 @@ requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParame
 
 Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 
 Sends asynchronous `GET` request to
 [`/api/v1/metrics/{metric}/series`](https://axibase.com/docs/atsd/api/meta/metric/series.html)
@@ -1080,7 +493,7 @@ requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryPara
 
 Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 
 Sends asynchronous `GET` request to
 [`/api/v1/entities/{entity}/metrics`](https://axibase.com/docs/atsd/api/meta/entity/metrics.html)
@@ -1145,7 +558,7 @@ requestPropertiesOptions([valueFieldPath, [textFieldPath, [callback, [entity, [p
 
 Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 
 Sends asynchronous `POST` request to
 [`/api/v1/properties/query`](https://axibase.com/docs/atsd/api/data/properties/query.html).
@@ -1281,9 +694,9 @@ requestMetricsSeriesValues([fieldPath, [callback, [metric, [unique, [queryParame
 
 **Scope of Usage**:
 
-Use in a `[dropdown]` field `options` setting after the `javascript:` prefix.
+Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 
 Sends asynchronous `GET` requests to
 [`/api/v1/metrics/{metric}/series`](https://axibase.com/docs/atsd/api/meta/metric/series.html)
@@ -1338,7 +751,7 @@ requestEntitiesMetricsValues([fieldPath, [callback, [entity, [unique, [queryPara
 
 Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 Sends asynchronous `GET` requests to
 [`/api/v1/entities/{entity}/metrics`](https://axibase.com/docs/atsd/api/meta/entity/metrics.html)
 
@@ -1394,9 +807,9 @@ requestPropertiesValues([valueFieldPath, [textFieldPath, [callback, [entity, [pr
 
 **Scope of Usage**:
 
-Can be used in `[dropdown]` field `options` setting after `javascript:` prefix.
+Use in `[dropdown]` field `options` setting after `javascript:` prefix.
 
-**API Request**:
+**API Endpoint**:
 Sends asynchronous `POST` requests to
 [`/api/v1/properties/query`](https://axibase.com/docs/atsd/api/data/properties/query.html)
 

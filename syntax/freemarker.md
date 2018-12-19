@@ -120,7 +120,7 @@ endfor
 <#assign collectdEnabled = hasMetric( "${entity}","collectd.cpu")>
 ```
 
-* Native [`getMetrics()`](./functions.md#getmetrics)
+* Native [`getMetrics()`](./api-functions.md#getmetrics)
 
 ```ls
 var collectdEnabled = getMetrics("${entity}","name='collectd.cpu'").length > 0
@@ -134,7 +134,7 @@ var collectdEnabled = getMetrics("${entity}","name='collectd.cpu'").length > 0
 <#assign file_systems = getTags("volume_usage", "${entity}", "name", 4) >
 ```
 
-* Native [`getTags()`](./functions.md#gettags)
+* Native [`getTags()`](./api-functions.md#gettags)
 
 ```ls
 var file_systems = getTags("volume_usage", "name", "${entity}", "now - 4 * hour")

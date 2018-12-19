@@ -276,7 +276,7 @@ series-limit = 10
     fstype = ext4
 ```
 
-For more flexible visibility control, use [rank](../syntax/value_functions.md?rank-functions) functions and [display filters](../configuration/display-filters.md).
+For more flexible visibility control, use [rank](../syntax/ranking-functions.md) functions and [display filters](../configuration/display-filters.md).
 
 ```ls
 entity = *

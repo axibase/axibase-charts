@@ -2,7 +2,7 @@
 
 Create computed metrics in any portal using existing metrics. Manipulate underlying series or join multiple series to perform ratio or roll-up  calculations, such as percentage or average values respectively.
 
-Use the [`replace-value`](../widgets/shared/README.md#replace-value) setting to replace the input value when no references to other series are required.
+Use the [`replace-value`](../widgets/shared/README.md#replace-value) setting and corresponding [fields](../syntax/replace-value-functions.md) to replace the input value when no references to other series are required.
 
 ![](./images/replace-value1.png)
 
@@ -35,7 +35,7 @@ In this example, the underlying series are hidden and a new visible series is cr
   color = violet
 ```
 
-In addition to obtaining the last value at a given time for the referenced series with the `value('alias')` function, it is also possible to obtain period statistics with `avg()`, `max()`, `min()`, and other [aggregation functions](./aggregators.md). If a custom period is required, the syntax is `avg(alias, period)`, for example `avg(s1, 1 hour)` aggregates data from series `s1` hourly.
+In addition to obtaining the last value at a given time for the referenced series with the `value('alias')` function, it is also possible to obtain period statistics using [statistical functions](../syntax/value-functions.md). If a custom period is required, the syntax is `avg(alias, period)`, for example `avg('s1', 1 hour)` aggregates data from series `s1` hourly.
 
 ## Extrapolation
 
