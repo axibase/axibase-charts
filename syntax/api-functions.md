@@ -22,7 +22,7 @@ The functions can be invoked at the `preprocessor` stage in a `var`, `if`, `if e
 * Loads a series for `metric` and `entity` from a defined URL whose last data point has timestamp after `minInsertDate` and before `maxInsertDate`.
 * Additional `queryParameters` can be specified.
 * Unique tag values defined by `tagName` are retrieved from tags of the loaded series and sorted.
-* Returned array is processed by [`list.escape()`](#listescape) function.
+* Returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
 
 **Syntax**:
 
@@ -196,7 +196,7 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
 * Loads metrics for `entity` from a defined URL, which satisfies `expression`.
 * Specify additional `queryParameters`.
 * Returns the sorted names of loaded metrics.
-* Returned array is processed by [`list.escape()`](#listescape) function.
+* Returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
 
 **Syntax**:
 
@@ -255,7 +255,7 @@ var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
 * Load entities contained in the entity group defined by `group` which satisfies `expression`.
 * Specify additional `queryParameters`.
 * Returns sorted names of loaded entities.
-* Returned array is processed by [`list.escape()`](#listescape) function.
+* Returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
 
 **Syntax**:
 
