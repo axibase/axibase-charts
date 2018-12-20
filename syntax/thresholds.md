@@ -1,6 +1,6 @@
 # Thresholds
 
-Use threshold aggregators to compute the amount of time or number of occurrences a metric violates a user-defined threshold. The threshold can be defined as an upper boundary, a lower boundary, or both.
+Threshold aggregators calculate the amount of time or number of occurrences a metric violates a user-defined threshold. The threshold can be defined as an upper boundary, a lower boundary, or both.
 
 ## `max-threshold`
 
@@ -9,8 +9,6 @@ Series violates the threshold when a value exceeds the maximum threshold.
 ```ls
 [series]
   max-threshold = 60
-  alert-expression = value > 60
-  alert-style = color: red
 ```
 
 ![](./images/thresholds-10.png)
@@ -24,8 +22,6 @@ Series violates the threshold when a value is below the minimum threshold.
 ```ls
 [series]
   min-threshold = 7
-  alert-expression = value > 7
-  alert-style = color: green
 ```
 
 ![](./images/thresholds-11.png)
@@ -40,8 +36,6 @@ Percentage of time within the period when series values do not exceed the thresh
 [series]
   statistic = threshold_percent
   max-threshold = 10
-  alert-expression = value > 100
-  alert-style = color: red
 ```
 
 ![](./images/thresholds-8.png)
@@ -56,8 +50,6 @@ Number of sequences within the period when the series values exceeded the thresh
 [series]
   statistic = threshold_count
   max-threshold = 5
-  alert-expression = value > 2
-  alert-style = color: orange
 ```
 
 ![](./images/thresholds-9.png)
@@ -72,8 +64,6 @@ Total duration of intervals within the period when series values exceeded the th
 [series]
   statistic = threshold_duration
   min-threshold = 10
-  alert-expression = value > 140000
-  alert-style = color: green
 ```
 
 ![](./images/thresholds-7.png)

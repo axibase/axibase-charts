@@ -176,23 +176,26 @@ Name | Description | &nbsp;
 
 ### Transformation
 
-#### Rate
-
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="rate"></a>[`rate`](#rate)| Compute the difference between consecutive samples per [period of time](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>If the period duration is zero, for example `rate = 0`, the rate function calculates the difference between consecutive samples, without adjusting it by the time difference between the samples.<br>Format: `count time_unit`.<br>**Example**: `rate = 15 second`| [↗](https://apps.axibase.com/chartlab/84c208d4)
-<a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>Default value: `true`<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
-
-> See also [Rate](https://axibase.com/docs/atsd/api/data/series/rate.html) transformation in REST API.
-
 #### Aggregation
 
+Aggregation splits the underlying series into periods of equal duration and applies statistical functions to values in each period. The derived series is regular and has fewer samples.
+
+```ls
+[series]
+  statistics = avg
+  period = 5 minute
+```
+
+![](./images/aggregate.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/de76132b/3/)
+
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="statistics"></a>[`statistics`](#statistics) | Aggregation statistic function.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `statistics = avg`| [↗](https://apps.axibase.com/chartlab/de76132b)
-<a name="period"></a>[`period`](#period) | [Aggregator](https://axibase.com/docs/atsd/api/data/series/aggregate.html#aggregate-processor) period specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit`.<br>**Example**: `period = 15 minute`| [↗](https://apps.axibase.com/chartlab/0e1efe88)
+<a name="statistics"></a>[`statistics`](#statistics) | Statistical [function](../../configuration/aggregators.md) applied to values in each period.<br>**Example**: `statistics = avg`| [↗](https://apps.axibase.com/chartlab/de76132b/2/)
+<a name="period"></a>[`period`](#period) | Repeating time interval to split the timespan, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit` or `auto`.<br>**Example**: `period = 15 minute`| [↗](https://apps.axibase.com/chartlab/0e1efe88)
 <a name="align"></a>[`align`](#align) | [Alignment](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) of the period start or end time.<br>Possible values: `CALENDAR`, `START_TIME`, `END_TIME`, `FIRST_VALUE_TIME`.<br>Default value: `CALENDAR`.<br>**Example**: `align = END_TIME`| [↗](https://apps.axibase.com/chartlab/017975c4)
-<a name="interpolate"></a>[`interpolate`](#interpolate) | Interpolate missing aggregation periods.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`.<br>**Example**: `interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/7af6f848)
+<a name="interpolate"></a>[`interpolate`](#interpolate) | Add missing aggregation periods.<br>Possible values: `NONE`, `LINEAR`, `PREVIOUS`, `NEXT`, `VALUE(n)`, where `n` is the numerical value to be used to fill missing samples.<br>Default value: `NONE`.<br>**Example**: `interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/7af6f848)
 <a name="interpolate-extend"></a>[`interpolate-extend`](#interpolate-extend)| Interpolate leading and trailing periods with `NEXT` or `PREVIOUS` value.<br>**Example**: `interpolate-extend = true`| [↗](https://apps.axibase.com/chartlab/4a3b8f7a)
 
 > See also [Aggregation](https://axibase.com/docs/atsd/api/data/series/aggregate.html) transformation in REST API.
@@ -207,6 +210,15 @@ Name | Description | &nbsp;
 <a name="interpolation-fill"></a>[`interpolation-fill`](#interpolation-fill)| Interpolate values outside of the selection interval.<br>Possible values: `false`, `true`, `count` of values to fill.<br>Default value: `false`.<br>**Example**: `interpolate-fill = true`| [↗](https://apps.axibase.com/chartlab/9361ea19)
 
 > See also [Interpolation](https://axibase.com/docs/atsd/api/data/series/interpolate.html) transformation in REST API.
+
+#### Rate
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="rate"></a>[`rate`](#rate)| Compute the difference between consecutive samples per [period of time](https://axibase.com/docs/atsd/api/data/series/rate.html#rate-period).<br>If the period duration is zero, for example `rate = 0`, the rate function calculates the difference between consecutive samples, without adjusting it by the time difference between the samples.<br>Format: `count time_unit`.<br>**Example**: `rate = 15 second`| [↗](https://apps.axibase.com/chartlab/84c208d4)
+<a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>Default value: `true`<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
+
+> See also [Rate](https://axibase.com/docs/atsd/api/data/series/rate.html) transformation in REST API.
 
 #### Grouping
 
