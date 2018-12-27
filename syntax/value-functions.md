@@ -78,7 +78,7 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 | `min_value_time` | `alias`, `[interval]` | Timestamp of the maximum value in the specified interval. |
 | `max_value_time` | `alias`, `[interval]` | Timestamp of the minimum value in the specified interval. |
 | `median` | `alias`, `[interval]` | Same as `percentile(50)`. |
-| `percentile` | `n`, `alias`, `[interval]` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `percentile(75, 's1')` or `percentile(99.5, 's1')`.<br>`n` is a decimal number between `(0, 100]`. |
+| `percentile` | `n`, `alias`, `[interval]` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `percentile(75, 's1')` or `percentile(99.5, 's1')`.<br>`n` is a decimal number between `[0, 100]`. |
 | `movavg` | `alias`, `count`, `[minCount]` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds `minCount`. |
 | `previous` | `alias`, `[offset]` | Value of the previous sample, with optional `offset` index which defaults to `1`. |
 

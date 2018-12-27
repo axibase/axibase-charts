@@ -16,7 +16,7 @@ The `replace-value` setting is specified in the `[series]` section.
 ## Fields
 
 | Field | Description |
-|----------|-----------|-------------|
+|----------|-----------|
 | `value` | Value of the series at the current timestamp. |
 | `previousValue` | Value at the previous timestamp. |
 | `time` | Current timestamp measured as Unix time in milliseconds.  |
