@@ -6,14 +6,124 @@ The functions can be invoked at the `preprocessor` stage in a `var`, `if`, `if e
 
 | Function | Description |
 |------|-------------|
-[`getTags()`](#gettags) | Retrieves metric series and returns a sorted array of unique values for defined tags.
-[`getSeries()`](#getseries) | Returns an array of series collected for the defined metric.
-[`getMetrics()`](#getmetrics) | Returns the names of metrics collected for the defined entity.
-[`getEntities()`](#getentities) | Returns the names of entities contained in the defined entity group.
-[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the defined series field.
-[`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the defined metric field.
-[`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the defined entity tag or property.
-[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the defined series field.
+[`getMetrics()`](#getmetrics) | Retrieves the names of metrics for entity.
+[`getEntities()`](#getentities) | Retrieves the names of entities for entity group.
+[`getTags()`](#gettags) | Retrieves series and returns a sorted array of unique values for the specified series tag.
+[`getSeries()`](#getseries) | Retrieves an array of series collected for the specified metric.
+[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list values from values retrieved for the specified series field.
+[`requestEntitiesMetricsValues()`](#requestentitiesmetricsvalues) | Creates drop-down list values from values retrieved for the specified metric field.
+[`requestPropertiesValues()`](#requestpropertiesvalues) | Creates drop-down list from values retrieved for the specified entity tag or property.
+[`requestMetricsSeriesValues()`](#requestmetricsseriesvalues) | Creates drop-down list from values retrieved for the specified series field.
+
+---
+
+## `getMetrics()`
+
+The function retrieves a sorted array of metrics names collected by the specified entity, optionally [filtered](https://axibase.com/docs/atsd/api/meta/expression.html) by name and tags.
+
+```javascript
+var result = getMetrics(entity, [expression, [tags, [url, [params]]]])
+```
+
+**Description**:
+
+* API endpoint [`/api/v1/entities/{entity}/metrics`](https://axibase.com/docs/atsd/api/meta/entity/metrics.html).
+* Request type: : synchronous `GET`.
+* The returned array of strings can be assigned to a variable using `var` declaration.
+* The returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
+
+**Arguments**:
+
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `entity` | string |**[Required]**  `entity` name. |
+| `expression` | string | Filter [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html). |
+| `tags` |  string | List of tags included in the response. |
+| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
+| `params` | object | Object with additional request parameter names and values accepted by the API endpoint which are converted to query string. |
+
+**Example**:
+
+Return metrics for entity `nurswgvml006` which contains substrings `cpu` and `user`.
+
+![](./images/functions-4.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e006c0e8)
+
+```ls
+var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
+```
+
+```elm
+/api/v1/entities/nurswgvml007/metrics?expression=name%20LIKE%20%27*cpu*user*%27
+```
+
+Result:
+
+```json
+["cpu_user", "nmon.cpu.user%", "nmon.cpu_total.user%"]
+```
+
+---
+
+## `getEntities()`
+
+The function retrieves a sorted array of entity names which are members of the specified entity group, optionally [filtered](https://axibase.com/docs/atsd/api/meta/expression.html) by name and tags.
+
+```javascript
+var entities = getEntities(group, [expression, [tags, [url, [params]]]])
+```
+
+**Description**:
+
+* API endpoint: [`/api/v1/entity-groups/{group}/entities`](https://axibase.com/docs/atsd/api/meta/entity-group/get-entities.html).
+* Request type: : synchronous `GET`.
+* The returned array of strings can be assigned to a variable using `var` declaration.
+* The returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
+
+To load multiple groups, retrieve members of each group separately and then concatenate the elements into one array.
+
+```javascript
+var agents = [].concat(getEntities("group1"), getEntities("group2"))
+
+var agents = getEntities("group1").concat(getEntities("group2"))  
+```
+
+Elements in the concatenated array are sorted first by group, then by element name.
+
+**Arguments**:
+
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `group` | string |**[Required]**  `group` path parameter. |
+| `expression` | string | Filter [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html). |
+| `tags` |  string | List of tags included in the response. |
+| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
+| `params` | object | Object with additional request parameter names and values accepted by the API endpoint which are converted to query string. |
+
+**Example**:
+
+ Retrieve entities from entity group `docker-hosts` whose names begin with substring `nur`.
+
+![](./images/functions-5.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
+
+```ls
+var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
+```
+
+```elm
+/api/v1/entity-groups/docker-hosts/entities?expression=name%20LIKE%20%27nur*%27
+```
+
+Result:
+
+```json
+["nurswghbs001", "nurswgdkr002"]
+```
+
+---
 
 ## `getTags()`
 
@@ -185,135 +295,6 @@ var seriesDescriptors = getSeries("disk_used", "nurswgvml007")
         "lastInsertDate":"2017-06-21T13:26:00.000Z"
     }
 ]
-```
-
----
-
-## `getMetrics()`
-
-**Description**:
-
-* Loads metrics for `entity` from a defined URL, which satisfies `expression`.
-* Specify additional `queryParameters`.
-* Returns the sorted names of loaded metrics.
-* Returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
-
-**Syntax**:
-
-```javascript
-getMetrics(entity, [expression, [tags, [url, [queryParameters]]]])
-```
-
-**API Endpoint**:
-
-Sends synchronous `GET` requests to the
-[`/api/v1/entities/{entity}/metrics`](https://axibase.com/docs/atsd/api/meta/entity/metrics.html)
-
-**Returned Value**:
-`Array<string>`: retrieved metrics names.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `entity` | string |**[Required]**  `entity` path parameter. |
-| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` |  string | `tags` request parameter. |
-| `url` | string | Protocol, host, and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and its values as values, which is transformed to query parameters string. |
-
-### Return metrics for entity `nurswgvml006` which contains substrings `cpu` and `user`
-
-![](./images/functions-4.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e006c0e8)
-
-**Syntax**:
-
-```ls
-var metrics = getMetrics("nurswgvml007", "name LIKE '*cpu*user*'")
-```
-
-**Request Sent**:
-
-```sh
-/api/v1/entities/nurswgvml007/metrics?expression=name%20LIKE%20%27*cpu*user*%27
-```
-
-**Result**:
-
-```json
-["cpu_user","nmon.cpu.user%","nmon.cpu_total.user%"]
-```
-
----
-
-## `getEntities()`
-
-**Description**:
-
-* Load entities contained in the entity group defined by `group` which satisfies `expression`.
-* Specify additional `queryParameters`.
-* Returns sorted names of loaded entities.
-* Returned array is processed by [`list.escape()`](../syntax/control-structures.md#listescape) function.
-
-**Syntax**:
-
-```javascript
-getEntities(group, [expression, [tags, [url, [queryParameters]]]])
-```
-
-To load multiple groups, retrieve members of each group separately and then concatenate the elements into one array.
-
-```javascript
-var agents = [].concat(getEntities("group1"), getEntities("group2"))
-
-var agents = getEntities("group1").concat(getEntities("group2"))  
-```
-
-Elements in the concatenated array are sorted first by group, then by element name.
-
-**API Endpoint**:
-
-Sends synchronous `GET` requests to the
-[`/api/v1/entity-groups/{group}/entities`](https://axibase.com/docs/atsd/api/meta/expression.html)
-
-**Returned Value**:
-
-`Array<string>`: retrieved entities names.
-
-**Arguments**:
-
-| Name | Type | Description |
-|:------|:------|:-------------|
-| `group` | string |**[Required]**  `group` path parameter. |
-| `expression` | string | [`expression`](https://axibase.com/docs/atsd/api/meta/expression.html) query parameter. |
-| `tags` | string | `tags` request parameter. |
-| `url` | string | Protocol, host and path to which `/api/v1` path is appended. |
-| `queryParameters` | object | Object with parameter names as keys and its values as values, transformed to query parameters string. |
-
-### Retrieve all entities from entity group `docker-hosts` whose names begin with substring `nur`
-
-![](./images/functions-5.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/df616dfa/5/)
-
-**Syntax**:
-
-```ls
-var entities = getEntities("docker-hosts", "name LIKE 'nur*'")
-```
-
-**Request Sent**:
-
-```sh
-/api/v1/entity-groups/docker-hosts/entities?expression=name%20LIKE%20%27nur*%27
-```
-
-**Result**:
-
-```json
-["nurswghbs001"]
 ```
 
 ## Drop-down List Value Function Arguments

@@ -1,15 +1,54 @@
 # Control Structures
 
-The following control structures are supported by Charts applications:
+The control structures extend the static configuration syntax with variable assignment, conditional branches, iterators, and user-defined functions.
 
-* [`list`](#list)
-* [`var`](#var)
-* [`for`](#for)
-* [`if`](#if)
-* [`csv`](#csv)
-* [`script`](#script)
-* [`range`](#range)
-* [`list.escape()`](#listescape)
+* [`var`](#var): assign any object.
+* [`list`](#list): parse string to a list of strings.
+* [`csv`](#csv): parse table to a list of objects.
+* [`for`](#for): loop / iterate.
+* [`if`](#if): conditional processing.
+* [`script`](#script): define functions.
+
+---
+
+## `var`
+
+`var` assigns an array, object, or function to a variable whose value and fields can be accessed with a placeholder.
+
+If the `var` assignment occupies one line, closing it with `endvar` is not required.
+
+```ls
+var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
+
+for di in disks
+    [series]
+      [tags]
+      major = @{di[0]}
+      minor = @{di[1]}
+endfor
+```
+
+Available functions:
+
+* [String functions](./label-formatting.md#string-functions)
+* [`getTags()`](./api-functions.md#gettags)
+* [`getSeries()`](./api-functions.md#getseries)
+* [`getMetrics()`](./api-functions.md#getmetrics)
+* [`getEntities()`](./api-functions.md#getentities)
+* [`range()`](#range)
+
+The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./api-functions.md#getentities) function.
+
+```ls
+# Load entity names into an array
+var hosts = getEntities('svl-hosts')
+
+# Loop over the 'hosts' array, referring to each element as '@{host}'
+for host in hosts
+    [series]
+      entity = @{host}
+endfor
+```
 
 ---
 
@@ -36,43 +75,6 @@ The `list` assignment is similar to [`var`](#var). However the `var` assignment 
 ```ls
 list servers = awsswgvml001, nurswgvml003
 var servers = ['awsswgvml001', 'nurswgvml003']
-```
-
----
-
-## `var`
-
-`var` assigns an array, object, or function to a variable whose value and fields can be accessed with a placeholder.
-
-If the `var` assignment occupies one line, closing with `endvar` is not required.
-
-```ls
-var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
-for di in disks
-    [series]
-      [tags]
-      major = @{di[0]}
-      minor = @{di[1]}
-endfor
-```
-
-Available functions:
-
-* [String Functions](./label-formatting.md#string-functions)
-* [`getTags()`](./api-functions.md#gettags)
-* [`getSeries()`](./api-functions.md#getseries)
-* [`getMetrics()`](./api-functions.md#getmetrics)
-* [`getEntities()`](./api-functions.md#getentities)
-* [`range()`](#range)
-
-The list of entities can be loaded into a `var` array from the server using the [`getEntities`](./api-functions.md#getentities) function.
-
-```ls
-var hosts = getEntities('svl-hosts')
-for host in hosts
-    [series]
-      entity = @{host}
-endfor
 ```
 
 ---

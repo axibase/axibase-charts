@@ -48,6 +48,10 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa/2/)
 
+:::tip Note
+The results of the `value` calculation are not affected by the [visibility](../configuration/display-filters.md) of the underlying series.
+:::
+
 ## Lookup Functions
 
 | Function | Arguments | Description |
@@ -235,3 +239,26 @@ alert-expression = value() > metricTag('threshold_value')
 ![](./images/functions-14.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/4d044933)
+
+### Derived Series from Hidden Series
+
+The `display` and `enabled` settings have no impact on the calculated series.
+
+```ls
+[series]  
+    entity = nurswgvml006
+    alias = a
+
+[series]  
+    entity = nurswgvml007
+    alias = b
+    display = false
+
+[series]
+    # The result is not affected by hiding the 'b' series
+    value = value('a') + value('b')
+```
+
+![](./images/display-calculated.png)
+
+[![](../images/button.png)](https://apps.axibase.com/chartlab/9b97ac5e/2/)

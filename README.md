@@ -4,22 +4,41 @@ sidebar: false
 
 # Introduction
 
-**Axibase Charts** is a graphics library for visualizing time series data with [widgets](./widgets/README.md).
+**Axibase Charts** is a graphics library for visualizing time series with [widgets](./widgets/README.md).
 
-Charts implement a simple, yet powerful, syntax which is closely integrated with [ATSD](https://axibase.com/docs/atsd/) schema to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative settings.
+The library implements a simple configuration syntax to build [real-time dashboards](https://apps.axibase.com/chartlab/2ef08f32) with declarative settings.
+
+```ls
+[widget]
+  type = chart
+  [series]
+    entity = nurswgvml007
+    metric = cpu_busy
+```
 
 ![](./images/charts-3.png)
 
-## Interactive Analytics
+## Powerful Syntax
 
+* Aligned with [ATSD](https://axibase.com/docs/atsd/) time series schema for quick results.
 * Create [derived series](https://apps.axibase.com/chartlab/62e6c18f/3/).
-* Join [multiple metrics](https://apps.axibase.com/chartlab/e0e0be77).
+* Join [irregular series](https://apps.axibase.com/chartlab/e0e0be77).
 * Re-compute aggregates [on the fly](https://apps.axibase.com/chartlab/57b0a961/3/).
+* Utilize [imperative constructs](./syntax/control-structures.md) such as variable assignment, conditional branching, and loops for automation.
+
+```ls
+var servers = getEntities('my-app-group')
+for server in servers
+  [series]
+    entity = @{server}
+    metric = page_count
+endfor
+```
 
 ## Historical and Streaming Data
 
-* Streaming parsing of compressed historical data.
 * [Incremental](https://apps.axibase.com/chartlab/cc79ed62) real-time data loading.
+* Streaming parsing of compressed historical data.
 
 ## Development Tools
 
