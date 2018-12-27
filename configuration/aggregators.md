@@ -11,8 +11,8 @@ Statistical functions are applied to values in each period to calculate period s
 <a name="max"></a>[`max`](#max) | **Maximum value** during the period. |
 <a name="sum"></a>[`sum`](#sum) | **Sum** of values during the period. |
 <a name="avg"></a>[`avg`](#avg) | **Average value** during the period. |
-<a name="percentile"></a>[`percentile(n)`](#percentile)| `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `percentile(75)` or `percentile(99.5)`.<br>`n` is a decimal number between `(0, 100]`.|
-<a name="median"></a>[`median`](#median) | **Median** value, same as `percentile(50)`. |
+<a name="percentile"></a>[`percentile(n)`](#percentile)| `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `[0, 100]`.|
+<a name="median"></a>[`median`](#median) | Median value, same as 50% percentile. |
 <a name="standard-deviation"></a>[`standard-deviation`](#standard-deviation) | **Standard deviation** of values during the period.<br>Square root of the variance. |
 <a name="first"></a>[`first`](#first) | **First** value received during the period. |
 <a name="last"></a>[`last`](#last) | **Last** value received during the period. |
