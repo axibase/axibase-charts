@@ -14,6 +14,7 @@ Statistical functions are applied to values in each period to calculate period s
 <a name="percentile"></a>[`percentile(n)`](#percentile)| `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `[0, 100]`.|
 <a name="median"></a>[`median`](#median) | Median value, same as 50% percentile. |
 <a name="standard_deviation"></a>[`standard_deviation`](#standard_deviation) | **Standard deviation** of values during the period.<br>Square root of the variance. |
+<a name="median_abs_dev"></a>[`median_abs_dev`](#median_abs_dev) | **Median absolute deviation** of values during the period.<br>`median(abs(value - median(value)))`. |
 <a name="first"></a>[`first`](#first) | **First** value received during the period. |
 <a name="last"></a>[`last`](#last) | **Last** value received during the period. |
 <a name="delta"></a>[`delta`](#delta) | **Delta** is the difference between the last value in the period and the last value in the previous period.<br>If no last value is present in the previous period (empty period), then `delta` is the difference between the last and first values during the current period.<br>See also [`counter`](#counter) aggregator. |

@@ -8,7 +8,7 @@ Configure the list to update a widget setting for changes made, such as the widg
 
 Add multiple drop-down lists for any widget.
 
-## Drop-down List Configuration
+## Configuration
 
 * The settings apply to the `[dropdown]` section.
 
@@ -20,6 +20,18 @@ Name | Description | &nbsp;
 <a name="style"></a>[`style`](#style) | CSS to apply to the selected element.<br>**Example**: `style = color: orange` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
 <a name="options"></a>[`options`](#options) | Comma-separated list of option values.<br>Refer to [Options Syntax](#options-syntax) for possible values.<br>**Example**: `options = jfs, system, network` | [↗](https://apps.axibase.com/chartlab/e9e5c5e0)
 
+## Options
+
+* The settings apply to the `[option]` section
+
+Name | Description | &nbsp;
+--|--|--
+<a name="value"></a>[`value`](#value) | Drop-down list option value.<br>**Example**: `value = cpu_busy` | [↗](https://apps.axibase.com/chartlab/a995466b)
+<a name="text"></a>[`text`](#text) | Drop-down list option text.<br>**Example**: `text = CPU Busy`| [↗](https://apps.axibase.com/chartlab/a995466b)
+
+* If only `text` is specified, `value = text`
+* Populate the list of options with the [`options`](#options) setting or as a list of `[option]` fields.
+
 ### Options Syntax
 
 Comma-separated list:
@@ -28,7 +40,7 @@ Comma-separated list:
 options = opt1, opt2, opt3
 ```
 
-Placeholder to `list` of `var` array:
+Placeholder to `list` or `var` array:
 
 ```ls
 options = @{taglist}
@@ -51,18 +63,6 @@ options = @{taglist.escape()}
   value = opt3
   text = Option 3
 ```
-
-## Option Configuration
-
-* The settings apply to the `[option]` section
-
-Name | Description | &nbsp;
---|--|--
-<a name="value"></a>[`value`](#value) | Drop-down list option value.<br>**Example**: `value = cpu_busy` | [↗](https://apps.axibase.com/chartlab/a995466b)
-<a name="text"></a>[`text`](#text) | Drop-down list option text.<br>**Example**: `text = CPU Busy`| [↗](https://apps.axibase.com/chartlab/a995466b)
-
-* If only `text` is specified, `value = text`
-* Populate the list of options with the [`options`](#options) setting or as a list of `[option]` fields.
 
 ## Examples
 

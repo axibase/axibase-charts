@@ -17,6 +17,8 @@ The control structures extend the static configuration syntax with variable assi
 
 If the `var` assignment occupies one line, closing it with `endvar` is not required.
 
+The variable must be assigned following the [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#Examples) syntax, however _without_ the closing semi-colon.
+
 ```ls
 var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
 
@@ -26,6 +28,16 @@ for di in disks
       major = @{di[0]}
       minor = @{di[1]}
 endfor
+```
+
+```ls
+# use single or double quotes to assign strings.
+# do not close the statement with ;
+var tp = "busy"
+
+[series]
+  entity = nurswgvml006
+  metric = cpu_@{tp}
 ```
 
 Available functions:
