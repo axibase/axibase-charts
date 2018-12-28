@@ -251,9 +251,9 @@ Save the portal. View the portal to check results.
 
 Get the value of the series identified by `alias`, for the `timestamp` calculated as `current_time - offset`, where  `current_time` is the time of currently processed sample. If there is no sample with such `timestamp`, the value is linearly interpolated from neighboring samples.
 
-![](./images/udf-5.png)
+![](./images/udf-value-with-offset.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/db746e15)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d188ee70/7/)
 
 **Syntax**:
 
@@ -271,9 +271,9 @@ getValueWithOffset(alias, offset)
 Get the value of the series, identified by `alias`, for the specified `datetime`.
 If there is no sample recorded for the specified `datetime`, the value is linearly interpolated from the neighboring samples.
 
-![](./images/udf-6.png)
+![](./images/udf-value-for-date.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/fcced7f2)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d188ee70/5/)
 
 **Syntax**:
 
@@ -290,9 +290,9 @@ getValueForDate(alias, datetime)
 
 Get the maximum value of the series, identified by `alias`, for the loaded timespan.
 
-![](./images/udf-7.png)
+![](./images/udf-percentage-of-max.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d188ee70/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/d188ee70/4/)
 
 **Syntax**:
 
