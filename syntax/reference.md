@@ -64,6 +64,7 @@
 * <a name="counter"></a>[`counter`](../syntax/extended-aggregators.md#counter)
 * <a name="counter-position"></a>[`counter-position`](../widgets/gauge-chart/README.md#counter-position)
 * <a name="current-period-style"></a>[`current-period-style`](../widgets/time-chart/README.md#current-period-style)
+* <a name="data-labels"></a>[`data-labels`](../widgets/calendar-chart/README.md#data-labels)
 * <a name="data-type"></a>[`data-type`](../widgets/shared/README.md#data-type)
 * <a name="day-format"></a>[`day-format`](../widgets/shared/README.md#day-format)
 * <a name="depth"></a>[`depth`](../widgets/graph/README.md#depth)
