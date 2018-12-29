@@ -84,3 +84,9 @@ Name | Description | &nbsp;
 ![](./images/threshold-image.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/5f49b168)
+
+### Multiple Weather Stations
+
+![](./images/weather-calendar.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/34de0a1d)
