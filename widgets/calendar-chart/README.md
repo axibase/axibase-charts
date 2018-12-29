@@ -39,6 +39,7 @@ Name | Description | &nbsp;
 <a name="sort"></a>[`sort`](#sort)| Sort entities by name or value in ascending (`ASC`) or descending (`DESC`) order.<br>**Example**: `sort = name DESC`| [↗](https://apps.axibase.com/chartlab/fc8bd510)
 <a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks)| Center time and date markers over summarize periods.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `centralize-ticks = true`| [↗](https://apps.axibase.com/chartlab/4d6c2761)
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 5`| [↗](https://apps.axibase.com/chartlab/4d6c2761/2/)
+<a name="data-labels"></a>[`data-labels`](#data-labels)| Display values inside colored rectangles formatted according to [format](../shared/README.md#format) setting.<br>Default value: `false`.<br>**Example**: `data-labels = true`| [↗](https://apps.axibase.com/chartlab/4b2200bc/4/)
 
 ### Series Color Settings
 
