@@ -25,6 +25,7 @@ The **Series Table** displays last series values.
 
 Name | Description | &nbsp;
 :--|:--|:--
+<a name="merge-columns"></a>[`merge-columns`](#merge-columns)| Merge multiple series into a single row using a boolean expression or enumerated columns as a grouping key.<br>**Example**: <ul><li>`merge-columns = entity`</li><li>`merge-columns = entity, tags`</li><li>`merge-columns = tags.target`</li><li>`merge-columns = a.tags.country == b.tags.country`</li></ul>| [↗](https://apps.axibase.com/chartlab/6489829c/25/)<br>[↗](https://apps.axibase.com/chartlab/a6853bd2/2/)<br>[↗](https://apps.axibase.com/chartlab/42a161bc/4/)|
 <a name="hide-empty-series"></a>[`hide-empty-series`](#hide-empty-series)| Hide series for which no data exists or data whose validity is expired.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `hide-empty-series = false`| [↗](https://apps.axibase.com/chartlab/cfc5c1bd)
 
 ## Series Settings
@@ -43,6 +44,12 @@ Name | Description | &nbsp;
 ![](./images/min-max-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/905f49d0)
+
+### Multiple Offsets
+
+![](./images/offset.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/7c463fac)
 
 ### Sliding Window
 

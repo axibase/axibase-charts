@@ -168,7 +168,7 @@
 * <a name="max-range-force"></a>[`max-range-force`](../widgets/shared/README.md#max-range-force)
 * <a name="max-range-right"></a>[`max-range-right`](../widgets/shared/README.md#max-range-right)
 * <a name="max-range-right-force"></a>[`max-range-right-force`](../widgets/shared/README.md#min-range-right-force)
-* <a name="merge-columns"></a>[`merge-columns`](../widgets/shared-table/README.md#merge-columns)
+* <a name="merge-columns"></a>[`merge-columns`](../widgets/series-table/README.md#merge-columns)
 * <a name="merge-fields"></a>[`merge-fields`](../widgets/shared/README.md#merge-fields)
 * <a name="method-path"></a>[`method-path`](../widgets/shared/README.md#method-path)
 * <a name="metric"></a>[`metric`](../widgets/shared/README.md#metric)

@@ -16,7 +16,6 @@ Name | Description | &nbsp;
 <a name="transpose"></a>[`transpose`](#transpose)| Transpose table rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `transpose = true`| [↗](https://apps.axibase.com/chartlab/fe7940e7)
 <a name="show-tag-names"></a>[`show-tag-names`](#show-tag-names)| Display tag names in the `tags` column, if defined.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `show-tag-names = true`| [↗](https://apps.axibase.com/chartlab/4afb9290/3/)
 <a name="display-tags"></a>[`display-tags`](#display-tags)| Enumerate specific tags displayed in the `tags` column.<br>Possible values: `tag name`.<br>**Example**: `display-tags = mount_point`| [↗](https://apps.axibase.com/chartlab/220498ff/3/)
-<a name="merge-columns"></a>[`merge-columns`](#merge-columns)| Group columns by key.<br>**Example**: <ul><li>`merge-columns = entity`</li><li>`merge-columns = entity, tags`</li></ul>| [↗](https://apps.axibase.com/chartlab/6489829c/25/)<br>[↗](https://apps.axibase.com/chartlab/a6853bd2/2/)
 
 ### Style and Layout Settings
 
