@@ -95,7 +95,7 @@ Series Table | Property Table
 
 ## Supported Browsers
 
-* `Chrome 48+`
+* `Google Chrome 48+`
 * `Firefox 44+`
-* `Edge 38+`
-* `IE11`
+* `Microsoft Edge 38+`
+* `Internet Explorer 11`
