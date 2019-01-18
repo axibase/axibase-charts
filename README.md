@@ -97,5 +97,5 @@ Series Table | Property Table
 
 * `Google Chrome 48+`
 * `Firefox 44+`
-* `Microsoft Edge 38+`
+* `Microsoft Edge 14+`
 * `Internet Explorer 11`
