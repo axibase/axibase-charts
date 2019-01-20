@@ -103,7 +103,7 @@ the list of displayed options is specified in options field */
 
 [![](../images/button.png)](https://apps.axibase.com/chartlab/d84eedd0)
 
-### Change `Metric`, `Entity`, or Both
+### Change Metric, Entity, or Both
 
 ```ls
 [dropdown]

@@ -80,7 +80,7 @@ Click **Create** on the split-button at the bottom of the **Forecasts** page.
 
 ![](./images/historical-data.png)
 
-1. Define the `metric` and `entity` from which to read historical. Historical data is used by ATSD to calculate confidence intervals and forecast future sample value.
+1. Define the metric and entity from which to read historical data. Historical data is used by ATSD to calculate confidence intervals and forecast future sample values.
 1. Define **Data Selection Interval**. This parameter determines how much historical data is read to predict future data. A great selection interval increase the accuracy of future sample value predictions.
 
 ![](./images/selection-interval.png)

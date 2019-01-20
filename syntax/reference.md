@@ -162,6 +162,7 @@
 * <a name="link-width-order"></a>[`link-width-order`](../widgets/graph/README.md#link-width-order)
 * <a name="link-widths"></a>[`link-widths`](../widgets/graph/README.md#link-widths)
 * <a name="load-future-data"></a>[`load-future-data`](../widgets/time-chart/README.md#load-future-data)
+* <a name="marker-format"></a>[`marker-format`](../widgets/pie-chart/README.md#marker-format)
 * <a name="markers"></a>[`markers`](../widgets/time-chart/README.md#markers)
 * <a name="max-font-size"></a>[`max-font-size`](../widgets/text-widget/README.md#max-font-size)
 * <a name="max-range"></a>[`max-range`](../widgets/shared/README.md#max-range)

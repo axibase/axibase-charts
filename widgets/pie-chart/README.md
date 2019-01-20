@@ -34,6 +34,7 @@ The **Pie Chart** implements interactive on-click behavior.
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="mode"></a>[`mode`](#mode)|Chart mode.<br>Possible values: `pie`, `ring`.<br>Default value: `pie`.<br>**Example**: `mode = ring`|[↗](https://apps.axibase.com/chartlab/5930cb28)
+<a name="marker-format"></a>[`marker-format`](#marker-format)|Custom format applied to section labels.<br>Possible values: `pie`, `ring`.<br>**Example**: `marker-format = entity : tags.app`|[↗](https://apps.axibase.com/chartlab/f4c110d0/3/)
 <a name="on-series-double-click"></a>[`on-series-double-click`](#on-series-double-click)|Disable [double click functionality](#widget-settings) in the widget.<br>**Example**: `on-series-double-click = ''`|[↗](https://apps.axibase.com/chartlab/ec8f9fe9)
 <a name="selector-mode"></a>[`selector-mode`](#selector-mode)|Control how series sectors react to click interaction.<br>Possible values:<br>`highlight` - Highlights the selected series segment.<br>`expand` - Expands the selected series segment.<br>Default value: `expand`.<br>**Example**: `selector-mode = highlight`|[↗](https://apps.axibase.com/chartlab/423e18b1)
 <a name="total-value"></a>[`total-value`](#total-value)|Specify total value.<br> If no `total-value` setting is specified, total widget value is the sum of all series values.<br>`total-value` can include hidden series.<br>Possible values: Number, `series('alias')`.<br>**Example**: `total-value = 100`|[↗](https://apps.axibase.com/chartlab/bd31a5f9)
