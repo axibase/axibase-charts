@@ -259,6 +259,12 @@ Name | Description | &nbsp;
 
 > See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
 
+#### Transformation Order
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="transformation-order"></a>[`transformation-order`](#transformation-order)| [`transformation-order`](https://axibase.com/docs/atsd/api/data/series/query.html#transformations) controls the transformation sequence.<br>Possible values: `interpolate`, `group`, `rate`, `aggregate`, `smooth`, `downsample`, `forecast`, `none`. If set to `none`, the default sequence is used.<br>**Example**: `transformation-order = downsample, aggregate`.<br>Default value: `none`<br>If specified, the `server-aggregate` setting is set to `true` by default.| [↗](https://apps.axibase.com/chartlab/745ffe30/2/)
+
 ### Derived Value Settings
 
 Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax.
