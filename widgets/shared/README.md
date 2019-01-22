@@ -37,7 +37,6 @@ Name | Description | &nbsp;
 <a name="end-time"></a>[`end-time`](#end-time)| End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When `end-time` is specified, either `start-time` **or** `timespan` is also required.<br>**Example**: `endtime = 2018-07-05 13:00:00`| [↗](https://apps.axibase.com/chartlab/f784e730)
 <a name="timezone"></a>[`timezone`](#timezone)| Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone.<br>**Example**: `timezone = UTC`| [↗](https://apps.axibase.com/chartlab/01bcbf1c)
 <a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 3 month`| [↗](https://apps.axibase.com/chartlab/80152e9f)
-<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Include multiple series in request responses.<br>Possible values: `false`, `true`.<br>Default value: `false` (`true` for wildcard requests).<br>**Example**: `multiple-series = true`| [↗](https://apps.axibase.com/chartlab/7a9e4495/2/)
 <a name="series-limit"></a>[`series-limit`](#series-limit)| Maximum number of series retrieved from the database.<br>Default value: `1000`.<br>**Example**: `series-limit = 10`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/ace8b96d)
 <a name="cache"></a>[`cache`](#cache) | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `cache = true`| [↗](https://apps.axibase.com/chartlab/6cb1473e)
@@ -219,6 +218,12 @@ Name | Description | &nbsp;
 <a name="rate-counter"></a>[`rate-counter`](#rate-counter) | Possible values: `false`, `true`.<br>Default value: `true`<br>If `true`, negative differences between consecutive sample values are converted to `0`.<br>**Example**: `rate-counter = true`| [↗](https://apps.axibase.com/chartlab/5e781448)
 
 > See also [Rate](https://axibase.com/docs/atsd/api/data/series/rate.html) transformation in REST API.
+
+#### Merging
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Merge multiple series loaded with the same `[series]` section into one series. Duplicate samples with the same timestamp are discarded.<br>Possible values: `false`, `true`.<br>Default value: `true` (keep series separate).<br>**Example**: `multiple-series = false`| [↗](https://apps.axibase.com/chartlab/37064521/2/)
 
 #### Grouping
 

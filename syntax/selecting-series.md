@@ -117,7 +117,9 @@ The resulting series is merged from 3 underlying different series and provides a
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/59e15fe3)
 
-To control how multiple matched series are processed, use the `multiple-series` setting.
+To control how multiple matched series are processed, use the [`multiple-series`](../widgets/shared/README.md#multiple-series) setting. The setting merges multiple series, loaded with one `[series]` section, into one series.
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/37064521/2/)
 
 ```ls
 /* Display all series with tag fstype=ext4 without merging */
@@ -127,49 +129,6 @@ multiple-series = true
     fstype = ext4
 ```
 
-Use the `multiple-series` setting to display all series without specifying any tags in widget configuration:
-
-```ls
-/* Display all series without merging */
-multiple-series = true
-[series]
-```
-
-The default value of the `multiple-series` setting is `true` in the following cases:
-
-* Multiple entities are specified: `entity = nur1, nur2`
-* Multiple tag values are specified: `mount = /, /tmp`
-* Entity name contains [wildcard](./wildcards.md): `entity = nur*`
-* Tag value contains [wildcard](./wildcards.md): `mount = /t*`
-* `entity-expression`, `entity-group`, or `tag-expression` settings are present.
-
-```ls
-/* Select series using tag value wildcards. `multiple-series` is TRUE */
-  [tags]
-    fstype = ext4  
-    mount = *media*
-
-/* Select series with any value for the specified tag. `multiple-series` is TRUE */
-  [tags]
-    fstype = ext4  
-    mount = *
-
-/* Select series with any value for the specified tag. `multiple-series` is FALSE */
-  [tags]
-    fstype = ext4  
-
-/* Select series with tag values from the specified list. `multiple-series` is TRUE */
-  [tags]
-    fstype = cifs, autofs
-
-/* Select series with tag values matching specified wildcard patterns: `multiple-series` is TRUE */
-  [tags]
-    fstype = cifs, auto*
-
-/* Select series with tags matching an expression: `multiple-series` is TRUE */
-  tag-expression = tags.mount NOT LIKE '/m*'
-```
-
 ![](./images/select-tags.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/f4312ee7)
@@ -177,6 +136,10 @@ The default value of the `multiple-series` setting is `true` in the following ca
 ## Merging Series
 
 Merging multiple series into one series can be useful in situations where the underlying series describe the same object despite having different keys. Oftentimes, such series are recorded sequentially and therefore do not overlap.
+
+```ls
+multiple-series = false
+```
 
 Examples:
 
