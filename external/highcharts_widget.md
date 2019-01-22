@@ -82,7 +82,7 @@ Create a portal in ATSD and include a `page` widget with the URL setting referen
     type = chart
     timespan = 5 minute
     mode = column
-    multiple-series = true
+    merge-series = false
     format = fixed(3)
     entity = atsd
     [series]

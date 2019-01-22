@@ -223,13 +223,13 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="multiple-series"></a>[`multiple-series`](#multiple-series) | Merge multiple series loaded with the same `[series]` section into one series. Duplicate samples with the same timestamp are discarded.<br>Possible values: `false`, `true`.<br>Default value: `true` (keep series separate).<br>**Example**: `multiple-series = false`| [↗](https://apps.axibase.com/chartlab/37064521/2/)
+<a name="merge-series"></a>[`merge-series`](#merge-series) | Merge multiple series loaded with the same `[series]` section into one series. Duplicate samples with the same timestamp are discarded.<br>Possible values: `false`, `true`.<br>Default value: `false` (keep series separate).<br>**Example**: `merge-series = true`| [↗](https://apps.axibase.com/chartlab/37064521/3/)
+<a name="merge-fields"></a>[`merge-fields`](#merge-fields) | Merge series based on the specified field(s).<br>Applies if `merge-series` is set to `true`.<br>Possible values:<br>`entity` - Combine series with the same entity into one.<br>`tag-name` - Combine series with the same value for the specified tag into one series.<br>**Example**: `merge-fields = mount_point` | [↗](https://apps.axibase.com/chartlab/65f07c02)
 
 #### Grouping
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="merge-fields"></a>[`merge-fields`](#merge-fields) |Group series based on merge field.<br>Only applies in `multiple-series` mode.<br>By default, series which use [wildcard](../../syntax/wildcards.md), `entities`, `entityGroup` settings or comma-separated tag values are treated as multiple series.<br>Possible values: `entity` - Combine all series with the same entity. `tag-name` - Combine all series with tag defined by `tag-name`.<br>**Example**: `merge-fields = mount_point` | [↗](https://apps.axibase.com/chartlab/65f07c02)
 <a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/d2b23084)
 <a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (`15 minute`).<br>**Example**: `group period = 1 month`| [↗](https://apps.axibase.com/chartlab/2ee1bace)
 <a name="group-first"></a>[`group-first`](#group-first) | The sequence of aggregation and grouping.<br>If set to `true`, grouping is performed before aggregation.<br>**Example**: `group-first = false`| [↗](https://apps.axibase.com/chartlab/732de421)

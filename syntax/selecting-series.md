@@ -117,13 +117,11 @@ The resulting series is merged from 3 underlying different series and provides a
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/59e15fe3)
 
-To control how multiple matched series are processed, use the [`multiple-series`](../widgets/shared/README.md#multiple-series) setting. The setting merges multiple series, loaded with one `[series]` section, into one series.
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/37064521/2/)
+To control how multiple matching series are processed, use the [`merge-series`](../widgets/shared/README.md#merge-series) setting. The setting merges multiple series, loaded with one `[series]` section, into one series.
 
 ```ls
 /* Display all series with tag fstype=ext4 without merging */
-multiple-series = true
+merge-series = false
 [series]
   [tags]
     fstype = ext4
@@ -131,25 +129,25 @@ multiple-series = true
 
 ![](./images/select-tags.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f4312ee7)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f4312ee7/2/)
 
 ## Merging Series
 
 Merging multiple series into one series can be useful in situations where the underlying series describe the same object despite having different keys. Oftentimes, such series are recorded sequentially and therefore do not overlap.
 
 ```ls
-multiple-series = false
+merge-series = true
 ```
 
 Examples:
 
 * `/media/datadrive` file system re-mounted on a larger disk but the mount point remains the same.
 * Containers with different identifiers launched on schedule to perform a daily task.
-* Measurements recorded during a set of scientific experiments are tagged with experiment `ID` and input parameters.
+* Measurements tagged with changing experiment identifiers and input parameters.
 
 ![](./images/multiple-series-off.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/cdfb34c5/15/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/37064521/3/)
 
 ## Selecting Series for Multiple Entities
 
