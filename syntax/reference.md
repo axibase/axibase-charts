@@ -98,7 +98,7 @@
 * <a name="expand"></a>[`expand`](../widgets/pie-chart/README.md#expand)
 * <a name="expand-panels"></a>[`expand-panels`](../widgets/time-chart/README.md#expand-panels)
 * <a name="expand-tags"></a>[`expand-tags`](../widgets/shared-table/README.md#expand-tags)
-* <a name="fill-value"></a>[`fill-value`](../widgets/time-chart/README.md#fill-value)
+* <a name="fill-value"></a>[`fill-value`](../widgets/shared/README.md#fill-value)
 * <a name="font-scale"></a>[`font-scale`](../widgets/shared-table/README.md#font-scale)
 * <a name="font-size"></a>[`font-size`](../widgets/treemap/README.md#font-size)
 * <a name="forecast-name"></a>[`forecast-name`](../widgets/shared/README.md#forecast-name)
