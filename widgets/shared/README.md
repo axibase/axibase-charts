@@ -262,13 +262,13 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="smooth"></a>[`smooth`](#smooth)| [Averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Possible values: `AVG`, `EMA`, `WAVG`, `WTAVG`.<br>**Example**: `smooth = AVG`| [↗](https://apps.axibase.com/chartlab/77d3a87b)
-<a name="smooth-factor"></a>[`smooth-factor`](#smooth-factor)| [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter. Possible values: Between `0` and `1`.<br>**Example**: `smooth-factor = 0.5`| [↗](https://apps.axibase.com/chartlab/7ee5133e)
-<a name="smooth-range"></a>[`smooth-range`](#smooth-range) | Alternative [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) function weight parameter.<br>**Example**: `smooth-range = 60000`| [↗](https://apps.axibase.com/chartlab/d26e18b3)
+<a name="smooth"></a>[`smooth`](#smooth)| [Averaging](https://axibase.com/docs/atsd/api/data/series/smooth.html) function applied to window samples.<br>Possible values: `AVG`, `EMA`, `WAVG`, `WTAVG`.<br>**Example**: `smooth = AVG`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
 <a name="smooth-count"></a>[`smooth-count`](#smooth-count)| Window size.<br>A larger window performs greater smoothing.<br>**Example**: `smooth-count = 50`| [↗](https://apps.axibase.com/chartlab/9af9e77b)
 <a name="smooth-interval"></a>[`smooth-interval`](#smooth-interval) | Window duration interval, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `smooth-interval = 15 minute`| [↗](https://apps.axibase.com/chartlab/e3bc966e)
 <a name="smooth-minimum-count"></a>[`smooth-minimum-count`](#smooth-minimum-count)| [Minimum number](https://axibase.com/docs/atsd/api/data/series/smooth.html#fields) of samples in a window required to apply the smoothing function.<br>Default value: `1`.<br>**Example**: `smooth-minimum-count = 10`| [↗](https://apps.axibase.com/chartlab/eeeeba28)
 <a name="smooth-incomplete-value"></a>[`smooth-incomplete-value`](#smooth-incomplete-value) | Sample value returned when downsampling window is not full.<br>**Example**: `smooth-incomplete-value = NaN`| [↗](https://apps.axibase.com/chartlab/6666ab6c)
+<a name="smooth-factor"></a>[`smooth-factor`](#smooth-factor)| [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) smoothing parameter.<br>`EMA` does not depend on the window size.<br>Default value: `0.25`.<br>Possible values: `(0, 1)`.<br>**Example**: `smooth-factor = 0.50`| [↗](https://apps.axibase.com/chartlab/7ee5133e)
+<a name="smooth-range"></a>[`smooth-range`](#smooth-range) | [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) smoothing parameter, as an alternative to `smooth-factor`.<br>`EMA` does not depend on the window size.<br>**Example**: `smooth-range = 60000`| [↗](https://apps.axibase.com/chartlab/d26e18b3)
 
 > See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
 
