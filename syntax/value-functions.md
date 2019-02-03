@@ -31,7 +31,9 @@ The `value` setting is specified in the [`[series]`](../widgets/shared/README.md
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa)
 
-The `value` expression is invoked **for each** `time:value` sample in the original series. The expression must return a numeric value or `null` if the value cannot be calculated. `null` values are not displayed on the chart.
+The `value` expression is invoked **for each** `time:value` sample in the original series.
+
+The expression must return a numeric value or `null` if the value cannot be calculated. `null` values are not displayed on the chart.
 
 ```ls
 [series]
@@ -39,17 +41,27 @@ The `value` expression is invoked **for each** `time:value` sample in the origin
   entity = nurswgvml007
   alias = s-1
 [series]
-  # Show only values that are greater than previous value
-  value = value('s-1') > previous('s-1') ? 10 + value('s-1') : null
+  # Show values that exceed previous value by more than 10
+  value = value('s-1') > previous('s-1')+10 ? value('s-1') : null
   label = s-2
 ```
 
 ![](./images/value-function-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa/2/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/ae6323aa/4/)
+
+ The `time()` function can be invoked within the expression to check the timestamp of the current sample measured in Unix milliseconds.
+
+```ls
+value = var diff = value('s-2') - value('s-1'); return time() > new Date().getTime() ? null : diff;
+```
+
+![](./images/value-function-3.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/abab8160)
 
 :::tip Note
-The results of the `value` calculation are not affected by the [visibility](../configuration/display-filters.md) of the underlying series.
+`value()` calculation is not affected by the [visibility](../configuration/display-filters.md) of the underlying series.
 :::
 
 ## Lookup Functions
@@ -57,6 +69,7 @@ The results of the `value` calculation are not affected by the [visibility](../c
 | Function | Arguments | Description |
 |----------|-----------|-------------|
 | `value` | `alias` | Value of the underlying series at the same timestamp. |
+| `time` | - | Timestamp of the current sample in Unix milliseconds. |
 
 ![](./images/value-functions-lookup.png)
 
