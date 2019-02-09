@@ -93,7 +93,7 @@ To change the position of the default column, specify the column name explicitl
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/3c57bf69)
 
-`[column]` settings provide the `position` setting to control the placement of the column regardless of the order in which `[column]` settings are defined in the widget. Supported values are `first`, `middle` and `last`.
+`[column]` settings provide the `position` setting to control the placement of the column regardless of the order in which `[column]` settings are defined in the widget. Possible values are `first`, `middle` and `last`.
 
 ![](./images/column-order-example-1.png)
 

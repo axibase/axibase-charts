@@ -281,11 +281,10 @@ endfor
 
 ## `csv`
 
-Create comma-separated value lists in the **Editor** window.
+Creates a list of objects with the same properties from a tabular text.
 
 ```ls
-csv metrics =
-  keyword,identifier
+csv metrics = keyword,identifier
   Consumer Price Index,CPIAUCSL
   Real Gross National Product,A001RO1Q156NBEA
   National income,A032RC1A027NBEA
@@ -297,13 +296,13 @@ csv metrics =
 endcsv
 ```
 
-Access CSV lists to create the parameters for an inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for) statements.
+The list of objects can be iterated to create inline [drop-down list](../configuration/drop-down-lists.md) or [labeling pattern](./label-formatting.md) using [`for`](#for) statements.
 
 ```ls
-for option in metrics
+for m in metrics
   [option]
-    text = @{option.keyword}
-    value = @{option.identifier}
+    text = @{m.keyword}
+    value = @{m.identifier}
 endfor
 ```
 
@@ -311,23 +310,27 @@ endfor
 
 [![](./images/button-new.png)](https://trends.axibase.com/7fc545d0)
 
+The list provides a convenience method to retrieve unique values for a given column, sorted by value.
+
+```javascript
+list_name.values(column_name)
+```
+
 ### CSV Inline Text Mode
 
 **Description**:
 
-* Parses CSV-like text placed between `csv name =` and `endcsv` keywords into an array of objects.
-* First line contains header and column names.
-* Other lines contain data.
+* Parses tabular text placed between `csv name =` and `endcsv` keywords into an array of objects.
+* The first line must contain the header with column names.
 * Each data line is parsed into the object, where keys are column names and values are the values of corresponding cells.
-* The generated array uses the `.value(column_name)` method to get unique sorted values of the defined column.
 
-Limitations and features that are applied:
+Parsing rules:
 
-* Handling for empty lines and spaces.
-* To escape spaces, use double quotes `"`.
-* Value cannot contain double quotes `"`.
-* Multi-line rows are not supported.
-* The delimiter symbol is comma (`,`)
+* The delimiter symbol is comma (`,`).
+* Empty lines are ignored, cell text is trimmed to remove non-printable characters.
+* To escape spaces or commas, enclose cell value in double quotes `"`.
+* Cell value must not contain double quotes `"`.
+* Multi-line cell values are not supported.
 
 **Syntax**:
 

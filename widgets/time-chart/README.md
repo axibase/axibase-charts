@@ -70,7 +70,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="mode"></a>[`mode`](#mode) | Chart mode, can be applied to both `[widget]` and `[series]` settings.<br>Possible values:<br>`line` - Connect series data points with a line.<br>`stack` - Visually stack series.<br>`column` - Display series as columns.<br>`range` - Display range of series values.<br>`column-stack` - Visually stack series in column-form.<br>Default value: `line`.<br>**Example**: `mode = column`| [↗](https://apps.axibase.com/chartlab/8998bddf)
+<a name="mode"></a>[`mode`](#mode) | Chart mode, can be applied to both `[widget]` and `[series]` settings.<br>Possible values:<br>`line` - Connect series data points with a line.<br>`stack` - Visually stack series.<br>`column` - Display series as columns.<br>`range` - Display range of series values.<br>`column-stack` - Visually stack series in column-form. This setting must be set at the `[widget]` level or higher.<br>Default value: `line`.<br>**Example**: `mode = column`| [↗](https://apps.axibase.com/chartlab/8998bddf/2/)
 <a name="load-future-data"></a>[`load-future-data`](#load-future-data)| Load future series values on scroll.<br>Applies to `type=forecast` data.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `load-future-data = true`| [↗](https://apps.axibase.com/chartlab/268cc442)
 <a name="series-type"></a>[`series-type`](#series-type)| Grouping parameter for use in `stack` mode.<br>Series of the same type are stacked (their values are summed).<br>Set a unique value for each series to achieve fill effect without series stacking.<br>**Example**: `series-type = s1`| [↗](https://apps.axibase.com/chartlab/3273a4c7)
 
