@@ -24,9 +24,6 @@ The **Time Chart** displays series values at successive time intervals for one o
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="display-panels"></a>[`display-panels`](#display-panels) |  Display widget controls.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`|[↗](https://apps.axibase.com/chartlab/09deba8f)
-<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`|  [↗](https://apps.axibase.com/chartlab/f5319f9d)
-<a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`|[↗](https://apps.axibase.com/chartlab/537bf3e3)
 <a name="context-height"></a>[`context-height`](#context-height)| Height of the [**Context Chart**](#time-chart-controls), which adjusts displayed timespan.<br>Default value: `0` in the main window, `70` in the dialog window.<br>**Example**: `context-height = 50`| [↗](https://apps.axibase.com/chartlab/4215daf6)
 <a name="legend-value"></a>[`legend-value`](#legend-value) | Display last value for each series in the legend.<br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Example**: `legend-value = false` | [↗](https://apps.axibase.com/chartlab/b8399385)
 <a name="markers"></a>[`markers`](#markers)| Show series value markers.<br>Toggle `markers` with the **Markers** option on the left axis mouseover menu. <br>Possible values: `false`, `true`.<br>Default value: `true`.<br>**Examples**: `markers = false`| [↗](https://apps.axibase.com/chartlab/23e60670)
@@ -43,6 +40,17 @@ Name | Description | &nbsp;
 <a name="negative-style"></a>[`negative-style`](#negative-style)| CSS style applied to negative values in `column` or `column-stack` mode.<br>**Example**: `negative-style = fill: red`| [↗](https://apps.axibase.com/chartlab/03326e26)
 <a name="current-period-style"></a>[`current-period-style`](#current-period-style)| CSS styles applied to current period values in `column` and `column-stack` mode.<br>**Example**: `current-period-style = stroke-dasharray: 5, 2, 1, 2`| [↗](https://apps.axibase.com/chartlab/148d5d72)
 <a name="forecast-style"></a>[`forecast-style`](#forecast-style)| CSS style applied to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.<br>**Example**: `forecast-style = stroke: magenta;`| [↗](https://apps.axibase.com/chartlab/35aa293f)
+
+### Panels
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="display-panels"></a>[`display-panels`](#display-panels) |  Display widget controls in the top left and right corners.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`|[↗](https://apps.axibase.com/chartlab/09deba8f)
+<a name="expand-panels"></a>[`expand-panels`](#expand-panels)|  Expand widget controls to show available selectors.<br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`|  [↗](https://apps.axibase.com/chartlab/f5319f9d)
+<a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`|[↗](https://apps.axibase.com/chartlab/537bf3e3)
+<a name="panels-timespan"></a>[`panels-timespan`](#panels-timespan)|  Override timespan selectors displayed in the **top left** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
+<a name="panels-type"></a>[`panels-type`](#panels-type)|  Override statistical function selectors displayed in the **top right** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
+<a name="panels-interval"></a>[`panels-timespan`](#panels-interval)|  Override aggregation period selectors used by statistical functions in the **top right** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
 
 ### Value Axis Settings
 
