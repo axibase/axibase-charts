@@ -68,6 +68,22 @@ display = tags.level == 'DEBUG'
 
 [![](../images/button.png)](https://apps.axibase.com/chartlab/04f1ed7c/2/#)
 
+### Series Table
+
+The `display` filter in the series table applies to each cell **separately** and not to the entire row.
+
+The row becomes hidden when all value cells are hidden as well.
+
+```ls
+display = value > 200000
+```
+
+> The `enabled` setting is ignored by the series table.
+
+![](./images/display-filters-table.png)
+
+[![](../images/button.png)](https://apps.axibase.com/chartlab/ca71ab6d/2/)
+
 ### Derived Series from Hidden Series
 
 The `display` and `enabled` settings have no impact on the calculated series.
