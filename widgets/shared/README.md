@@ -270,8 +270,6 @@ Name | Description | &nbsp;
 <a name="smooth-factor"></a>[`smooth-factor`](#smooth-factor)| [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) smoothing parameter.<br>`EMA` does not depend on the window size.<br>In the presence of gaps, `EMA` reaction is [delayed](https://apps.axibase.com/chartlab/85e6f517/2/) due to the missing prior values.<br>Default value: `0.25`.<br>Possible values: `(0, 1)`.<br>**Example**: `smooth-factor = 0.50`| [↗](https://apps.axibase.com/chartlab/7ee5133e)
 <a name="smooth-range"></a>[`smooth-range`](#smooth-range) | [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) smoothing parameter, as an alternative to `smooth-factor`.<br>The difference with the `factor` parameter appears when the samples are [irregular](https://apps.axibase.com/chartlab/85e6f517).<br>`EMA` does not depend on the window size.<br>**Example**: `smooth-range = 60000`| [↗](https://apps.axibase.com/chartlab/d26e18b3/2)
 
-https://apps.axibase.com/chartlab/85e6f517/2/
-
 > See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
 
 #### Transformation Order
