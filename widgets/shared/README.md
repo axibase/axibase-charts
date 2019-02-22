@@ -238,7 +238,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/d2b23084)
+<a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values. Note, `DELTA` is not admissible as grouping aggregation.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/d2b23084/2/)
 <a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (`15 minute`).<br>**Example**: `group period = 1 month`| [↗](https://apps.axibase.com/chartlab/2ee1bace)
 <a name="group-first"></a>[`group-first`](#group-first) | The sequence of aggregation and grouping.<br>If set to `true`, grouping is performed before aggregation.<br>**Example**: `group-first = false`| [↗](https://apps.axibase.com/chartlab/732de421)
 <a name="group-interpolate"></a>[`group-interpolate`](#group-interpolate)| Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.<br>**Example**: `group-interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
