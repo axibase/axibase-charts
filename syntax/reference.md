@@ -114,7 +114,6 @@
 * <a name="gradient-count"></a>[`gradient-count`](../widgets/calendar-chart/README.md#gradient-count)
 * <a name="gradient-intensity"></a>[`gradient-intensity`](../widgets/gauge-chart/README.md#gradient-intensity)
 * <a name="group"></a>[`group`](../widgets/bar-chart/README.md#group)
-* <a name="group-first"></a>[`group-first`](../widgets/shared/README.md#group-first)
 * <a name="group-interpolate"></a>[`group-interpolate`](../widgets/shared/README.md#group-interpolate)
 * <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](../widgets/shared/README.md#group-interpolate-extend)
 * <a name="group-period"></a>[`group-period`](../widgets/shared/README.md#group-period)
