@@ -183,6 +183,12 @@ Name | Description | &nbsp;
 
 ### Transformation
 
+#### Transformation Order
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="transformation-order"></a>[`transformation-order`](#transformation-order)| [`transformation-order`](https://axibase.com/docs/atsd/api/data/series/query.html#transformations) controls the sequence of data modification procedures.<br>Default sequence: `interpolate`, `group`, `rate`, `aggregate`, `smooth`, `downsample`, `forecast`, `none`.<br>**Example**: `transformation-order = downsample, aggregate`.<br>Default value: `none`. If set to `none`, the default sequence is used.<br>If specified, the `server-aggregate` setting is set to `true` by default.| [↗](https://apps.axibase.com/chartlab/745ffe30/2/)
+
 #### Aggregation
 
 Aggregation splits the underlying series into periods of equal duration and applies statistical functions to values in each period. The derived series is regular and has fewer samples.
@@ -238,9 +244,8 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group statistic function assigned to the series.<br>Refer to [Aggregators](../../configuration/aggregators.md) for possible values.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/d2b23084)
-<a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (`15 minute`).<br>**Example**: `group period = 1 month`| [↗](https://apps.axibase.com/chartlab/2ee1bace)
-<a name="group-first"></a>[`group-first`](#group-first) | The sequence of aggregation and grouping.<br>If set to `true`, grouping is performed before aggregation.<br>**Example**: `group-first = false`| [↗](https://apps.axibase.com/chartlab/732de421)
+<a name="group-statistic"></a>[`group-statistic`](#group-statistic) | Group [statistic function](../../configuration/aggregators.md) applied to matching series. Note that `DELTA` and `COUNTER` functions are not supported by this transformation.<br>**Example**: `group-statistic = sum`| [↗](https://apps.axibase.com/chartlab/b61b7f82)
+<a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>Default value: `auto` (inherited from `period` or set to `15 minute` if `period` is not set.<br>**Example**: `group-period = 1 day`| [↗](https://apps.axibase.com/chartlab/b61b7f82/2/)
 <a name="group-interpolate"></a>[`group-interpolate`](#group-interpolate)| Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.<br>**Example**: `group-interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
 <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](#group-interpolate-extend)| Fill missing leading and trailing periods with `NEXT` or `PREVIOUS` values.<br>**Example**: `group-interpolate-extend = true`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
 
@@ -271,12 +276,6 @@ Name | Description | &nbsp;
 <a name="smooth-range"></a>[`smooth-range`](#smooth-range) | [`EMA`](https://axibase.com/docs/atsd/api/data/series/smooth.html#exponential-moving-average) smoothing parameter, as an alternative to `smooth-factor`.<br>The difference with the `factor` parameter appears when the samples are [irregular](https://apps.axibase.com/chartlab/85e6f517).<br>`EMA` does not depend on the window size.<br>**Example**: `smooth-range = 60000`| [↗](https://apps.axibase.com/chartlab/d26e18b3/2)
 
 > See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
-
-#### Transformation Order
-
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="transformation-order"></a>[`transformation-order`](#transformation-order)| [`transformation-order`](https://axibase.com/docs/atsd/api/data/series/query.html#transformations) controls the transformation sequence.<br>Possible values: `interpolate`, `group`, `rate`, `aggregate`, `smooth`, `downsample`, `forecast`, `none`. If set to `none`, the default sequence is used.<br>**Example**: `transformation-order = downsample, aggregate`.<br>Default value: `none`<br>If specified, the `server-aggregate` setting is set to `true` by default.| [↗](https://apps.axibase.com/chartlab/745ffe30/2/)
 
 ### Derived Value Settings
 
