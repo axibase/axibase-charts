@@ -30,6 +30,7 @@ const widgetsSideBar = widgetLinks
 
 const syntaxLinks = [
     { text: 'Settings Reference', link: `/syntax/reference.md` },
+    { text: 'Aggregators', link: '/configuration/aggregators.md' },
     { text: 'Alert Expressions', link: '/syntax/alert-expression.md' },
     { text: 'Audio Alerts', link: '/configuration/audio-alerts.md' },
     { text: 'Baselines', link: '/configuration/baselines.md' },
