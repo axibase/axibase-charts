@@ -114,7 +114,7 @@ Name | Description | &nbsp;
 <a name="table"></a>[`table`](#table) | Table in the relational database from which to retrieve numeric values.<br>Alternative to `metric` setting.<br>Both `table` and `attribute` must be defined.<br>**Example**: `table = KLZ_CPU`| [↗](https://apps.axibase.com/chartlab/35fde2bf)
 <a name="attribute"></a>[`attribute`](#attribute)| Column name in a relational database table. The column must be of numeric data type.<br>**Example**: `attribute = Current_Average` | [↗](https://apps.axibase.com/chartlab/35fde2bf)
 <a name="data-type"></a>[`data-type`](#data-type)| Series data type.<br>Possible values: `history`, `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.<br>**Example**: `data-type = forecast`| [↗](https://apps.axibase.com/chartlab/2942e708)
-<a name="forecast-name"></a>[`forecast-name`](#forecast-name)| [Forecast name](https://axibase.com/docs/atsd/api/data/series/query.html#forecast-filter).<br>If no forecast name is defined, [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.<br>**Example**: `forecast-name = hw5`| [↗](https://apps.axibase.com/chartlab/533918cc)
+<a name="forecast-name"></a>[`forecast-name`](#forecast-name)| [Forecast name](https://axibase.com/docs/atsd/api/data/series/query.html#forecast-filter) when `data-type` setting is set to  `forecast`, `forecast_deviation`, `lower_confidence`, `upper_confidence`.<br>If no forecast name is specified, the [default series forecast](https://axibase.com/docs/atsd/forecasting/#persistence-settings) is loaded.<br>**Example**: `forecast-name = hw5`| [↗](https://apps.axibase.com/chartlab/533918cc)
 
 ### Entity Filter
 
