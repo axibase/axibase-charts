@@ -277,6 +277,61 @@ Name | Description | &nbsp;
 
 > See also [Smoothing](https://axibase.com/docs/atsd/api/data/series/smooth.html) transformation in REST API.
 
+#### Forecasting
+
+##### Shared Forecasting Settings
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="forecast-include"></a>[`forecast-include`](#forecast-include)| Include input series, forecast, or reconstructed series into response.<br>Possible values: `RECONSTRUCTED`, `HISTORY`, `FORECAST`.<br>Default value: `FORECAST`.<br>**Example**: `forecast-horizon-length = 7 day`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-horizon-interval"></a>[`forecast-horizon-interval`](#forecast-horizon-interval)| Generate a forecast for the specified interval into the future starting with last sample of the loaded series.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `forecast-horizon-interval = 1 day`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-horizon-length"></a>[`forecast-horizon-length`](#forecast-horizon-length)| Generate a forecast for the specified number of samples into the future.<br>**Example**: `forecast-horizon-length = 30`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-horizon-end-time"></a>[`forecast-horizon-end-time`](#forecast-horizon-end-time)| Generate a forecast starting with last sample of the loaded series and until the specified date in the future.<br>**Example**: `forecast-horizon-end-time = 2019-02-10T00:00:00Z` | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-horizon-start-time"></a>[`forecast-horizon-start-time`](#forecast-horizon-start-time)| Generate a forecast for the specified interval into the future starting with specified date instead of the last sample of the loaded series.<br>**Example**: `forecast-horizon-start-time = 2019-02-10T00:00:00Z`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-score-interval"></a>[`forecast-score-interval`](#forecast-score-interval)| Interval for scoring the produced forecasts ending with the last sample of the input series.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>For SSA, the default value is the minimum of `forecast-horizon-interval` and `1/3` of the loaded series duration.<br>For ARIMA and Holt-Winters the default value is `1/4` of the loaded series duration.<br>**Example**: `forecast-score-interval = 1 day`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+
+> The settings `forecast-horizon-interval`, `forecast-horizon-length`, and `forecast-horizon-end-time` are mutually exclusive.
+
+##### ARIMA Forecasting Settings
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="forecast-arima-auto"></a>[`forecast-arima-auto`](#forecast-arima-auto)| Generate an ARIMA forecast using optimal settings.<br>If `true` ARIMA parameters `p` and `d` are selected automatically best on scoring.<br>If set to `false`, parameters `p`, `d` are required.<br>**Example**: `forecast-arima-auto = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-arima-p"></a>[`forecast-arima-p`](#forecast-arima-p)| Auto-regression parameter `p`.<br>**Example**: `forecast-arima-p = 10` | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-arima-auto-regression-interval"></a>[`forecast-arima-auto-regression-interval`](#forecast-arima-auto-regression-interval)| Alternative parameter for `p` where `p` is calculated as `auto-regression-interval / interval`.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `forecast-arima-auto-regression-interval = 1 day`  | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-arima-d"></a>[`forecast-arima-d`](#forecast-arima-d)| Integration parameter `d`, a number of `0` or `1`.<br>**Example**: `forecast-arima-d = 0` | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+
+
+##### Holt-Winters Forecasting Settings
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="forecast-hw-auto"></a>[`forecast-hw-auto`](#forecast-hw-auto)| Generate a Holt-Winters forecast using optimal settings.<br>If `true` Holt-Winters parameters `alpha`, `beta`, `gamma` are selected automatically best on scoring.<br>If set to `false`, parameters `alpha`, `beta`, `gamma` are required.<br>**Example**: `forecast-hw-auto = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-hw-alpha"></a>[`forecast-hw-alpha`](#forecast-hw-alpha)| Holt-Winters `alpha` parameter. | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-hw-beta"></a>[`forecast-hw-beta`](#forecast-hw-beta)| Holt-Winters `beta` parameter. | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-hw-gamma"></a>[`forecast-hw-gamma`](#forecast-hw-gamma)| Holt-Winters `gamma` parameter. | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-hw-period"></a>[`forecast-hw-period`](#forecast-hw-period)| Series period (seasonality) parameter.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `forecast-hw-period = 1 hour` | [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+
+##### SSA Forecasting Settings
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="forecast-ssa"></a>[`forecast-ssa`](#forecast-ssa)| Generate an SSA (singular spectrum analysis) forecast.<br>**Example**: `forecast-ssa = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-decompose-eigentriple-limit"></a>[`forecast-ssa-decompose-eigentriple-limit`](#forecast-ssa-decompose-eigentriple-limit)| Maximum number of eigenvectors extracted from the trajectory matrix during the singular value decomposition (SVD).<br>Possible values: between `0` and `500`.<br>If set to `0`, the count is determined automatically.<br>**Example**: `forecast-decompose-eigentriple-limit = 50`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-decompose-method"></a>[`forecast-ssa-decompose-method`](#forecast-ssa-decompose-method)| The algorithm applied in singular value decomposition (SVD) of the trajectory matrix to extract eigenvectors.<br>Possible values: `FULL`, `TRUNCATED`, `AUTO`.<br>**Example**: `forecast-ssa-decompose-method = AUTO`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-decompose-window-length"></a>[`forecast-ssa-decompose-window-length`](#forecast-ssa-decompose-window-length)| Width of the trajectory matrix (number of columns), specified as the percentage of the sample count in the input series.<br>Possible values: between `0` and `100`.<br>Default value: `50`.<br>**Example**: `forecast-ssa-decompose-window-length = 50`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-decompose-singular-value-threshold"></a>[`forecast-ssa-decompose-singular-value-threshold`](#forecast-ssa-decompose-singular-value-threshold)| Threshold, specified in percent, to discard eigenvectors. Eigenvector is discarded if square root of its eigenvalue is below square root of sum of all eigenvalues multiplied by the threshold.<br>If set to `0`, no eigenvectors are discarded.<br>If set to `100`, only the eigenvector with the largest eigenvalue is included.<br>**Example**: `forecast-ssa-decompose-singular-value-threshold = 5`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-auto-count"></a>[`forecast-ssa-group-auto-count`](#forecast-ssa-group-auto-count)| Maximum number of eigenvector groups. The eigenvectors are placed into groups based on the clustering parameter in Auto mode, or using eigenvector indexes in Manual mode. The groups are sorted by maximum eigenvalue in descending order and are named using letters `A`, `B`, `C` etc.<br>If set to `0`, only one group is returned.<br>**Example**: `forecast-ssa-group-auto-count = 5`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-auto-stack"></a>[`forecast-ssa-group-auto-stack`](#forecast-ssa-group-auto-stack)| Build groups recursively, starting with the group `A` with maximum eigenvalue, to view the cumulative result of incrementally added eigenvectors. In enabled, group `A` contains its own eigenvectors. Group `B` contains its own eigenvectors as well as eigenvectors from group `A`. Group `C` includes its own eigenvectors as well as eigenvectors from group `A` and `B`, and so forth.<br>**Example**: `forecast-ssa-group-auto-stack = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-auto-clustering-method"></a>[`forecast-ssa-group-auto-clustering-method`](#forecast-ssa-group-auto-clustering-method)| Algorithm used to place eigenvectors into groups.<br>Possible values: `HIERARCHICAL`, `XMEANS`, `NOVOSIBIRSK`.<br>Default value: `HIERARCHICAL`.<br>**Example**: `forecast-ssa-group-auto-stack = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-auto-clustering-params"></a>[`forecast-ssa-group-auto-clustering-params`](#forecast-ssa-group-auto-clustering-params)| Dictionary (map) of parameters required by the given clustering method.<br>**Example**: `forecast-ssa-group-auto-clustering-params = { "v": 0.8, "c": 0.8 }`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-auto-union"></a>[`forecast-ssa-group-auto-union`](#forecast-ssa-group-auto-union)| Join eigenvectors from automatically created groups into custom groups. Multiple custom groups are separated using semi-colon. Joined groups are listed using comma as a separator and hyphen for range. For example, custom group `A,B,D` contains eigenvectors from automatic groups `A`,`B` and `D`. Custom group `A,C-E` contains eigenvectors from automatic groups `A`,`C`,`D`,`E`.<br>**Example**: `forecast-ssa-group-auto-union = A,C-E;B,F-`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-group-manual-groups"></a>[`forecast-ssa-group-manual-groups`](#forecast-ssa-group-manual-groups)| Join eigenvectors using their index into custom groups. Multiple custom groups are separated using semi-colon. Joined indexes are enumerated using comma as a separator and hyphen for range. For example, custom group `1,3-6` contains eigenvectors with indexes `1`,`3`,`4`,`5` and `6`.<br>**Example**: `forecast-ssa-group-manual-groups = 1,3-6;2,7-`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-reconstruct-averaging-function"></a>[`forecast-ssa-reconstruct-averaging-function`](#forecast-ssa-reconstruct-averaging-function)| Averaging function to calculate anti-diagonal elements of the reconstructed matrix.<br>Possible values: `AVG`, `MEDIAN`.<br>Default value: `AVG`<br>**Example**: `forecast-ssa-reconstruct-averaging-function = AVG`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-reconstruct-fourier"></a>[`forecast-ssa-reconstruct-fourier`](#forecast-ssa-reconstruct-fourier)| Use Fourier transform in the reconstruction stage and in SVD (singular value decomposition).<br>Default value: `true`.<br>**Example**: `forecast-ssa-reconstruct-fourier = true`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-forecast-method"></a>[`forecast-ssa-forecast-method`](#forecast-ssa-forecast-method)| Forecast calculation method.<br>Possible values: `RECURRENT`, `VECTOR`.<br>Default value: `RECURRENT`.<br>**Example**: `forecast-ssa-forecast-method = RECURRENT`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+<a name="forecast-ssa-forecast-base"></a>[`forecast-ssa-forecast-base`](#forecast-ssa-forecast-base)| Input series to which the recurrent formula is applied when calculating the forecast.<br>Possible values: `RECONSTRUCTED`, `ORIGINAL`.<br>**Example**: `forecast-ssa-forecast-base = RECONSTRUCTED`| [↗](https://apps.axibase.com/chartlab/77d3a87b/2/)
+
 ### Derived Value Settings
 
 Specify `value` setting to create calculated series derived from raw series using arithmetic expressions in JavaScript syntax.
