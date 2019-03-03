@@ -291,6 +291,7 @@ Name | Description | &nbsp;
 <a name="forecast-score-interval"></a>[`forecast-score-interval`](#forecast-score-interval)| Interval for scoring the produced forecasts ending with the last sample of the input series.<br>The interval is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>For SSA, the default value is the minimum of `forecast-horizon-interval` and `1/3` of the loaded series duration.<br>For ARIMA and Holt-Winters the default value is `1/4` of the loaded series duration.<br>**Example**: `forecast-score-interval = 1 day`| [↗](https://apps.axibase.com/chartlab/f08e31e3/7/)
 
 > The settings `forecast-horizon-interval`, `forecast-horizon-length`, and `forecast-horizon-end-time` are mutually exclusive.
+> See also [Forecasting](https://axibase.com/docs/atsd/api/data/series/forecast.html) transformation in REST API.
 
 ##### ARIMA Forecasting Settings
 
