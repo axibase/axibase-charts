@@ -44,6 +44,7 @@ Invoke built-in string functions to format series fields.
 <a name="replace"></a>[`replace`](#replace) | Replace **all** occurrences of the given string in the original string with another string.|
 <a name="capFirst"></a>[`capFirst`](#capFirst)| **Capitalize** first word. |
 <a name="capitalize"></a>[`capitalize`](#capitalize)| **Capitalize** all words.  |
+<a name="coalesce"></a>[`coalesce`](#coalesce)| Returns the first object from arguments that is not `undefined`, not `null` and not empty.<br>Returns an empty string `""` if all elements are `null` or empty.<br> **Alias**: `ifEmpty` |
 <a name="lowercase"></a>[`lowerCase`](#lowercase)| Convert to **lower** case.   |
 <a name="uppercase"></a>[`upperCase`](#uppercase)| Convert to **upper** case.   |
 <a name="removebeginning"></a>[`removeBeginning`](#removebeginning)| **Removes** the given substring from the **beginning** of the string.|
@@ -85,12 +86,12 @@ Include the `addMeta = true` expression on the `[configuration]` level.
 [configuration]
 add-meta = true
 /* Format label using metadata identifiers */
-label-format = javascript: (meta.entity.label ? meta.entity.label : entity) + ": " + (meta.metric.label ? meta.metric.label : metric) + (tags+"" != 'null' ? ": " + tags : "") + (statistics && statistics != 'detail' ? ": " + statistics : "") + (period ? " - " + period : "") + (dataType ? ": " + dataType : "") + (rate ? ": ∇ " + rate : "")
+label-format = javascript: [coalesce(meta.entity.label, entity), ifEmpty(meta.metric.label, metric), ifEmpty(tags), (statistics && statistics !== "detail" ? statistics : ""), (period ? " - " + period : ""), ifEmpty(meta.metric.dataType), (rate ? " ∇ " + rate : "")].filter(s => s !== "").join(": ")
 ```
 
 ![](./images/metadata-2.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5d4c12e8)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5d4c12e8/2/)
 
 ## Examples
 
