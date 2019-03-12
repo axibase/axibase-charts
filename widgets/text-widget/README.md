@@ -2,7 +2,9 @@
 
 ## Overview
 
-The **Text Widget** displays series last insert value in a text-based interface.
+The **Text Widget** displays **last** series value with an optional icon. Each series in the widget is rendered separately.
+
+The widget can be used to emphasize important metrics.
 
 ```ls
 [widget]
@@ -18,6 +20,12 @@ The **Text Widget** displays series last insert value in a text-based interface.
 ![](./images/text-widget-title.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91)
+
+When the values are hidden, the widget can present many series in a compact view.
+
+![](./images/compact.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/3/)
 
 ## Widget Settings
 
@@ -69,3 +77,22 @@ Name|Description|&nbsp;
 ![](./images/icon-alert.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/1bfb6339)
+
+### Alert Grid
+
+* To hide both captions and values, add the following custom styles o the portal.
+
+  ```ls
+  [configuration]
+    script = $('<style>.axi-text-widget-value {color: transparent; font-size: 1px !important} .axi-text-widget-caption {display: none} </style>').appendTo('head')
+  ```
+
+* Apply `max-font-size` to limit the size of the circles.
+
+* Set common background color to all series using the `style` setting.
+
+* Apply [`alert-expression`](../../syntax/alert-expression.md) to change the background color based on last value.
+
+![](./images/compact.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/3/)
