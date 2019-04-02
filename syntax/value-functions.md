@@ -96,7 +96,8 @@ value = var diff = value('s-2') - value('s-1'); return time() > new Date().getTi
 | `max_value_time` | `alias`, `[interval]` | Timestamp of the minimum value in the specified interval. |
 | `median` | `alias`, `[interval]` | Same as `percentile(50)`. |
 | `percentile` | `n`, `alias`, `[interval]` | `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `percentile(75, 's1')` or `percentile(99.5, 's1')`.<br>`n` is a decimal number between `[0, 100]`. |
-| `movavg` | `alias`, `count`, `[minCount]` | Average value of `count` last samples. If `minCount` parameter is specified, the function returns `null` unless the number of samples exceeds `minCount`. |
+| `movavg` | `alias`, `count`, `[minCount]` | Returns average value of `count` last samples.<br>Returns `null` if the number of samples is less than `minCount`.<br>By default, `minCount` = `count`.|
+| `movavg` | `alias`, `interval`, `[minInterval]` | Returns average value of last samples within `interval`.<br>Returns `null` if series contains less than one `minInterval` starting from current sample.<br>By default, `minInterval` = `interval`. |
 | `previous` | `alias`, `[offset]` | Value of the previous sample, with optional `offset` index which defaults to `1`. |
 
 ![](./images/value_functions_stats.png)
@@ -140,13 +141,13 @@ Functions in the `window` scope can be invoked in other settings that support fu
 
 ## Implementation Notes
 
-### `movavg()` Function
+### `movavg(alias, count[, minCount])` Function
 
 * Calculates the moving average using `count` previous points in the series defined by `alias`.
 * The average is calculated if at least `minCount` previous points are available.
 
 ```javascript
-movavg(alias, count, [minCount])
+movavg(alias, count[, minCount])
 ```
 
 | Name | Type | Description |
@@ -175,6 +176,40 @@ value = movavg('raw', 30, 0)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/b5457f1c)
 
+### `movavg(alias, interval[, minInterval])` Function
+
+* Calculates the moving average using previous points within `interval` in the series defined by `alias`.
+* The average is calculated if at least `minInterval` of previous points is available.
+
+```javascript
+movavg(alias, interval[, minInterval])
+```
+
+| Name | Type | Description |
+|:------|:------|:-------------|
+| `alias` | string | **[Required]**  Alias of the series, to which `movavg` is applied. |
+| `interval` | interval | **[Required]**  Interval for which `movavg` is calculated, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. |
+| `minInterval` | interval | Minimum interval, for which `movavg` is calculated, default is `interval`. |
+
+Calculate `movavg` when a defined interval is available for calculation
+
+```ls
+value = movavg('raw', '5 minute')
+```
+
+![](./images/movavg-1.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a1ad388a/2/)
+
+Calculate `movavg` regardless of the defined interval present
+
+```ls
+value = movavg('raw', '5 minute', '0 minute')
+```
+
+![](./images/movavg-2.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/a1ad388a/2/)
 ---
 
 ### `meta()` Function
