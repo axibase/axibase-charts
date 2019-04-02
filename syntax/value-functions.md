@@ -210,6 +210,7 @@ value = movavg('raw', '5 minute', '0 minute')
 ![](./images/movavg-2.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/a1ad388a/2/)
+
 ---
 
 ### `meta()` Function
