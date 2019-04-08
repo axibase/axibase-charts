@@ -38,7 +38,7 @@ Name | Description | &nbsp;
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
-<a name="format-numbers"></a>[`format-numbers`](#format-numbers)| If `true` process cell value as number and apply thousand separator).<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `format-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23/3/)
+<a name="format-numbers"></a>[`format-numbers`](#format-numbers)| If `true` process cell value as number and apply thousand separator.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `format-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23/3/)
 <a name="format-headers"></a>[`format-headers`](#format-headers)| Format column headers.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `format-headers = true`| [↗](https://apps.axibase.com/chartlab/47565e08/2/)
 
 ### Property Settings

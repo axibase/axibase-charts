@@ -58,7 +58,7 @@ Name | Description | &nbsp;
 <a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `data` object.<br>To access column value before [`format`](#format) is applied but with respect to [`format-numbers`](../property-table/README.md#format-numbers) use `row['column_name']`.<br>**Example**: <br>`value = Math.log(row.value)`<br>`value = Math.log(data.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/3/)
+<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `data` object.<br>To access column value before [`format`](#format) is applied but with respect to [`format-numbers`](../property-table/README.md#format-numbers) use `row['column_name']` or `row.column_name`.<br>**Example**: <br>`value = Math.log(row.value)`<br>`value = Math.log(data.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/3/)
 
 :::tip
 Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
