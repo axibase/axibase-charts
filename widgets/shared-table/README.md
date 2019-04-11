@@ -49,16 +49,16 @@ Name | Description | &nbsp;
 <a name="key"></a>[`key`](#key)|Identifier to associate settings to a column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
 <a name="tag"></a>[`tag`](#tag)|Identifier to associate settings to a tag in the property record.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
 <a name="label"></a>[`label`](#label)| Customized column name displayed in the table header.<br>**Example**: `label = Server`| [↗](https://apps.axibase.com/chartlab/95bd95be/8/)
-<a name="format"></a>[`format`](#format)|Cell value [format](../../syntax/format-settings.md).<br>**Examples**: `format = kilobytes`|[↗](https://apps.axibase.com/chartlab/95bd95be/8/)
+<a name="format"></a>[`format`](#format)|Cell value [format](../../syntax/format-settings.md).<br>The setting is **inherited**.<br>**Examples**: `format = kilobytes`|[↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="tooltip"></a>[`tooltip`](#tooltip)|Text displayed on header mouseover.<br>**Example**: `tooltip = CPU Usage`|[↗](https://apps.axibase.com/chartlab/95bd95be/9/)
 <a name="style"></a>[`style`](#style)|CSS style applied to column values.<br>**Examples**: `style = color: red` |[↗](https://apps.axibase.com/chartlab/95bd95be/23/)
 <a name="row-style"></a>[`row-style`](#row-style)|CSS style applied to the entire row.<br>**Example**: `row-style = value > 10 ? 'background: orange' : null`|[↗](https://apps.axibase.com/chartlab/95bd95be/24/)
 <a name="row-alert-style"></a>[`row-alert-style`](#row-alert-style)|Styles assigned to the entire row when `alert-expression` is `true`.<br>**Example**: `row-alert-style = color: red`|[↗](https://apps.axibase.com/chartlab/95bd95be/12/)
 <a name="display"></a>[`display`](#display)| Controls column visibility.<br>Default value is `true`.<br>**Example**: `display = false`| [↗](https://apps.axibase.com/chartlab/95bd95be/13/)
-<a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
+<a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>The setting is **inherited**.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `data` object.<br>To access column value before [`format`](#format) is applied but with respect to [`format-numbers`](../property-table/README.md#format-numbers) use `row['column_name']` or `row.column_name`.<br>**Example**: <br>`value = Math.log(row.value)`<br>`value = Math.log(data.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/3/)
+<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `row` object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
 
 :::tip
 Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
@@ -80,6 +80,24 @@ column-entity = Server
 ```
 
 :::
+
+### `value()`
+
+```javascript
+value([column_key])
+```
+
+Returns value of cell referenced by `column_key`. The value is not formatted, but processed as number if [`parse-numbers = true`](../property-table/README.md#parse-numbers). To get default value for the current cell, use `value`.
+
+```ls
+[column]
+  key = memtotal
+  value = value / 100 # divide current value by 100
+
+[column]
+  label = Derived column
+  value = value('memtotal') # get value of cell 'memtotal'
+```
 
 ### Column Order
 
