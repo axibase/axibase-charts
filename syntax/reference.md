@@ -137,7 +137,7 @@
 * <a name="format"></a>[`format`](../widgets/shared/README.md#format)
 * <a name="format-axis"></a>[`format-axis`](../widgets/gauge-chart/README.md#format-axis)
 * <a name="format-counter"></a>[`format-counter`](../widgets/gauge-chart/README.md#format-counter)
-* <a name="format-headers"></a>[`format-headers`](../widgets/property-table/README.md#format-headers)
+* <a name="format-headers"></a>[`format-headers`](../widgets/shared-table/README.md#format-headers)
 * <a name="format-size"></a>[`format-size`](../widgets/treemap/README.md#format-size)
 * <a name="format-tip"></a>[`format-tip`](../widgets/gauge-chart/README.md#format-tip)
 * <a name="gradient-count"></a>[`gradient-count`](../widgets/calendar-chart/README.md#gradient-count)
