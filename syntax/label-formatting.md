@@ -86,12 +86,12 @@ Include the `addMeta = true` expression on the `[configuration]` level.
 [configuration]
 add-meta = true
 /* Format label using metadata identifiers */
-label-format = javascript: [coalesce(meta.entity.label, entity), ifEmpty(meta.metric.label, metric), ifEmpty(tags), (statistics && statistics !== "detail" ? statistics : ""), (period ? " - " + period : ""), ifEmpty(meta.metric.dataType), (rate ? " ∇ " + rate : "")].filter(s => s !== "").join(": ")
+  label-format = javascript: [coalesce(meta.entity.label, entity), ifEmpty(meta.metric.label, metric), ifEmpty(tags), (statistics && statistics !== "detail" ? statistics : ""), (period ? " - " + period : ""), ifEmpty(dataType), (rate ? " ∇ " + rate : "")].filter(s => s !== "").join(": ")
 ```
 
-![](./images/metadata-2.png)
+![](./images/metadata-1.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5d4c12e8/2/)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/5d4c12e8/4/)
 
 ## Examples
 
