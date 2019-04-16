@@ -1,36 +1,43 @@
 # Format Settings
 
-## Supported Format Settings
+## Basic Formats
 
-```ls
-format = bytes
-format = kilobytes
-format = megawatt
-format = kilowatthour
-format = hertz
-format = kilojoule
-format = million watt
-format = thousands
-```
+The `format` setting supports the following functions.
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="decimal-numeric"></a>[`decimal`/`numeric`](#decimal-numeric)| Number formatting: `numeric` is an `alias` for `decimal`.<br>Specify optional round value parameter in round brackets to define how many spaces the decimal is rounded.<br>`format = numeric(1)` rounds to the first decimal, thus `4.29` becomes `4.3`.<br>**Example**: `format = numeric(1)`| [↗](https://apps.axibase.com/chartlab/160d5c94)
-<a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of digits.<br>**Example**: `format = fixed(1)`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
-<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Any currency symbol is supported.<br>Indicate abbreviated numbers by including the shortened denomination as an argument in the `currency` expression.<br>**Example**: `format = '$' + currency('million')` renders the raw value `6.3` as `$6.3M`.<br>Values beyond the decimal point are rounded to the nearest tenth by default, thus `6.45` is rendered as `$6.5M` when using the same `format` setting described above.<br>Modify rounding behavior with [`round()`](#rounding).<br>**Example**: `format = '$' + currency`| [↗](https://apps.axibase.com/chartlab/a36fc97a)
+<a name="decimal-numeric"></a>[`decimal`](#decimal-numeric)| Format numbers with up to specified number of fractional digits.<br>`numeric` is an alias for `decimal`.<br>**Example**: <br>`format = numeric(2) // 3.10 > 3.1`| [↗](https://apps.axibase.com/chartlab/160d5c94)
+<a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of fractional digits.<br>**Example**: <br>`format = fixed(2) // 1.5 > 1.50`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
+<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Indicate units as an argument in the `currency` expression.<br>Decimal values rounded to 1 fractional digit.**Example**: <br>`format = '$' + currency('million') // 6.3 > $6.3M`.| [↗](https://apps.axibase.com/chartlab/a36fc97a)
 
-### Optional Parameters
+## `fixed`
 
-All functions have two optional arguments:
+Controls the number of displayed fractional digits. The input value is not rounded. The value to be formatted is optional and can be specified an arithmetic expression. By the default the input value is set to value of the sample at the given timestamp.
 
-* **Dimension**: Set to `kilo|thousand`, `mega|million`, `giga|billion`, etc.
-* **Digits**: Maximum number of digits after decimal point.
+```javascript
+fixed([number value, ] integer digits)
+```
+
+### Syntax
+
+```javascript
+fixed(value, 3);        // 3.14159 -> 3.141
+fixed(3);               // 3.14159 -> 3.141
+fixed(2);               // 3.14159 -> 3.14
+fixed(1);               // 3.14159 -> 3.1
+fixed(0);               // 3.14159 -> 3
+fixed(0);               // 12345.6 -> 12345
+fixed(3.14159, 3);      // 3.14159 -> 3.141
+fixed(value*2, 3);      // 3.14159 -> 6.2
+```
 
 ## Rounding
 
 Perform rounding on displayed values:
 
-`round(value, number_of_digits)`
+```javascript
+round([value, ] digits)
+```
 
 ```ls
 format = round(0)
@@ -52,12 +59,12 @@ Operation | Syntax
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/aebb480d)
 
-## Percent Formatting
+## Percentages
 
 Format values as a percentage of `100`.
 
 ```ls
-format = percent
+format = percent([digits])
 ```
 
 ![](./images/percent-formatting.png)
@@ -67,36 +74,10 @@ format = percent
 Decimal Values | Fractional Values
 --|--
 Formatted as a percentage of `100` | Multiplied by `100` and converted into percentage |
-`format = percent(1)` formats `10.23243232` as `10.2%`. | `format = fraction(2)` formats `0.23243232` as `23.24%`
+`format = percent(1)` formats `10.23` as `10.2%`. | `format = fraction(2)` formats `0.2324` as `23.24%`
 [![](./images/format-decimal.png)](https://apps.axibase.com/chartlab/64a714fa) | [![](./images/format-fraction.png)](https://apps.axibase.com/chartlab/7a677440)
 
-## `fixed`
-
-Control the number of displayed digits. Specify the exact number of digits in the fraction portion of a number.
-
-`fixed(value, number_of_digits)`
-
-### Syntax
-
-```ls
-fixed(0, 3); // 0.000
-fixed(0); // 0
-fixed(1.2); // 1
-fixed(1.2, 3); // 1.200
-fixed(1.23, 3); // 1.230
-fixed(1.234, 3); // 1.234
-fixed(1.2345, 3); // 1.234
-fixed(1.23456, 4); // 1.2345
-fixed(0.2, 3); // 0.200
-fixed(1, 3); // 1.000
-fixed(1512376152, 3); // 1512376152.000
-fixed(NaN, 3); // NaN
-fixed(null, 3); // null
-```
-
-## Time Format
-
-Control how time is displayed.
+## Dates
 
 Syntax | Description
 ---|---
@@ -108,12 +89,12 @@ Syntax | Description
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/d1bb8335)
 
-## Interval Format
+## Intervals
 
-Format series values which represent millisecond duration using the `intervalFormat` function or the `interval-format` setting.
+Format series values with millisecond timestamps using the `intervalFormat` function or the `interval-format` setting.
 
 ```ls
-/* invoke intervalFormat function */
+/* call intervalFormat function */
 format = intervalFormat('%dd %H:%M:%S')(value*1000)
 
 /* apply the default format */
@@ -121,6 +102,11 @@ interval-format = true
 
 /* apply custom format */
 interval-format = %H:%M
+```
+
+```txt
+2019-04-05T16:01:33Z   -    %H:%M:%S    -    16:01:33
+2019-04-05T16:01:33Z   -    %H:%M       -    16:01
 ```
 
 ### Supported Placeholders
@@ -153,51 +139,53 @@ interval-format = %H:%M
 
 ## Day Format
 
-Modify the date format of the `x` axis for year, month, week, and day.
+The date format controls how time is displayed on the X-axis as well as in sample tooltips.
+
+The date format consists of two settings, 
+
+The `day-format` setting controls the date part of the labels displayed on the time axis.
 
 ### Syntax
 
+Common patterns:
+
+* `%d`: Zero-padded day of the month `[01,31]`.
+* `%m`: Month number `[01,12]`.
+* `%b`: Abbreviated month name.
+* `%y`: Year without century `[00,99]`.
+* `%Y`: Year with century.
 * `%a`: Three-letter abbreviated day name: `Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`.
+
+Additional patterns:
+
 * `%aa`: Two-letter abbreviated day name: `Su`, `Mo`, `Tu`, `We`, `Th`, `Fr`, `Sa`.
 * `%A`: Full day name.
-* `%b`: Abbreviated month name.
 * `%B`: Full month name.
-* `%d`: Zero-padded day of the month as a decimal number `[01,31]`.
 * `%e`: Space-padded day of the month as a decimal number `[ 1,31]`. Equivalent to `%_d`.
 * `%j`: Day of the year as a decimal number `[001,366]`.
-* `%m`: Month as a decimal number `[01,12]`.
 * `%U`: Week number of the year as a decimal number `[00,53]`. Sunday is the first day of the week.
 * `%w`: Weekday as a decimal number `[0(Sunday),6]`.
 * `%W`: Week number of the year as a decimal number `[00,53]`. Monday is the first day of the week.
-* `%x`: Date, as `%m/%d/%Y`.
-* `%y`: Year without century as a decimal number `[00,99]`.
-* `%Y`: Year with century as a decimal number.
 
-> Line break syntax `/n` is supported.
+The pattern can include other characters, for example line break `\n` to conserve horizontal space by placing date units on separate lines.
+
+> Related setting to control the number of ticks on the time axis: [`ticks-time`](../widgets/time-chart/README.md#ticks-time).
 
 #### Examples
 
+* Input date is 2019-03-11 (Monday).
+
 ```ls
-day-format = %m/%d
-day-format = %y/%m/%d
-day-format = %Y/%m/%d
-day-format = %Y %m/%d
+day-format = %m/%d       # -> 03/11
+day-format = %y/%m/%d    # -> 19/03/11
+day-format = %Y/%m/%d    # -> 2019/03/11
+day-format = %b-%d       # -> Mar-11
+day-format = %d\n%aa     # -> 11 Mo (placed on separate lines)
 ```
 
 ![](./images/day-format-1.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/d0bfcdf8)
-
-```ls
-day-format = %m %a
-day-format = %m/%aa
-day-format = %x
-day-format = %W\n%a
-```
-
-![](./images/day-format-2.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/607961b1)
 
 ## Hour Format
 
@@ -225,3 +213,21 @@ hour-format = %H:%M
 ![](./images/hour-format.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/6bd3c4a6)
+
+## Measurement Units
+
+```ls
+format = bytes
+format = kilobytes
+format = megawatt
+format = kilowatthour
+format = hertz
+format = kilojoule
+format = million watt
+format = thousands
+```
+
+All functions have two optional arguments:
+
+* **Dimension**: Set to `kilo|thousand`, `mega|million`, `giga|billion`, etc.
+* **Digits**: Maximum number of digits after decimal point.

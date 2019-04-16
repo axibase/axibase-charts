@@ -185,11 +185,11 @@ To remove selection intervals and aggregation periods, drag and drop the interva
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/4d5ef924)
 
-### `disconnect-interval` and `disconnect-value`
+### Gaps
 
 ![](./images/interval-and-value.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/9b216ba8)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/9b216ba8/2/)
 
 ### `[threshold]` Settings
 

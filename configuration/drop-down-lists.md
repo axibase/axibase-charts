@@ -1,68 +1,73 @@
 # Drop-down Lists
 
-Drop-down lists provides a way to display interactive options inside a widget header.
+The drop-down list adds a selector inside the widget header to reload the data or to change the chart's visual properties.
 
-Configure the list to update a widget setting for changes made, such as the widget type itself and the metric, entity, or property type.
+```ls
+[dropdown]
+  options = nurswgvml006, nurswgvml007, nurswgvml010
+  change-field = series.entity
+```
 
-![](./images/drop-down-list-title-1.png)
+![](./images/drop-down-element.png)
 
-Add multiple drop-down lists for any widget.
+The selector can be configured to update a setting at the `[widget]`, `[series]` or `[property]` levels such as the entity or metric name.
 
-## Configuration
+The options of the selector can be enumerated manually, passed from a collection or loaded from the server.
 
-* The settings apply to the `[dropdown]` section.
+## Settings
 
 Name | Description | &nbsp;
 --|--|--
+<a name="change-field"></a>[`change-field`](#change-field) | Name of the setting changed upon drop-down list selection.<br>To update a setting at the section level, use `<section-name>.<setting-name>` syntax.<br>**Examples**:<br>`change-field = type`<br>`change-field = series.entity` | [↗](https://apps.axibase.com/chartlab/b128e746)
 <a name="on-change"></a>[`on-change`](#on-change) | If specified, field is evaluated instead of default `onchange` behavior.<br>Either `onchange`, or `change-field` is **required** for any drop-down list.<br>**Example**: `on-change = widget.reload();` | [↗](https://apps.axibase.com/chartlab/f0b0039d)
-<a name="change-field"></a>[`change-field`](#change-field) | Widget setting changed upon drop-down list selection.<br>To update the widget subsection setting, use `{section-name}.{setting-name}` syntax.<br>**Example**: `change-field = series.metric` | [↗](https://apps.axibase.com/chartlab/b128e746)
-<a name="format"></a>[`format`](#format) | Format applied to the option value if no text setting is specified.<br>**Example**: `format = 'value.toUpperCase()` | [↗](https://apps.axibase.com/chartlab/e50eea0f)
-<a name="style"></a>[`style`](#style) | CSS to apply to the selected element.<br>**Example**: `style = color: orange` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
-<a name="options"></a>[`options`](#options) | Comma-separated list of option values.<br>Refer to [Options Syntax](#options-syntax) for possible values.<br>**Example**: `options = jfs, system, network` | [↗](https://apps.axibase.com/chartlab/e9e5c5e0)
+<a name="format"></a>[`format`](#format) | Format applied to the option value if no option `text` setting is specified.<br>**Example**: `format = value.toUpperCase()` | [↗](https://apps.axibase.com/chartlab/e50eea0f)
+<a name="style"></a>[`style`](#style) | CSS style applied to the HTML element of the drop-down list.<br>**Example**: `style = max-width: 125px` | [↗](https://apps.axibase.com/chartlab/0e84d2a8)
 
 ## Options
 
-* The settings apply to the `[option]` section
-
-Name | Description | &nbsp;
---|--|--
-<a name="value"></a>[`value`](#value) | Drop-down list option value.<br>**Example**: `value = cpu_busy` | [↗](https://apps.axibase.com/chartlab/a995466b)
-<a name="text"></a>[`text`](#text) | Drop-down list option text.<br>**Example**: `text = CPU Busy`| [↗](https://apps.axibase.com/chartlab/a995466b)
-
-* If only `text` is specified, `value = text`
-* Populate the list of options with the [`options`](#options) setting or as a list of `[option]` fields.
+Populate the list of options with the `options` setting or as an array of `[option]` fields.
 
 ### Options Syntax
 
-Comma-separated list:
+* Comma-separated list:
 
-```ls
-options = opt1, opt2, opt3
-```
+  ```ls
+  options = opt1, opt2, opt3
+  ```
 
-Placeholder to `list` or `var` array:
+* Placeholder to a `list`:
 
-```ls
-options = @{taglist}
-```
+  ```ls
+  list tag_list = /opt, /home, /mnt
+  ...
+  options = @{tag_list}
+  ```
 
-If the list or array contains elements with a comma, use the `escape()` method to backslash commas:
+  ```ls
+  csv hosts = NAME,LOCATION
+  ...
+  endcsv
+  
+  options = @{hosts.values('NAME')}
+  ```  
 
-```ls
-options = @{taglist.escape()}
-```
+  If the list contains elements with a comma, use the `escape()` method to escape commas:
 
-`[option]` fields:
+  ```ls
+  options = @{tag_list.escape()}
+  ```
 
-```ls
-[option]
-  text = opt1
-[option]
-  value = opt2
-[option]
-  value = opt3
-  text = Option 3
-```
+* `[option]` array:
+
+  ```ls
+  [option]
+    value = opt1
+  [option]
+    value = opt2
+  [option]
+    value = opt3
+    text = Option 3
+  ```
 
 ## Examples
 
