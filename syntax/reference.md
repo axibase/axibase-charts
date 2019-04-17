@@ -50,7 +50,7 @@
 * <a name="caption"></a>[`caption`](../widgets/gauge-chart/README.md#caption)
 * <a name="caption-style"></a>[`caption-style`](../widgets/gauge-chart/README.md#caption-style)
 * <a name="centralize-ticks"></a>[`centralize-ticks`](../widgets/time-chart/README.md#centralize-ticks)
-* <a name="change-field"></a>[`change-field`](../configuration/drop-down-lists.md#change-field)
+* <a name="change-field"></a>[`change-field`](../configuration/drop-down-lists.md#settings)
 * <a name="circle"></a>[`circle`](../widgets/text-widget/README.md#circle)
 * <a name="class"></a>[`class`](../widgets/box-chart/README.md#class)
 * <a name="color"></a>[`color`](../widgets/shared/README.md#color)

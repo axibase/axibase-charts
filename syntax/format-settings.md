@@ -142,7 +142,7 @@ interval-format = %H:%M
 
 The date format controls how time is displayed on the X-axis as well as in sample tooltips.
 
-The date format consists of two settings, 
+The date format consists of two settings: `day-format` and `hour-format`.
 
 The `day-format` setting controls the date part of the labels displayed on the time axis.
 

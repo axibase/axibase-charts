@@ -1,6 +1,6 @@
 # Drop-down Lists
 
-The drop-down list adds a selector inside the widget header to reload the data or to change the chart's visual properties.
+The `[dropdown]` section adds a drop-down list to the widget header to reload the data or to change the chart appearance.
 
 ```ls
 [dropdown]
@@ -10,9 +10,9 @@ The drop-down list adds a selector inside the widget header to reload the data o
 
 ![](./images/drop-down-element.png)
 
-The selector can be configured to update a setting at the `[widget]`, `[series]` or `[property]` levels such as the entity or metric name.
+The drop-down list can be configured to update a setting at the `[widget]`, `[series]` or `[property]` levels such as the entity or metric name.
 
-The options of the selector can be enumerated manually, passed from a collection or loaded from the server.
+The options can be enumerated manually, passed from a collection or loaded from the server.
 
 ## Settings
 
