@@ -20,6 +20,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
+<a name="height-units"></a>[`height-units`](#height-units) | The number of rows in the portal.<br>Default value: `4`.<br>**Example**: `height-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/2/)
 <a name="width-units"></a>[`width-units`](#width-units)|The number of columns in the portal.<br>Default value: `6`.<br>**Example**: `width-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/2/)
 <a name="offset-left"></a>[`offset-left`](#offset-left)| Offset from the left page border, in _pixels_.<br>Default value: `0`.<br>**Example**: `offset-left = 50`| [↗](https://apps.axibase.com/chartlab/66ed9482)
 <a name="offset-right"></a>[`offset-right`](#offset-right) | Offset from the right page border, in _pixels_.<br>Default value: `0`.<br>**Example**: `offset-right = 50`| [↗](https://apps.axibase.com/chartlab/05ab6fe4)

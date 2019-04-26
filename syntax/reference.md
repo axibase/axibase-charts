@@ -148,7 +148,7 @@
 * <a name="group-period"></a>[`group-period`](../widgets/shared/README.md#group-period)
 * <a name="group-statistic"></a>[`group-statistic`](../widgets/shared/README.md#group-statistic)
 * <a name="header-style"></a>[`header-style`](../widgets/shared/README.md#header-style)
-* <a name="height-units"></a>[`height-units`](../widgets/shared/README.md#height-units)
+* <a name="height-units"></a>[`height-units`](../configuration/README.md#height-units)
 * <a name="hide-column"></a>[`hide-column`](../widgets/property-table/README.md#hide-column)
 * <a name="hide-empty-columns"></a>[`hide-empty-columns`](../widgets/bar-chart/README.md#hide-empty-columns)
 * <a name="hide-empty-series"></a>[`hide-empty-series`](../widgets/series-table/README.md#hide-empty-series)
