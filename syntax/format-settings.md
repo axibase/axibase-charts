@@ -58,7 +58,7 @@ Performs rounding on displayed values:
 
 The `value` to be formatted is optional and can be specified as an arithmetic expression. By the default the input `value` is set to value of the sample at the given timestamp.
 
-#### Examples
+### Examples
 
 ```ls
 format = round(0)
