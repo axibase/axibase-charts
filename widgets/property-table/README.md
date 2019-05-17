@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Property Table** displays properties collected by an entity in tabular format.
+The **Property Table** displays [properties](https://axibase.com/docs/atsd/schema.html#properties) collected by an entity in tabular format.
 
 ```ls
 [widget]
@@ -28,6 +28,7 @@ The **Property Table** displays properties collected by an entity in tabular for
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`|[↗](https://apps.axibase.com/chartlab/1e6027a6)
+<a name="merge-properties"></a>[`merge-properties`](#merge-properties)|If `true`, query all tag values within the record.<br>If set to `false`, only tag values with update time equal to the row timestamp are included.<br>Default: `false`.|[↗]()
 
 ## Column Settings
 
@@ -46,7 +47,8 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="type"></a>[`type`](#type)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/d82b0257)
+<a name="type"></a>[`type`](#type)|Property type.<br>To retrieve entity tags as reserved type use [`$entity_tags`](https://axibase.com/docs/atsd/api/network/property.html#reserved-property-types).<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/d82b0257)
+<a name="entity-group"></a>[`entity-group`](#entity-group)|Property type.<br>`$entity_tags` retrieves entity tags.<br>**Example**: `type = nmon.command`| [↗](https://apps.axibase.com/chartlab/d82b0257)
 <a name="exact-match"></a>[`exact-match`](#exact-match)|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Partial match selects records with key that contains requested fields but can also include other fields.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `exact-match = true`|[↗](https://apps.axibase.com/chartlab/0be4101c)
 <a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/b24d0b4b)
 <a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`|[↗](https://apps.axibase.com/chartlab/da112ba6)
@@ -59,6 +61,19 @@ Name | Description | &nbsp;
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="key-tag-expression"></a>[`key-tag-expression`](#key-tag-expression)|One or multiple keys specified as `key = value` pairs.<br>**Example**: `queue = qm1.to.qm3`.| [↗](https://apps.axibase.com/chartlab/74add0d7)
+
+### Rows Representation
+
+Each table row matches one [property](https://axibase.com/docs/atsd/schema.html#properties) record with unique primary key: **entity+type[+key]**.
+
+Table row is represented by `row` object with the following fields:
+
+ * `date`: **string** - date, when property record was created
+ * `entity`: **string** - entity, to which property belongs
+ * `key`: **object** - represents property key
+ * `tags`: **object** - contains property tags
+ * `time`: **integer** - date as UNIX timestamp
+ * `type`: **string** - type of property
 
 ## Examples
 

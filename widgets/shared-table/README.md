@@ -59,7 +59,7 @@ Name | Description | &nbsp;
 <a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>The setting is **inherited**.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `row` object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
+<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via [`row`](#row-object) object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
 
 :::tip
 Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
@@ -82,13 +82,17 @@ column-entity = Server
 
 :::
 
+### `row` Object
+
+Each table row is represented by `row` object. Refer to [Series Table row]() and [Property Table row]() for information about available fields.
+
 ### `value()`
 
 ```javascript
-value([column_key])
+value([string column_key])
 ```
 
-Returns value of cell referenced by `column_key`. The value is not formatted, but processed as number if [`parse-numbers = true`](../property-table/README.md#parse-numbers). To get default value for the current cell, use `value`.
+Returns value of cell referenced by `column_key`. The value is not formatted, but processed as number if [`parse-numbers = true`](../property-table/README.md#parse-numbers). To get default value for the current cell, use `value` or `value()`.
 
 ```ls
 [column]
