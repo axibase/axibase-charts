@@ -1,25 +1,39 @@
 # Format Settings
 
+## Reference
+
+* [Basic Formats](#basic-formats)
+* [Rounding](#rounding)
+* [Percentages](#percentages)
+* [Dates](#dates)
+* [Intervals](#intervals)
+* [Day Format](#day-format)
+* [Hour Format](#hour-format)
+* [Measurement Units](#measurement-units)
+* [JSON](#json)
+
 ## Basic Formats
 
 The `format` setting supports the following functions.
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="decimal-numeric"></a>[`decimal`](#decimal-numeric)| Format numbers with up to specified number of fractional digits.<br>`numeric` is an alias for `decimal`.<br>**Example**: <br>`format = numeric(2) // 3.10 > 3.1`| [↗](https://apps.axibase.com/chartlab/160d5c94)
-<a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of fractional digits.<br>**Example**: <br>`format = fixed(2) // 1.5 > 1.50`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
+<a name="decimal-numeric"></a>[`decimal`](#decimal-numeric)| Formats a number up to the specified number of fractional digits.<br>**Example**: <br>`format = decimal(2) // 3.10 > 3.1`| [↗](https://apps.axibase.com/chartlab/160d5c94)
+<a name="fixed"></a>[`fixed`](#fixed)| Formats a number to the fixed number of fractional digits.<br>The input value is not rounded.<br>**Example**: <br>`format = fixed(2) // 1.5 > 1.50`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
+<a name="precise"></a>[`precise`](#precise)| Formats a number to a specific precision.<br>Refer to [`Number.prototype.toPrecision()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision).<br>**Example**: `format = precise(3) // 0.5 > 0.500`| [↗](https://apps.axibase.com/chartlab/1339f722)
 <a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Indicate units as an argument in the `currency` expression.<br>Decimal values rounded to 1 fractional digit.**Example**: <br>`format = '$' + currency('million') // 6.3 > $6.3M`.| [↗](https://apps.axibase.com/chartlab/a36fc97a)
-<a name="precise"></a>[`precise`](#precise)| Formats a number to a specific precision.<br>Refer to [`Number.prototype.toPrecision()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision).<br>**Example**: `format = precise(5)`| [↗](https://apps.axibase.com/chartlab/1339f722)
 
-## `fixed`
+By default the functions are applied to the sample value at each timestamp.
 
-Controls the number of displayed fractional digits. The input value is not rounded. The value to be formatted is optional and can be specified an arithmetic expression. By the default the input value is set to value of the sample at the given timestamp.
+### Arguments
+
+The `decimal`, `fixed`, and `precise` functions accept an optional `value` argument which can be an arithmetic expression.
 
 ```javascript
 fixed([number value, ] integer digits)
 ```
 
-### Syntax
+### Examples
 
 ```javascript
 fixed(value, 3);        // 3.14159 -> 3.141
@@ -34,11 +48,19 @@ fixed(value*2, 3);      // 3.14159 -> 6.2
 
 ## Rounding
 
-Perform rounding on displayed values:
-
 ```javascript
-round([value, ] digits)
+round([number value, ] integer digits)
 ```
+
+Rounds the input value.
+
+* if `digits > 0`, the `value` is rounded to the specified number of decimal places;
+* if `digits = 0`, the `value` is rounded to the nearest integer;
+* if `digits < 0`, the `value` is rounded to the left of the decimal point.
+
+The `value` to be formatted is optional and can be specified as an arithmetic expression. By the default the input `value` is set to value of the sample at the given timestamp.
+
+### Examples
 
 ```ls
 format = round(0)
@@ -46,31 +68,28 @@ format = round(value/512, 1)
 format = round(-3)
 ```
 
-* If `number_of_digits > 0`, the value is rounded to the specified number of decimal places.
-* If `number_of_digits = 0`, the value is rounded to the nearest integer.
-* If `number_of_digits < 0`, the value is rounded to the left of the decimal point.
-
 Operation | Syntax
 --|--
 `12.34` rounded to `12.3` | `format = round(1)`
 `12.34` rounded to `12` | `format = round(0)`
 `12.34` rounded to `10` | `format = round(-1)`
 
-![](./images/format-settings.png)
+![](./images/format-round.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/aebb480d)
 
 ## Percentages
 
-Format values as a percentage of `100`.
-
-```ls
-format = percent([digits])
+```javascript
+percent([integer digits])
+fraction([integer digits])
 ```
 
-![](./images/percent-formatting.png)
+Formats the input value as a percentage of `100`. The number of decimal places is controlled with `digits`, default is `0`.
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6775b839#fullscreen)
+![](./images/format-percent.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6775b839)
 
 Decimal Values | Fractional Values
 --|--
@@ -118,25 +137,25 @@ interval-format = %H:%M
 * `%S` and `%s`: Second
 * `%L` and `%l`: Millisecond
 
-## Examples
+### Examples
 
-### [Table](../widgets/property-table/README.md)
+* [Table](../widgets/property-table/README.md)
 
-![](./images/interval-format-table.png)
+  ![](./images/interval-format-table.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/f3137fe9)
+  [![](./images/new-button.png)](https://apps.axibase.com/chartlab/f3137fe9)
 
-### [Bar Chart](../widgets/bar-chart/README.md)
+* [Bar Chart](../widgets/bar-chart/README.md)
 
-![](./images/interval-format-2.png)
+  ![](./images/interval-format-bar.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/2/)
+  [![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/2/)
 
-### [Time Chart](../widgets/time-chart/README.md)
+* [Time Chart](../widgets/time-chart/README.md)
 
-![](./images/interval-format-3.png)
+  ![](./images/interval-format-chart.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/)
+  [![](./images/new-button.png)](https://apps.axibase.com/chartlab/293c46cf/)
 
 ## Day Format
 
@@ -184,13 +203,13 @@ day-format = %b-%d       # -> Mar-11
 day-format = %d\n%aa     # -> 11 Mo (placed on separate lines)
 ```
 
-![](./images/day-format-1.png)
+![](./images/day-format.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/d0bfcdf8)
 
 ## Hour Format
 
-Control the time format for the `x` axis for hour and minute.
+Control the time format for the X-axis for hour and minute.
 
 ### Syntax
 
@@ -204,7 +223,7 @@ Use any combination of the following:
 
 > Line break syntax `/n` is supported.
 
-#### Example
+#### Examples
 
 ```ls
 hour-format = %I %p
@@ -213,7 +232,7 @@ hour-format = %H:%M
 
 ![](./images/hour-format.png)
 
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6bd3c4a6)
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/6bd3c4a6/3/)
 
 ## Measurement Units
 
@@ -228,7 +247,14 @@ format = million watt
 format = thousands
 ```
 
-All functions have two optional arguments:
+## JSON
 
-* **Dimension**: Set to `kilo|thousand`, `mega|million`, `giga|billion`, etc.
-* **Digits**: Maximum number of digits after decimal point.
+```ls
+format = json
+```
+
+Formats the text as a JSON document and applies syntax highlighting.
+
+![](./images/format-json.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/fc898312/4/)
