@@ -18,20 +18,22 @@ The `format` setting supports the following functions.
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="decimal-numeric"></a>[`decimal`](#decimal-numeric)| Format numbers with up to specified number of fractional digits.<br>`numeric` is an alias for `decimal`.<br>**Example**: <br>`format = numeric(2) // 3.10 > 3.1`| [↗](https://apps.axibase.com/chartlab/160d5c94)
-<a name="fixed"></a>[`fixed`](#fixed)| Format numbers with the specified number of fractional digits.<br>**Example**: <br>`format = fixed(2) // 1.5 > 1.50`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
-<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Indicate units as an argument in the `currency` expression.<br>Decimal values rounded to 1 fractional digit.**Example**: <br>`format = '$' + currency('million') // 6.3 > $6.3M`.| [↗](https://apps.axibase.com/chartlab/a36fc97a)
+<a name="decimal-numeric"></a>[`decimal`](#decimal-numeric)| Formats a number up to the specified number of fractional digits.<br>**Example**: <br>`format = decimal(2) // 3.10 > 3.1`| [↗](https://apps.axibase.com/chartlab/160d5c94)
+<a name="fixed"></a>[`fixed`](#fixed)| Formats a number to the fixed number of fractional digits.<br>The input value is not rounded.<br>**Example**: <br>`format = fixed(2) // 1.5 > 1.50`| [↗](https://apps.axibase.com/chartlab/c0ae0118)
 <a name="precise"></a>[`precise`](#precise)| Formats a number to a specific precision.<br>Refer to [`Number.prototype.toPrecision()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision).<br>**Example**: `format = precise(3) // 0.5 > 0.500`| [↗](https://apps.axibase.com/chartlab/1339f722)
+<a name="currency"></a>[`currency`](#currency) | Currency formatting.<br>Indicate units as an argument in the `currency` expression.<br>Decimal values rounded to 1 fractional digit.**Example**: <br>`format = '$' + currency('million') // 6.3 > $6.3M`.| [↗](https://apps.axibase.com/chartlab/a36fc97a)
 
-### `fixed`
+By default the functions are applied to the sample value at each timestamp.
+
+### Arguments
+
+The `decimal`, `fixed`, and `precise` functions accept an optional `value` argument which can be an arithmetic expression.
 
 ```javascript
 fixed([number value, ] integer digits)
 ```
 
-Controls the number of displayed fractional `digits`. The input value is not rounded. The `value` to be formatted is optional and can be specified as an arithmetic expression. By the default the input `value` is set to value of the sample at the given timestamp.
-
-#### Examples
+### Examples
 
 ```javascript
 fixed(value, 3);        // 3.14159 -> 3.141
@@ -50,7 +52,7 @@ fixed(value*2, 3);      // 3.14159 -> 6.2
 round([number value, ] integer digits)
 ```
 
-Performs rounding on displayed values:
+Rounds the input value.
 
 * if `digits > 0`, the `value` is rounded to the specified number of decimal places;
 * if `digits = 0`, the `value` is rounded to the nearest integer;
@@ -83,7 +85,7 @@ percent([integer digits])
 fraction([integer digits])
 ```
 
-Format values as a percentage of `100`, number of decimal places is equal to `digits`, default is `0`.
+Formats the input value as a percentage of `100`. The number of decimal places is controlled with `digits`, default is `0`.
 
 ![](./images/format-percent.png)
 
@@ -251,7 +253,7 @@ format = thousands
 format = json
 ```
 
-Formats JSON and applies highlighting to fields.
+Formats the text as a JSON document and applies syntax highlighting.
 
 ![](./images/format-json.png)
 
