@@ -28,25 +28,30 @@ Name | Description | &nbsp;
 
 > See also [Layout Settings](../../configuration/README.md) that determine the total number of columns and rows in a grid placement.
 
+### Date Filter
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="timespan"></a>[`timespan`](#timespan) | Time interval for loading historical data, measured in [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count unit`, for example `1 day`.<br>The end of the timespan is set to current **browser** time, unless `start-time` or `end-time` setting is specified.<br>`timespan = all` retrieves all data.<br>Default value is `1 hour` except for the [alert table](https://axibase.com/docs/charts/widgets/alert-table/#alert-table) where timespan is set to `all`.<br>**Example**: `timespan = 6 hour`| [↗](https://apps.axibase.com/chartlab/a49c40a5)
+<a name="start-time"></a>[`start-time`](#start-time)| Start of the time interval specified as [ISO date](https://axibase.com/docs/atsd/shared/date-format.html), local date, or [calendar expression](https://axibase.com/docs/atsd/shared/calendar.html).<br>**Example**: `start-time = current_hour`| [↗](https://apps.axibase.com/chartlab/8d40e80d)
+<a name="end-time"></a>[`end-time`](#end-time)| End of time interval specified as [ISO date](https://axibase.com/docs/atsd/shared/date-format.html), local date, or [calendar expression](https://axibase.com/docs/atsd/shared/calendar.html).<br>Default value: `now`.<br>**Example**: `end-time = 2018-07-05T13:00:00Z`| [↗](https://apps.axibase.com/chartlab/f784e730)
+<a name="timezone"></a>[`timezone`](#timezone)| Time zone used for interpreting local dates specified in `start-time` and `end-time` settings, and for calendar aggregation where period is 1 day or longer.<br>Possible values: `UTC` or none.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on the UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone.<br>**Example**: `timezone = UTC`| [↗](https://apps.axibase.com/chartlab/01bcbf1c)
+<a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 3 month`| [↗](https://apps.axibase.com/chartlab/80152e9f)
+
+* Supported date formats for `start-time` and `end-time` settings:
+  * [ISO date](https://axibase.com/docs/atsd/shared/date-format.html) in **UTC time zone**: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2018-07-16T20:00:00Z`.
+  * Local date: `yyyy-MM-dd[ HH:mm:ss[.S]]`, interpreted in the browser time zone, for example: `2017-08-16` or `2018-07-16 20:00:00`.
+  * [Calendar expression](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week` or `current_day + 4*hour`.
+
 ### Data Loading
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="timespan"></a>[`timespan`](#timespan) | Data interval specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>When specified without `start-time` or `end-time` setting, `end-time` is `now`.<br>Format: `count time_unit`.<br>Default values:<br>&emsp;<span>&#8226;</span>  [Alert Table](https://axibase.com/docs/charts/widgets/alert-table/#alert-table) - `all`<br>&emsp;<span>&#8226;</span>  Other widgets - `1 hour`.<br>**Example**: `timespan = 6 hour`| [↗](https://apps.axibase.com/chartlab/a49c40a5)
-<a name="start-time"></a>[`start-time`](#start-time)| Start time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When specified without `end-time` or `timespan` setting, [`timespan`](#timespan) is set to default value.<br>**Example**: `start-time = current_hour`| [↗](https://apps.axibase.com/chartlab/8d40e80d)
-<a name="end-time"></a>[`end-time`](#end-time)| End time of interval specified in [ISO format](https://axibase.com/docs/atsd/shared/date-format.html), [calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), or local time.<br>When specified without `start-time` or `timespan` setting, [`timespan`](#timespan) is set to default value.<br>Default value: `now`.<br>**Example**: `end-time = 2018-07-05 13:00:00`| [↗](https://apps.axibase.com/chartlab/f784e730)
-<a name="timezone"></a>[`timezone`](#timezone)| Time zone for loaded data.<br>Possible values: `UTC`.<br>If `UTC` is set, `start-time` and `end-time` settings specified in local format are evaluated based on UTC time zone.<br>If `UTC` is not set, samples are displayed in the local time zone.<br>**Example**: `timezone = UTC`| [↗](https://apps.axibase.com/chartlab/01bcbf1c)
-<a name="time-offset"></a>[`time-offset`](#time-offset)| Time series offset specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>`time-offset > 0`: Offset into the past.<br> `time-offset < 0`: Offset into the future.<br>Format: `count time_unit`.<br>**Example**: `time-offset = 3 month`| [↗](https://apps.axibase.com/chartlab/80152e9f)
 <a name="series-limit"></a>[`series-limit`](#series-limit)| Maximum number of series retrieved from the database.<br>Default value: `1000`.<br>**Example**: `series-limit = 10`| [↗](https://apps.axibase.com/chartlab/60c6d82c)
 <a name="limit"></a>[`limit`](#limit) | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/ace8b96d)
 <a name="cache"></a>[`cache`](#cache) | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `cache = true`| [↗](https://apps.axibase.com/chartlab/6cb1473e)
 <a name="add-meta"></a>[`add-meta`](#add-meta)| Include metric and entity metadata in the response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `add-meta = true`| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
 <a name="filter"></a>[`filter`](#filter)| Boolean expression applied to detailed samples. Samples that satisfy the condition are included in the result. See also [`sampleFilter`](https://axibase.com/docs/atsd/api/data/series/query.html#sample-filter).<br>**Example**: `filter = value > 1`| [↗](https://apps.axibase.com/chartlab/0213f633)
-
-* Supported formats for `start-time` and `end-time` settings:
-  * [Calendar syntax](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week`.
-  * [ISO format](https://axibase.com/docs/atsd/shared/date-format.html) in UTC time zone: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2017-07-16T20:00:00Z`.
-  * Simple format: `yyyy-MM-dd[ HH:mm:ss[.S]]` in client (browser) time zone, for example: `2017-07-16`, `2017-07-16 20:00:00`.
 
 > See also [Control](https://axibase.com/docs/atsd/api/data/series/query.html#control-fields) fields in REST API.
 
