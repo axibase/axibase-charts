@@ -4,21 +4,32 @@ Statistical functions are applied to values in each period to calculate period s
 
 <!-- markdownlint-disable MD101 -->
 
-| Syntax | Description
-|--- |--- |
-| <a name="count"></a>[`count`](#count) | **Number** of samples during the period. |
+## Server and Client Aggregators
+
+Calculated in client side if `server-aggregate=false`, otherwise in ATSD.
+
+Syntax | Description
+--- |--- |
+<a name="count"></a>[`count`](#count) | **Number** of samples during the period. |
 <a name="min"></a>[`min`](#min) | **Minimum value** during the period. |
 <a name="max"></a>[`max`](#max) | **Maximum value** during the period. |
 <a name="sum"></a>[`sum`](#sum) | **Sum** of values during the period. |
 <a name="avg"></a>[`avg`](#avg) | **Average value** during the period. |
 <a name="percentile"></a>[`percentile(n)`](#percentile)| `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), for example `PERCENTILE(75)` or `PERCENTILE(99.5)`.<br>`n` is a decimal number between `[0, 100]`.|
 <a name="median"></a>[`median`](#median) | Median value, same as 50% percentile. |
-<a name="standard_deviation"></a>[`standard_deviation`](#standard_deviation) | **Standard deviation** of values during the period.<br>√ of the variance. |
-<a name="median_abs_dev"></a>[`median_abs_dev`](#median_abs_dev) | **Median absolute deviation** of values during the period.<br>`median(abs(value - median(value)))`. |
 <a name="first"></a>[`first`](#first) | **First** value received during the period. |
 <a name="last"></a>[`last`](#last) | **Last** value received during the period. |
 <a name="delta"></a>[`delta`](#delta) | **Delta** is the difference between the last value in the period and the last value in the previous period.<br>If no last value is present in the previous period (empty period), then `delta` is the difference between the last and first values during the current period.<br>See also [`counter`](#counter) aggregator. |
 <a name="counter"></a>[`counter`](#counter) | Sum of the differences between consecutive values in the period.<br>If the difference between any two values is negative, the difference is replaced with the value itself.<br>If the difference between values is always non-negative, the `counter` aggregator returns the same value as the `delta` aggregator.<br>Refer to this [**Example**](https://apps.axibase.com/chartlab/86c6b6e0) to better understand the difference between `COUNTER` and `DELTA`. |
+
+## Server Aggregators
+
+Force `server-aggregate=true`, calculated in ATSD.
+
+Syntax | Description
+--- |--- 
+<a name="standard_deviation"></a>[`standard_deviation`](#standard_deviation) | **Standard deviation** of values during the period.<br>√ of the variance. |
+<a name="median_abs_dev"></a>[`median_abs_dev`](#median_abs_dev) | **Median absolute deviation** of values during the period.<br>`median(abs(value - median(value)))`. |
 <a name="wtavg"></a>[`wtavg`](#wtavg) | An **average** created via the multiplication of each component by a factor reflecting importance.<br>Weight is assigned **based on timestamps** rather than index.<br>Data points with older timestamps contribute less to the weighted mean than more recent data.<br>The weight of a sample is proportional to the `current_time – first_time + 1` (in seconds), where `current_time` is the timestamp of the sample, and `first_time` is the timestamp of the first sample received during the period.<br>Weights are normalized, their sum is equal to `1`.<br>Refer to the [calculation example](#avg-wavg-and-wtavg-example) below. |
 <a name="wavg"></a>[`wavg`](#wavg) | A **weighted average** of samples received during the period.<br>The weight of a sample is proportional to the index of the sample in the time-ordered array of all samples during the period.<br>Weights are normalized, their sum is equal to `1`.<br>A weighted average is sum of sample values multiplied by weight.<br>Refer to the [**Calculation Example**](#avg-wavg-and-wtavg-example) below. |
 <a name="min-value-time"></a>[`min_value_time`](#min-value-time) | **Time** when the minimum value ([`min`](#min)) occurred for the first time during the period. |

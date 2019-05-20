@@ -47,7 +47,7 @@ script = $('<style>.axi-table-cell {font-size: 20px} </style>').appendTo('head')
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Identifier to associate settings to a column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
+<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`] object(#row-object) to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
 <a name="tag"></a>[`tag`](#tag)|Identifier to associate settings to a tag in the property record.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
 <a name="label"></a>[`label`](#label)| Customized column name displayed in the table header.<br>**Example**: `label = Server`| [↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="format"></a>[`format`](#format)|Cell value [format](../../syntax/format-settings.md).<br>The setting is **inherited**.<br>**Examples**: `format = kilobytes`|[↗](https://apps.axibase.com/chartlab/95bd95be/8/)
@@ -84,7 +84,7 @@ column-entity = Server
 
 ### `row` Object
 
-Each table row is represented by `row` object. Refer to [Series Table row]() and [Property Table row]() for information about available fields.
+Each table row is represented by `row` object. Refer to [Series Table row](../series-table/README.md#rows-representation) and [Property Table row](../property-table/README.md#rows-representation) for information about available fields.
 
 ### `value()`
 

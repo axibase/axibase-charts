@@ -210,6 +210,7 @@ Aggregation splits the underlying series into periods of equal duration and appl
 
 Name | Description | &nbsp;
 :--|:--|:--
+<a name="server-aggregate"></a>[`server-aggregate`](#server-aggregate) | Forces aggregation on server side.<br>Default value: `false`.<br>**Example**: `server-aggregate = true`| [↗](https://apps.axibase.com/chartlab/9c9301ae)
 <a name="statistics"></a>[`statistics`](#statistics) | Statistical [function](../../configuration/aggregators.md) applied to values in each period.<br>**Example**: `statistics = avg`| [↗](https://apps.axibase.com/chartlab/de76132b/2/)
 <a name="period"></a>[`period`](#period) | Repeating time interval to split the timespan, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Possible values: `count time_unit` or `auto`.<br>**Example**: `period = 15 minute`| [↗](https://apps.axibase.com/chartlab/0e1efe88)
 <a name="align"></a>[`align`](#align) | [Alignment](https://axibase.com/docs/atsd/api/data/series/aggregate.html#period) of the period start or end time.<br>Possible values: `CALENDAR`, `START_TIME`, `END_TIME`, `FIRST_VALUE_TIME`.<br>Default value: `CALENDAR`.<br>**Example**: `align = END_TIME`| [↗](https://apps.axibase.com/chartlab/017975c4)

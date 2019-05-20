@@ -37,6 +37,39 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
 
+### Rows Representation
+
+Table row is represented by `row` object, fields of which depend on `merge-columns` setting.
+
+#### merge-columns
+
+`row` object fields:
+
+ * `aliases`: **object** - `{alias: series}`, object with `key:value` pairs, where keys are series [`aliases`](../shared/README.md#alias), and values are corresponding series objects, which fields are described [below](#no-merge-columns)
+ * `map`: **object** - similar to `aliases`, but the `key` depends on `merge-columns` value:
+
+    `merge-columns`| Key| `map` object|&nbsp;
+    ---|:---:|---|---|
+    `entity`|Metric name| `{metric_name:series}`|[↗](https://apps.axibase.com/chartlab/ff8aabfd/3/)
+    `metric`|Entity name| `{entity_name:series}`|[↗](https://apps.axibase.com/chartlab/ff8aabfd/4/)
+    Other value|-|`{}`|-
+
+:::warning
+`aliases` and `map` cannot be used simultaneously: if `[series]` contains `alias` it is not added to `map`.
+:::
+
+#### no merge-columns
+
+Each table row matches one series with unique **`entity+metric+series tags`** combination.
+
+`row` object fields:
+
+ * `alias`: **string** - series [`alias`](../shared/README.md#alias)
+ * `config`: **object** - parsed portal config
+ * `data`: **object** - `{t:[], v:[]}`, timestamps and corresponding values
+ * `last`: **object** - `{t:<integer>, v:<number>}`, last timestamp and corresponding value
+ * `lastIntv`: **array** - array of last two timestamps
+
 ## Examples
 
 ### Minimum and Maximum Value Time
