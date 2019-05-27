@@ -79,19 +79,19 @@ Name | Description | &nbsp;
 
 ### SQL
 
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE ime > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
-
-### Legend
-
 <!-- markdownlint-disable MD106 -->
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="legend-position"></a>[`legend-position`](#legend-position) | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.<br>**Example**: `legend-position = left`| [↗](https://apps.axibase.com/chartlab/dbffe43c)
+<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE ime > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
 
 <!-- markdownlint-enable MD106 -->
+
+### Legend
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="legend-position"></a>[`legend-position`](#legend-position) | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.<br>**Example**: `legend-position = left`| [↗](https://apps.axibase.com/chartlab/dbffe43c)
 
 ### Axis
 
