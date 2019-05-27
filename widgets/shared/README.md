@@ -85,9 +85,13 @@ Name | Description | &nbsp;
 
 ### Legend
 
+<!-- markdownlint-disable MD106 -->
+
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="legend-position"></a>[`legend-position`](#legend-position) | Legend location.<br>Possible values: `hidden`, `top`, `right`, `bottom`, `left`<br>Default value: `hidden` for a single series, `top` for multiple series.<br>Combine values to define corners.<br>**Example**: `legend-position = left`| [↗](https://apps.axibase.com/chartlab/dbffe43c)
+
+<!-- markdownlint-enable MD106 -->
 
 ### Axis
 
