@@ -284,6 +284,7 @@
 * <a name="smooth-range"></a>[`smooth-range`](../widgets/shared/README.md#smooth-range)
 * <a name="sort"></a>[`sort`](../widgets/shared-table/README.md#sort)
 * <a name="source"></a>[`source`](../widgets/alert-table/README.md#source)
+* <a name="sql"></a>[`sql`](../widgets/shared/README.md##sql)
 * <a name="stack"></a>[`stack`](../widgets/bar-chart/README.md#stack)
 * <a name="start-time"></a>[`start-time`](../widgets/shared/README.md#start-time)
 * <a name="statistic"></a>[`statistic`](../widgets/shared/README.md#statistics)
