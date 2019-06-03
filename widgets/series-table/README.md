@@ -42,7 +42,7 @@ Name | Description | &nbsp;
 
 Table row is represented by `row` object, fields of which depend on [`merge-columns`](#merge-columns) setting.
 
-#### merge-columns is specified
+#### `merge-columns` is specified
 
 `row` object fields:
 
@@ -59,7 +59,7 @@ Table row is represented by `row` object, fields of which depend on [`merge-colu
 `aliases` and `map` cannot be used simultaneously: if `[series]` contains `alias` it is not added to `map`.
 :::
 
-#### no merge-columns
+#### no `merge-columns`
 
 Each table row matches one series with unique **`entity+metric+series tags`** combination.
 
