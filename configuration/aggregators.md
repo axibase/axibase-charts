@@ -24,11 +24,11 @@ Syntax | Description
 
 ## Server Aggregators
 
-Force `server-aggregate=true`, calculated in ATSD.
+**Not supported** in client-side. Force `server-aggregate=true`, calculated in ATSD.
 
 Syntax | Description
---- |--- 
-<a name="standard_deviation"></a>[`standard_deviation`](#standard_deviation) | **Standard deviation** of values during the period.<br>√ of the variance. |
+--- |---
+<a name="standard_deviation"></a>[`standard_deviation`](#standard_deviation) | **Standard deviation** of values during the period.<br>√ of the variance.|
 <a name="median_abs_dev"></a>[`median_abs_dev`](#median_abs_dev) | **Median absolute deviation** of values during the period.<br>`median(abs(value - median(value)))`. |
 <a name="wtavg"></a>[`wtavg`](#wtavg) | An **average** created via the multiplication of each component by a factor reflecting importance.<br>Weight is assigned **based on timestamps** rather than index.<br>Data points with older timestamps contribute less to the weighted mean than more recent data.<br>The weight of a sample is proportional to the `current_time – first_time + 1` (in seconds), where `current_time` is the timestamp of the sample, and `first_time` is the timestamp of the first sample received during the period.<br>Weights are normalized, their sum is equal to `1`.<br>Refer to the [calculation example](#avg-wavg-and-wtavg-example) below. |
 <a name="wavg"></a>[`wavg`](#wavg) | A **weighted average** of samples received during the period.<br>The weight of a sample is proportional to the index of the sample in the time-ordered array of all samples during the period.<br>Weights are normalized, their sum is equal to `1`.<br>A weighted average is sum of sample values multiplied by weight.<br>Refer to the [**Calculation Example**](#avg-wavg-and-wtavg-example) below. |

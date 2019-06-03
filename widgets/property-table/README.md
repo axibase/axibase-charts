@@ -36,7 +36,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Name of property in JSON received from the server.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
+<a name="key"></a>[`key`](#key)|Identifier to associate field of [`row`] object(#row-object) to a column.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
 <a name="parse-numbers"></a>[`parse-numbers`](#parse-numbers)| If `true`, column values are processed as numbers.<br>Possible values: `true`, `false`.<br>Default value: `false`.<br>**Example**: `parse-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23/3/)
 <a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true` or column name matches the pattern.<br>The setting is **inherited**.<br>**Example**: `hide-column = value <= 0`|[↗](https://apps.axibase.com/chartlab/0ded4531)
 
@@ -46,14 +46,14 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="type"></a>[`type`](#type)|Property type.<br>To retrieve entity tags as reserved type use [`$entity_tags`](https://axibase.com/docs/atsd/api/network/property.html#reserved-property-types).<br>**Example**: `type = nmon.command`|[↗](https://apps.axibase.com/chartlab/a7339fe1)<br>[↗](https://apps.axibase.com/chartlab/d82b0257)
+<a name="type"></a>[`type`](#type)|Property type.<br>To retrieve entity tags as reserved type use [`$entity_tags`](https://axibase.com/docs/atsd/api/network/property.html#reserved-property-types).<br>**Example**: `type = nmon.command`|[↗](https://apps.axibase.com/chartlab/a7339fe1/2/)<br>[↗](https://apps.axibase.com/chartlab/d82b0257)
 <a name="exact-match"></a>[`exact-match`](#exact-match)|Select only records with exactly the same key as requested in [`[keys]`](#keys-settings) section.<br>Partial match selects records with key that contains requested fields but can also include other fields.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `exact-match = true`|[↗](https://apps.axibase.com/chartlab/0be4101c)
 <a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/b24d0b4b)
 <a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`|[↗](https://apps.axibase.com/chartlab/da112ba6)
 <a name="offset"></a>[`offset`](#offset)|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.<br>**Example**: `offset = 6000`|[↗](https://apps.axibase.com/chartlab/4efa6cc8)
 <a name="merge-properties"></a>[`merge-properties`](#merge-properties)|If `true`, query all tag values within the record.<br>If set to `false`, only tag values within the latest update are included.<br>Default: `false`.|[↗](https://apps.axibase.com/chartlab/b0a037b1/2/)
 
-Also, see [Entity Filter](../shared/README.md#entity-filter).
+Also, refer to [Entity Filter](../shared/README.md#entity-filter).
 
 ### Keys Settings
 
@@ -65,16 +65,25 @@ Name | Description | &nbsp;
 
 ### Rows Representation
 
+Table row is represented by `row` object, fields of which depend on [`join`](#join) setting.
+
+#### join = false
+
 Each table row matches one [property](https://axibase.com/docs/atsd/schema.html#properties) record with unique primary key: **entity+type[+key]**.
 
-Table row is represented by `row` object with the following fields:
+* `date`: **string** - date, when property record was created
+* `entity`: **string** - entity, to which property belongs
+* `index`: **number** - column index
+* `key`: **object** - represents property key
+* `tags`: **object** - contains property tags
+* `time`: **integer** - date as timestamp
+* `type`: **string** - type of property
 
- * `date`: **string** - date, when property record was created
- * `entity`: **string** - entity, to which property belongs
- * `key`: **object** - represents property key
- * `tags`: **object** - contains property tags
- * `time`: **integer** - date as timestamp
- * `type`: **string** - type of property
+#### join != false
+
+To review `row` fields, use [`value = console.log(row)`](https://apps.axibase.com/chartlab/1e6027a6/2/).
+
+![](images/review-row.png)
 
 ## Examples
 
