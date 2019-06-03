@@ -35,7 +35,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`] object(#row-object) to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period `1 hour` is used. Also, refer to [Server Aggregation](#server-aggregation).<br>**Examples**: `key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
+<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`] object(#row-object) to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period `1 hour` is used. Also, refer to [Server Aggregation](#server-aggregation).<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
 <a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
 
 ### Rows Representation
