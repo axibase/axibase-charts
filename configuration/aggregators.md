@@ -6,7 +6,7 @@ Statistical functions are applied to values in each period to calculate period s
 
 ## Server and Client Aggregators
 
-Calculated in client side if `server-aggregate=false`, otherwise in ATSD.
+Calculated on client side if `server-aggregate=false`, otherwise in ATSD.
 
 Syntax | Description
 --- |--- |
