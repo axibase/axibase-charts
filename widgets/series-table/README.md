@@ -35,7 +35,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`](#row-object) object to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period `1 hour` is used. Also, refer to [Server Aggregation](#server-aggregation).<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
+<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`](#rows-representation) object to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period `1 hour` is used. Also, refer to [Server Aggregation](#server-aggregation).<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
 <a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
 
 ### Rows Representation
@@ -164,3 +164,9 @@ Each table row matches one series with unique **`entity+metric+series tags`** co
 ![](./images/server-aggregation.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/ff8aabfd/8/)
+
+### Server and Client Aggregation
+
+![](./images/server-and-client-aggregation.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ff8aabfd/9/)

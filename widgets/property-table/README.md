@@ -36,7 +36,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Identifier to associate field of [`row`] object(#row-object) to a column.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
+<a name="key"></a>[`key`](#key)|Identifier to associate field of [`row`](#rows-representation) to a column.<br>**Example**: `key = iface`|[↗](https://apps.axibase.com/chartlab/c404955b)
 <a name="parse-numbers"></a>[`parse-numbers`](#parse-numbers)| If `true`, column values are processed as numbers.<br>Possible values: `true`, `false`.<br>Default value: `false`.<br>**Example**: `parse-numbers = true`|[↗](https://apps.axibase.com/chartlab/a0bbeb23/3/)
 <a name="hide-column"></a>[`hide-column`](#hide-column)|Hide columns based on [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>Column is hidden when the expression is `true` or column name matches the pattern.<br>The setting is **inherited**.<br>**Example**: `hide-column = value <= 0`|[↗](https://apps.axibase.com/chartlab/0ded4531)
 
@@ -71,7 +71,7 @@ Table row is represented by `row` object, fields of which depend on [`join`](#jo
 
 Each table row matches one [property](https://axibase.com/docs/atsd/schema.html#properties) record with unique primary key: **entity+type[+key]**.
 
-* `date`: **string** - date, when property record was created
+* `date`: **string** - date, when property record is created
 * `entity`: **string** - entity, to which property belongs
 * `index`: **number** - column index
 * `key`: **object** - represents property key
@@ -83,7 +83,7 @@ Each table row matches one [property](https://axibase.com/docs/atsd/schema.html#
 
 To review `row` fields, use [`value = console.log(row)`](https://apps.axibase.com/chartlab/1e6027a6/2/).
 
-![](images/review-row.png)
+![](./images/review-row.png)
 
 ## Examples
 
