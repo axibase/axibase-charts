@@ -51,7 +51,7 @@ Name | Description | &nbsp;
 <a name="limit"></a>[`limit`](#limit) | Maximum number of samples returned for each returned series.<br>Default value: `0` (not limited).<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/ace8b96d)
 <a name="cache"></a>[`cache`](#cache) | Query last values from the cache table for faster response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `cache = true`| [↗](https://apps.axibase.com/chartlab/6cb1473e)
 <a name="add-meta"></a>[`add-meta`](#add-meta)| Include metric and entity metadata in the response.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `add-meta = true`| [↗](https://apps.axibase.com/chartlab/100f5b65/3/)
-<a name="filter"></a>[`filter`](#filter)| Boolean expression ([`sampleFilter`](https://axibase.com/docs/atsd/api/data/series/query.html#sample-filter)) applied to detailed samples. Samples that satisfy the condition are included in the result. Note that literal dates are evaluated in the server timezone.<br>**Examples**: <br>`filter = value > 1`<br>`filter = date.timeOfDay > '07:00'`| [↗](https://apps.axibase.com/chartlab/0213f633)
+<a name="filter"></a>[`filter`](#filter)| Boolean expression ([`sampleFilter`](https://axibase.com/docs/atsd/api/data/series/query.html#sample-filter)) applied to detailed samples. Samples that satisfy the condition are included in the result. Note that literal dates are evaluated in the server time zone.<br>**Examples**: <br>`filter = value > 1`<br>`filter = date.timeOfDay > '07:00'`| [↗](https://apps.axibase.com/chartlab/0213f633)
 
 > See also [Control](https://axibase.com/docs/atsd/api/data/series/query.html#control-fields) fields in REST API.
 
