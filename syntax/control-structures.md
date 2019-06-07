@@ -17,7 +17,7 @@ The control structures extend the static configuration syntax with variable assi
 
 If the `var` assignment occupies one line, closing it with `endvar` is not required.
 
-The variable must be assigned following the [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#Examples) syntax, however _without_ the closing semi-colon.
+The variable must be assigned following the JavaScript syntax, however _without_ the closing semi-colon.
 
 ```ls
 var disks = [[9,2], [9,3], [8,0], [9,0], [9,1], [8,16]]
@@ -128,7 +128,7 @@ endfor
 
 ### Iterating Over Object Properties
 
- Order is arbitrary when using the [`Object.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) function.
+ Order is arbitrary when iterating with the [`Object.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) function.
 
 ```ls
 var tags = {

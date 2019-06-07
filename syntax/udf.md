@@ -149,7 +149,7 @@ exports.NaturalLog = function (alias) {
 };
 ```
 
-Function definition must start with the `exports.` qualifier and be implemented as a JavaScript [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions).
+Function definition must start with the `exports.` qualifier and be implemented as a JavaScript function.
 
 The function must return a numeric value or `null` if the result cannot be computed.
 
