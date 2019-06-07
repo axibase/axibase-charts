@@ -120,7 +120,6 @@ onclick = callDialog({ series: [s] })
 
 Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
 
-
 ```ls
 column-time = null
 
