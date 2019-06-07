@@ -61,27 +61,6 @@ Name | Description | &nbsp;
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
 <a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `row` object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
 
-:::tip
-Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
-
-```ls
-column-time = null
-
-[column]
-  key = time
-  display = false
-```
-
-```ls
-column-entity = Server
-
-[column]
-  key = entity
-  label = Server
-```
-
-:::
-
 ### `value()`
 
 ```javascript
@@ -98,6 +77,49 @@ Returns value of cell referenced by `column_key`. The value is not formatted, bu
 [column]
   label = Derived column
   value = value('memtotal') # get value of cell 'memtotal'
+```
+
+### Click Behavior
+
+The `on-click` handler supports the following options:
+
+* Filter rows
+
+```ls
+on-click = filter()
+```
+
+* Load page in dialog window
+
+```ls
+on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + row.tags.userid })
+```
+
+* Display chart in dialog window
+
+```ls
+onclick = var s = series(); s.metric = 'metric-2';
+onclick = callDialog({ series: [s] })
+```
+
+### Column Visibility
+
+Columns can be hidden or renamed using a convenience setting `column-{key} = null` and `column-{key} = {new-name}`. The following syntax options are equivalent.
+
+```ls
+column-time = null
+
+[column]
+  key = time
+  display = false
+```
+
+```ls
+column-entity = Server
+
+[column]
+  key = entity
+  label = Server
 ```
 
 ### Column Order
