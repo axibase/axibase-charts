@@ -50,7 +50,7 @@ The series table consists of multiple rows. In a basic configuration, each row r
 
 If [`merge-columns`](#merge-columns) is enabled, the row contains **multiple** series comprising the following fields:
 
-* `aliases`: **object** - `{alias: series}`, object with `key:value` pairs, where keys are series [`aliases`](../shared/README.md#alias), and values are corresponding series objects, which fields are described [below](#no-merge-columns)
+* `aliases`: **object** - `{alias: series}`, object with `key:value` pairs, where keys are series [`aliases`](../shared/README.md#alias), and values are corresponding series objects, which fields are listed above
 * `map`: **object** - similar to `aliases`, but the `key` depends on `merge-columns` value:
 
     `merge-columns`| Key| `map` object|&nbsp;

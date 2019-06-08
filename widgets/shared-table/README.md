@@ -104,7 +104,7 @@ onclick = callDialog({ series: [s] })
 
 ### `row` Object
 
-Refer to [Series Table row](../series-table/README.md#rows-representation) and [Property Table row](../property-table/README.md#rows-representation) for the list of available fields.
+Refer to [Series Table row](../series-table/README.md#row-object) and [Property Table row](../property-table/README.md#row-object) for the list of available fields.
 
 ### `value()`
 
