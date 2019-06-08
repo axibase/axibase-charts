@@ -35,9 +35,49 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
+<a name="key"></a>[`key`](#key)| **a.** Name of the [`row`](#row-object) field displayed by the column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period is `1 hour`. Refer to [Server Aggregation](#server-aggregation) for more details.<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
 <a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
 
+### Row Object
+
+The series table consists of multiple rows. In a basic configuration, each row represents **one** series and provides access to the following fields:
+
+* `alias`: **string** - series [`alias`](../shared/README.md#alias)
+* `config`: **object** - parsed portal config
+* `data`: **object** - `{t:[], v:[]}`, timestamps and corresponding values
+* `last`: **object** - `{t:<integer>, v:<number>}`, last timestamp and corresponding value
+* `lastIntv`: **array** - array of last two timestamps
+
+If [`merge-columns`](#merge-columns) is enabled, the row contains **multiple** series comprising the following fields:
+
+* `aliases`: **object** - `{alias: series}`, object with `key:value` pairs, where keys are series [`aliases`](../shared/README.md#alias), and values are corresponding series objects, which fields are listed above
+* `map`: **object** - similar to `aliases`, but the `key` depends on `merge-columns` value:
+
+    `merge-columns`| Key| `map` object|&nbsp;
+    ---|:---:|---|---|
+    `entity`|Metric name| `{metric_name:series}`|[↗](https://apps.axibase.com/chartlab/ff8aabfd/6/)
+    `metric`|Entity name| `{entity_name:series}`|[↗](https://apps.axibase.com/chartlab/ff8aabfd/5/)
+    Other value|-|`{}`|-
+
+:::warning
+`aliases` and `map` cannot be used simultaneously: if `[series]` contains `alias` it is not added to `map`.
+:::
+
 ## Examples
+
+* [Minimum and Maximum Value Time](#minimum-and-maximum-value-time)
+* [Multiple Offsets](#multiple-offsets)
+* [Sliding Window](#sliding-window)
+* [Color Grid](#color-grid)
+* [Multiple Intervals](#multiple-intervals)
+* [Alert Styles](#alert-styles)
+* [Toggle Rows](#toggle-rows)
+* [Calculated Columns](#calculated-columns)
+* [Multiple Metrics](#multiple-metrics)
+* [Multiple Tags](#multiple-tags)
+* [Metadata Columns](#metadata-columns)
+* [Configuration Columns](#configuration-columns)
+* [Server Aggregation](#server-aggregation)
 
 ### Minimum and Maximum Value Time
 
@@ -105,8 +145,20 @@ Name | Description | &nbsp;
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/f804ddc9)
 
-## Configuration Columns
+### Configuration Columns
 
 ![](./images/st-2.png)
 
 [![](../../images/button.png)](https://apps.axibase.com/chartlab/fb8bdf13/4/)
+
+### Server Aggregation
+
+![](./images/server-aggregation.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ff8aabfd/8/)
+
+### Server and Client Aggregation
+
+![](./images/server-and-client-aggregation.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/ff8aabfd/9/)

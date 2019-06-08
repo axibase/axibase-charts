@@ -47,8 +47,8 @@ script = $('<style>.axi-table-cell {font-size: 20px} </style>').appendTo('head')
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Identifier to associate settings to a column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
-<a name="tag"></a>[`tag`](#tag)|Identifier to associate settings to a tag in the property record.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
+<a name="key"></a>[`key`](#key)|Name of the [`row`](#row-object) field displayed by the column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
+<a name="tag"></a>[`tag`](#tag)|Name of the tag displayed by the column.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
 <a name="label"></a>[`label`](#label)| Customized column name displayed in the table header.<br>**Example**: `label = Server`| [↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="format"></a>[`format`](#format)|Cell value [format](../../syntax/format-settings.md).<br>The setting is **inherited**.<br>**Examples**: `format = kilobytes`|[↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="tooltip"></a>[`tooltip`](#tooltip)|Text displayed on header mouseover.<br>**Example**: `tooltip = CPU Usage`|[↗](https://apps.axibase.com/chartlab/95bd95be/9/)
@@ -59,7 +59,7 @@ Name | Description | &nbsp;
 <a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>The setting is **inherited**.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
-<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via `row` object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
+<a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via [`row`](#row-object) object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
 
 ### `value()`
 
@@ -101,6 +101,18 @@ on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + ro
 onclick = var s = series(); s.metric = 'metric-2';
 onclick = callDialog({ series: [s] })
 ```
+
+### `row` Object
+
+Refer to [Series Table row](../series-table/README.md#row-object) and [Property Table row](../property-table/README.md#row-object) for the list of available fields.
+
+### `value()`
+
+```javascript
+value([string column_key])
+```
+
+Returns the value of cell referenced in `column_key`. The value is not formatted, but processed as number if [`parse-numbers`](../property-table/README.md#parse-numbers) is set to `true`. To access the default value for the current cell, use `value` or `value()`.
 
 ### Column Visibility
 
