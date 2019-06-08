@@ -47,8 +47,8 @@ script = $('<style>.axi-table-cell {font-size: 20px} </style>').appendTo('head')
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)|Identifier to associate field of [`row`] object(#row-object) to a column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
-<a name="tag"></a>[`tag`](#tag)|Identifier to associate a tag to a column.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
+<a name="key"></a>[`key`](#key)|Name of the [`row`](#row-object) field displayed by the column.<br>**Example**: `key = pid`| [↗](https://apps.axibase.com/chartlab/79cde58f)
+<a name="tag"></a>[`tag`](#tag)|Name of the tag displayed by the column.<br>**Example**: `tag = file_system`|[↗](https://apps.axibase.com/chartlab/f9ddebdb/2/)
 <a name="label"></a>[`label`](#label)| Customized column name displayed in the table header.<br>**Example**: `label = Server`| [↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="format"></a>[`format`](#format)|Cell value [format](../../syntax/format-settings.md).<br>The setting is **inherited**.<br>**Examples**: `format = kilobytes`|[↗](https://apps.axibase.com/chartlab/95bd95be/8/)
 <a name="tooltip"></a>[`tooltip`](#tooltip)|Text displayed on header mouseover.<br>**Example**: `tooltip = CPU Usage`|[↗](https://apps.axibase.com/chartlab/95bd95be/9/)
@@ -91,20 +91,6 @@ on-click = filter()
 
 * Load page in dialog window
 
-### `row` Object
-
-Each table row is represented by `row` object.
-
-Refer to [Series Table row](../series-table/README.md#rows-representation) and [Property Table row](../property-table/README.md#rows-representation) for information about available fields.
-
-### `value()`
-
-```javascript
-value([string column_key])
-```
-
-Returns value of cell referenced by `column_key`. The value is not formatted, but processed as number if [`parse-numbers = true`](../property-table/README.md#parse-numbers). To get default value for the current cell, use `value` or `value()`.
-
 ```ls
 on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + row.tags.userid })
 ```
@@ -115,6 +101,18 @@ on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + ro
 onclick = var s = series(); s.metric = 'metric-2';
 onclick = callDialog({ series: [s] })
 ```
+
+### `row` Object
+
+Refer to [Series Table row](../series-table/README.md#rows-representation) and [Property Table row](../property-table/README.md#rows-representation) for the list of available fields.
+
+### `value()`
+
+```javascript
+value([string column_key])
+```
+
+Returns the value of cell referenced in `column_key`. The value is not formatted, but processed as number if [`parse-numbers`](../property-table/README.md#parse-numbers) is set to `true`. To access the default value for the current cell, use `value` or `value()`.
 
 ### Column Visibility
 

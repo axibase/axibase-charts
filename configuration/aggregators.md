@@ -2,11 +2,27 @@
 
 Statistical functions are applied to values in each period to calculate period statistics.
 
+## Client and Server Calculations
+
+The **Charts** library provides a built-in capability to calculate some of the aggregate statistics in the user's browser (on the client).
+
+In client-side mode, the browser downloads **detailed** samples once from the server and calculates statistics in JavaScript. The detailed samples remain in browser memory. When the user clicks one of the chart controls to modify the aggregation period or to view results a different statistic, the browser is able to recompute statistics locally, without requesting the data from the server.
+
+In server-side mode, the client makes requests for aggregate statistics from the server each time the period or function is changed. The server has more compute and memory resources and is able to calculate statistics much faster then the client. The memory required from the browser is minimized since there is no need to download detailed data. However, if the network is slow, the benefits of server-side processing can be outweighed if the client downloads detailed data once and re-uses it for many subsequent re-calculations.
+
+By default, the calculation is performed on the client, unless the requested statistical function is supported only on the server, such as `wavg` or `standard_deviation`.
+
+To modify the default behavior, use the `server-aggregate` setting.
+
+```ls
+server-aggregate = true
+```
+
 <!-- markdownlint-disable MD101 -->
 
 ## Server and Client Aggregators
 
-Calculated on client side if `server-aggregate=false`, otherwise in ATSD.
+Supported both in client- and server-mode. Calculated on client side by default or if `server-aggregate` is set to `false`.
 
 Syntax | Description
 --- |--- |
@@ -24,7 +40,7 @@ Syntax | Description
 
 ## Server Aggregators
 
-**Not supported** in client-side. Force `server-aggregate=true`, calculated in ATSD.
+**Not supported** in client-mode. Calculated on the server side, regardless of the `server-aggregate` setting.
 
 Syntax | Description
 --- |---

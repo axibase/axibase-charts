@@ -35,16 +35,20 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="key"></a>[`key`](#key)| **a.** Identifier to associate field of [`row`](#rows-representation) object to a column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period `1 hour` is used. Also, refer to [Server Aggregation](#server-aggregation).<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
+<a name="key"></a>[`key`](#key)| **a.** Name of the [`row`](#row-object) field displayed by the column.<br> **b.** Client [aggregation](../../configuration/aggregators.md#server-and-client-aggregators) function. Default period is `1 hour`. Refer to [Server Aggregation](#server-aggregation) for more details.<br>**Examples**:<br>`key = alias`<br>`key = avg`| [↗](https://apps.axibase.com/chartlab/7c05786f/6/)<br>[↗](https://apps.axibase.com/chartlab/7c05786f/7/)
 <a name="series-value"></a>[`series-value`](#series-value) | JavaScript expression to calculate derived column value.<br>**Example**: `series-value = min()` | [↗](https://apps.axibase.com/chartlab/b0a45b83/2/ )
 
-### Rows Representation
+### Row Object
 
-Table row is represented by `row` object, fields of which depend on [`merge-columns`](#merge-columns) setting.
+The series table consists of multiple rows. In a basic configuration, each row represents **one** series and provides access to the following fields:
 
-#### `merge-columns` is specified
+* `alias`: **string** - series [`alias`](../shared/README.md#alias)
+* `config`: **object** - parsed portal config
+* `data`: **object** - `{t:[], v:[]}`, timestamps and corresponding values
+* `last`: **object** - `{t:<integer>, v:<number>}`, last timestamp and corresponding value
+* `lastIntv`: **array** - array of last two timestamps
 
-`row` object fields:
+If [`merge-columns`](#merge-columns) is enabled, the row contains **multiple** series comprising the following fields:
 
 * `aliases`: **object** - `{alias: series}`, object with `key:value` pairs, where keys are series [`aliases`](../shared/README.md#alias), and values are corresponding series objects, which fields are described [below](#no-merge-columns)
 * `map`: **object** - similar to `aliases`, but the `key` depends on `merge-columns` value:
@@ -58,18 +62,6 @@ Table row is represented by `row` object, fields of which depend on [`merge-colu
 :::warning
 `aliases` and `map` cannot be used simultaneously: if `[series]` contains `alias` it is not added to `map`.
 :::
-
-#### no `merge-columns`
-
-Each table row matches one series with unique **`entity+metric+series tags`** combination.
-
-`row` object fields:
-
-* `alias`: **string** - series [`alias`](../shared/README.md#alias)
-* `config`: **object** - parsed portal config
-* `data`: **object** - `{t:[], v:[]}`, timestamps and corresponding values
-* `last`: **object** - `{t:<integer>, v:<number>}`, last timestamp and corresponding value
-* `lastIntv`: **array** - array of last two timestamps
 
 ## Examples
 
