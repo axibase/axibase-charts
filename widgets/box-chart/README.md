@@ -41,7 +41,9 @@ Name |Description |&nbsp;
 
 ### Percentile Markers
 
-[![](./images/bc-1.png)](https://apps.axibase.com/chartlab/6f6baa0b)
+![](./images/bc-1.png)
+
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6f6baa0b)
 
 ### Dual Axis
 
