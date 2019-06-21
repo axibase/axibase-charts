@@ -43,6 +43,20 @@ Name | Description | &nbsp;
   * Local date: `yyyy-MM-dd[ HH:mm:ss[.S]]`, interpreted in the browser time zone, for example: `2017-08-16` or `2018-07-16 20:00:00`.
   * [Calendar expression](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week` or `current_day + 4*hour`.
 
+### Last Insert Filter
+
+The filter selects entire series based on the timestamp of the most recent sample.
+
+Name | Description | &nbsp;
+:--|:--|:--
+| <a name="min-insert-time"></a>[`min-insert-time`](#min-insert-time)|Include series if the timestamp of the latest sample is equal or greater than `min-insert-time`, specified as [ISO date](https://axibase.com/docs/atsd/shared/date-format.html), local date, or [calendar expression](https://axibase.com/docs/atsd/shared/calendar.html).<br>**Example**: `min-insert-time = current_hour`|[↗](https://apps.axibase.com/chartlab/00ec8818/2/)
+| <a name="max-insert-time"></a>[`max-insert-time`](#max-insert-time)|Include series if the timestamp of the latest sample is less than `max-insert-time`, specified as [ISO date](https://axibase.com/docs/atsd/shared/date-format.html), local date, or [calendar expression](https://axibase.com/docs/atsd/shared/calendar.html).<br>**Example**: `max-insert-time = previous_hour`|[↗](https://apps.axibase.com/chartlab/00ec8818/3/)
+
+* Supported date formats for `min-insert-time` and `max-insert-time` settings:
+  * [ISO date](https://axibase.com/docs/atsd/shared/date-format.html) in **UTC time zone**: `yyyy-MM-ddTHH:mm:ss[.S]Z`, for example: `2018-07-16T20:00:00Z`.
+  * Local date: `yyyy-MM-dd[ HH:mm:ss[.S]]`, interpreted in the browser time zone, for example: `2017-08-16` or `2018-07-16 20:00:00`.
+  * [Calendar expression](https://axibase.com/docs/atsd/shared/calendar.html), for example: `previous_week` or `current_day + 4*hour`.
+  
 ### Data Loading
 
 Name | Description | &nbsp;
