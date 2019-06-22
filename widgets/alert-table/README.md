@@ -38,6 +38,7 @@ Name | Description | &nbsp;
 <a name="metric"></a>[`metric`](#metric)| Metric name.<br>Multiple values can be specified.<br>**Example**: `metric = cpu_busy`| [↗](https://apps.axibase.com/chartlab/d9a3d42b/4/)
 <a name="min-severity"></a>[`min-severity`](#min-severity)| Minimum [severity](https://axibase.com/docs/atsd/shared/severity.html) level.<br>Possible values: `0-7` or `UNDEFINED` - `FATAL`.<br>**Example**: `min-severity = ERROR`| [↗](https://apps.axibase.com/chartlab/d9a3d42b/3/)
 <a name="severity"></a>[`severity`](#severity)| [Severity](https://axibase.com/docs/atsd/shared/severity.html) codes or names to filter records.<br>Multiple values can be specified.<br>Possible values: `0-7` or `UNDEFINED` - `FATAL`.<br>**Example**: `severity = 6`| [↗](https://apps.axibase.com/chartlab/d9a3d42b/3/)
+<a name="message-expression"></a>[`message-expression`](#message-expression)|Include messages that match a filter [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>The expression can include fields: `type`, `source`, `tags`, `tags.{name}`, `message`,`severity`.<br>Supported wildcards: `*` and `?`.<br>**Example**: `message-expression = message LIKE 'Starting*'`.| [↗](https://apps.axibase.com/chartlab/00ec8818/1/)
 
 ### Date Filter
 
