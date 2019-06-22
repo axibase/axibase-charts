@@ -56,7 +56,7 @@ Name | Description | &nbsp;
 <a name="row-style"></a>[`row-style`](#row-style)|CSS style applied to the entire row.<br>**Example**: `row-style = value > 10 ? 'background: orange' : null`|[↗](https://apps.axibase.com/chartlab/95bd95be/24/)
 <a name="row-alert-style"></a>[`row-alert-style`](#row-alert-style)|Styles assigned to the entire row when `alert-expression` is `true`.<br>**Example**: `row-alert-style = color: red`|[↗](https://apps.axibase.com/chartlab/95bd95be/12/)
 <a name="display"></a>[`display`](#display)| Controls column visibility.<br>Default value is `true`.<br>**Example**: `display = false`| [↗](https://apps.axibase.com/chartlab/95bd95be/13/)
-<a name="on-click"></a>[`on-click`](#on-click)|JavaScript code click event handler for each cell.<br>The setting is **inherited**.<br>**Examples**: `onclick = filter()` |[↗](https://apps.axibase.com/chartlab/95bd95be/15/)
+<a name="on-click"></a>[`on-click`](#on-click)|[Event](#click-behavior) handler function executed on cell click.<br>**Examples**: <br>`on-click = filter()`<br>`on-click = callDialog({ type: 'page', url: '/view?info=' + row.tags.pageid })` |[↗](https://apps.axibase.com/chartlab/95bd95be/31/)
 <a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
 <a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via [`row`](#row-object) object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
@@ -98,8 +98,8 @@ on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + ro
 * Display chart in dialog window
 
 ```ls
-onclick = var s = series(); s.metric = 'metric-2';
-onclick = callDialog({ series: [s] })
+on-click = var s = series(); s.metric = 'metric-2';
+on-click = callDialog({ series: [s] })
 ```
 
 ### `row` Object

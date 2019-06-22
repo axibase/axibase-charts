@@ -231,7 +231,7 @@
 * <a name="offset-right"></a>[`offset-right`](../configuration/README.md#offset-right)
 * <a name="offset-top"></a>[`offset-top`](../configuration/README.md#offset-top)
 * <a name="on-change"></a>[`on-change`](../configuration/drop-down-lists.md#settings)
-* <a name="on-click"></a>[`on-click`](../widgets/alert-table/README.md#on-click)
+* <a name="on-click"></a>[`on-click`](../widgets/shared-table/README.md#on-click)
 * <a name="on-series-click"></a>[`on-series-click`](../widgets/text-widget/README.md#on-series-click)
 * <a name="on-series-double-click"></a>[`on-series-double-click`](../widgets/pie-chart/README.md#on-series-double-click)
 * <a name="padding"></a>[`padding`](../widgets/graph/README.md#padding)
