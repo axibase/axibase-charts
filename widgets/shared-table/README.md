@@ -95,6 +95,12 @@ on-click = filter()
 on-click = callDialog({ type: 'page', url: 'https://atsd.example.org?user=' + row.tags.userid })
 ```
 
+* Open a URL in new window.
+
+```ls
+on-click = var uri = 'https://' + row.entity + row.tags.request_uri; window.open(uri, '_blank');
+```
+
 * Display chart in dialog window
 
 ```ls
