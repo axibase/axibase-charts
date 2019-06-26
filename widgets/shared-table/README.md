@@ -11,7 +11,7 @@ The **Common Table Settings** are inherited by [Table](../series-table/README.md
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="expand-tags"></a>[`expand-tags`](#expand-tags)| Automatically create columns for all tags in the received records.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `expand-tags = true`| [↗](https://apps.axibase.com/chartlab/220498ff/4/)
-<a name="columns"></a>[`columns`](#columns)| Add multiple columns by key.<br>**Example**: `columns = command`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/2/)
+<a name="columns"></a>[`columns`](#columns)| Add columns by key. Short form of [`[column]`](#column-settings) with [`key`](#key) setting.<br>**Example**: `columns = command`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/4/)
 <a name="sort"></a>[`sort`](#sort)| Sort table rows by column value using descending (`DESC`) or ascending (`ASC`) order.<br>All columns in the `property` and `console` widgets are sorted as text.<br>**Example**: `sort = memfree DESC`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/3/)
 <a name="transpose"></a>[`transpose`](#transpose)| Transpose table rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `transpose = true`| [↗](https://apps.axibase.com/chartlab/fe7940e7)
 <a name="show-tag-names"></a>[`show-tag-names`](#show-tag-names)| Display tag names in the `tags` column, if defined.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `show-tag-names = true`| [↗](https://apps.axibase.com/chartlab/4afb9290/3/)
