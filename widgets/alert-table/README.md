@@ -19,8 +19,8 @@ The rows in the table are color-coded based on the [severity](https://axibase.co
 
 ## Data Source
 
-* Type `source` retrieves open [alerts](https://axibase.com/docs/atsd/api/data/alerts/query.html).
-* Type `message` retrieves [messages](https://axibase.com/docs/atsd/api/data/messages/query.html).
+* If [`source`](#source) is `alert`, retrieves open [alerts](https://axibase.com/docs/atsd/api/data/alerts/query.html).
+* If [`source`](#source) is `message`, retrieves [messages](https://axibase.com/docs/atsd/api/data/messages/query.html).
 
 ## Widget Settings
 
