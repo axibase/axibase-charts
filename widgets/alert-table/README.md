@@ -55,6 +55,7 @@ Name | Description | &nbsp;
 <a name="severity-style"></a>[`severity-style`](#severity-style)| Apply severity color to a single column or entire row.<br>Possible settings: `row`, `column`.<br>**Example**: `severity-style = row`| [↗](https://apps.axibase.com/chartlab/71113dee)
 <a name="row-style"></a>[`row-style`](#row-style)| CSS style applied to the entire row.<br>Can be specified as text or a JavaScript expression.<br>Can be used to filter records.<br>**Example**: `row-style = if (value <= 100) return 'display: none'` | [↗](https://apps.axibase.com/chartlab/470ea887)
 <a name="on-click"></a>[`on-click`](#on-click)| Built-in or custom function triggered on click.<br>**Example**: `on-click = filter()`| [↗](https://apps.axibase.com/chartlab/f7d929c9)
+<a name="highlight-new-rows"></a>[`highlight-new-rows`](#highlight-new-rows)|Highlight left border of rows, which have [`date`](https://axibase.com/docs/atsd/api/data/messages/query.html#fields-2) or [`lastEventDate`](https://axibase.com/docs/atsd/api/data/alerts/query.html#fields-2) greater than <code>now - [update-interval](../../widgets/shared/README.md#update-interval)</code>.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `highlight-new-rows = true`|[↗](https://apps.axibase.com/chartlab/1461fbb6/4/)
 
 ## Default Columns
 

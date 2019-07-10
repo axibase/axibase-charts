@@ -29,6 +29,7 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`|[↗](https://apps.axibase.com/chartlab/1e6027a6)
 <a name="merge-properties"></a>[`merge-properties`](#merge-properties)|Merge tags collected with different timestamps.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `merge-properties = true`|[↗](https://apps.axibase.com/chartlab/b0a037b1/2)
+<a name="highlight-new-rows"></a>[`highlight-new-rows`](#highlight-new-rows)|Highlight left border of rows, which have [`date`](https://axibase.com/docs/atsd/api/data/properties/query.html#fields-2) greater than <code>now - [update-interval](../../widgets/shared/README.md#update-interval)</code>.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `highlight-new-rows = true`|[↗](https://apps.axibase.com/chartlab/f7c2337f/2/)
 
 ## Column Settings
 

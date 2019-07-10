@@ -30,6 +30,8 @@ Name | Description | &nbsp;
 <a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>Hide widget header with `header-style = display: none`.<br>**Example**: `background-color: steelblue`| [↗](https://apps.axibase.com/chartlab/343efa22)
 <a name="auto-height"></a>[`auto-height`](#auto-height)| Assign row height based on vertical space allocated to the widget and number of rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `auto-height = true`| [↗](https://apps.axibase.com/chartlab/8cef1677)
 <a name="font-scale"></a>[`font-scale`](#font-scale)| Ratio of font height to row height when `auto-height = true`.<br>Minimum row height is `10px`, maximum row height is `64px`.<br>Default: `0.5`.<br>**Example**: `font-scale = 0.7`| [↗](https://apps.axibase.com/chartlab/ed4d8748)
+<a name="highlight-new-rows"></a>[`highlight-new-rows`](#highlight-new-rows)|Highlight left border or recently received row. Refer to additional info in [Alert Table](../../widgets/alert-table/README.md#highlight-new-rows), [Series Table](../../widgets/series-table/README.md#highlight-new-rows) and [Property Table](../../widgets/property-table/README.md#highlight-new-rows).<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `highlight-new-rows = true`|[↗](https://apps.axibase.com/chartlab/2c3dd846)
+<a name="new-row-color"></a>[`new-row-color`](#new-row-color)|CSS color, applied to left border or recently received row, if [`highlight-new-rows`](#highlight-new-rows) is `true`.<br>Default value: `red`.<br>**Example**: `new-row-color = forestgreen`|[↗](https://apps.axibase.com/chartlab/2c3dd846)
 
 :::tip
 
