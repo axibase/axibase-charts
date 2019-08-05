@@ -56,8 +56,8 @@ Name | Description | &nbsp;
 Name |Description | &nbsp;
 :--|:--|:--
 <a name="auto-scale"></a>[`auto-scale`](#auto-scale)| Scale the visible portion of the value axis based on series values.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `auto-scale = true`| [↗](https://apps.axibase.com/chartlab/20de18e9)
-<a name="ticks"></a>[`ticks`](#ticks)| Tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/5e968be4)
-<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d)
+<a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/5e968be4)
+<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Number of tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d)
 
 ### Time Axis Settings
 
