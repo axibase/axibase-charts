@@ -91,16 +91,6 @@ Name | Description | &nbsp;
 <a name="path"></a>[`path`](#path)| [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`.<br>**Example**: `path = /series/query` | [↗](https://apps.axibase.com/chartlab/16e8cdad/2/)
 <a name="url-parameters"></a>[`url-parameters`](#url-parameters) | Optional request parameters included in data requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional.<br>**Example**: `url-parameters = db=1`| [↗](https://apps.axibase.com/chartlab/877e0c6b)
 
-### SQL
-
-<!-- markdownlint-disable MD106 -->
-
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE time > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
-
-<!-- markdownlint-enable MD106 -->
-
 ### Legend
 
 Name | Description | &nbsp;
@@ -192,6 +182,16 @@ Name | Description | &nbsp;
 :--|:--|:--
 <a name="tag-expression"></a>[`tag-expression`](#tag-expression)| Server-side [tag filter](https://axibase.com/docs/atsd/api/data/series/query.html#tag-expression) to select series for matching tags.<br>**Example**: `tag-expression = tags.make LIKE 'AU*'`| [↗](https://apps.axibase.com/chartlab/ae493a65)
 <a name="exact-match"></a>[`exact-match`](#exact-match)| Ignore series with tags other than those [specified](https://axibase.com/docs/atsd/api/data/series/query.html#tag-filter) in the `[tags]` section.<br>Default value: `false`.<br>**Example**: `exact-match = true`| [↗](https://apps.axibase.com/chartlab/79cd34ec)
+
+### SQL
+
+<!-- markdownlint-disable MD106 -->
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE time > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
+
+<!-- markdownlint-enable MD106 -->
 
 ### Legend
 
