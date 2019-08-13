@@ -11,7 +11,7 @@ The **Common Table Settings** are inherited by [Table](../series-table/README.md
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="expand-tags"></a>[`expand-tags`](#expand-tags)| Automatically create columns for all tags in the received records.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `expand-tags = true`| [↗](https://apps.axibase.com/chartlab/220498ff/4/)
-<a name="columns"></a>[`columns`](#columns)| Add columns by key. Short form of [`[column]`](#column-settings) with [`key`](#key) setting.<br>**Example**: `columns = command`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/4/)
+<a name="columns"></a>[`columns`](#columns)| Comma separated list of column [keys](#key) to be displayed.<br>**Example**: `columns = pid, command`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/5/)
 <a name="sort"></a>[`sort`](#sort)| Sort table rows by column value using descending (`DESC`) or ascending (`ASC`) order.<br>All columns in the `property` and `console` widgets are sorted as text.<br>**Example**: `sort = memfree DESC`| [↗](https://apps.axibase.com/chartlab/d7c8ed94/3/)
 <a name="transpose"></a>[`transpose`](#transpose)| Transpose table rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `transpose = true`| [↗](https://apps.axibase.com/chartlab/fe7940e7)
 <a name="show-tag-names"></a>[`show-tag-names`](#show-tag-names)| Display tag names in the `tags` column, if defined.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `show-tag-names = true`| [↗](https://apps.axibase.com/chartlab/4afb9290/3/)
@@ -30,6 +30,7 @@ Name | Description | &nbsp;
 <a name="header-style"></a>[`header-style`](#header-style)| Widget header CSS style.<br>Hide widget header with `header-style = display: none`.<br>**Example**: `background-color: steelblue`| [↗](https://apps.axibase.com/chartlab/343efa22)
 <a name="auto-height"></a>[`auto-height`](#auto-height)| Assign row height based on vertical space allocated to the widget and number of rows.<br>Possible values: `false`, `true`.<br>Default: `false`.<br>**Example**: `auto-height = true`| [↗](https://apps.axibase.com/chartlab/8cef1677)
 <a name="font-scale"></a>[`font-scale`](#font-scale)| Ratio of font height to row height when `auto-height = true`.<br>Minimum row height is `10px`, maximum row height is `64px`.<br>Default: `0.5`.<br>**Example**: `font-scale = 0.7`| [↗](https://apps.axibase.com/chartlab/ed4d8748)
+<a name="new-row-color"></a>[`new-row-color`](#new-row-color)|Highlight left border of recently received rows with the specified color. Refer to implementation details in [Alert Table](../../widgets/alert-table/README.md#new-row-color), [Series Table](../../widgets/series-table/README.md#new-row-color) and [Property Table](../../widgets/property-table/README.md#new-row-color).<br>Possible value: color name or hex code.<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors).<br>**Example**: `new-row-color = forestgreen`|[↗](https://apps.axibase.com/chartlab/2c3dd846/2/)
 
 :::tip
 

@@ -38,7 +38,7 @@ Name | Description | &nbsp;
 <a name="moving-average"></a>[`moving-average`](#moving-average)| When `moving-average` is enabled, the most recent aggregation period is based on sliding window ending with current time.<br>When `moving-average` is disabled, all aggregate periods are set to start and end at regular times as established by calendar.<br>Only supported together with `server-aggregate = false` setting.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `moving-average = true`| [↗](https://apps.axibase.com/chartlab/4296e02b)
 <a name="negative-style"></a>[`negative-style`](#negative-style)| CSS style applied to negative values in `column` or `column-stack` mode.<br>**Example**: `negative-style = fill: red`| [↗](https://apps.axibase.com/chartlab/03326e26)
 <a name="current-period-style"></a>[`current-period-style`](#current-period-style)| CSS styles applied to current period values in `column` and `column-stack` mode.<br>**Example**: `current-period-style = stroke-dasharray: 5, 2, 1, 2`| [↗](https://apps.axibase.com/chartlab/148d5d72)
-<a name="forecast-style"></a>[`forecast-style`](#forecast-style)| CSS style applied to [forecasts](https://axibase.com/docs/atsd/forecasting/) in `column` and `column-stack` mode.<br>**Example**: `forecast-style = stroke: magenta;`| [↗](https://apps.axibase.com/chartlab/35aa293f)
+<a name="forecast-style"></a>[`forecast-style`](#forecast-style)| CSS style applied to [forecasts](https://axibase.com/docs/atsd/forecasting/).<br>**Example**: `forecast-style = stroke: magenta;`| [↗](https://apps.axibase.com/chartlab/35aa293f)
 
 ### Panels
 
@@ -56,8 +56,8 @@ Name | Description | &nbsp;
 Name |Description | &nbsp;
 :--|:--|:--
 <a name="auto-scale"></a>[`auto-scale`](#auto-scale)| Scale the visible portion of the value axis based on series values.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `auto-scale = true`| [↗](https://apps.axibase.com/chartlab/20de18e9)
-<a name="ticks"></a>[`ticks`](#ticks)| Tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/5e968be4)
-<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d)
+<a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the left axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/5e968be4)
+<a name="ticks-right"></a>[`ticks-right`](#ticks-right)| Number of tick marks on the right axis.<br>Default value: `5`.<br>**Example**: `ticks-right = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d)
 
 ### Time Axis Settings
 

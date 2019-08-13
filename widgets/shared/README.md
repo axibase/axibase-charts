@@ -91,16 +91,6 @@ Name | Description | &nbsp;
 <a name="path"></a>[`path`](#path)| [REST API](https://axibase.com/docs/atsd/api/data/) method path.<br>Default value is specific for each data type: `/series/query`, `/properties/query`, `/messages/query`, `/alerts/query`.<br>**Example**: `path = /series/query` | [↗](https://apps.axibase.com/chartlab/16e8cdad/2/)
 <a name="url-parameters"></a>[`url-parameters`](#url-parameters) | Optional request parameters included in data requests.<br>Parameter names and values must be URL-encoded and separated by `&`.<br>`?` at the beginning of the query is optional.<br>**Example**: `url-parameters = db=1`| [↗](https://apps.axibase.com/chartlab/877e0c6b)
 
-### SQL
-
-<!-- markdownlint-disable MD106 -->
-
-Name | Description | &nbsp;
-:--|:--|:--
-<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE time > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
-
-<!-- markdownlint-enable MD106 -->
-
 ### Legend
 
 Name | Description | &nbsp;
@@ -193,6 +183,16 @@ Name | Description | &nbsp;
 <a name="tag-expression"></a>[`tag-expression`](#tag-expression)| Server-side [tag filter](https://axibase.com/docs/atsd/api/data/series/query.html#tag-expression) to select series for matching tags.<br>**Example**: `tag-expression = tags.make LIKE 'AU*'`| [↗](https://apps.axibase.com/chartlab/ae493a65)
 <a name="exact-match"></a>[`exact-match`](#exact-match)| Ignore series with tags other than those [specified](https://axibase.com/docs/atsd/api/data/series/query.html#tag-filter) in the `[tags]` section.<br>Default value: `false`.<br>**Example**: `exact-match = true`| [↗](https://apps.axibase.com/chartlab/79cd34ec)
 
+### SQL
+
+<!-- markdownlint-disable MD106 -->
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="sql"></a>[`sql`](#sql) | SQL query. Can be specified as `sql/endsql` block or as multiple `sql=` settings. If specified, [`context-path`](#context-path) is set to `/api/sql/`, [`path`](#path) is set to `series` and [`url-parameters`](#url-parameters) are set to `?q=${sql}&timeFormat=milliseconds`.<br>**Example**:<br><code>sql<br>&nbsp;&nbsp;&nbsp; SELECT time, entity, value FROM cpu_busy<br>&nbsp;&nbsp;&nbsp; WHERE time > now - 5 * minute<br>endsql</code>| [↗](https://apps.axibase.com/chartlab/47886e22/5/)
+
+<!-- markdownlint-enable MD106 -->
+
 ### Legend
 
 Name | Description | &nbsp;
@@ -204,7 +204,7 @@ Name | Description | &nbsp;
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="color"></a>[`color`](#color)| Color applied to series shape.<br>Possible value: color name or hex code.<br>Default values: `steelblue, orange, green, purple`, `maroon`, `yellowgreen`, `hotpink`, `chocolate`, `deepskyblue`.<br>Additional series are assigned colors at random.<br>**Example**: `color = blue`<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors).| [↗](https://apps.axibase.com/chartlab/3d6cab08)
-<a name="label"></a>[`label`](#label)| Series label displayed in the legend. Overrides `label-format`.<br>**Example**: `label = CPU Busy - nurswgvml007`| [↗](https://apps.axibase.com/chartlab/bca3cf3e)
+<a name="label"></a>[`label`](#label)| Series label displayed in the legend. Overrides [`label-format`](#label-format).<br>**Example**: `label = CPU Busy - nurswgvml007`| [↗](https://apps.axibase.com/chartlab/bca3cf3e)
 <a name="style"></a>[`style`](#style)| CSS style applied to the series shape.<br>**Example**: `style = stroke-width: 4`<br>`style = stroke-dasharray: 5 1 2`| [↗](https://apps.axibase.com/chartlab/15b5420b)
 <a name="tooltip"></a>[`tooltip`](#tooltip)| Tooltips displayed on mouseover.<br>**Example**: `tooltip = NURSWGVML007`| [↗](https://apps.axibase.com/chartlab/a46ea93e)
 <a name="axis"></a>[`axis`](#axis)| Series axis placement.<br>Possible values: `left`, `right`.<br>Default value: `left`.<br>**Example**: `axis = right`| [↗](https://apps.axibase.com/chartlab/8a66a428)
@@ -378,4 +378,4 @@ Name | Description | &nbsp;
 <a name="alias"></a>[`alias`](#alias)| Unique series name to pass data to other series.<br>**Example**: `alias = s1`| [↗](https://apps.axibase.com/chartlab/a18e5720)
 <a name="value"></a>[`value`](#value) | Formula to calculate derived values at each timestamp of the other series identified by alias.<br>The formula can include [value functions](../../syntax/value-functions.md).<br>**Example**: `value = max('s1') - 10`| [↗](https://apps.axibase.com/chartlab/25a47d0d)
 <a name="replace-value"></a>[`replace-value`](#replace-value) | Formula to replace values in the current series.<br>Supported [fields](../../syntax/replace-value-functions.md): `value`, `time`, `previousValue`, `previousTime`.<br>Unlike `value` setting, creating and referring to another series is not required.<br>**Example**: `replace-value = Math.log(value)`| [↗](https://apps.axibase.com/chartlab/5ff83724)<br>[↗](https://apps.axibase.com/chartlab/5ff83724/2/)
-<a name="fill-value"></a>[`fill-value`](#fill-value) | Interpolates a missing value for the given timestamp when merging multiple series with different timestamps.<br>Possible values: `false`, `true`.<br>Default value: `true`.**Example**: `fill-value = true`| [↗](https://apps.axibase.com/chartlab/061698b1)
+<a name="fill-value"></a>[`fill-value`](#fill-value) | Interpolate a missing value for the given timestamp when merging multiple series with different timestamps using specified interpolation type.<br>Possible values: `NONE`, `PREVIOUS`, `LINEAR`.<br>Default value: `LINEAR`.**Example**: `fill-value = PREVIOUS`| [↗](https://apps.axibase.com/chartlab/061698b1/2/)

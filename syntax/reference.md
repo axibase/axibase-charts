@@ -218,6 +218,7 @@
 * <a name="moving-average"></a>[`moving-average`](../widgets/time-chart/README.md#moving-average)
 * <a name="multiple-column"></a>[`multiple-column`](../widgets/bar-chart/README.md#multiple-column)
 * <a name="negative-style"></a>[`negative-style`](../widgets/time-chart/README.md#negative-style)
+* <a name="new-row-color"></a>[`new-row-color`](../widgets/shared-table/README.md#new-row-color)
 * <a name="node-alert-style"></a>[`node-alert-style`](../widgets/graph/README.md#node-alert-style)
 * <a name="node-collapse"></a>[`node-collapse`](../widgets/graph/README.md#node-collapse)
 * <a name="node-colors"></a>[`node-colors`](../widgets/graph/README.md#node-colors)
