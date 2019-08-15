@@ -300,7 +300,7 @@
 * <a name="style"></a>[`style`](../widgets/shared/README.md#widget-style)
 * <a name="summarize-period"></a>[`summarize-period`](../widgets/calendar-chart/README.md#summarize-period)
 * <a name="summarize-statistic"></a>[`summarize-statistic`](../widgets/calendar-chart/README.md#summarize-statistic)
-* <a name="summary-text"></a>[`summary-text`](..widgets/alert-table/README.md#summary-text)
+* <a name="summary-text"></a>[`summary-text`](../widgets/alert-table/README.md#summary-text)
 * <a name="table"></a>[`table`](../widgets/shared/README.md#table)
 * <a name="table-header-style"></a>[`table-header-style`](../widgets/shared-table/README.md#table-header-style)
 * <a name="tension"></a>[`tension`](../widgets/graph/README.md#tension)
