@@ -57,6 +57,16 @@ Name | Description | &nbsp;
 <a name="on-click"></a>[`on-click`](#on-click)| Built-in or custom function triggered on click.<br>**Example**: `on-click = filter()`| [↗](https://apps.axibase.com/chartlab/f7d929c9)
 <a name="new-row-color"></a>[`new-row-color`](#new-row-color)|Highlight left border of rows, which have [`date`](https://axibase.com/docs/atsd/api/data/messages/query.html#fields-2) or [`lastEventDate`](https://axibase.com/docs/atsd/api/data/alerts/query.html#fields-2) greater than <code>now - [update-interval](../../widgets/shared/README.md#update-interval)</code>, with specified color.<br>Possible value: color name or hex code.<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors).<br>**Example**: `new-row-color = red`|[↗](https://apps.axibase.com/chartlab/1461fbb6/7/)
 
+## Column Settings
+
+* The settings apply to the `[column]` section.
+* [Common Table](../shared-table/README.md#column-settings) `[column]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="collapsible"></a>[`collapsible`](#collapsible)|If `true`, add controller to collapse or expand column cell and **Collapse All** button to widget header.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `collapsible = true`|[↗](https://apps.axibase.com/chartlab/66c7f3f5)
+<a name="summary-text"></a>[`summary-text`](#summary-text)|JavaScript expression returning caption used for cell if [`collapsible = true`](#collapsible).<br>Default value: `Details`.<br>**Example**: `summary-text = row.date`|[↗](https://apps.axibase.com/chartlab/66c7f3f5)
+
 ## Default Columns
 
 The list of default columns depends on the `source` setting:
