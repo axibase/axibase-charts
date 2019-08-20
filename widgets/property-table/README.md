@@ -28,7 +28,7 @@ The **Property Table** displays [properties](https://axibase.com/docs/atsd/schem
 Name | Description | &nbsp;
 :--|:--|:--
 <a name="join"></a>[`join`](#join)|Join by `entity` and `type`.<br>`join = entity` joins by `entity` only.<br>Possible values: `false`, `true`, `entity`.<br>Default value: `false`.<br>**Example**: `join = true`|[↗](https://apps.axibase.com/chartlab/1e6027a6)
-<a name="merge-properties"></a>[`merge-properties`](#merge-properties)|Merge tags collected with different timestamps.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `merge-properties = true`|[↗](https://apps.axibase.com/chartlab/b0a037b1/2)
+<a name="merge-properties"></a>[`merge-properties`](#merge-properties)|If `true`, query all tag values within the record.<br>If set to `false`, only tag values within the latest update are included.<br>Default: `false`.|[↗](https://apps.axibase.com/chartlab/b0a037b1/2/)
 <a name="new-row-color"></a>[`new-row-color`](#new-row-color)|Highlight left border of rows, which have [`date`](https://axibase.com/docs/atsd/api/data/properties/query.html#fields-2) greater than <code>now - [update-interval](../../widgets/shared/README.md#update-interval)</code>, with specified color.<br>Possible value: color name or hex code.<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors).<br>**Example**: `new-row-color = forestgreen`|[↗](https://apps.axibase.com/chartlab/f7c2337f/3/)
 
 ## Column Settings
@@ -53,7 +53,6 @@ Name | Description | &nbsp;
 <a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>**Example**: `limit = 10`|[↗](https://apps.axibase.com/chartlab/b24d0b4b)
 <a name="last"></a>[`last`](#last)|Return only records with the update time equal to the maximum update time of matched records.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `last = true`|[↗](https://apps.axibase.com/chartlab/da112ba6)
 <a name="offset"></a>[`offset`](#offset)|Difference, in milliseconds, between maximum update time of matched records and update time of the current record.<br>If the difference exceeds `offset`, the record is excluded from results.<br>**Example**: `offset = 6000`|[↗](https://apps.axibase.com/chartlab/4efa6cc8)
-<a name="merge-properties"></a>[`merge-properties`](#merge-properties)|If `true`, query all tag values within the record.<br>If set to `false`, only tag values within the latest update are included.<br>Default: `false`.|[↗](https://apps.axibase.com/chartlab/b0a037b1/2/)
 
 ### Keys Settings
 
