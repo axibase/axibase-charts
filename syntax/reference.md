@@ -8,6 +8,8 @@
 * <a name="[widget]"></a>[`[widget]`](../widgets/shared/README.md#widget-settings)
 * <a name="[series]"></a>[`[series]`](../widgets/shared/README.md#series-settings)
 * <a name="[tags]"></a>[`[tags]`](../widgets/shared/README.md#tag-filter)
+* <a name="[dropdown]"></a>[`[dropdown]`](../configuration/drop-down-lists.md)
+* <a name="[option]"></a>[`[option]`](../configuration/drop-down-lists.md#options-syntax)
 * <a name="[column]-bar"></a>[`[column]`](../widgets/bar-chart/README.md#column-settings) (bar)
 * <a name="[column]-table"></a>[`[column]`](../widgets/shared-table/README.md#column-settings) (shared table)
 * <a name="[link]-graph"></a>[`[link]`](../widgets/graph/README.md#link-settings) (graph)
