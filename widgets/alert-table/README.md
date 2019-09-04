@@ -40,6 +40,7 @@ Name | Description | &nbsp;
 <a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>Default: `1000`.<br>**Example**: `limit = 100`|[↗](https://apps.axibase.com/chartlab/d9a3d42b/6/)
 <a name="severity"></a>[`severity`](#severity)| [Severity](https://axibase.com/docs/atsd/shared/severity.html) codes or names to filter records.<br>Multiple values can be specified.<br>Possible values: `0-7` or `UNDEFINED` - `FATAL`.<br>**Example**: `severity = 6`| [↗](https://apps.axibase.com/chartlab/d9a3d42b/3/)
 <a name="message-expression"></a>[`message-expression`](#message-expression)|Include messages that match a filter [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>The expression can include fields: `type`, `source`, `tags`, `tags.{name}`, `message`,`severity`.<br>Supported wildcards: `*` and `?`.<br>**Example**: `message-expression = message LIKE 'Starting*'`.| [↗](https://apps.axibase.com/chartlab/00ec8818/1/)
+<a name="primary-key"></a>[`primary-key`](#primary-key)|Filter rows by specific field.<br>Possible values: depend on [`source`](#source)<br><span>&#8226;</span> [message](https://axibase.com/docs/atsd/api/data/messages/query.html#fields-2) <br><span>&#8226;</span> [alert](https://axibase.com/docs/atsd/api/data/alerts/query.html#fields-2)<br>Default: `id`.<br>**Example**: `primary-key = type`| [↗](https://apps.axibase.com/chartlab/1461fbb6/8/)
 
 ### Date Filter
 
