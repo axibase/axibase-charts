@@ -49,7 +49,7 @@ Name | Description | &nbsp;
 <a name="periods"></a>[`periods`](#periods)|  Custom aggregation periods in widget controls.<br>Specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`|[↗](https://apps.axibase.com/chartlab/537bf3e3)
 <a name="panels-timespan"></a>[`panels-timespan`](#panels-timespan)|  Override timespan selectors displayed in the **top left** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
 <a name="panels-type"></a>[`panels-type`](#panels-type)|  Override statistical function selectors displayed in the **top right** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
-<a name="panels-interval"></a>[`panels-timespan`](#panels-interval)|  Override aggregation period selectors used by statistical functions in the **top right** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
+<a name="panels-interval"></a>[`panels-interval`](#panels-interval)|  Override aggregation period selectors used by statistical functions in the **top right** corner. |[↗](https://apps.axibase.com/chartlab/3212079e/6/)
 
 ### Value Axis Settings
 
