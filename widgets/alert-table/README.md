@@ -40,6 +40,7 @@ Name | Description | &nbsp;
 <a name="limit"></a>[`limit`](#limit)|Maximum number of returned records.<br>Default: `1000`.<br>**Example**: `limit = 100`|[↗](https://apps.axibase.com/chartlab/d9a3d42b/6/)
 <a name="severity"></a>[`severity`](#severity)| [Severity](https://axibase.com/docs/atsd/shared/severity.html) codes or names to filter records.<br>Multiple values can be specified.<br>Possible values: `0-7` or `UNDEFINED` - `FATAL`.<br>**Example**: `severity = 6`| [↗](https://apps.axibase.com/chartlab/d9a3d42b/3/)
 <a name="message-expression"></a>[`message-expression`](#message-expression)|Include messages that match a filter [expression](https://axibase.com/docs/atsd/api/meta/expression.html).<br>The expression can include fields: `type`, `source`, `tags`, `tags.{name}`, `message`,`severity`.<br>Supported wildcards: `*` and `?`.<br>**Example**: `message-expression = message LIKE 'Starting*'`.| [↗](https://apps.axibase.com/chartlab/00ec8818/1/)
+<a name="primary-key"></a>[`primary-key`](#primary-key)|Filter rows by specific field.<br>Possible values: depend on [`source`](#source)<br><span>&#8226;</span> [message](https://axibase.com/docs/atsd/api/data/messages/query.html#fields-2) <br><span>&#8226;</span> [alert](https://axibase.com/docs/atsd/api/data/alerts/query.html#fields-2)<br>Default: `id`.<br>**Example**: `primary-key = type`| [↗](https://apps.axibase.com/chartlab/1461fbb6/8/)
 
 ### Date Filter
 
@@ -56,6 +57,16 @@ Name | Description | &nbsp;
 <a name="row-style"></a>[`row-style`](#row-style)| CSS style applied to the entire row.<br>Can be specified as text or a JavaScript expression.<br>Can be used to filter records.<br>**Example**: `row-style = if (value <= 100) return 'display: none'` | [↗](https://apps.axibase.com/chartlab/470ea887)
 <a name="on-click"></a>[`on-click`](#on-click)| Built-in or custom function triggered on click.<br>**Example**: `on-click = filter()`| [↗](https://apps.axibase.com/chartlab/f7d929c9)
 <a name="new-row-color"></a>[`new-row-color`](#new-row-color)|Highlight left border of rows, which have [`date`](https://axibase.com/docs/atsd/api/data/messages/query.html#fields-2) or [`lastEventDate`](https://axibase.com/docs/atsd/api/data/alerts/query.html#fields-2) greater than <code>now - [update-interval](../../widgets/shared/README.md#update-interval)</code>, with specified color.<br>Possible value: color name or hex code.<br>Recommended color picking tools: [`colorhexa`](https://www.colorhexa.com/ffffff-to-0c9150), [`material.io`](https://material.io/design/color/#tools-for-picking-colors).<br>**Example**: `new-row-color = red`|[↗](https://apps.axibase.com/chartlab/1461fbb6/7/)
+
+## Column Settings
+
+* The settings apply to the `[column]` section.
+* [Common Table](../shared-table/README.md#column-settings) `[column]` settings are inherited.
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="collapsible"></a>[`collapsible`](#collapsible)|If `true`, add controller to collapse or expand column cell and **Collapse All** button to widget header.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `collapsible = true`|[↗](https://apps.axibase.com/chartlab/66c7f3f5)
+<a name="summary-text"></a>[`summary-text`](#summary-text)|JavaScript expression returning caption used for cell if [`collapsible = true`](#collapsible).<br>Default value: `Details`.<br>**Example**: `summary-text = row.date`|[↗](https://apps.axibase.com/chartlab/66c7f3f5)
 
 ## Default Columns
 
