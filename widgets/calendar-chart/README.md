@@ -65,7 +65,6 @@ sum('5 minute')
 
 Period can be both quoted and unquoted. Supported statistic functions:
 
-* `avg` - average value during the period
 * `sum` - sum of values during the period
 * `min` - minimum value during the period
 * `max` - maximum value during the period
