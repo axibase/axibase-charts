@@ -23,6 +23,7 @@ Supported keywords in the `label-format` pattern are:
 * `rate`
 * `label`: Value of the [label](../widgets/shared/README.md#label) setting in the current series.
 * `alias`: Value of the [alias](../widgets/shared/README.md#alias) setting in the current series.
+* `value`: [Formatted](./format-settings.md) last value of the current series.
 
 Create a new label format configuration using a combination of the supported keywords.
 
