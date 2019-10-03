@@ -25,7 +25,7 @@ When the values are hidden, the widget can present many series in a compact view
 
 ![](./images/compact.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/3/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/5/)
 
 ## Widget Settings
 
@@ -50,7 +50,7 @@ Name|Description|&nbsp;
 <a name="icon"></a>[`icon`](#icon)|Display `.svg` icon in the **Text Widget**.<br>Path to custom icons must be defined.<br>Default ATSD icon directory is `/opt/atsd/atsd/conf/portal/img/`.<br>Reference built-in icons by name, without directory path.<br>See the [Icon Reference Sheet](../pie-chart/resources/atsd-embedded-icons.pdf) for built-in icons.<br>Underscore ( `_` ) can be replaced with dash (`-`).The path to icons on `AxibaseServer` is `/CSS/images/embedded/<name>.svg`.<br>Custom icon must be placed in `/atsd-hostname/config/workspace/svg` and referenced with the path `/workspace/svg/image-name.svg`.<br>**Example**: `icon = user.svg`|[↗](https://apps.axibase.com/chartlab/e8c70b2e)
 <a name="icon-position"></a>[`icon-position`](#icon-position)|Icon position relative to series value.<br>Possible values: `left`, `right`, `top`, `bottom`.<br>Default value: `top`.<br>**Example**: `icon-position = bottom`|[↗](https://apps.axibase.com/chartlab/a81127d4)|
 <a name="icon-color"></a>[`icon-color`](#icon-color)|Icon color.<br>Possible values: [color name](https://en.wikipedia.org/wiki/Web_colors).<br>**Example**: `icon-color = orange`|[↗](https://apps.axibase.com/chartlab/a7edfac4)|
-<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|CSS style applied to icon when [`alert-expression`](../shared/README.md#alert-expression) is `true`.<br>**Example**: `icon-alert-style = fill: red;`|[↗](https://apps.axibase.com/chartlab/91e76758)|
+<a name="icon-alert-style"></a>[`icon-alert-style`](#icon-alert-style)|CSS style applied to icon when [`alert-expression`](../shared/README.md#alert-expression) is `true`.<br>**Example**: `icon-alert-style = fill: red;`|[↗](https://apps.axibase.com/chartlab/91e76758/2/)|
 
 ## Examples
 
@@ -64,13 +64,13 @@ Name|Description|&nbsp;
 
 ![](./images/clock-and-series.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/b20f631f)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/b20f631f/2/)
 
 ### Advanced Configuration Example
 
 ![](./images/advanced-configuration-example.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/61fd6d23)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/61fd6d23/7/)
 
 ### Icon Alert
 
@@ -95,4 +95,4 @@ Name|Description|&nbsp;
 
 ![](./images/compact.png)
 
-[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/3/)
+[![](../../images/button.png)](https://apps.axibase.com/chartlab/6dc64b91/5/)
