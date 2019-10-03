@@ -145,3 +145,17 @@ label-format = entity: tagValue
 ![](./images/tag-value-example-1.png)
 
 [![](./images/new-button.png)](https://apps.axibase.com/chartlab/324f89a4)
+
+### `value`
+
+```ls
+label-format = entity\ntags.mount_point\nvalue
+/* Displays labels from entity followed by tagValue and last value in the legend */
+metric = disk_used_percent
+entity = nurswgvml0*
+tag-expression = tags.mount_point not like '/mnt*'
+```
+
+![](./images/value-example.png)
+
+[![](./images/new-button.png)](https://apps.axibase.com/chartlab/fcc28103/5/)
