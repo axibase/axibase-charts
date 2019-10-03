@@ -68,6 +68,7 @@ Period can be both quoted and unquoted. Supported statistic functions:
 * `sum` - sum of values during the period
 * `min` - minimum value during the period
 * `max` - maximum value during the period
+* `avg` - average of values during the period
 * `first` - first value received during the period
 * `last` - Last value received during the period
 
