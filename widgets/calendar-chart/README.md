@@ -52,13 +52,13 @@ Name | Description | &nbsp;
 
 Panel features:
 
- - double-click between controls to insert middle interval:
- 
-    ![](images/insert.gif)
-    
- - drag to drop control:
- 
-    ![](images/drop.gif)
+* double-click between controls to insert middle interval:
+
+   ![](./images/insert.gif)
+
+* drag to drop control:
+
+   ![](./images/drop.gif)
 
 ### Series Color Settings
 
