@@ -48,7 +48,7 @@ Name | Description | &nbsp;
 <a name="display-panels"></a>[`display-panels`](#display-panels) | [Summarize-period](#summarize-period) panel display mode.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`|[↗](https://apps.axibase.com/chartlab/09deba8f/2/)
 <a name="expand-panels"></a>[`expand-panels`](#expand-panels)| [Summarize-period](#summarize-period) panel controls expanding mode. <br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`|  [↗](https://apps.axibase.com/chartlab/f5319f9d/2/)
 <a name="periods"></a>[`periods`](#periods)| Comma-separated list of aggregation periods to be added to [summarize-period](#summarize-period) panel.<br>each period is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`|[↗](https://apps.axibase.com/chartlab/537bf3e3/2/)
-<a name="panels-period"></a>[`panels-period`](#panels-period)| Comma-separated list of aggregation periods to be used instead of default ones in [summarize-period](#summarize-period) panel. |[↗](https://apps.axibase.com/chartlab/3212079e/7/)
+<a name="panels-period"></a>[`panels-period`](#panels-period)| Comma-separated list of aggregation periods to be used instead of default ones in [summarize-period](#summarize-period) panel.<br>**Example**: `panels-period = 1 hour, 1 day, 1 week`|[↗](https://apps.axibase.com/chartlab/3212079e/7/)
 
 Panel features:
 
