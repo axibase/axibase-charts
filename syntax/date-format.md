@@ -18,13 +18,13 @@ If date template does not contain UTC time zone or offset, it is evaluated based
 |`yyyy-MM-dd`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016-06-09`|
 |`yyyy MM dd`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016 06 09`|
 |`yyyy-M-d`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016 6 9`|
-|`MM-dd`|`00:00:00` of month and day in current year. <br>If now is `2020-02-01 00:00:00`, then `01-03` corresponds to `2020-01-03 00:00:00`.<br><span>&#8226;</span> `01-03`|
-|`dd`|`00:00:00` of day in current month).<br>If now is `2020-02-01 00:00:00`, then `03` corresponds to `2020-02-03 00:00:00`.<br><span>&#8226;</span> `03`|
+|`MM-dd`|`00:00:00` of month and day in current year. <br>If now is `2020-02-01 00:00:00`,<br>then `01-03` corresponds to `2020-01-03 00:00:00`.<br><span>&#8226;</span> `01-03`|
+|`dd`|`00:00:00` of day in current month.<br>If now is `2020-02-01 00:00:00`,<br>then `03` corresponds to `2020-02-03 00:00:00`.<br><span>&#8226;</span> `03`|
 |`yyyy`|`00:00:00` of 1st January in year.<br> `2020` corresponds to `2020-01-01 00:00:00`.<br><span>&#8226;</span> `2020`|
 |`yyyy-MM`|`00:00:00` of 1st day of year and month.<br>`2020-03` corresponds to `2020-03-01 00:00:00`.<br><span>&#8226;</span> `2020-03`|
-|`hh:mm`|Hours and minutes of current day.<br>If now is `2020-02-01 00:00:00`, then `16:00` corresponds to `2020-02-01 16:00:00`.<br><span>&#8226;</span> `16:00`|
-|`hh:mm:ss`|Hours, minutes and seconds of current day.<br>If now is `2020-02-01 00:00:00`, then `16:17:18` corresponds to `2020-02-01 16:17:18`.<br><span>&#8226;</span> `16:17:18`|
-|`hh:mm:ss.S`|Hours, minutes, seconds and milliseconds of current day.<br>If now is `2020-02-01 00:00:00`, then `16:17:18.190` corresponds to `2020-02-01 16:17:18.190`.<br><span>&#8226;</span> `16:17:18.190`|
+|`hh:mm`|Hours and minutes of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:00` corresponds to `2020-02-01 16:00:00`.<br><span>&#8226;</span> `16:00`|
+|`hh:mm:ss`|Hours, minutes and seconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18` corresponds to `2020-02-01 16:17:18`.<br><span>&#8226;</span> `16:17:18`|
+|`hh:mm:ss.S`|Hours, minutes, seconds and milliseconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18.190` corresponds to `2020-02-01 16:17:18.190`.<br><span>&#8226;</span> `16:17:18.190`|
 
 * `yyyy`: four digit year
 * `MM`: two digit month starting with `01` for January (`01`-`12`).
