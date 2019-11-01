@@ -5,7 +5,7 @@
 If date template does not contain UTC time zone or offset, it is evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
 
 |Format|Description/Examples|
-|:---|:---|:---|
+|:---|:---|
 |`yyyy-MM-ddThh:mm:ss[.S]Z`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>`Z` denotes UTC time zone.<br><span>&#8226;</span> `2016-06-09T16:15:04.005Z`<br><span>&#8226;</span> `2016-06-24T18:00:45Z`|
 |`yyyy-MM-ddThh:mm:ss[.S]±hh:mm`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset.<br><span>&#8226;</span> `2016-06-09T12:15:04.005-04:00`<br><span>&#8226;</span> `2016-06-24T20:00:45+02:00`<br><span>&#8226;</span> `2016-06-24T20:00:45.003000005+00:00`|
 |`yyyy-MM-ddThh:mm:ss[.S]±hhmm`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset without `:` separator.<br><span>&#8226;</span> `2016-06-24T20:00:45+0200`|
