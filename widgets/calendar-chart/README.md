@@ -31,7 +31,7 @@ The **Calendar Chart** displays the deviation of aggregated series values for a 
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="summarize-period"></a>[`summarize-period`](#summarize-period)| Period specified in [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html) to split loaded time series into calendar segments.<br>Format: `count time_unit`.<br>Default value: `5 minute`.<br>**Example**: `summarize-period = 1 hour`| [↗](https://apps.axibase.com/chartlab/6a3f5153)
+<a name="summarize-period"></a>[`summarize-period`](#summarize-period)| Period specified in [time units](../../syntax/calendar.md#interval-units) to split loaded time series into calendar segments.<br>Format: `count time_unit`.<br>Default value: `5 minute`.<br>**Example**: `summarize-period = 1 hour`| [↗](https://apps.axibase.com/chartlab/6a3f5153)
 <a name="summarize-statistic"></a>[`summarize-statistic`](#summarize-statistic) | Statistical function applied to values within each period.<br>Refer to [Client Aggregators](../../configuration/aggregators.md#server-and-client-aggregators) for possible values.<br>Default value: `avg`.<br>**Example**: `summarize-statistic = percentile(75)`| [↗](https://apps.axibase.com/chartlab/548fa0ae/3/)
 <a name="palette-ticks"></a>[`palette-ticks`](#palette-ticks)| Display legend labels.<br>Possible values: `false`, `true`.<br>Default Value: `false`.<br>**Example**: `palette-ticks = true`| [↗](https://apps.axibase.com/chartlab/01a10bbf)
 <a name="rotate-palette-ticks"></a>[`rotate-palette-ticks`](#rotate-palette-ticks)| Rotate legend labels.<br>Possible values: `false` (horizontal), `true` (vertical).<br>Default value: `false`.<br>**Example**: `rotate-palette-ticks = true`| [↗](https://apps.axibase.com/chartlab/0d232c4f)
@@ -55,7 +55,7 @@ Name | Description | &nbsp;
 
 ### Sort By Statistic
 
-Aggregated series can be sorted using statistic, calculated for last aggregated values within the particular period, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html):
+Aggregated series can be sorted using statistic, calculated for last aggregated values within the particular period, specified as the number of [time units](../../syntax/calendar.md#interval-units):
 
 ```elm
 stat_name('count unit')

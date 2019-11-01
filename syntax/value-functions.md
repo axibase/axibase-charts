@@ -188,7 +188,7 @@ movavg(alias, interval[, minInterval])
 | Name | Type | Description |
 |:------|:------|:-------------|
 | `alias` | string | **[Required]**  Alias of the series, to which `movavg` is applied. |
-| `interval` | interval | **[Required]**  Interval for which `movavg` is calculated, specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`. |
+| `interval` | interval | **[Required]**  Interval for which `movavg` is calculated, specified as the number of [time units](../syntax/calendar.md#interval-units).<br>Format: `count time_unit`. |
 | `minInterval` | interval | Minimum interval, for which `movavg` is calculated, default is `interval`. |
 
 Calculate `movavg` when a defined interval is available for calculation
