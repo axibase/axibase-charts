@@ -41,6 +41,25 @@ Name | Description | &nbsp;
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 5`| [↗](https://apps.axibase.com/chartlab/4d6c2761/2/)
 <a name="data-labels"></a>[`data-labels`](#data-labels)| Display values inside colored rectangles formatted according to [format](../shared/README.md#format) setting.<br>Default value: `false`.<br>**Example**: `data-labels = true`| [↗](https://apps.axibase.com/chartlab/4b2200bc/5/)
 
+### Summarize Period Panel
+
+Name | Description | &nbsp;
+:--|:--|:--
+<a name="display-panels"></a>[`display-panels`](#display-panels) | [Summarize-period](#summarize-period) panel visibility.<br>Possible values: `false`, `true`, `hover`.<br>Default value: `hover`.<br>**Example**: `display-panels = true`|[↗](https://apps.axibase.com/chartlab/09deba8f/2/)
+<a name="expand-panels"></a>[`expand-panels`](#expand-panels)| Expand controls in the [summarize-period](#summarize-period) panel. <br>Possible values: `false`, `true`, `compact`.<br>Default value: `compact`.<br>**Example**: `expand-panels = true`|  [↗](https://apps.axibase.com/chartlab/f5319f9d/2/)
+<a name="periods"></a>[`periods`](#periods)| List of custom aggregation periods on the [summarize-period](#summarize-period) panel.<br>Each period is specified as the number of [time units](https://axibase.com/docs/atsd/api/data/series/time-unit.html).<br>Format: `count time_unit`.<br>**Example**: `periods = 20 minute, 4 hour`. The periods must be comma-separated. |[↗](https://apps.axibase.com/chartlab/537bf3e3/2/)
+<a name="panels-period"></a>[`panels-period`](#panels-period)| Comma-separated list of aggregation periods to replace the default ones in [summarize-period](#summarize-period) panel.<br>**Example**: `panels-period = 1 hour, 1 day, 1 week`|[↗](https://apps.axibase.com/chartlab/3212079e/7/)
+
+Panel features:
+
+* Double-click between controls to insert an inner interval:
+
+   ![](./images/insert.gif)
+
+* Drag to drop control:
+
+   ![](./images/drop.gif)
+
 ### Series Color Settings
 
 * The settings apply to the `[widget]` or `[series]` section.
