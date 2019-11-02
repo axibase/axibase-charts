@@ -59,7 +59,7 @@ Date arithmetic such as adding or subtracting an interval is implemented using [
 | `current_hour` | | current time rounded to the beginning of the current hour |
 | `previous_hour` | | 00:00 of the previous hour |
 | `current_day` | today | 00:00:00 of the current day |
-| `current_working_day` | | 00:00:00 of the last working day:<br><span>&#8226;</span> if today is friday matches friday<br><span>&#8226;</span> if today is saturday matches friday<br><span>&#8226;</span> if today is sunday matches friday<br><span>&#8226;</span> if today is monday matches monday and etc.|
+| `current_working_day` | | 00:00:00 of the current working day:<br><span>&#8226;</span> If today is a working day, the result is 00:00:00 of the current day.<br><span>&#8226;</span> If today is non-working day (e.g. weekend), the result is 00:00:00 of the preceding working day.|
 | `previous_day` | yesterday | 00:00:00 of the previous day |
 | `previous_working_day` | | 00:00:00 of the previous working day |
 | `previous_vacation_day` | | 00:00:00 of the previous vacation day |
