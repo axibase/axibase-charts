@@ -2,7 +2,7 @@
 
 ## Supported Formats
 
-Literal date values without timezone are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
+Literal date values without time zone are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
 
 |Format|Description / Examples|
 |:---|:---|
@@ -38,7 +38,7 @@ Literal date values without timezone are evaluated based on the [`timezone`](../
 
 ## Time Zone
 
-Time zone in the date literal value can be omitted or specified as `Z` for the UTC time zone or UTC offset in hours and optional minutes: `±hh:mm`, `±hhmm`, `±hh`. Dates without timezones, for example `2016-06-24 20:00:45`, are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
+Time zone in the date literal value can be omitted or specified as `Z` for the UTC time zone or UTC offset in hours and optional minutes: `±hh:mm`, `±hhmm`, `±hh`. Dates without time zones, for example `2016-06-24 20:00:45`, are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
 
 * Positive offset `+hh:mm` applies to time zones that are **ahead** of or in line with UTC. Negative offset `-hh:mm` applies if the time zone is **behind** UTC.
 * For example, Japan Standard Time (JST) has an offset of `+09:00` from UTC (ahead). The Pacific Standard Time (PST) has an offset of `-07:00` from UTC (behind).
