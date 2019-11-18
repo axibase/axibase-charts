@@ -17,6 +17,7 @@ Name | Description | &nbsp;
 <a name="show-tag-names"></a>[`show-tag-names`](#show-tag-names)| Display tag names in the `tags` column, if defined.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `show-tag-names = true`| [↗](https://apps.axibase.com/chartlab/4afb9290/3/)
 <a name="display-tags"></a>[`display-tags`](#display-tags)| Enumerate specific tags displayed in the `tags` column.<br>Possible values: `tag name`.<br>**Example**: `display-tags = mount_point`| [↗](https://apps.axibase.com/chartlab/220498ff/3/)
 <a name="format-headers"></a>[`format-headers`](#format-headers)| Format column headers.<br>Possible values: `true`, `false`.<br>Default value: `true`.<br>**Example**: `format-headers = true`| [↗](https://apps.axibase.com/chartlab/47565e08/2/)
+<a name="null-columns"></a>[`null-columns`](#null-columns)| Comma separated list of column [keys](#key) to be hidden.<br>**Example**: `null-columns = time, os`| [↗](https://apps.axibase.com/chartlab/47565e08/3/)
 
 ### Style and Layout Settings
 
@@ -140,6 +141,8 @@ column-entity = Server
   key = entity
   label = Server
 ```
+
+To hide several columns at once use [`null-columns`](#null-columns).
 
 ### Column Order
 
