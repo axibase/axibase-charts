@@ -21,7 +21,7 @@ This document enumerates utility functions that are accessible in all JavaScript
   * [`intervalFormat`](#intervalformat)
   * [`d3Format`](#d3format)
 * [Series](#series)
-  * [`getLastSeries`](#getlastseries)
+  * [`getLast`](#getlast)
 * [Lib `module.exports`](#lib-moduleexports)
 
 ## Date
@@ -234,13 +234,13 @@ const res = format(Date.now()); // "20-Sep 10:20"
 
 ## Series
 
-### `getLastSeries`
+### `getLast`
 
 ```typescript
-getLastSeries(series: Series[], filter?: (s: Series) => boolean, min: boolean = false): Series | null
+getLast(series: Series[], filter?: (s: Series) => boolean, min: boolean = false): Series | null
 ```
 
-Returns series with the latest timestamp, i.e. compares `s.data.last.t` values and returns series with the greatest.
+Returns series with the latest timestamp, i.e. compares `s.data.last.t` values and returns series with the greatest one.
 
 Parameters:
 
