@@ -4,24 +4,29 @@ This document enumerates utility functions that are accessible in all JavaScript
 
 ## Reference
 
-* [`shiftDate`](#shiftdate)
-* [`evalTime`](#evaltime)
-* [`parseInterval`](#parseinterval)
-* [`parseTimespan`](#parsetimespan)
-* [`adjustPeriod`](#adjustperiod)
-* [`getTime`](#gettime)
-* [`roundTime`](#roundtime)
-* [`getIntervalValue`](#getintervalvalue)
-* [`getIntervalValueTitle`](#getintervalvaluetitle)
-* [`getMaximumPeriod`](#getmaximumperiod)
-* [`getMiddleInterval`](#getmiddleinterval)
-* [`getAggregateInterval`](#getaggregateinterval)
-* [`TimeFormatter`](#timeformatter)
-* [`intervalFormat`](#intervalformat)
-* [`d3Format`](#d3format)
+* [Date](#date)
+  * [`shiftDate`](#shiftdate)
+  * [`evalTime`](#evaltime)
+  * [`parseInterval`](#parseinterval)
+  * [`parseTimespan`](#parsetimespan)
+  * [`adjustPeriod`](#adjustperiod)
+  * [`getTime`](#gettime)
+  * [`roundTime`](#roundtime)
+  * [`getIntervalValue`](#getintervalvalue)
+  * [`getIntervalValueTitle`](#getintervalvaluetitle)
+  * [`getMaximumPeriod`](#getmaximumperiod)
+  * [`getMiddleInterval`](#getmiddleinterval)
+  * [`getAggregateInterval`](#getaggregateinterval)
+  * [`TimeFormatter`](#timeformatter)
+  * [`intervalFormat`](#intervalformat)
+  * [`d3Format`](#d3format)
+* [Series](#series)
+  * [`getLastSeries`](#getlastseries)
 * [Lib `module.exports`](#lib-moduleexports)
 
-## `shiftDate`
+## Date
+
+### `shiftDate`
 
 ```typescript
 shiftDate(d: DateWithTZ | number, period, sign: number = 1, zone: string = "local"): DateWithTZ
@@ -35,7 +40,7 @@ Adds (`sign = 1`) or subtracts (`sign = -1`) value of parsed `period`.
 lib.shiftDate(Date.now(), lib.getIntervalValue("5 minute"))
 ```
 
-## `evalTime`
+### `evalTime`
 
 ```typescript
 evalTime(t: DateWithTZ | number | DateParser): null | number | boolean 
@@ -54,7 +59,7 @@ Null-safe wrapper for evaluating time setting:
 lib.evalTime(lib.getTime("current_hour"))
 ```
 
-## `parseInterval`
+### `parseInterval`
 
 ```typescript
 parseInterval(v: string): number
@@ -68,7 +73,7 @@ Parses interval in `count unit` format to corresponding milliseconds.
 lib.parseInterval("5 minute")
 ```
 
-## `parseTimespan`
+### `parseTimespan`
 
 ```typescript
 parseTimespan(config: object): number
@@ -89,7 +94,7 @@ Throws `DateFilterError`: "end-time" must be greater than "start-time" (if both 
 lib.parseTimespan({starttime: "2016-04-22", timespan: "3 day", timezone: "Europe/Berlin"})
 ```
 
-## `adjustPeriod`
+### `adjustPeriod`
 
 ```typescript
 adjustPeriod(timespan: number): number
@@ -97,7 +102,7 @@ adjustPeriod(timespan: number): number
 
 ?
 
-## `getTime`
+### `getTime`
 
 ```typescript
 getTime(template, zone: string = "local", returnDate: boolean = false,
@@ -110,7 +115,7 @@ Returns undefined if the template can not be parsed.
 
 Parameters:
 
-* `template` - Date template or calendar expression
+* `template` - Date template or calendar expression.
 * `zone` - Zone ID, in which template is need to be processed. It will be ignored, if template contains offset.
 * `returnDate` - If true, returns parsed date instead of function.
 * `isValidation` - If true, that means that parser was called for validation of template, and error must be rethrown to be shown to user.
@@ -123,7 +128,7 @@ Throws `TimeParseError`: template must be a string, if function is used for vali
 lib.getTime("2016-04-22", "Europe/Berlin")()
 ```
 
-## `roundTime`
+### `roundTime`
 
 ```typescript
 roundTime(t: number, period, ceil: boolean = false, zone: string = "local"): number
@@ -131,7 +136,7 @@ roundTime(t: number, period, ceil: boolean = false, zone: string = "local"): num
 
 ?
 
-## `getIntervalValue`
+### `getIntervalValue`
 
 ```typescript
 getIntervalValue(x, returnDefault?, getArray?, allowNotPositive?, _timeUnits?)
@@ -139,7 +144,7 @@ getIntervalValue(x, returnDefault?, getArray?, allowNotPositive?, _timeUnits?)
 
 ?
 
-## `getIntervalValueTitle`
+### `getIntervalValueTitle`
 
 ```typescript
 getIntervalValueTitle(intv)
@@ -154,7 +159,7 @@ lib.getIntervalValueTitle(lib.getIntervalValue("5 minute")) // returns "5m"
 lib.getIntervalValueTitle(lib.getIntervalValue("5 millisecond")) // returns "5ms"
 ```
 
-## `getMaximumPeriod`
+### `getMaximumPeriod`
 
 ```typescript
 getMaximumPeriod(period)
@@ -162,7 +167,7 @@ getMaximumPeriod(period)
 
 ?
 
-## `getMiddleInterval`
+### `getMiddleInterval`
 
 ```typescript
 getMiddleInterval(i1, i2, minUnit)
@@ -170,7 +175,7 @@ getMiddleInterval(i1, i2, minUnit)
 
 ?
 
-## `getAggregateInterval`
+### `getAggregateInterval`
 
 ```typescript
 getAggregateInterval(intv):{ count: number, unit: string, align: string }
@@ -178,7 +183,7 @@ getAggregateInterval(intv):{ count: number, unit: string, align: string }
 
 ?
 
-## `TimeFormatter`
+### `TimeFormatter`
 
 ```typescript
 TimeFormatter(zone: string)
@@ -202,7 +207,7 @@ new TimeFormatter("utc").getDefaultTimeFormatter() // default DateFormatter, cor
 new TimeFormatter("local").getTimeAxisFormatter({baseTime: 12345678910}) // formatter for time axis, corresponding to "local"
 ```
 
-## `intervalFormat`
+### `intervalFormat`
 
 ```typescript
 intervalFormat(template): IntervalFormatter
@@ -210,7 +215,7 @@ intervalFormat(template): IntervalFormatter
 
 ?
 
-## `d3Format`
+### `d3Format`
 
 ```typescript
 type DateFormatter = (value: DateWithTZ | number) => string;
@@ -226,6 +231,24 @@ const template = "%e-%b %H:%M";
 const format = lib.d3Format(template, "Europe/Berlin");
 const res = format(Date.now()); // "20-Sep 10:20"
 ```
+
+## Series
+
+### `getLastSeries`
+
+```typescript
+getLastSeries(series: Series[], filter?: (s: Series) => boolean, min: boolean = false): Series | null
+```
+
+Returns series with the latest timestamp, i.e. compares `s.data.last.t` values and returns series with the greatest.
+
+Parameters:
+
+* `series` - Array of series.
+* `filter` - Function to exclude series from search: `(s: Series) => boolean`, e.g. `(s) => s.data.last.v > 10`.
+* `min` - If true, returns series with the earliest timestamp.
+
+Returns `null`, if no series mathes the `filter`.
 
 ## Lib `module.exports`
 
