@@ -154,7 +154,7 @@ Function definition must start with the `exports.` qualifier and be implemented 
 The function must return a numeric value or `null` if the result cannot be computed.
 
 ```javascript
-exports.devideBy = function (alias, num) {
+exports.divideBy = function (alias, num) {
   if (num == 0) {
     //if num is zero, return null
     return null;
