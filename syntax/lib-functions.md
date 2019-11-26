@@ -254,6 +254,7 @@ Returns `null`, if no series mathes the `filter`.
 
 ```javascript
 module.exports = {
+    /** @see Bug 6688. */
     shiftDate: time.shiftDate,
     evalTime: time.evalTime,
     parseInterval: time.intervals.parseInterval,
@@ -339,26 +340,26 @@ module.exports = {
         getUpdateTime: updater.getUpdateTime,
         group: seriesGroup.SeriesGroup,
         forecastSummary: seriesUtil.forecastSummaryFormat,
-        typeIndices: seriesUtil.typeIndices,
-        types: seriesUtil.seriesTypes
+        typeIndices: seriesType.SeriesType,
+        types: seriesType.STAT_NAMES
     },
 
     setThresholds: thresholds.setThresholds,
 
     stringUtil: {
-        keepAfter: utils.keepAfter,
-        keepAfterLast: utils.keepAfterLast,
-        keepBefore: utils.keepBefore,
-        keepBeforeLast: utils.keepBeforeLast,
-        replace: utils.replace,
-        capFirst: utils.capFirst,
-        capitalize: utils.capitalize,
-        coalesce: utils.coalesce,
-        ifEmpty: utils.coalesce,
-        lowerCase: utils.lowerCase,
-        upperCase: utils.upperCase,
-        removeBeginning: utils.removeBeginning,
-        removeEnding: utils.removeEnding
+        keepAfter: stringUtils.keepAfter,
+        keepAfterLast: stringUtils.keepAfterLast,
+        keepBefore: stringUtils.keepBefore,
+        keepBeforeLast: stringUtils.keepBeforeLast,
+        replace: stringUtils.replace,
+        capFirst: stringUtils.capFirst,
+        capitalize: stringUtils.capitalize,
+        coalesce: stringUtils.coalesce,
+        ifEmpty: stringUtils.coalesce,
+        lowerCase: stringUtils.lowerCase,
+        upperCase: stringUtils.upperCase,
+        removeBeginning: stringUtils.removeBeginning,
+        removeEnding: stringUtils.removeEnding
     },
 
     thresholds: thresholds.Thresholds,
