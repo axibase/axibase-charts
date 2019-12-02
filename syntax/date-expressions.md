@@ -27,4 +27,4 @@ There are several ways to specify value of date setting:
     start-time = current_working_day + 18 hour + 1*minute
     ```
 
-Date arithmetic expression is evaluated in timezone of `base_date`, refer to [calendar time zone](./calendar.md#time-zone) and [date template time zone](./date-format.md#time-zone).
+Date arithmetic expression is evaluated in time zone of `base_date`, refer to [calendar time zone](./calendar.md#time-zone) and [date template time zone](./date-format.md#time-zone).
