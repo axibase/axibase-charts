@@ -7,14 +7,12 @@
 |`yyyy-MM-ddThh:mm:ss[.S]Z`|<span>&#8226;</span> `2016-06-09T16:15:04.005Z`<br><span>&#8226;</span> `2016-06-24T18:00:45Z`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>`Z` denotes UTC time zone.|
 |`yyyy-MM-ddThh:mm:ss[.S]±hh:mm`|<span>&#8226;</span> `2016-06-09T12:15:04.005-04:00`<br><span>&#8226;</span> `2016-06-24T20:00:45+02:00`<br><span>&#8226;</span> `2016-06-24T20:00:45.003000005+00:00`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset.|
 |`yyyy-MM-ddThh:mm:ss[.S]±hhmm`|<span>&#8226;</span> `2016-06-24T20:00:45+0200`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset without `:` separator.|
-|`yyyy-MM-ddThh:mm:ss[.S]`|<span>&#8226;</span> `2016-06-24T20:00:45.8`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>No time zone offset.|
 |`yyyy-MM-dd hh:mm:ss[.S]Z`|<span>&#8226;</span> `2016-06-09 16:15:04.005Z`<br>No `T` separator. `Z` denotes UTC time zone.|
 |`yyyy-MM-dd hh:mm:ss[.S]±hh:mm`|<span>&#8226;</span> `2016-06-09 16:15:04.005+03:00`<br>No `T` separator. Time zone offset.|
 |`yyyy-MM-dd hh:mm:ss[.S]±hhmm`|<span>&#8226;</span> `2016-06-09 16:15:04.005-0300`<br>No `T` separator. Time zone offset without `:` separator.|
 |`yyyy-MM-dd hh:mm:ss[.S]±hh`|<span>&#8226;</span> `2016-06-09 16:15:04.005-03`<br><span>&#8226;</span> `2016-06-09 16:15:04-03`<br>No `T` separator. Time zone offset without minutes.|
 |`yyyy-MM-dd hh:mm:ss[.S]`|<span>&#8226;</span> `2016-06-09 16:15:04.005`<br>No `T` separator. No time zone offset.<br>|
 |`yyyy-MM-dd`|<span>&#8226;</span> `2016-06-09`<br>Only date part, time is evaluated as `2016-06-09 00:00:00`.|
-|`yyyy MM dd`|<span>&#8226;</span> `2016 06 09`<br>Only date part, time is evaluated as `2016-06-09 00:00:00`.|
 |`yyyy-M-d`|<span>&#8226;</span> `2016 6 9`<br>Only date part, time is evaluated as `2016-06-09 00:00:00`.|
 |`MM-dd`|<span>&#8226;</span> `01-03`<br>`00:00:00` of month and day in current year. <br>If now is `2020-02-01 00:00:00`,<br>then `01-03` corresponds to `2020-01-03 00:00:00`.|
 |`dd`|<span>&#8226;</span> `03`<br>`00:00:00` of day in current month.<br>If now is `2020-02-01 00:00:00`,<br>then `03` corresponds to `2020-02-03 00:00:00`.|
