@@ -19,7 +19,7 @@ There are several ways to specify value of date setting:
     ```html
     <base_date> +|- <interval-count> * <interval-unit>
     ```
- 
+
     where `base_date` is specified as [date template](./date-format.md) or [calendar keyword](./calendar.md#keywords)
   
     ```ls
