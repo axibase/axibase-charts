@@ -8,7 +8,7 @@ For example, if the current time is `December 15, 2017 15:28:00`, the keyword `c
 
 ## Time Zone
 
-Calendar [keywords](#keywords) are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
+Calendar [keywords](#keywords) are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting. If the setting is not set, the browser time zone is used.
 
 ## Expressions
 
