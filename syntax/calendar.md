@@ -6,15 +6,15 @@ Calendar syntax implements convenient [keywords](#keywords) and [date arithmetic
 
 For example, if the current time is `December 15, 2017 15:28:00`, the keyword `current_day` evaluates to `December 15, 2017 00:00:00` and the expression `current_hour - 1 * day` returns `December 14, 2017 15:00:00`.
 
-Calendar [keywords](#keywords) are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
+## Time Zone
 
-Date arithmetic such as adding or subtracting an interval is implemented using [expressions](#expressions).
+Calendar [keywords](#keywords) are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting. If the setting is not set, the browser time zone is used.
 
 ## Expressions
 
 ### Syntax
 
-```markdown
+```html
 <keyword>[ +|- <interval-count> * <interval-unit>]
 ```
 

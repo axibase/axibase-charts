@@ -2,29 +2,25 @@
 
 ## Supported Formats
 
-Literal date values without time zone are evaluated based on the [`timezone`](../widgets/shared/README.md#timezone) setting.
-
-|Format|Description / Examples|
+|Format|Examples / Description|
 |:---|:---|
-|`yyyy-MM-ddThh:mm:ss[.S]Z`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>`Z` denotes UTC time zone.<br><span>&#8226;</span> `2016-06-09T16:15:04.005Z`<br><span>&#8226;</span> `2016-06-24T18:00:45Z`|
-|`yyyy-MM-ddThh:mm:ss[.S]±hh:mm`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset.<br><span>&#8226;</span> `2016-06-09T12:15:04.005-04:00`<br><span>&#8226;</span> `2016-06-24T20:00:45+02:00`<br><span>&#8226;</span> `2016-06-24T20:00:45.003000005+00:00`|
-|`yyyy-MM-ddThh:mm:ss[.S]±hhmm`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset without `:` separator.<br><span>&#8226;</span> `2016-06-24T20:00:45+0200`|
-|`yyyy-MM-ddThh:mm:ss[.S]`|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>No time zone offset.<br><span>&#8226;</span> `2016-06-24T20:00:45.8`|
-|`yyyy-MM-dd hh:mm:ss[.S]Z`|No `T` separator. `Z` denotes UTC time zone.<br><span>&#8226;</span> `2016-06-09 16:15:04.005Z`|
-|`yyyy-MM-dd hh:mm:ss[.S]±hh:mm`|No `T` separator. Time zone offset.<br><span>&#8226;</span> `2016-06-09 16:15:04.005+03:00`|
-|`yyyy-MM-dd hh:mm:ss[.S]±hhmm`|No `T` separator. Time zone offset without `:` separator.<br><span>&#8226;</span> `2016-06-09 16:15:04.005-0300`|
-|`yyyy-MM-dd hh:mm:ss[.S]±hh`|No `T` separator. Time zone offset without minutes.<br><span>&#8226;</span> `2016-06-09 16:15:04.005-03`<br><span>&#8226;</span> `2016-06-09 16:15:04-03`|
-|`yyyy-MM-dd hh:mm:ss[.S]`|No `T` separator. No time zone offset.<br>|
-|`yyyy-MM-dd`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016-06-09`|
-|`yyyy MM dd`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016 06 09`|
-|`yyyy-M-d`|Only date part, time is evaluated as `2016-06-09 00:00:00`.<br><span>&#8226;</span> `2016 6 9`|
-|`MM-dd`|`00:00:00` of month and day in current year. <br>If now is `2020-02-01 00:00:00`,<br>then `01-03` corresponds to `2020-01-03 00:00:00`.<br><span>&#8226;</span> `01-03`|
-|`dd`|`00:00:00` of day in current month.<br>If now is `2020-02-01 00:00:00`,<br>then `03` corresponds to `2020-02-03 00:00:00`.<br><span>&#8226;</span> `03`|
-|`yyyy`|`00:00:00` of 1st January in year.<br> `2020` corresponds to `2020-01-01 00:00:00`.<br><span>&#8226;</span> `2020`|
-|`yyyy-MM`|`00:00:00` of 1st day of year and month.<br>`2020-03` corresponds to `2020-03-01 00:00:00`.<br><span>&#8226;</span> `2020-03`|
-|`hh:mm`|Hours and minutes of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:00` corresponds to `2020-02-01 16:00:00`.<br><span>&#8226;</span> `16:00`|
-|`hh:mm:ss`|Hours, minutes and seconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18` corresponds to `2020-02-01 16:17:18`.<br><span>&#8226;</span> `16:17:18`|
-|`hh:mm:ss.S`|Hours, minutes, seconds and milliseconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18.190` corresponds to `2020-02-01 16:17:18.190`.<br><span>&#8226;</span> `16:17:18.190`|
+|`yyyy-MM-ddThh:mm:ss[.S]Z`|<span>&#8226;</span> `2016-06-09T16:15:04.005Z`<br><span>&#8226;</span> `2016-06-24T18:00:45Z`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>`Z` denotes UTC time zone.|
+|`yyyy-MM-ddThh:mm:ss[.S]±hh:mm`|<span>&#8226;</span> `2016-06-09T12:15:04.005-04:00`<br><span>&#8226;</span> `2016-06-24T20:00:45+02:00`<br><span>&#8226;</span> `2016-06-24T20:00:45.003000005+00:00`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset.|
+|`yyyy-MM-ddThh:mm:ss[.S]±hhmm`|<span>&#8226;</span> `2016-06-24T20:00:45+0200`<br>[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)<br>Time zone offset without `:` separator.|
+|`yyyy-MM-dd hh:mm:ss[.S]Z`|<span>&#8226;</span> `2016-06-09 16:15:04.005Z`<br>No `T` separator. `Z` denotes UTC time zone.|
+|`yyyy-MM-dd hh:mm:ss[.S]±hh:mm`|<span>&#8226;</span> `2016-06-09 16:15:04.005+03:00`<br>No `T` separator. Time zone offset.|
+|`yyyy-MM-dd hh:mm:ss[.S]±hhmm`|<span>&#8226;</span> `2016-06-09 16:15:04.005-0300`<br>No `T` separator. Time zone offset without `:` separator.|
+|`yyyy-MM-dd hh:mm:ss[.S]±hh`|<span>&#8226;</span> `2016-06-09 16:15:04.005-03`<br><span>&#8226;</span> `2016-06-09 16:15:04-03`<br>No `T` separator. Time zone offset without minutes.|
+|`yyyy-MM-dd hh:mm:ss[.S]`|<span>&#8226;</span> `2016-06-09 16:15:04.005`<br>No `T` separator. No time zone offset.<br>|
+|`yyyy-MM-dd`|<span>&#8226;</span> `2016-06-09`<br>Only date part, time is evaluated as `2016-06-09 00:00:00`.|
+|`yyyy-M-d`|<span>&#8226;</span> `2016 6 9`<br>Only date part, time is evaluated as `2016-06-09 00:00:00`.|
+|`MM-dd`|<span>&#8226;</span> `01-03`<br>`00:00:00` of month and day in current year. <br>If now is `2020-02-01 00:00:00`,<br>then `01-03` corresponds to `2020-01-03 00:00:00`.|
+|`dd`|<span>&#8226;</span> `03`<br>`00:00:00` of day in current month.<br>If now is `2020-02-01 00:00:00`,<br>then `03` corresponds to `2020-02-03 00:00:00`.|
+|`yyyy`|<span>&#8226;</span> `2020`<br>`00:00:00` of 1st January in year.<br> `2020` corresponds to `2020-01-01 00:00:00`.|
+|`yyyy-MM`|<span>&#8226;</span> `2020-03`<br>`00:00:00` of 1st day of year and month.<br>`2020-03` corresponds to `2020-03-01 00:00:00`.|
+|`hh:mm`|<span>&#8226;</span> `16:00`<br>Hours and minutes of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:00` corresponds to `2020-02-01 16:00:00`.|
+|`hh:mm:ss`|<span>&#8226;</span> `16:17:18`<br>Hours, minutes and seconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18` corresponds to `2020-02-01 16:17:18`.|
+|`hh:mm:ss.S`|<span>&#8226;</span> `16:17:18.190`<br>Hours, minutes, seconds and milliseconds of current day.<br>If now is `2020-02-01 00:00:00`,<br>then `16:17:18.190` corresponds to `2020-02-01 16:17:18.190`.|
 
 * `yyyy`: four digit year
 * `MM`: two digit month starting with `01` for January (`01`-`12`).
