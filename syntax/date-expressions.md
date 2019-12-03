@@ -1,30 +1,30 @@
 # Date Expressions
 
-There are several ways to specify value of date setting:
+There are several ways to specify the start and end of the selection interval (`start-time` and `end-time` settings):
 
-* [date template](./date-format.md)
+* [Literal date value](./date-format.md):
 
     ```ls
     start-time = 2016-06-09 00:00:00
     ```
 
-* [calendar keyword](./calendar.md#keywords)
+* [Calendar keyword](./calendar.md#keywords):
 
     ```ls
     start-time = next_hour
     ```
 
-* date arithmetic
+* Calendar expression:
 
     ```html
-    <base_date> +|- <interval-count> * <interval-unit>
+    <base_time> +|- <interval-count> * <interval-unit> [ +|- <interval-count> * <interval-unit> ]
     ```
 
-    where `base_date` is specified as [date template](./date-format.md) or [calendar keyword](./calendar.md#keywords)
+    where `base_time` is specified as [literal date](./date-format.md) or [calendar keyword](./calendar.md#keywords).
   
     ```ls
-    start-time = 2019-12-02 + 18 hour + 1*minute
-    start-time = current_working_day + 18 hour + 1*minute
+    start-time = 2019-12-02 + 18 * hour
+    start-time = current_working_day + 18 * hour + 10 * minute
     ```
 
-Date arithmetic expression is evaluated in time zone of `base_date`, refer to [calendar time zone](./calendar.md#time-zone) and [date template time zone](./date-format.md#time-zone).
+The expression is evaluated based on the [`timezone`](./date-format.md#time-zone) setting. If the time zone is not explicitly set, the browser time zone is used.
