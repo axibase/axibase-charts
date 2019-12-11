@@ -47,7 +47,7 @@ Name | Description | &nbsp;
 
 Name | Description | &nbsp;
 :--|:--|:--
-<a name="size"></a>[`size`](#size)|Relative rectangle size.<br>Possible values: Number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`</li><li>`size = value`</li></ul>|[↗](https://apps.axibase.com/chartlab/242da90e)
+<a name="size"></a>[`size`](#size)|Relative rectangle size. Refer to [available parameters](../../syntax/js-scope.md#scope-1). <br>Possible values: number, `value`, `value('alias')`.<br>Default value: `1`.<br>**Examples**:<ul><li>`size = 3`</li><li>`size = value`</li></ul>|[↗](https://apps.axibase.com/chartlab/242da90e)
 
 ### Other Settings
 

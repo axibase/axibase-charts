@@ -7,9 +7,10 @@ To provide flexibility for custom calculations there is a set of settings in Cha
 * [`enabled`](../widgets/shared/README.md#enabled)
 * [`format`](../widgets/shared/README.md#format)
 * [`size`](../widgets/treemap/README.md#size)
-* [`value`](../widgets/shared/README.md#value)
+* [series `value`](../widgets/shared/README.md#value)
+* [table `value`](../widgets/shared-table/README.md#value)
 
-This document contains exhausting reference of **local** variables available in every JavaScript setting.
+This document contains exhausting reference of **local** variables available in JavaScript settings.
 
 ## Scope 1
 
@@ -19,17 +20,18 @@ Parameters below are available in:
 * [`display`](../widgets/shared/README.md#display)
 * [`enabled`](../widgets/shared/README.md#enabled)
 * [`size`](../widgets/treemap/README.md#size)
-* [`value`](../widgets/shared/README.md#value)
+* [series `value`](../widgets/shared/README.md#value)
 
-Name&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;|Type / Description / Example
+Name|Type / Description / Example
 ---|---
-`metric`|**string**<br>Metric name of corresponding series. `null` for `[series]` with [`value`](../widgets/shared/README.md#value). [↗](https://apps.axibase.com/chartlab/93e6adae/2/ "View in Chart Lab")
-`entity`|**string**<br>Entity name of corresponding series. `null` for `[series]` with [`value`](../widgets/shared/README.md#value). [↗](https://apps.axibase.com/chartlab/93e6adae/ "View in Chart Lab")
-`tags`|**object**<br>Tags of corresponding series. `null` for `[series]` with [`value`](../widgets/shared/README.md#value). [↗](https://apps.axibase.com/chartlab/93e6adae/3/ "View in Chart Lab")
+`metric`|**string**<br>Metric name of corresponding series. `null` for [calculated](../widgets/shared/README.md#derived-value-settings) series. [↗](https://apps.axibase.com/chartlab/93e6adae/2/ "View in Chart Lab")
+`entity`|**string**<br>Entity name of corresponding series. `null` for [calculated](../widgets/shared/README.md#derived-value-settings) series. [↗](https://apps.axibase.com/chartlab/93e6adae/ "View in Chart Lab")
+`tags`|**object**<br>Tags of corresponding series. `null` for [calculated](../widgets/shared/README.md#derived-value-settings) series. [↗](https://apps.axibase.com/chartlab/93e6adae/3/ "View in Chart Lab")
+`value`|**number**<br>Sample value. `null` for [calculated](../widgets/shared/README.md#derived-value-settings) series. [↗](https://apps.axibase.com/chartlab/28e4a7f0 "View in Chart Lab")
 `value(string alias)`|**function**<br>Returns value of the referenced series at the same timestamp. [↗](https://apps.axibase.com/chartlab/17fba87d/2/ "View in Chart Lab")
 `previous(string alias)`|**function**<br>Returns value of the referenced series at the previous timestamp. [↗](https://apps.axibase.com/chartlab/17fba87d/8/ "View in Chart Lab")
-`movavg(string alias, number count[, number minCount])`|**function**<br>Returns average value of `count` last samples of the referenced series. Calculated for each point.<br>Refer to [Implementation Notes](#movavg-alias-count-mincount-function). [↗](https://apps.axibase.com/chartlab/a1ad388a "View in Chart Lab")
-`movavg(string alias, string interval[, string minInterval])`|**function**<br>Returns average value of last samples of the referenced series within the `interval`. Calculated for each point.<br>Refer to [Implementation Notes](#movavg-alias-interval-mininterval-function). [↗](https://apps.axibase.com/chartlab/a1ad388a/2/ "View in Chart Lab")
+`movavg(string alias, number count[, number minCount])`|**function**<br>Returns average value of `count` last samples of the referenced series. Calculated for each point.<br>Refer to [Implementation Notes](#movavg-alias-count-mincount). [↗](https://apps.axibase.com/chartlab/a1ad388a "View in Chart Lab")
+`movavg(string alias, string interval[, string minInterval])`|**function**<br>Returns average value of last samples of the referenced series within the `interval`. Calculated for each point.<br>Refer to [Implementation Notes](#movavg-alias-interval-mininterval). [↗](https://apps.axibase.com/chartlab/a1ad388a/2/ "View in Chart Lab")
 `detail`|**function**<br>Alias for `value()`.
 `percentile(number n, string alias[, string interval])`|**function**<br>Returns `n`-th [percentile](https://axibase.com/docs/atsd/api/data/aggregation.html#percentile), calculated for each `interval`<sup>[*](#*-interval-format)</sup> in timespan of referenced seriess.<br>`n` is a decimal number between `[0, 100]`. [↗](https://apps.axibase.com/chartlab/17fba87d/9/ "View in Chart Lab")
 `max(string alias[, string interval])`|**function**<br>Returns maximum, calculated for each `interval`<sup>[*](#*-interval-format)</sup> in timespan of referenced series. [↗](https://apps.axibase.com/chartlab/17fba87d/10/ "View in Chart Lab")
@@ -66,6 +68,26 @@ Interval must be specified as the number of [time units](./calendar.md#interval-
 ### ** Metadata Functions
 
 Metadata functions work only if [`add-meta`](../widgets/shared/README.md#add-meta) setting is set to `true`. `alias` is required for [calculated](../widgets/shared/README.md#derived-value-settings) series.
+
+## Scope 2
+
+Parameters below are available in settings, specified under `[column]`:
+
+* [`alert-expression`](../widgets/shared/README.md#alert-expression)
+* [`label`](../widgets/shared-table/README.md#label)
+* [`row-alert-style`](../widgets/shared-table/README.md#row-alert-style)
+* [`row-style`](../widgets/shared-table/README.md#row-style)
+* [`value`](../widgets/shared-table/README.md#value)
+
+Name|Type / Description / Example
+---|---
+`value([string column_key])`|**function**<br>Returns **not** formatted value of cell referenced by `column_key`.<br>Refer to table [`value`](../widgets/shared-table/README.md#value). [↗](https://apps.axibase.com/chartlab/7c05786f/5/ "View in Chart Lab")
+`row`|**object**<br>Object, representing table row.<br>Refer to [Series Table row](../widgets/series-table/README.md#row-object) and [Property Table row](../widgets/property-table/README.md#row-object) for the list of available fields. 
+`column`|**object**<br>Object, representing column configuration.
+`el`|**object**<br>[d3-selection](https://github.com/d3/d3-selection#d3-selection), corresponding the current cell.
+`rowEl`|**object**<br>[d3-selection](https://github.com/d3/d3-selection#d3-selection), corresponding the current row.
+`td`|**boolean**<br>`true`, if current row is **not** a header.
+`filter()`|**function**<br>Function that filters rows by value in clicked cell.
 
 ## Implementation Notes
 

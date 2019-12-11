@@ -66,7 +66,7 @@ Name | Description | &nbsp;
 ### `value()`
 
 ```javascript
-value([column_key])
+value([string column_key])
 ```
 
 Returns value of cell referenced by `column_key`. The value is not formatted, but processed as number if [`parse-numbers = true`](../property-table/README.md#parse-numbers). To get default value for the current cell, use `value`.
