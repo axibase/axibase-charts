@@ -25,9 +25,7 @@ for m in metrics
 endfor
 ```
 
-![](./images/csv-list-example.png)
-
-[![](./images/button-new.png)](https://trends.axibase.com/7fc545d0)
+[![](./images/csv-list-example.png)](https://trends.axibase.com/7fc545d0)
 
 ## Modes
 
@@ -198,9 +196,9 @@ for row in rows
   [series]
     # The return value is the difference between the current year value and the 2006 value.
     replace-value = value - @{row[2006]}
-  [tags]
-    country = @{row.country.replace(",", "\\,")}
-  endfor
+    [tags]
+      country = @{row.country.replace(",", "\\,")}
+endfor
 ```
 
 [![](./images/csv-mode.png)](https://apps.axibase.com/chartlab/b00d77c0)
@@ -315,6 +313,4 @@ for country_name in names
 endfor
 ```
 
-![](./images/escape-csv.values.png)
-
-[![](./images/new-button.png)](https://apps.axibase.com/chartlab/e7ce2234)
+[![](./images/escape-csv.values.png)](https://apps.axibase.com/chartlab/e7ce2234)
