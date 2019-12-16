@@ -219,9 +219,9 @@ The CSV list provides a convenience methods to retrieve values at the `preproces
 
 Name|Description / Example
 ---|---
-`list_name.values(string column_name)`|Returns a sorted array of unique values in the column defined by the `column_name`.<br> The generated array contains the [`escape()`](./control-structures.md#listescape) method which [escapes](#get-escaped-values) commas in each element.[↗](https://apps.axibase.com/chartlab/e7ce2234 "View in Chart Lab")
-`list_name.get(string key_column_name, string key_column_value)`|Returns row from CSV list, corresponding to `keyColumnName + keyColumnValue`. Returns undefined, if now row matches a key.
-`list_name.get(string key_column_name, string key_column_value, string column_name)`|Returns value of cell corresponding to `column_name` in row, matching to `keyColumnName + keyColumnValue`. Returns undefined, if now row matches a key.
+`list_name.values(string column_name)`|Returns a sorted array of unique values in the column defined by the `column_name`.<br> The generated array contains the [`escape()`](./control-structures.md#listescape) method which [escapes](#get-escaped-values) commas in each element. [↗](https://apps.axibase.com/chartlab/e7ce2234 "View in Chart Lab")
+`list_name.get(string key_column_name, string key_column_value)`|Returns row from CSV list, corresponding to `key_column_name + key_column_value`. Returns undefined, if now row matches a key.
+`list_name.get(string key_column_name, string key_column_value, string column_name)`|Returns value of cell corresponding to `column_name` in row, matching to `key_column_name + key_column_value`. Returns undefined, if now row matches a key.
 
 ## Additional Examples
 
