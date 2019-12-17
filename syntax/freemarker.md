@@ -79,7 +79,7 @@ endfor
 </#list>
 ```
 
-* Native [`csv`](control-structures.md#csv)
+* Native [`csv`](./csv.md)
 
 ```ls
 csv servers = host,role
