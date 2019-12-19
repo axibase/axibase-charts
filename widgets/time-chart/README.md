@@ -79,8 +79,8 @@ Name | Description | &nbsp;
 Name |Description | &nbsp;
 :--|:--|:--
 <a name="left"></a>[`left`](#left)| If `true`, apply settings to left axis, otherwise apply settings to right axis.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/2/)
-<a name="title"></a>[`title`](#title)| Vertical text displayed along the axis.<br>**Example**: `title = CPU Utilization in %`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/2/)
-<a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d/3/)
+<a name="title"></a>[`title`](#title)| Vertical text displayed along the axis.<br>**Example**: `title = CPU Utilization in %`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/3/)
+<a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d/2/)
 <a name="min"></a>[`min`](#min)| Axis minimum range.<br>If loaded values exceed `min` value, axis range is adjusted to show loaded values.<br>**Example**: `min = 0`| [↗](https://apps.axibase.com/chartlab/0bca3ec6)
 <a name="max"></a>[`max`](#max)| Axis maximum range.<br>If loaded values exceed `max` value, axis range is adjusted to show loaded values.<br>**Example**: `max = 100`| [↗](https://apps.axibase.com/chartlab/0bca3ec6)
 <a name="min-force"></a>[`min-force`](#min-force)| Axis forced minimum range.<br>If loaded values exceed `min-force`, axis range is **not** adjusted to show loaded values.<br>**Example**: `min-force = 0`| [↗](https://apps.axibase.com/chartlab/fa0b58a7/2/)
