@@ -53,6 +53,8 @@ Name | Description | &nbsp;
 
 ### Value Axis Settings
 
+Also refer to [`[axis]`](#axis-settings).
+
 Name |Description | &nbsp;
 :--|:--|:--
 <a name="auto-scale"></a>[`auto-scale`](#auto-scale)| Scale the visible portion of the value axis based on series values.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `auto-scale = true`| [↗](https://apps.axibase.com/chartlab/20de18e9)
@@ -69,6 +71,22 @@ Name | Description | &nbsp;
 <a name="centralize-ticks"></a>[`centralize-ticks`](#centralize-ticks)| Center time and date markers over ticks.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `centralize-ticks = true`| [↗](https://apps.axibase.com/chartlab/4872db9d)
 <a name="ticks-time"></a>[`ticks-time`](#ticks-time)| Tick marks on the time axis.<br>Default value: `10`.<br>**Example**: `ticks-time = 20`| [↗](https://apps.axibase.com/chartlab/0e31a579)
 <a name="display-date"></a>[`display-date`](#display-date)| Display **Time Chart** time period below the time axis.<br>Possible values: `false`, `true`.<br>Default value: `false`.<br>**Example**: `display-date = true`| [↗](https://apps.axibase.com/chartlab/2abd9e1f)
+
+## Axis Settings
+
+* The settings apply to the `[axis]` section.
+
+Name |Description | &nbsp;
+:--|:--|:--
+<a name="left"></a>[`left`](#left)| If `true`, apply settings to left axis, otherwise apply settings to right axis.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/20de18e9)
+<a name="title"></a>[`title`](#title)| Vertical text displayed along the axis.<br>**Example**: `title = CPU Utilization in %`.| [↗](https://apps.axibase.com/chartlab/20de18e9)
+<a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d/3/)
+<a name="min"></a>[`min`](#min)| Axis minimum range.<br>If loaded values exceed `min` value, axis range is adjusted to show loaded values.<br>**Example**: `min = 0`| [↗](https://apps.axibase.com/chartlab/0bca3ec6)
+<a name="max"></a>[`max`](#max)| Axis maximum range.<br>If loaded values exceed `max` value, axis range is adjusted to show loaded values.<br>**Example**: `max = 100`| [↗](https://apps.axibase.com/chartlab/0bca3ec6)
+<a name="min-force"></a>[`min-force`](#minforce)| Axis forced minimum range.<br>If loaded values exceed `min-force`, axis range is **not** adjusted to show loaded values.<br>**Example**: `min-force = 0`| [↗](https://apps.axibase.com/chartlab/fa0b58a7/2/)
+<a name="max-force"></a>[`max-force`](#maxforce)| Axis forced maximum range.<br>If loaded values exceed `max-force`, axis range is **not** adjusted to show loaded values.<br>`max-force` must be equal or exceed `max`.<br>**Example**: `max-force = 100`| [↗](https://apps.axibase.com/chartlab/fa0b58a7/2/)
+<a name="delta"></a>[`delta`](#delta)| Difference between axis maximum and minimum.<br>If loaded values exceed calculated delta, axis range is adjusted to show loaded values. Value must be greater, than `0`. <br>**Example**: `delta = 50`| [↗](https://apps.axibase.com/chartlab/74052e3e/6/)
+<a name="delta-percent"></a>[`delta-percent`](#delta-percent)| Number of percents in interval `(0, 100)` to adjust axis range. Minimum and maximum are calculated using the following formula: `YMax/YMin = (1 + delta-percent/2*0.01)/(1 - delta-percent/2*0.01)`<br>If loaded values exceed calculated delta, axis range is adjusted to show loaded values.<br>**Example**: `delta-percent = 70`| [↗](https://apps.axibase.com/chartlab/74052e3e/7/)
 
 ## Series Settings
 
