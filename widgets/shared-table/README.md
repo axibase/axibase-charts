@@ -59,7 +59,7 @@ Name | Description | &nbsp;
 <a name="row-alert-style"></a>[`row-alert-style`](#row-alert-style)|Styles assigned to the entire row when `alert-expression` is `true`.<br>**Example**: `row-alert-style = color: red`|[↗](https://apps.axibase.com/chartlab/95bd95be/12/)
 <a name="display"></a>[`display`](#display)| Controls column visibility.<br>Default value is `true`.<br>**Example**: `display = false`| [↗](https://apps.axibase.com/chartlab/95bd95be/13/)
 <a name="on-click"></a>[`on-click`](#on-click)|[Event](#click-behavior) handler function executed on cell click.<br>**Examples**: <br>`on-click = filter()`<br>`on-click = callDialog({ type: 'page', url: '/view?info=' + row.tags.pageid })` |[↗](https://apps.axibase.com/chartlab/95bd95be/31/)
-<a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell.<br>**Example**: `icon = value > 1 ? 'exclamation-sign' : 'ok'`|[↗](https://apps.axibase.com/chartlab/95bd95be/25)
+<a name="icon"></a>[`icon`](#icon)|Name of the icon displayed in the cell. Refer to [Blueprint](https://blueprintjs.com/docs/versions/1/#core/icons) icons. <br>**Example**: `icon = value > 1 ? 'error' : 'tick'`|[↗](https://apps.axibase.com/chartlab/95bd95be/32/)
 <a name="position"></a>[`position`](#position)|Position of the column relative to other columns in the table.<br>**Example**: `position = first`|[↗](https://apps.axibase.com/chartlab/d77c0677/6/)
 <a name="value"></a>[`value`](#value)|JavaScript expression to calculate cell value.<br>Access initial data via [`row`](#row-object) object.<br>To access column value by [`key`](#key) use [`value()`](#value) function.<br>**Example**: <br>`value = Math.log(value('value'))`<br>`value = Math.log(row.last.v)`|[↗](https://apps.axibase.com/chartlab/7c05786f/5/)
 
