@@ -78,7 +78,7 @@ Name | Description | &nbsp;
 
 Name |Description | &nbsp;
 :--|:--|:--
-<a name="left"></a>[`left`](#left)| If `true`, apply settings to left axis, otherwise apply settings to right axis.<br>Possible values: `false`, `true`.<br>Default value: `true`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/2/)
+<a name="right"></a>[`right`](#right)| If `true`, apply settings to right axis, otherwise apply settings to left axis.<br>Possible values: `false`, `true`.<br>Default value: `false`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/4/)
 <a name="title"></a>[`title`](#title)| Vertical text displayed along the axis.<br>**Example**: `title = CPU Utilization in %`.| [↗](https://apps.axibase.com/chartlab/7c971f2d/3/)
 <a name="ticks"></a>[`ticks`](#ticks)| Number of tick marks on the axis.<br>Default value: `5`.<br>**Example**: `ticks = 10`| [↗](https://apps.axibase.com/chartlab/7c971f2d/2/)
 <a name="min"></a>[`min`](#min)| Axis minimum range.<br>If loaded values exceed `min` value, axis range is adjusted to show loaded values.<br>**Example**: `min = 0`| [↗](https://apps.axibase.com/chartlab/0bca3ec6)
