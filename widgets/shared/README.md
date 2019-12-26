@@ -275,6 +275,10 @@ Name | Description | &nbsp;
 <a name="group-period"></a>[`group-period`](#group-period)|Group period over which to calculate [group statistics](https://axibase.com/docs/atsd/api/data/series/group.html#group-processor) specified as the number of [time units](../../syntax/calendar.md#interval-units).<br>Format: `count time_unit`.<br>Default value: `auto` (inherited from `period` or set to `15 minute` if `period` is not set.<br>**Example**: `group-period = 1 day`| [↗](https://apps.axibase.com/chartlab/b61b7f82/2/)
 <a name="group-interpolate"></a>[`group-interpolate`](#group-interpolate)| Interpolate grouped values.<br>Possible values: `LINEAR`, `PREVIOUS`, `VALUE`.<br>**Example**: `group-interpolate = LINEAR`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
 <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](#group-interpolate-extend)| Fill missing leading and trailing periods with `NEXT` or `PREVIOUS` values.<br>**Example**: `group-interpolate-extend = true`| [↗](https://apps.axibase.com/chartlab/ea0512fa)
+<a name="group-place-constraint"></a>[`group-place-constraint`](#group-place-constraint)| Boolean expression that series in each subgroup must satisfy.<br>**Example**: `group-place-constraint = max() < 10`| [↗]()
+<a name="group-place-count"></a>[`group-place-count`](#group-place-count)| Maximum number of subgroups. The response can contain less than the maximum.<br>**Example**: `group-place-count = 5`| [↗]()
+<a name="group-place-minimize"></a>[`group-place-minimize`](#group-place-minimize)| Objective [function](https://axibase.com/docs/atsd/api/data/series/group.html#functions-available-in-the-place-context) calculated for each subgroup. Partitioning into subgroups is performed to minimize the sum of function values.<br>**Example**: `group-place-minimize = stdev()`| [↗]()
+<a name="group-tags"></a>[`group-tags`](#group-tags)| List of tag names which determines how series are grouped.<br>**Default**: `null` <br>**Example**: `group-tags = tag-1, tag-2`| [↗]()
 
 > See also [Grouping](https://axibase.com/docs/atsd/api/data/series/group.html) transformation in REST API.
 
