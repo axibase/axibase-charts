@@ -278,7 +278,7 @@ Name | Description | &nbsp;
 <a name="group-place-constraint"></a>[`group-place-constraint`](#group-place-constraint)| Boolean expression that series in each subgroup must satisfy.<br>**Example**: `group-place-constraint = max() < 10`| [↗]()
 <a name="group-place-count"></a>[`group-place-count`](#group-place-count)| Maximum number of subgroups. The response can contain less than the maximum.<br>**Example**: `group-place-count = 5`| [↗]()
 <a name="group-place-minimize"></a>[`group-place-minimize`](#group-place-minimize)| Objective [function](https://axibase.com/docs/atsd/api/data/series/group.html#functions-available-in-the-place-context) calculated for each subgroup. Partitioning into subgroups is performed to minimize the sum of function values.<br>**Example**: `group-place-minimize = stdev()`| [↗]()
-<a name="group-tags"></a>[`group-tags`](#group-tags)| List of tag names which determines how series are grouped.<br>**Default**: `null` <br>**Example**: `group-tags = tag-1, tag-2`| [↗]()
+<a name="group-tags"></a>[`group-tags`](#group-tags)| List of tag names which determines how series are grouped.<br>**Default**: `null` <br>**Example**: `group-tags = tag-1, tag-2`| [↗](https://apps.axibase.com/chartlab/b61b7f82/3/)
 
 > See also [Grouping](https://axibase.com/docs/atsd/api/data/series/group.html) transformation in REST API.
 
