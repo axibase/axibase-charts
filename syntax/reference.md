@@ -20,6 +20,7 @@
 * <a name="[properties]-graph"></a>[`[properties]`](../widgets/graph/README.md#properties-settings) (graph)
 * <a name="[property]-property"></a>[`[property]`](../widgets/property-table/README.md#property-settings) (property)
 * <a name="[threshold]-time"></a>[`[threshold]`](../widgets/time-chart/README.md#threshold-settings) (time chart)
+* <a name="[axis]"></a>[`[axis]`](../widgets/time-chart/README.md#axis-settings)
 
 ## Settings
 
