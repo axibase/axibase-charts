@@ -152,6 +152,7 @@
 * <a name="group"></a>[`group`](../widgets/bar-chart/README.md#group)
 * <a name="group-interpolate"></a>[`group-interpolate`](../widgets/shared/README.md#group-interpolate)
 * <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](../widgets/shared/README.md#group-interpolate-extend)
+* <a name="group-keys"></a>[`group-interpolate-extend`](../widgets/shared/README.md#group-keys)
 * <a name="group-period"></a>[`group-period`](../widgets/shared/README.md#group-period)
 * <a name="group-statistic"></a>[`group-statistic`](../widgets/shared/README.md#group-statistic)
 * <a name="header-style"></a>[`header-style`](../widgets/shared/README.md#header-style)
