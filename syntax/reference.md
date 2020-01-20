@@ -20,6 +20,7 @@
 * <a name="[properties]-graph"></a>[`[properties]`](../widgets/graph/README.md#properties-settings) (graph)
 * <a name="[property]-property"></a>[`[property]`](../widgets/property-table/README.md#property-settings) (property)
 * <a name="[threshold]-time"></a>[`[threshold]`](../widgets/time-chart/README.md#threshold-settings) (time chart)
+* <a name="[axis]"></a>[`[axis]`](../widgets/time-chart/README.md#axis-settings)
 
 ## Settings
 
@@ -151,6 +152,7 @@
 * <a name="group"></a>[`group`](../widgets/bar-chart/README.md#group)
 * <a name="group-interpolate"></a>[`group-interpolate`](../widgets/shared/README.md#group-interpolate)
 * <a name="group-interpolate-extend"></a>[`group-interpolate-extend`](../widgets/shared/README.md#group-interpolate-extend)
+* <a name="group-keys"></a>[`group-interpolate-extend`](../widgets/shared/README.md#group-keys)
 * <a name="group-period"></a>[`group-period`](../widgets/shared/README.md#group-period)
 * <a name="group-place-constraint"></a>[`group-place-constraint`](../widgets/shared/README.md#group-place-constraint)
 * <a name="group-place-count"></a>[`group-place-count`](../widgets/shared/README.md#group-place-count)
