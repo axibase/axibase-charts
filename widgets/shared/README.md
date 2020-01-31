@@ -26,7 +26,7 @@ Name | Description | &nbsp;
 <a name="height-units"></a>[`height-units`](#height-units) | Number of rows the widget occupies.<br>Default value: `1`.<br>**Example**: `height-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/2/)
 <a name="top-units"></a>[`top-units`](#top-units) | Widget offset, in _units_, from the top page border.<br>Default value is equal to the ordinal number of its `[group]` section.<br>**Example**: `top-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/3/)
 <a name="left-units"></a>[`left-units`](#left-units) | Widget offset, in _units_, from the left page border.<br>Default value is equal to the ordinal number of the widget within the `[group]`.<br>**Example**: `left-units = 2`|[↗](https://apps.axibase.com/chartlab/1b677aa7/4/)
-<a name="position"></a>[`position`](#position)| Defines cells on the grid where widget will be located.<br>**Example**: `position = 2-2, 2-1.7`|[↗](https://apps.axibase.com/chartlab/1b677aa7/7/)
+<a name="position"></a>[`position`](#position)| Defines cells on the grid where widget must be located.<br>**Example**: `position = 2-2, 2-1.7`|[↗](https://apps.axibase.com/chartlab/1b677aa7/7/)
 
 > See also [Layout Settings](../../configuration/README.md) that determine the total number of columns and rows in a grid placement.
 
