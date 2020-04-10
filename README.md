@@ -6,7 +6,7 @@ sidebar: false
 
 **Axibase Charts** is a graphics library for visualizing time series.
 
-The library implements a simple configuration syntax to build [dashboards](https://apps.axibase.com/chartlab/2ef08f32) from  [widgets](./widgets/README.md).
+The library provides a simple configuration syntax to build [dashboards](https://apps.axibase.com/chartlab/2ef08f32) from  [widgets](./widgets/README.md).
 
 ```ls
 [widget]
