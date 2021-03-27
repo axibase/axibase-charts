@@ -108,15 +108,15 @@ The following functions are implemented in the [`fred.js`](https://apps-chartlab
 |-------------|----------------------|
 | [`MonthlyChange`](https://apps.axibase.com/chartlab/d220468d/22/) | alias |
 | [`ChangeFromYearAgo`](https://apps.axibase.com/chartlab/d220468d/23/) | alias |
-| [`ChangeByOffset`](https://apps.axibase.com/chartlab/d220468d/27/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [`ChangeByOffset`](https://apps.axibase.com/chartlab/d220468d/27/) | alias, interval |
 | [`MonthlyPercentChange`](https://apps.axibase.com/chartlab/d220468d/25/) | alias |
 | [`PercentChangeFromYearAgo`](https://apps.axibase.com/chartlab/d220468d/26/) | alias |
-| [`PercentChangeByOffset`](https://apps.axibase.com/chartlab/d220468d/28/) | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [`PercentChangeByOffset`](https://apps.axibase.com/chartlab/d220468d/28/) | alias, interval |
 | [`CompoundedAnnualRateOfChange`](https://apps.axibase.com/chartlab/d220468d/29/) | alias |
 | [`ContinuouslyCompoundedRateOfChange`](https://apps.axibase.com/chartlab/d220468d/30/) | alias |
 | [`NaturalLog`](https://apps.axibase.com/chartlab/d220468d/31/) |  alias |
 | [`IndexMax`](https://apps.axibase.com/chartlab/d220468d/32/) | alias |
-| [`Index`](https://apps.axibase.com/chartlab/d220468d/33/) | alias, [time](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) |
+| [`Index`](https://apps.axibase.com/chartlab/d220468d/33/) | alias, time |
 
 ## Deploying Function Files
 
@@ -284,7 +284,7 @@ getValueForDate(alias, datetime)
 | **Argument** | **Type** | **Description** |
 |---|---|---|
 | `alias` | string | Alias of the series, from which the value is retrieved. |
-| `datetime` | string | Time, for which value is retrieved. Can be specified as local time, ISO time, or using an [`end_time`](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) expression. |
+| `datetime` | string | Time, for which value is retrieved. Can be specified as local time, ISO time, or using a `calendar` expression. |
 
 ### `getMaximumValue()`
 

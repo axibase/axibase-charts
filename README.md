@@ -42,11 +42,6 @@ endfor
 
 ## Development Tools
 
-### Sandbox Apps
-
-* [ChartLab](https://axibase.com/use-cases/tutorials/shared/chartlab.html)
-* [Trends](https://axibase.com/use-cases/tutorials/shared/trends.html)
-
 ### Plugins
 
 The [Axibase Charts plugin](https://marketplace.visualstudio.com/items?itemName=Axibase.axibasecharts-syntax) for the Microsoft [VSCode editor](https://code.visualstudio.com/) is a design tool that simplifies portal development and data exploration.
@@ -59,15 +54,6 @@ The [plugin](https://marketplace.visualstudio.com/items?itemName=Axibase.axibase
 * Live Preview
 * Code Formatting
 * Auto-completion
-
-## Sample Apps
-
-* [Batch Viewer](https://apps.axibase.com/batch)
-* [Cross Filter](https://axibase.com/docs/atsd/integration/data-applications/cross-filter.html)
-* [Power Meter Reporter](https://axibase.com/docs/atsd/integration/data-applications/power-meter-reporter.html)
-* [Data Slider](https://axibase.com/docs/atsd/integration/data-applications/data-slider.html)
-* [Performance Viewer](https://axibase.com/docs/atsd/integration/data-applications/performance-viewer.html)
-* [Data Monitor](https://axibase.com/docs/atsd/integration/data-applications/data-monitor.html)
 
 ---
 
