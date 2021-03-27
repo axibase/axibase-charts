@@ -23,7 +23,6 @@ Audio is played each time when the result of the `alert-expression` expression c
 | Chrome            | Yes | Yes | Yes |
 | Firefox           | Yes | Yes | Yes |
 | Safari            | Yes | Yes | No  |
-| Internet Explorer | Yes | No  | No  |
 
 ## Test
 

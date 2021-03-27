@@ -78,10 +78,3 @@ Text Widget | Page Widget | Alert Table
 Series Table | Property Table
 :--:|:--:
 [![](./images/streaming-table.png)](./widgets/series-table/README.md) | [![](./images/property-widget.png)](./widgets/property-table/README.md)
-
-## Supported Browsers
-
-* `Google Chrome 48+`
-* `Firefox 44+`
-* `Microsoft Edge 14+`
-* `Internet Explorer 11`
