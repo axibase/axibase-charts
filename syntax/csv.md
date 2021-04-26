@@ -25,8 +25,6 @@ for m in metrics
 endfor
 ```
 
-[![](./images/csv-list-example.png)](https://trends.axibase.com/7fc545d0)
-
 ## Modes
 
 ### Inline Text
